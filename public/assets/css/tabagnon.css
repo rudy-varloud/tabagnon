@@ -11,3 +11,7 @@ and open the template in the editor.
 .nav.navbar-nav.navbar-right.connect{
     margin-right: 1%;
 }
+
+.col-md-12.formulaire{
+    margin-top:5%;
+}

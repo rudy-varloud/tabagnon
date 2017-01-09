@@ -30,11 +30,18 @@
                         @endif
 
                     </div>
-                    
+                    @if(Session::get('id') == 0)
                     <ul class="nav navbar-nav navbar-right connect">
                         <li><a href="{{url('/inscription')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">S'inscrire</a></li>
                         <li><a href="{{url('/getLogin')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Se connecter</a></li>
                     </ul>
+                    @else
+                    <ul class="nav navbar-nav navbar-right connect">
+                        <li><a href="{{url('/getLogout')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Se deconnecter</a></li>
+                    </ul>
+                    @endif
+                    
+                    
                     
         </div>
     </nav>
