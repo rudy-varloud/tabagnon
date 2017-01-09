@@ -6,6 +6,7 @@
         <meta name="viewport" content="width-device-width, intial-scale=1.0">
         {!! Html::style('assets/css/bootstrap.css') !!}
         {!! Html::style('assets/css/mdb.min.css') !!}
+        {!! Html::style('assets/css/tabagnon.css') !!}
         <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -13,16 +14,28 @@
     </head>
     <body>
         <div class='container'>
-            <nav class='navbar navbar-fixed-top' role='navigation'>
+            <nav class='navbar navbar-fixed-top navbar-default' role='navigation'>
                 <div class='container-field'>
                     <div class='container-header'>
+                        <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='#navbar-collapse-target'>
+                            <span class='sr-only'>Toggle navigation</span>
+                            <span class='icon-bar'></span>
+                            <span class='icon-bar'></span>
+                            <span class='icon-bar+ bvn'></span>
+                        </button>
                         @if(Session::get('id') > 0)
-                        <a class='navbar-brand' href='{{ url('/welcome') }}'>Le Tabagnon</a>
+                        <a class='navbar-brand' href='{{ url('/welcome') }}'>Tabagnon</a>
                         @else
-                        <a class='navbar-brand' href='{{ url('/') }}'>Le Tabagnon</a>
+                        <a class='navbar-brand' href='{{ url('/') }}'>Tabagnon</a>
                         @endif
 
                     </div>
+                    
+                    <ul class="nav navbar-nav navbar-right connect">
+                        <li><a href="{{url('/creerCompte')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">S'inscrire</a></li>
+                        <li><a href="{{url('/getLogin')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Se connecter</a></li>
+                    </ul>
+                    
         </div>
     </nav>
 </div>
