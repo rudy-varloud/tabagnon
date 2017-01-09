@@ -4,11 +4,10 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 14 déc. 2016, 14:20:09
-    Author     : adminlabo
+    Created on : 9 janv. 2017, 14:59:12
+    Author     : Rudy
 */
 
-.connection{
-    margin-right: 20px;
+.nav.navbar-nav.navbar-right.connect{
+    margin-right: 1%;
 }
-
