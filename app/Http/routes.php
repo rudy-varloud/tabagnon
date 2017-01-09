@@ -23,33 +23,6 @@ Route::get('/home', function(){
     return view('home');
 });
 
-// ----- PRODUIT -----
-
-// Modification Produit
-Route::get('/modifierProduit/{id_vet}', ['as' => 'modifierProduit',
-    'uses' => 'ProduitController@modifierProduit']);
-// Validation modification Produit
-Route::post('/postModifUser/{id_cli}', ['as' => 'postModifUser',
-    'uses' => 'VisiteurController@postModifUser']);
-// Route valide modification d'un produit
-Route::post('/postmodifierProduit/{id_vet}', ['as' => 'postmodifierProduit',
-    'uses' => 'ProduitController@postmodifierProduit']);
-//Lister tout les produit dispo dans la boutique
-Route::get('/listerProduit', 'ProduitController@getListeProduit');
-//Lister les produits relatifs à homme/femme/enfant
-Route::get('/listerProduitHomme', 'ProduitController@getListeProduitHomme');
-Route::get('/listerProduitFemme', 'ProduitController@getListeProduitFemme');
-Route::get('/listerProduitEnfant', 'ProduitController@getListeProduitEnfant');
-// Permet de lister les produits par marque
-Route::get('/listerProduitMarque', 'ProduitController@ListerMarque');
-//Ajouter un produit
-Route::get('/ajouterProduit', 'ProduitController@ajoutProduit');
-//Validation de l'ajout d'un produit
-Route::post('/ajoutProduit', ['as' => 'postajouterProduit',
-    'uses' => 'ProduitController@postajouterProduit']);
-Route::get('/ajoutMarque', 'ProduitController@ajoutMarque');
-Route::post('/postAjoutMarque', 'ProduitController@postAjoutMarque');
-
 // ----- VISITEUR -----
 
 // Route pour acceder au formulaire de modif d'un user
@@ -65,8 +38,8 @@ Route::post('/login', 'VisiteurController@connect');
 //Deconnection du visiteur
 Route::get('/getLogout', 'VisiteurController@signOut');
 //Création d'un compte
-Route::get('/creerCompte', function (){
-    return view('formCreateAccount');    
+Route::get('/inscription', function (){
+    return view('formSubscribe');    
 });
 Route::get('/createAccount', 'VisiteurController@createAccount');
 Route::post('/signIn',['as' => 'signIn',
