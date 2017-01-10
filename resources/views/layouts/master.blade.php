@@ -53,5 +53,6 @@
 {!! Html::script('assets/js/jquery-2-1-3.min.js') !!}
 {!! Html::script('assets/js/ui-bootstrap-tpls.min.js') !!}
 {!! Html::script('assets/js/bootstrap.min.js') !!}
+
 </body>
 </html>

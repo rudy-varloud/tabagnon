@@ -17,3 +17,44 @@ and open the template in the editor.
 .col-md-12.formulaire{
     margin-top:5%;
 }
+
+body { padding-top: 50px; }
+/*#####################
+Additional Styles (required)
+#####################*/
+#myCarousel .carousel-caption {
+    left:0;
+    right:0;
+    bottom:0;
+    text-align:left;
+    padding:10px;
+    background:rgba(0,0,0,0.6);
+    text-shadow:none;
+}
+
+#myCarousel .list-group {
+    position:absolute;
+    top:0;
+    right:0;
+}
+#myCarousel .list-group-item {
+    border-radius:0px;
+    cursor:pointer;
+
+}
+#myCarousel img{
+    background-size: cover;
+    height: 50.2%;
+}
+#myCarousel .list-group .active {
+    background-color:#eee;	
+}
+
+@media (min-width: 992px) { 
+    #myCarousel {padding-right:33.3333%;}
+    #myCarousel .carousel-controls {display:none;} 	
+}
+@media (max-width: 991px) { 
+    .carousel-caption p,
+    #myCarousel .list-group {display:none;} 
+}
