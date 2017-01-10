@@ -29,7 +29,6 @@
                         @else
                         <a class='navbar-brand' href='{{ url('/') }}'>Tabagnon</a>
                         @endif
-
                     </div>
                     @if(Session::get('id') == 0)
                     <ul class="nav navbar-nav navbar-right connect">
@@ -38,6 +37,9 @@
                     </ul>
                     @else
                     <ul class="nav navbar-nav navbar-right connect">
+                        @if(Session::get('ncpt') == 4)
+                        <li><a href='{{ url('/ajoutArticle')}}' data-toggle='collapse' data-target='.navbar-collapse.in' class=''>Poster un article</a></li>
+                        @endif
                         <li><a href="{{url('/getLogout')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Se deconnecter</a></li>
                     </ul>
                     @endif

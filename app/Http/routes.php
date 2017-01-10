@@ -23,6 +23,9 @@ Route::get('/home', function(){
     return view('home');
 });
 
+Route::get('/ajoutArticle', 'ArticleController@getFormArticle');
+Route::post('/postFormArticle', 'ArticleController@postFormArticle');
+
 // ----- VISITEUR -----
 
 // Route pour acceder au formulaire de modif d'un user

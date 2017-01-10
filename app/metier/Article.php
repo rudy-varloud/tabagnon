@@ -20,4 +20,18 @@ class Article extends Model {
         'idVisiteur'
     ];
 
-}   
+    public function postFormArticleImage($titreArticle, $description, $contenue, $imageArticle) {
+        DB::table('Article')
+                ->insert(
+                        ['titreArticle' => $titreArticle, 'description' => $description,
+                            'contenu' => $contenue, 'imageArticle' => $imageArticle]);
+    }
+    
+    public function postFormArticle($titreArticle, $description, $contenue) {
+        DB::table('Article')
+                ->insert(
+                        ['titreArticle' => $titreArticle, 'description' => $description,
+                            'contenu' => $contenue]);
+    }
+
+}
