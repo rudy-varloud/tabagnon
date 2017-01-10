@@ -88,4 +88,18 @@ class Visiteur extends Model {
                 ->get();
         return $mesVisiteurs;
     }
+    
+    public function getUser($idVis){
+        $mesVisiteurs = DB::table('visiteur')
+                ->Select()
+                ->where('idVis', '=', $idVis)
+                ->first();
+        return $mesVisiteurs;
+    }
+    
+    public function calculeVisiteur(){
+        $mesVisiteurs_compte = DB::table('visiteur')->count();
+        return $mesVisiteurs_compte;
+    }
+    
 }

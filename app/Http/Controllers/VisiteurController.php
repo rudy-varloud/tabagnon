@@ -94,6 +94,14 @@ class VisiteurController extends Controller {
         $mesVisiteurs = $unVisiteur->listeUser();
         return view ('formListeVis', compact ('mesVisiteurs'));
     }
+    
+    public function modifUser($idVis){
+        $unVisiteur = new Visiteur();
+        $mesVisiteurs = $unVisiteur->getUser($idVis);
+        $unVis = new Visiteur();
+        $mesVisiteurs_Compte = $unVis->calculeVisiteur();
+        return view('formModifCompte', compact ('mesVisiteurs', 'mesVisiteursCompte'));
+    }
 
     
    
