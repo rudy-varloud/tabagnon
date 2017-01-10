@@ -88,6 +88,12 @@ class VisiteurController extends Controller {
         $erreur = "";
         return view('formMdpOublie', compact('erreur'));
     }
+    
+    public function listeUser(){
+        $unVisiteur = new Visiteur();
+        $mesVisiteurs = $unVisiteur->listeUser();
+        return view ('formListeVis', compact ('mesVisiteurs'));
+    }
 
     
    

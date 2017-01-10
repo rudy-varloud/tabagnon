@@ -79,4 +79,13 @@ class Visiteur extends Model {
         else
             return true;
     }
+    
+    //Dialogue avec la bdd pour récuperer les infos de tout les utilisateurs
+    public function listeUser() {
+        $mesVisiteurs = DB::table('visiteur')
+                ->Select('idVis', 'login', 'telVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
+                ->orderBy ('login', 'ASC')
+                ->get();
+        return $mesVisiteurs;
+    }
 }
