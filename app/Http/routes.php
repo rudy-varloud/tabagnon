@@ -13,9 +13,7 @@
 
 
 
-Route::get('/', function () {
-    return view('accueil');
-});
+Route::get('/', 'ArticleController@getLastArticle');
 Route::get('/welcome', function(){
     return view('welcome');
 });

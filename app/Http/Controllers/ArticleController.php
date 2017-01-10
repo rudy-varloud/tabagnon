@@ -30,8 +30,12 @@ class ArticleController extends Controller {
                $contenue);
        }
        
-       return view('accueil');
+       return redirect('/');
    }
-    
+    public function getLastArticle(){
+        $unArticle = new Article();
+        $lesArticles = $unArticle->getLastArticle();
+        return view('accueil', compact('lesArticles'));
+    }
    
 }

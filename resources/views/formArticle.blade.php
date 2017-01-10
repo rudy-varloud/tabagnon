@@ -1,6 +1,9 @@
 @extends('layouts.master')
 @section('content')
-{!! Form::open(['url' => 'postFormArticle', 'files' => true]) !!} 
+{!! Form::open(['url' => 'postFormArticle', 'files' => true]) !!}
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+  <script>tinymce.init({ selector:'textarea' });</script>
+
 <div class="col-lg-12 col-md-12 col-s-12">
     <center><h2> Poster un article ! </h2></center>
 <!--    <div class="form-horizontal">-->
@@ -17,7 +20,7 @@
             <br>
             <div class="form-group">
             <label class='col-md-3 control-label'>Contenue de l'article: </label>
-            <input name='contenu' class="form-control" type="text" placeholder="Contenue de l'article" required autofocus>
+            <textarea name='contenu' class="form-control" type="text" ></textarea>
             </div>
             <br>
             <div class="form-group">

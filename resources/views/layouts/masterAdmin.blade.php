@@ -24,7 +24,7 @@
                             <span class='icon-bar'></span>
                             <span class='icon-bar+ bvn'></span>
                         </button>
-                        <a class='navbar-brand' href='{{ url('/welcome') }}'>Tabagnon</a>
+                        <a class='navbar-brand' href='{{ url('/') }}'>Tabagnon</a>
                     </div>
                     <ul class="nav navbar-nav navbar-right connect">
                         <li><a href="{{url('/ajoutArticle')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Créer un article</a></li>

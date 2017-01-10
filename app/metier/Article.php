@@ -17,21 +17,29 @@ class Article extends Model {
         'description',
         'contenu',
         'imageArticle',
-        'idVisiteur'
+        'idVisiteur',
+        'dateCreation',
+        'dateEdition'
     ];
 
     public function postFormArticleImage($titreArticle, $description, $contenue, $imageArticle) {
+        $dateJour = date('Y/m/d', time());
         DB::table('Article')
                 ->insert(
                         ['titreArticle' => $titreArticle, 'description' => $description,
-                            'contenu' => $contenue, 'imageArticle' => $imageArticle]);
+                            'contenu' => $contenue, 'imageArticle' => $imageArticle, 'dateCreation'=> $dateJour, 'dateEdition' => $dateJour]);
     }
     
     public function postFormArticle($titreArticle, $description, $contenue) {
+        $dateJour = date('Y/m/d', time());
         DB::table('Article')
                 ->insert(
                         ['titreArticle' => $titreArticle, 'description' => $description,
-                            'contenu' => $contenue]);
+                            'contenu' => $contenue, 'dateCreation'=> $dateJour, 'dateEdition' => $dateJour]);
     }
-
+    
+    public function getLastArticle(){
+        $lesArticles = Article::orderBy('dateCreation', 'desc')->take(5)->get();
+        return $lesArticles;
+    }
 }

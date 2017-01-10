@@ -24,11 +24,7 @@
                             <span class='icon-bar'></span>
                             <span class='icon-bar+ bvn'></span>
                         </button>
-                        @if(Session::get('id') > 0)
-                        <a class='navbar-brand' href='{{ url('/welcome') }}'>Tabagnon</a>
-                        @else
                         <a class='navbar-brand' href='{{ url('/') }}'>Tabagnon</a>
-                        @endif
                     </div>
                     @if(Session::get('id') == 0)
                     <ul class="nav navbar-nav navbar-right connect">
