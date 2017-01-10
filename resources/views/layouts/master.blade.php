@@ -7,6 +7,7 @@
         {!! Html::style('assets/css/bootstrap.css') !!}
         {!! Html::style('assets/css/mdb.min.css') !!}
         {!! Html::style('assets/css/tabagnon.css') !!}
+        <link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre" rel="stylesheet">
         <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -28,7 +29,6 @@
                         @else
                         <a class='navbar-brand' href='{{ url('/') }}'>Tabagnon</a>
                         @endif
-
                     </div>
                     @if(Session::get('id') == 0)
                     <ul class="nav navbar-nav navbar-right connect">
@@ -37,6 +37,9 @@
                     </ul>
                     @else
                     <ul class="nav navbar-nav navbar-right connect">
+                        @if(Session::get('ncpt') == 4)
+                        <li><a href='{{ url('/ajoutArticle')}}' data-toggle='collapse' data-target='.navbar-collapse.in' class=''>Poster un article</a></li>
+                        @endif
                         <li><a href="{{url('/getLogout')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Se deconnecter</a></li>
                     </ul>
                     @endif
