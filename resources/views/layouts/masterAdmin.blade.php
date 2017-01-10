@@ -24,38 +24,21 @@
                             <span class='icon-bar'></span>
                             <span class='icon-bar+ bvn'></span>
                         </button>
-                        @if(Session::get('id') > 0)
                         <a class='navbar-brand' href='{{ url('/welcome') }}'>Tabagnon</a>
-                        @else
-                        <a class='navbar-brand' href='{{ url('/') }}'>Tabagnon</a>
-                        @endif
                     </div>
-                    @if(Session::get('id') == 0)
                     <ul class="nav navbar-nav navbar-right connect">
-                        <li><a href="{{url('/inscription')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">S'inscrire</a></li>
-                        <li><a href="{{url('/getLogin')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Se connecter</a></li>
+                        <li><a href="{{url('/ajoutArticle')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Créer un article</a></li>
                     </ul>
-                    @else
-                    <ul class="nav navbar-nav navbar-right connect">
-                        @if(Session::get('ncpt') == 4)
-                        <li><a href='{{ url('/getPageAdmin')}}' data-toggle='collapse' data-target='.navbar-collapse.in' class=''>Pannel Administration</a></li>
-                        @endif
-                        <li><a href="{{url('/getLogout')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Se deconnecter</a></li>
-                    </ul>
-                    @endif
-                    
-                    
-                    
+                </div>
+            </nav>
         </div>
-    </nav>
-</div>
 
-<div class="container">
-    @yield('content')
-</div>
-{!! Html::script('assets/js/bootstrap.min.js') !!}
-{!! Html::script('assets/js/jquery-2-1-3.min.js') !!}
-{!! Html::script('assets/js/ui-bootstrap-tpls.min.js') !!}
-{!! Html::script('assets/js/bootstrap.min.js') !!}
-</body>
+        <div class="container">
+            @yield('content')
+        </div>
+        {!! Html::script('assets/js/bootstrap.min.js') !!}
+        {!! Html::script('assets/js/jquery-2-1-3.min.js') !!}
+        {!! Html::script('assets/js/ui-bootstrap-tpls.min.js') !!}
+        {!! Html::script('assets/js/bootstrap.min.js') !!}
+    </body>
 </html>

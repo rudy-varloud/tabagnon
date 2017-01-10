@@ -22,6 +22,9 @@ Route::get('/welcome', function(){
 Route::get('/home', function(){
     return view('home');
 });
+Route::get('/getPageAdmin', function(){
+    return view('pageAdmin');
+});
 
 Route::get('/ajoutArticle', 'ArticleController@getFormArticle');
 Route::post('/postFormArticle', 'ArticleController@postFormArticle');
