@@ -26,6 +26,8 @@ Route::get('/getPageAdmin', function(){
 
 Route::get('/ajoutArticle', 'ArticleController@getFormArticle');
 Route::post('/postFormArticle', 'ArticleController@postFormArticle');
+Route::get('/listerVisiteur', 'VisiteurController@listeUser');
+
 
 // ----- VISITEUR -----
 
