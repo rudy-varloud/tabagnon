@@ -32,7 +32,7 @@
                     </div>
                     @if(Session::get('id') == 0)
                     <ul class="nav navbar-nav navbar-right connect">
-                        <li><a href="{{url('/inscription')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">S'inscrire</a></li>
+                        <li><a href="{{url('/getSubscribe')}}">Inscription</a></li>
                         <li><a href="{{url('/getLogin')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Se connecter</a></li>
                     </ul>
                     @else

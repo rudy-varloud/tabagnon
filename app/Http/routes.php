@@ -38,10 +38,9 @@ Route::post('/login', 'VisiteurController@connect');
 //Deconnection du visiteur
 Route::get('/getLogout', 'VisiteurController@signOut');
 //Création d'un compte
-Route::get('/inscription', function (){
-    return view('formSubscribe');    
-});
-Route::get('/createAccount', 'VisiteurController@createAccount');
+Route::get('/getSubscribe', 'VisiteurController@getsubscribe');
+Route::post('/subscribe', 'VisiteurController@SubscribeIn');
+Route::post('/mdp', 'EmailController@envoiMdp');
 Route::post('/signIn',['as' => 'signIn',
     'uses' => 'VisiteurController@signIn']);
 
@@ -55,3 +54,8 @@ Route::get('/deleteProduit/{id_vet}', ['as' => 'deleteProduit',
     'uses' => 'ProduitController@deleteProduit']);
 
 
+//Routes pour l'envoie de mails
+//Get
+Route::get('/welcomeMail/{mail}/{nom}', 'EmailController@sendMailWelcome');
+Route::get('/mdpoublie', 'ClientController@Mdpoublie');
+Route::get('/validerMail/{idCli}/{total}/{idCmde}', 'EmailController@sendRecapCommande');
