@@ -39,7 +39,7 @@ class Article extends Model {
     }
     
     public function getLastArticle(){
-        $lesArticles = Article::orderBy('dateCreation', 'desc')->take(5)->get();
+        $lesArticles = Article::orderBy('idArticle', 'desc')->take(4)->get();
         return $lesArticles;
     }
 }

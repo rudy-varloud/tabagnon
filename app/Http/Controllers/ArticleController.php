@@ -17,17 +17,23 @@ class ArticleController extends Controller {
     public function postFormArticle() {
         $titreArticle = Request::input('titreArticle');
         $description = Request::input('description');
-        $contenue = Request::input('contenu');
-        $image = Request::file('imageArticle');
-        $unArticle = new Article();
-        if ($image) {
-            $imageArticle = $image->getClientOriginalName();
-            $image->move(public_path("/assets/image/"), $imageArticle);
-            $unArticle->postFormArticleImage($titreArticle, $description, $contenue, $imageArticle);
-        } else {
-            $unArticle->postFormArticle($titreArticle, $description, $contenue);
+        $contenu = Request::input('contenu');
+        if (Request::file('imageArticle') != null) {
+            if (Request::file('imageArticle')->isValid()) {
+                $image = Request::file('imageArticle');
+                $unArticle = new Article();
+                $imageArticle = $image->getClientOriginalName();
+                $image->move(public_path("/assets/image/"), $imageArticle);
+                $unArticle->postFormArticleImage($titreArticle, $description, $contenu, $imageArticle);
+            } else {
+                $error = "L'image n'est pas valide (elle ne doit pas dépasser 200ko)";
+                return view('formArticle', compact('error','titreArticle','description','contenu'));
+            }
         }
-
+        else {
+            $unArticle = new Article();
+            $unArticle->postFormArticle($titreArticle, $description, $contenu);
+        }
         return redirect('/');
     }
 
@@ -35,7 +41,6 @@ class ArticleController extends Controller {
         $unArticle = new Article();
         $lesArticles = $unArticle->getLastArticle();
         return view('accueil', compact('lesArticles'));
-        }
-
+    }
 
 }
