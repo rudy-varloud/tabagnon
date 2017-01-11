@@ -1,9 +1,7 @@
 @extends('layouts.master')
 @section('content')
-{!! Form::open(['url' => 'login']) !!}
-{!! Html::style('assets/css/formLogin.css') !!}
-{!! Html::style('assets/css/tabagnon.css') !!}
     <br>
+    {!! Form::open(['url' => 'login']) !!}
     <div class="form-subscribe col-md-offset-3 col-md-6">
         <br>
         <div class="form-horizontal">    
@@ -29,6 +27,7 @@
         </div>
         <br>
     </div>
+    {{ Form::close() }}
     
 @stop
 

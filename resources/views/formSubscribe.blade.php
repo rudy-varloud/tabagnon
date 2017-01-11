@@ -68,7 +68,7 @@
                 <button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-log-in"></span> Valider</button>
             </div>
         </div>
-
+        <br>
     </div>
     {!! Form::close() !!}
 </div>

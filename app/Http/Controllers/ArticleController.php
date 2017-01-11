@@ -43,4 +43,9 @@ class ArticleController extends Controller {
         return view('accueil', compact('lesArticles'));
     }
 
+    public function getArticle($idA) {
+        $unA = new Article();
+        $unArticle = $unA->getArticle($idA);
+        return view('pageArticle', compact('unArticle'));
+    }
 }

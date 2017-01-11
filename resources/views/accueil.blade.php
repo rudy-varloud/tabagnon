@@ -53,11 +53,19 @@
                 <h2 class="intro-text text-center">Nos derniers articles !
                 </h2>
                 <hr>
+                <br>
                 @foreach($lesArticles as $unArticle)
-                <div class="col-md-3">
-                    <img class="img-news" src="{{ URL::asset('assets/image/'.$unArticle->imageArticle) }}" alt="">
-                    <center><p>{{$unArticle->titreArticle}}</p></center>
-                </div>
+                <a href="{{url('/article/'.$unArticle->idArticle)}}">
+                    <div class="col-md-4">    
+                        <img class="img-news" src="{{ URL::asset('assets/image/'.$unArticle->imageArticle) }}" alt="{{$unArticle->titreArticle}}">
+                        <div class="col-md-12">        
+                            <div class="news-title">
+                                <h4>{{$unArticle->titreArticle}}</h4>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </a>
                 @endforeach
             </div>
         </div>

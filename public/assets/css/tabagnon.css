@@ -200,7 +200,21 @@ footer p {
     }
 }
 .img-news{
-   width: 100%;
-   height: 100px;
-   object-fit: cover;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
+.news-title{
+    text-align: center;
+    font-size: 1em;
+    font-weight: 700;
+    color: white !important;
+    font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    position: absolute;
+    bottom: 0%; 
+    right: 0%;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+}
+
+

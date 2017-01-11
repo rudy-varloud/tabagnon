@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Association Tabagnon</title>
+        <title>Tabagnon</title>
 
         <!-- Bootstrap Core CSS -->
         {!! Html::style('assets/css/bootstrap.css') !!}
@@ -27,8 +27,8 @@
 
     <body>
         <div class="brand">
-            <a href="{{url('/')}}"><img src="../public/assets/image/logoTabagnon.png" alt="Logo Tabagnon" height="123" width="100"></a>
-            Association Tabagnon</div>
+            <a href="{{url('/')}}"><img src="{{URL::asset('assets/image/logoTabagnon.png')}}" alt="Logo Tabagnon" height="123" width="100"></a>
+            Tabagnon | <small>Saint genis les ollières</small></div>
         <!-- Navigation -->
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
@@ -42,7 +42,7 @@
                     </button>
                     <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
                     <a class="navbar-brand" href="{{url('/')}}">
-                        <img src="../public/assets/image/logoTabagnon.png" alt="Logo Tabagnon" height="30" width="24">
+                        <img src="{{URL::asset('assets/image/logoTabagnon.png')}}" alt="Logo Tabagnon" height="30" width="24">
                         Association Tabagnon</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
