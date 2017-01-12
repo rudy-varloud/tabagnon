@@ -57,6 +57,7 @@
                         @if(Session::get('ncpt') == 4)
                         <li><a href='{{ url('/getPageAdmin')}}' data-toggle='collapse' data-target='.navbar-collapse.in' class=''>Pannel Administration</a></li>
                         @endif
+                        <li><a href="{{url('/getPageVisite')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Visite Disponible</a></li>
                         <li><a href="{{url('/getLogout')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Se deconnecter</a></li>
                     </ul>
                     @endif

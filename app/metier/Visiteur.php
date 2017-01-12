@@ -25,7 +25,7 @@ class Visiteur extends Model {
         'ageVis',
         'ncptVis',
     ];
-    
+
     public function login($login, $pwd) {
         $connected = false;
         $visiteur = DB::table('visiteur')
@@ -42,12 +42,12 @@ class Visiteur extends Model {
         }
         return $connected;
     }
-    
+
     public function logout() {
         Session::put('id', 0);
         Session::put('nom', 0);
     }
-    
+
     //Dialogue avec la bdd pour inscrire un utilisateur (renvoie un booléen) 
     public function subscribe($login, $pwd, $nom, $prenom, $mail, $adr, $tel, $cp, $ville) {
         $Visiteur = New Visiteur();
@@ -67,7 +67,7 @@ class Visiteur extends Model {
                 ->first();
         return $visiteur;
     }
-    
+
     //Dialogue avec la bdd pour vérifier si le login existe déja (rnevoie un booléen)
     public function verificationLogin($login) {
         $verif = DB::table('visiteur')
@@ -79,50 +79,58 @@ class Visiteur extends Model {
         else
             return true;
     }
-    
+
     //Dialogue avec la bdd pour récuperer les infos de tout les utilisateurs
     public function listeUser() {
         $mesVisiteurs = DB::table('visiteur')
                 ->Select('idVis', 'login', 'telVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
-                ->orderBy ('login', 'ASC')
+                ->orderBy('login', 'ASC')
                 ->get();
         return $mesVisiteurs;
     }
-    
-    public function getUser($idVis){
+
+    public function getUser($idVis) {
         $mesVisiteurs = DB::table('visiteur')
                 ->Select()
                 ->where('idVis', '=', $idVis)
                 ->first();
         return $mesVisiteurs;
     }
-    
-    public function countUser(){
+
+    public function countUser() {
         $mesVisiteurs_compte = DB::table('visiteur')->count();
         return $mesVisiteurs_compte;
     }
-    
-    public function postModifUser($idVis, $id_type){
+
+    public function postModifUser($idVis, $id_type) {
         $mesVisiteurs = DB::table('visiteur')
-                ->where ('idVis', '=', $idVis)
+                ->where('idVis', '=', $idVis)
                 ->update(['ncptVis' => $id_type]);
         return $mesVisiteurs;
     }
-    
-    public function listeUserSpe($user){
+
+    public function listeUserSpe($user) {
         $mesVisiteurs = DB::table('visiteur')
                 ->Select('idVis', 'login', 'telVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
                 ->where('nomVis', '=', $user)
-                ->orderBy ('login', 'ASC')
+                ->orderBy('login', 'ASC')
                 ->get();
         return $mesVisiteurs;
     }
-    
-    public function getVisiteurGuide(){
+
+    public function getVisiteurGuide() {
         $mesVisiteurs = DB::table('visiteur')
                 ->Select('idVis', 'login', 'telVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
                 ->where('ncptVis', '=', '3')
                 ->get();
         return $mesVisiteurs;
     }
+
+    public function countUserSpe($user) {
+        $mesVisiteurs_compteSpe = DB::table('visiteur')
+        ->where('nomVis', '=', $user)
+        ->count();
+        return $mesVisiteurs_compteSpe;
+    }
+
 }

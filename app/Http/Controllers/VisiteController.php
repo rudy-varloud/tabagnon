@@ -29,5 +29,11 @@ class VisiteController extends Controller {
                 $nbPlaceVisite, $nomGuideVisite);
         return view('pageAdmin', compact('mesVisites'));
     }
+    
+    public function pageVisite(){
+        $uneVisite = new Visite();
+        $mesVisites = $uneVisite->getVisite();
+        return view('pageVisite', compact ('mesVisites'));
+    }
    
 }

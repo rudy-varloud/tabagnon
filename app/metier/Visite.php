@@ -26,6 +26,14 @@ class Visite extends Model {
                     'libelleVisite' => $nomVisite, 'prixVisite' => $prixVisite, 'descriptionVisite' => $descVisite, 'dateVisite' => $dateVisite]);
         return $mesVisites;
     }
+    
+    public function getVisite(){
+        $mesVisites = DB::table('visite')
+                ->select('idVisite', 'lieuxVisite', 'nbPlace', 'idGuide', 'idGuide', 'libelleVisite', 'prixVisite', 'descriptionVisite', 'dateVisite')
+                ->orderBy ('dateVisite', 'ASC')
+                ->get();
+        return $mesVisites;
+    }
 
 
 }
