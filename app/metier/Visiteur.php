@@ -108,4 +108,13 @@ class Visiteur extends Model {
                 ->update(['ncptVis' => $id_type]);
         return $mesVisiteurs;
     }
+    
+    public function listeUserSpe($user){
+        $mesVisiteurs = DB::table('visiteur')
+                ->Select('idVis', 'login', 'telVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
+                ->where('nomVis', '=', $user)
+                ->orderBy ('login', 'ASC')
+                ->get();
+        return $mesVisiteurs;
+    }
 }

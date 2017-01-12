@@ -1,14 +1,7 @@
 @extends('layouts.masterAdmin')
 @section('content')
-{!! Form::open(['url' => 'listeUserSpe']) !!}
 <div class="container">
-    <h4> Rechercher un utilisateur </h4>
-    <div class="col-md-3">
-        <input type="text" name="filtre" class="form-control" placeholder="Nom de l'utilisateur recherché(e)" >
-        <a href='{{url('listeUserSpe')}}'><button type='submit' class='btn btn-info'> Rechercher </button></a>
-    </div>
-    <br><br><br><br>
-    <h2>Liste de tout les utilisateurs existant: ({{$mesVisiteurs2}})</h2>        
+    <h2>Liste de tout les utilisateurs existant:</h2>        
     <table class="table table-striped listeFiltree">
         <thead>
             <tr>

@@ -110,6 +110,13 @@ class VisiteurController extends Controller {
         $unVisiteur->postModifUser($idVis, $id_type);
         return view('pageAdmin');
     }
+    
+    public function listeUserSpe(){
+        $user = Request::input('filtre');
+        $unVisiteur = new Visiteur();
+        $mesVisiteurs = $unVisiteur->listeUserSpe($user);
+        return view('formListeVisSpe', compact('mesVisiteurs'));
+    }
 
     
    
