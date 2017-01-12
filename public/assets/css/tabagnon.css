@@ -247,17 +247,7 @@ footer p {
     color: #787575;
 }
 
-.flecheCarouselUp{
-    position: absolute;
-    top: 90%; 
-    right: 50%;
-    width: 100%;
-}
+.lien-popup span{
+    text-decoration : none;
 
-.flecheCarouselDown{
-    position: absolute;
-    bottom: 90%; 
-    right: 50%;
-    width: 100%;
-    font-size: 2em;
 }

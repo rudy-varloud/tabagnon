@@ -79,7 +79,7 @@
     <!-- javascript-->
     {!! Html::script('assets/js/bootstrap.min.js') !!}
     {!! Html::script('assets/js/jquery.js') !!}
-    {!! Html::script('assets/js/ui-bootstrap-tpls.min.js') !!}
     {!! Html::script('assets/js/bootstrap.min.js') !!}
+    {!! Html::script('assets/js/tabagnon.js') !!}
 
 </html>
