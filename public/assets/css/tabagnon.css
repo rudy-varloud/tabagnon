@@ -237,3 +237,27 @@ footer p {
     text-align: center;
     font-size: 1.2em;
 }
+
+.carousel-title{
+    text-align: center;
+    font-size: 2em;
+    font-weight: 700;
+    font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    letter-spacing: 3px;
+    color: #787575;
+}
+
+.flecheCarouselUp{
+    position: absolute;
+    top: 90%; 
+    right: 50%;
+    width: 100%;
+}
+
+.flecheCarouselDown{
+    position: absolute;
+    bottom: 90%; 
+    right: 50%;
+    width: 100%;
+    font-size: 2em;
+}

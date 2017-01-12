@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\metier\Carousel;
 use App\metier\Article;
 use Request;
 use Illuminate\Support\Facades\Session;
@@ -40,7 +40,9 @@ class ArticleController extends Controller {
     public function getLastArticle() {
         $unArticle = new Article();
         $lesArticles = $unArticle->getLastArticle();
-        return view('accueil', compact('lesArticles'));
+        $Carousel = new Carousel;
+        $lesImages = $Carousel->getImagesCarouselTrue();
+        return view('accueil', compact('lesArticles','lesImages'));
     }
 
     public function getArticle($idA) {

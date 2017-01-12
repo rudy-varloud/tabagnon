@@ -17,15 +17,21 @@
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
+                        
+                        @php($cpt = 0)
+                        @foreach($lesImages as $uneImage)
+                        @if($cpt == 0)
                         <div class="item active">
-                            <img class="img-responsive img-full" src="{{ URL::asset('assets/image/slide-1.jpg') }}" alt="">
+                            <img class="img-responsive img-full" src="{{ URL::asset('assets/image/'.$uneImage->image) }}" alt="">
                         </div>
+                        @endif
+                        @if($cpt>0)
                         <div class="item">
-                            <img class="img-responsive img-full" src="{{ URL::asset('assets/image/slide-2.jpg') }}" alt="">
+                            <img class="img-responsive img-full" src="{{ URL::asset('assets/image/'.$uneImage->image) }}" alt="">
                         </div>
-                        <div class="item">
-                            <img class="img-responsive img-full" src="{{ URL::asset('assets/image/slide-3.jpg') }}" alt="">
-                        </div>
+                        @endif
+                        @php($cpt+=1)
+                        @endforeach
                     </div>
 
                     <!-- Controls -->
