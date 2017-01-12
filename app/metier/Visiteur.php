@@ -117,4 +117,12 @@ class Visiteur extends Model {
                 ->get();
         return $mesVisiteurs;
     }
+    
+    public function getVisiteurGuide(){
+        $mesVisiteurs = DB::table('visiteur')
+                ->Select('idVis', 'login', 'telVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
+                ->where('ncptVis', '=', '3')
+                ->get();
+        return $mesVisiteurs;
+    }
 }

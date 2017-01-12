@@ -16,8 +16,16 @@ class Visite extends Model {
         'nbPlace',
         'idGuide',
         'libelleVisite',
-        'prixVisite'
+        'prixVisite',
+        'descriptionVisite'
     ];
+    
+    public function postFormVisite($nomVisite, $lieuxVisite, $descVisite, $dateVisite, $prixVisite, $nbPlaceVisite, $nomGuideVisite){
+        $mesVisites = DB::table('visite')
+                ->insert(['lieuxVisite' => $lieuxVisite, 'nbPlace' => $nbPlaceVisite, 'idGuide' => $nomGuideVisite,
+                    'libelleVisite' => $nomVisite, 'prixVisite' => $prixVisite, 'descriptionVisite' => $descVisite, 'dateVisite' => $dateVisite]);
+        return $mesVisites;
+    }
 
 
 }
