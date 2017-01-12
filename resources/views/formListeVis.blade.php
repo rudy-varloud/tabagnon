@@ -1,8 +1,13 @@
 @extends('layouts.masterAdmin')
 @section('content')
 <div class="container">
-    <h2>Liste de tout les utilisateurs existant</h2>        
-    <table class="table table-striped">
+    <h4> Rechercher un utilisateur </h4>
+    <div class="col-md-3">
+    <input type="text" name="filtreNom" class="form-control" placeholder="Nom de l'utilisateur recherché">
+    </div>
+    <br><br>
+    <h2>Liste de tout les utilisateurs existant: ({{$mesVisiteurs2}})</h2>        
+    <table class="table table-striped listeFiltree">
         <thead>
             <tr>
                 <th>Pseudo</th>
@@ -36,7 +41,7 @@
                 @if(($unVisiteur -> ncptVis) == 1)
                 <td>Utilisateur non confirmé</td>
                 @endif
-                <td><center><a href=""><span class="glyphicon glyphicon-sort" title="Modifier le status de ce compte"></span></a></center></td>
+                <td><center><a href=" {{ url('/modifUser') }}/{{ $unVisiteur -> idVis }} "><span class="glyphicon glyphicon-sort" title="Modifier le status de ce compte"></span></a></center></td>
         </tr>
         @endforeach
         </tbody>

@@ -88,4 +88,24 @@ class Visiteur extends Model {
                 ->get();
         return $mesVisiteurs;
     }
+    
+    public function getUser($idVis){
+        $mesVisiteurs = DB::table('visiteur')
+                ->Select()
+                ->where('idVis', '=', $idVis)
+                ->first();
+        return $mesVisiteurs;
+    }
+    
+    public function countUser(){
+        $mesVisiteurs_compte = DB::table('visiteur')->count();
+        return $mesVisiteurs_compte;
+    }
+    
+    public function postModifUser($idVis, $id_type){
+        $mesVisiteurs = DB::table('visiteur')
+                ->where ('idVis', '=', $idVis)
+                ->update(['ncptVis' => $id_type]);
+        return $mesVisiteurs;
+    }
 }

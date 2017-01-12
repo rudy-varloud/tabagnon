@@ -92,7 +92,23 @@ class VisiteurController extends Controller {
     public function listeUser(){
         $unVisiteur = new Visiteur();
         $mesVisiteurs = $unVisiteur->listeUser();
-        return view ('formListeVis', compact ('mesVisiteurs'));
+        $unVisiteur2 = new Visiteur();
+        $mesVisiteurs2 = $unVisiteur2->countUser();
+        return view ('formListeVis', compact ('mesVisiteurs', 'mesVisiteurs2'));
+    }
+    
+    public function modifUser($idVis){
+        $unVisiteur = new Visiteur();
+        $mesVisiteurs = $unVisiteur->getUser($idVis);
+        return view('formModifCompte', compact ('mesVisiteurs'));
+    }
+    
+    public function postModifUser(){
+        $idVis = Request::input('idVis');
+        $id_type = Request::input('id_type');
+        $unVisiteur = new Visiteur();
+        $unVisiteur->postModifUser($idVis, $id_type);
+        return view('pageAdmin');
     }
 
     

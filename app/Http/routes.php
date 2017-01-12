@@ -29,6 +29,10 @@ Route::get('/ajoutArticle', 'ArticleController@getFormArticle');
 Route::post('/postFormArticle', 'ArticleController@postFormArticle');
 Route::get('/listerVisiteur', 'VisiteurController@listeUser');
 
+Route::get('/modifUser/{idVis}', ['as' => 'modifUser',
+    'uses' => 'VisiteurController@modifUser']);
+Route::post('/postModifUser', 'VisiteurController@postModifUser');
+
 
 // ----- VISITEUR -----
 
