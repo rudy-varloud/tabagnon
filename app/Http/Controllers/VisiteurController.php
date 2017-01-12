@@ -117,7 +117,7 @@ class VisiteurController extends Controller {
         $mesVisiteurs = $unVisiteur->listeUserSpe($user);
         $unVisiteur2 = new Visiteur();
         $mesVisiteurs2 = $unVisiteur2->countUserSpe($user);
-        return view('formListeVisSpe', compact('mesVisiteurs', 'mesVisiteurs2'));
+        return view('formListeVisSpe', compact('mesVisiteurs', 'mesVisiteurs2', 'user'));
     }
 
     

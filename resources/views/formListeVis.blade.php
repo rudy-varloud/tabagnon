@@ -1,7 +1,7 @@
 @extends('layouts.masterAdmin')
 @section('content')
 {!! Form::open(['url' => 'listeUserSpe']) !!}
-<div class="container">
+<div class="container box">
     <h4> Rechercher un utilisateur </h4>
     <div class="col-md-3">
         <input type="text" name="filtre" class="form-control" placeholder="Nom de l'utilisateur recherché(e)" >
