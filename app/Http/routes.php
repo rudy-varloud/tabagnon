@@ -24,11 +24,14 @@ Route::get('/getPageAdmin', function(){
     return view('pageAdmin');
 });
 
+Route::get('/ajoutVisite', 'VisiteController@ajoutVisite');
 Route::get('/article/{idArticle}', 'ArticleController@getArticle');
 Route::get('/ajoutArticle', 'ArticleController@getFormArticle');
 Route::post('/postFormArticle', 'ArticleController@postFormArticle');
 Route::get('/listerVisiteur', 'VisiteurController@listeUser');
 Route::get('/carouselAccueil', 'AdminController@majCarousel');
+Route::post('/postFormVisite', 'VisiteController@postFormVisite');
+Route::get('/getPageVisite', 'VisiteController@pageVisite');
 
 Route::get('/modifUser/{idVis}', ['as' => 'modifUser',
     'uses' => 'VisiteurController@modifUser']);

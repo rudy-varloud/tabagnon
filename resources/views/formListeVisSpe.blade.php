@@ -1,7 +1,7 @@
 @extends('layouts.masterAdmin')
 @section('content')
-<div class="container">
-    <h2>Liste de tout les utilisateurs existant:</h2>        
+<div class="container box">
+    <h2>Liste de tout les utilisateurs existant répondant au critère choisis: ({{$user}})({{$mesVisiteurs2}})</h2>        
     <table class="table table-striped listeFiltree">
         <thead>
             <tr>

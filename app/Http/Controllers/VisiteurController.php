@@ -115,7 +115,9 @@ class VisiteurController extends Controller {
         $user = Request::input('filtre');
         $unVisiteur = new Visiteur();
         $mesVisiteurs = $unVisiteur->listeUserSpe($user);
-        return view('formListeVisSpe', compact('mesVisiteurs'));
+        $unVisiteur2 = new Visiteur();
+        $mesVisiteurs2 = $unVisiteur2->countUserSpe($user);
+        return view('formListeVisSpe', compact('mesVisiteurs', 'mesVisiteurs2', 'user'));
     }
 
     
