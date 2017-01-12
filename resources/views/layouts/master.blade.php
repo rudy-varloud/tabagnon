@@ -75,7 +75,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <p>Copyright &copy; Tabagnon 2016</p>
+                    <p>Copyright &copy; Tabagnon 2017</p>
                 </div>
             </div>
         </div>

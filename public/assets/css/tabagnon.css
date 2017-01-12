@@ -217,4 +217,23 @@ footer p {
     width: 100%;
 }
 
+.headTitle{
+    text-align: center;
+    font-size: 3em;
+    font-weight: 700;
+    font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    letter-spacing: 3px;
+    color: #787575;
+}
 
+.dateArticle{
+    text-align: center;
+    font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    letter-spacing: 3px;
+    font-size: 0.9em;
+}
+
+.contenuArticle{
+    text-align: center;
+    font-size: 1.2em;
+}
