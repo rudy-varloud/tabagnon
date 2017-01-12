@@ -22,24 +22,32 @@ class Article extends Model {
         'dateEdition'
     ];
 
+    public function getArticle($idA) {
+        $unA = DB::table('Article')->Select()
+                ->where('idArticle', '=', $idA)
+                ->first();
+        return $unA;
+    }
+
     public function postFormArticleImage($titreArticle, $description, $contenue, $imageArticle) {
         $dateJour = date('Y/m/d', time());
         DB::table('Article')
                 ->insert(
                         ['titreArticle' => $titreArticle, 'description' => $description,
-                            'contenu' => $contenue, 'imageArticle' => $imageArticle, 'dateCreation'=> $dateJour, 'dateEdition' => $dateJour]);
+                            'contenu' => $contenue, 'imageArticle' => $imageArticle, 'dateCreation' => $dateJour, 'dateEdition' => $dateJour]);
     }
-    
+
     public function postFormArticle($titreArticle, $description, $contenue) {
         $dateJour = date('Y/m/d', time());
         DB::table('Article')
                 ->insert(
                         ['titreArticle' => $titreArticle, 'description' => $description,
-                            'contenu' => $contenue, 'dateCreation'=> $dateJour, 'dateEdition' => $dateJour]);
+                            'contenu' => $contenue, 'dateCreation' => $dateJour, 'dateEdition' => $dateJour, 'imageArticle' => 'default.png']);
     }
-    
-    public function getLastArticle(){
-        $lesArticles = Article::orderBy('dateCreation', 'desc')->take(5)->get();
+
+    public function getLastArticle() {
+        $lesArticles = Article::orderBy('idArticle', 'desc')->take(3)->get();
         return $lesArticles;
     }
+
 }

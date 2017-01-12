@@ -1,70 +1,86 @@
 @extends('layouts.master')
 @section('content')
-<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 
-<!--<br><br><br><br>-->
-@if (Session::get('id') == 0)
-<div class="logo" >
-    <center> <H2 > Bienvenue sur le site du Tabagnon <b><a href="{{ url('/getLogin') }}"> veuillez vous connecter </a></b> ou bien <b><a href=""> vous créer un compte </a></b> pour naviguer ! </h2> </center>
-</div>
-@endif
 
-@if (Session::get('id')> 0)
-<div class="logo" style="margin-top: 10%">
-    <center> <H2> Bienvenue sur le site du Tabagnon <b>{{ Session::get('prenom') }}</b> ! </h2> </center>
-</div>
-@endif
 <div class="container">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-        <!-- Wrapper for slides -->
-        
-        <div class="carousel-inner">
-            @php ($cptItem = 0)
-            @foreach($lesArticles as $unArticle)
-            @if($cptItem == 0)
-            <div class="item active">
-                <img src="assets/image/{{$unArticle->imageArticle}}">
-                <div class="carousel-caption">
-                    <h4><a href="#">{{$unArticle->titreArticle}} </a></h4>
-                    {{$unArticle->contenu}} 
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-12 text-center">
+                <div id="carousel-example-generic" class="carousel slide">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators hidden-xs">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img class="img-responsive img-full" src="{{ URL::asset('assets/image/slide-1.jpg') }}" alt="">
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive img-full" src="{{ URL::asset('assets/image/slide-2.jpg') }}" alt="">
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive img-full" src="{{ URL::asset('assets/image/slide-3.jpg') }}" alt="">
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="icon-prev"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="icon-next"></span>
+                    </a>
                 </div>
-            </div><!-- End Item -->
-            @endif
-            @if($cptItem > 0)     
-            <div class="item">
-                <img src="assets/image/{{ $unArticle->imageArticle or "default.jpg" }}">
-                <div class="carousel-caption">
-                    <h4><a href="#">{{$unArticle->titreArticle}}</a></h4>
-                 {{$unArticle->contenu}}         
-                </div>
-            </div><!-- End Item -->
-            @endif
-            @php ($cptItem += 1)
-            @endforeach
-        </div><!-- End Carousel Inner -->
-
-
-        <ul class="list-group col-sm-4">
-            @php ($cpt = 0)
-            @foreach($lesArticles as $unArticle)
-            <li data-target="#myCarousel" data-slide-to="{{$cpt}}" class="list-group-item active"><h4>{{$unArticle->titreArticle}}</h4></li>
-            @php ($cpt += 1)
-            @endforeach
-        </ul>
-
-        <!-- Controls -->
-        <div class="carousel-controls">
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-            </a>
+                <h2 class="brand-before">
+                    <small>Bienvenue sur le site de l'association</small>
+                </h2>
+                <h1 class="brand-name">Tabagnon</h1>
+                <hr class="tagline-divider">
+            </div>
         </div>
+    </div>
 
-    </div><!-- End Carousel -->
+
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-12">
+                <hr>
+                <h2 class="intro-text text-center">Nos derniers articles !
+                </h2>
+                <hr>
+                <br>
+                @foreach($lesArticles as $unArticle)
+                <a href="{{url('/article/'.$unArticle->idArticle)}}">
+                    <div class="col-md-4">    
+                        <img class="img-news" src="{{ URL::asset('assets/image/'.$unArticle->imageArticle) }}" alt="{{$unArticle->titreArticle}}">
+                        <div class="col-md-12">        
+                            <div class="news-title">
+                                <h4>{{$unArticle->titreArticle}}</h4>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </a>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
+
 </div>
-<div class="form-horizontal">
-</div>
+<!-- /.container -->
+
+<!-- Script to Activate the Carousel -->
+<script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+</script>
+@stop
+
 
