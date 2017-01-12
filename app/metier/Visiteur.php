@@ -97,9 +97,15 @@ class Visiteur extends Model {
         return $mesVisiteurs;
     }
     
-    public function calculeVisiteur(){
+    public function countUser(){
         $mesVisiteurs_compte = DB::table('visiteur')->count();
         return $mesVisiteurs_compte;
     }
     
+    public function postModifUser($idVis, $id_type){
+        $mesVisiteurs = DB::table('visiteur')
+                ->where ('idVis', '=', $idVis)
+                ->update(['ncptVis' => $id_type]);
+        return $mesVisiteurs;
+    }
 }
