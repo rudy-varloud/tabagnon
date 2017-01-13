@@ -87,7 +87,7 @@ hr {
 }
 
 .box {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     padding: 30px 15px;
     background: #fff;
     background: rgba(255,255,255,0.9);
@@ -250,4 +250,13 @@ footer p {
 .lien-popup span{
     text-decoration : none;
 
+}
+
+.mepVis{
+    margin-left: 5%;
+    font-weight: bold;
+}
+
+.visiteContour{
+    border: 1px solid black;
 }

@@ -13,3 +13,9 @@ $(document).ready(function() {
   });
 });
 
+function verifGuide(){
+    var guide_select = $('.nomGuideVisite').val();
+    var guide_input = $('.nomGuideVisMan').val();
+    
+    alert(guide_select);
+}

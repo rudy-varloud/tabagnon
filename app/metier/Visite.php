@@ -29,7 +29,7 @@ class Visite extends Model {
     
     public function getVisite(){
         $mesVisites = DB::table('visite')
-                ->select('idVisite', 'lieuxVisite', 'nbPlace', 'idGuide', 'idGuide', 'libelleVisite', 'prixVisite', 'descriptionVisite', 'dateVisite')
+                ->select('idVisite', 'lieuxVisite', 'nbPlace','nbPlaceRes', 'idGuide', 'idGuide', 'libelleVisite', 'prixVisite', 'descriptionVisite', 'dateVisite')
                 ->orderBy ('dateVisite', 'ASC')
                 ->get();
         return $mesVisites;
