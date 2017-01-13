@@ -70,7 +70,7 @@
                 @foreach($lesArticles as $unArticle)
                 <a href="{{url('/article/'.$unArticle->idArticle)}}">
                     <div class="col-md-4">    
-                        <img class="img-news" src="{{ URL::asset('assets/image/'.$unArticle->imageArticle) }}" alt="{{$unArticle->titreArticle}}">
+                        <img class="img-news" src="{{ URL::asset('assets/image/article/'.$unArticle->imageArticle) }}" alt="{{$unArticle->titreArticle}}">
                         <div class="col-md-12">        
                             <div class="news-title">
                                 <h4>{{$unArticle->titreArticle}}</h4>

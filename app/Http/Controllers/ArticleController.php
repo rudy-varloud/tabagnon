@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\metier\Carousel;
 use App\metier\Article;
 use Request;
@@ -21,20 +22,20 @@ class ArticleController extends Controller {
         if (Request::file('imageArticle') != null) {
             if (Request::file('imageArticle')->isValid()) {
                 $image = Request::file('imageArticle');
-                $unArticle = new Article();
-                $imageArticle = $image->getClientOriginalName();
-                $image->move(public_path("/assets/image/"), $imageArticle);
-                $unArticle->postFormArticleImage($titreArticle, $description, $contenu, $imageArticle);
+                $unArticle = new Article();               
+                $ext = substr(strrchr($image->getClientOriginalName(), "."), 1);
+                $imageArticle = $unArticle->getCompteurImage() . "." . $ext;
+                $image->move(public_path("/assets/image/article/"), $imageArticle);
+                $id = $unArticle->postFormArticleImage($titreArticle, $description, $contenu, $imageArticle);
             } else {
                 $error = "L'image n'est pas valide (elle ne doit pas dépasser 200ko)";
-                return view('formArticle', compact('error','titreArticle','description','contenu'));
+                return view('formArticle', compact('error', 'titreArticle', 'description', 'contenu'));
             }
-        }
-        else {
+        } else {
             $unArticle = new Article();
-            $unArticle->postFormArticle($titreArticle, $description, $contenu);
+            $id = $unArticle->postFormArticle($titreArticle, $description, $contenu);
         }
-        return redirect('/');
+        return redirect('/article/' . $id);
     }
 
     public function getLastArticle() {
@@ -42,7 +43,7 @@ class ArticleController extends Controller {
         $lesArticles = $unArticle->getLastArticle();
         $Carousel = new Carousel;
         $lesImages = $Carousel->getImagesCarouselTrue();
-        return view('accueil', compact('lesArticles','lesImages'));
+        return view('accueil', compact('lesArticles', 'lesImages'));
     }
 
     public function getArticle($idA) {
@@ -50,4 +51,5 @@ class ArticleController extends Controller {
         $unArticle = $unA->getArticle($idA);
         return view('pageArticle', compact('unArticle'));
     }
+
 }

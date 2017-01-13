@@ -35,6 +35,14 @@ class Article extends Model {
                 ->insert(
                         ['titreArticle' => $titreArticle, 'description' => $description,
                             'contenu' => $contenue, 'imageArticle' => $imageArticle, 'dateCreation' => $dateJour, 'dateEdition' => $dateJour]);
+        $id = DB::table('Article')->Select('idArticle')
+                ->where('titreArticle' , '=' ,$titreArticle)
+                ->where('description' , '=' ,$description)
+                ->where('imageArticle' , '=' ,$imageArticle)
+                ->where('dateCreation' , '=' ,$dateJour)
+                ->where('dateEdition' , '=' ,$dateJour)
+                ->first();
+        return $id->idArticle;
     }
 
     public function postFormArticle($titreArticle, $description, $contenue) {
@@ -43,11 +51,24 @@ class Article extends Model {
                 ->insert(
                         ['titreArticle' => $titreArticle, 'description' => $description,
                             'contenu' => $contenue, 'dateCreation' => $dateJour, 'dateEdition' => $dateJour, 'imageArticle' => 'default.png']);
+        $id = DB::table('Article')->Select('idArticle')
+                ->where('titreArticle' , '=' ,$titreArticle)
+                ->where('description' , '=' ,$description)
+                ->where('imageArticle' , '=' ,'default.png')
+                ->where('dateCreation' , '=' ,$dateJour)
+                ->where('dateEdition' , '=' ,$dateJour)
+                ->first();
+        return $id->idArticle;
     }
 
     public function getLastArticle() {
         $lesArticles = Article::orderBy('idArticle', 'desc')->take(3)->get();
         return $lesArticles;
+    }
+    
+    public function getCompteurImage(){
+        $cpt = DB::table('Article')->count();
+        return $cpt+1;
     }
 
 }

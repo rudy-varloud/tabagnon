@@ -236,6 +236,7 @@ footer p {
 .contenuArticle{
     text-align: center;
     font-size: 1.2em;
+    max-width: : 180px;
 }
 
 .carousel-title{
@@ -259,4 +260,16 @@ footer p {
 
 .visiteContour{
     border: 1px solid black;
+}
+@media screen and (min-width:1200px) {
+    .article-image{
+        height: 300px;
+        object-fit: cover;
+    }
+}
+@media screen and (max-width:1200px) {
+    .article-image{
+        height: 180px;
+        object-fit: cover;
+    }
 }

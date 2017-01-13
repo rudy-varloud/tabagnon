@@ -14,7 +14,20 @@
         <!-- Bootstrap Core CSS -->
         {!! Html::style('assets/css/bootstrap.css') !!}
         {!! Html::style('assets/css/mdb.min.css') !!}
-
+        <!-- javascript-->
+        {!! Html::script('assets/js/bootstrap.min.js') !!}
+        {!! Html::script('assets/js/jquery.js') !!}
+        {!! Html::script('assets/js/bootstrap.min.js') !!}
+        {!! Html::script('assets/js/tabagnon.js') !!}
+        {!! Html::script('assets/js/tinymce/tinymce.min.js') !!}
+        <script type="text/javascript">
+            tinyMCE.init({
+                mode: "textareas",
+                language: "fr_FR",
+                language_url: 'assets/js/tinymce/langs/fr_FR.js',
+                forced_root_block : ""
+            });
+        </script>
         <!-- Custom CSS -->
         {!! Html::style('assets/css/tabagnon.css') !!}
 
@@ -48,14 +61,14 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right connect">
-                        <li><a href="{{url('/listerVisiteur')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Lister tous les utilisateurs</a></li>
-                        <li><a href="{{url('/ajoutArticle')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Créer un article</a></li>
-                        <li><a href="{{url('/getLogout')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Se deconnecter</a></li>
-                        <li><a href="{{url('/carouselAccueil')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Carousel</a></li>
-                        <li><a href="{{url('/ajoutVisite')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Ajouter une visite</a></li>
-                    </ul>
-                </div>
+                        <ul class="nav navbar-nav navbar-right connect">
+                            <li><a href="{{url('/listerVisiteur')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Lister tous les utilisateurs</a></li>
+                            <li><a href="{{url('/ajoutArticle')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Créer un article</a></li>
+                            <li><a href="{{url('/getLogout')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Se deconnecter</a></li>
+                            <li><a href="{{url('/carouselAccueil')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Carousel</a></li>
+                            <li><a href="{{url('/ajoutVisite')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Ajouter une visite</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <!-- /.navbar-collapse -->
             </div>
@@ -77,10 +90,5 @@
         </div>
     </footer>
 
-    <!-- javascript-->
-    {!! Html::script('assets/js/bootstrap.min.js') !!}
-    {!! Html::script('assets/js/jquery.js') !!}
-    {!! Html::script('assets/js/bootstrap.min.js') !!}
-    {!! Html::script('assets/js/tabagnon.js') !!}
 
 </html>

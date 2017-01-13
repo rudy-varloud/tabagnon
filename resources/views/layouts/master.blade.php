@@ -14,6 +14,22 @@
         <!-- Bootstrap Core CSS -->
         {!! Html::style('assets/css/bootstrap.css') !!}
         {!! Html::style('assets/css/mdb.min.css') !!}
+        <!-- javascript-->
+        {!! Html::script('assets/js/bootstrap.min.js') !!}
+        {!! Html::script('assets/js/jquery.js') !!}
+        {!! Html::script('assets/js/bootstrap.min.js') !!}
+        {!! Html::script('assets/js/tabagnon.js') !!}
+        {!! Html::script('assets/js/tinymce/tinymce.min.js') !!}
+        <script type="text/javascript">
+            tinyMCE.init({
+                mode: "textareas",
+                language: "fr_FR",
+                language_url: 'assets/js/tinymce/langs/fr_FR.js',
+                forced_root_block: "",
+                force_br_newlines: true,
+                force_p_newlines: false,
+            });
+        </script>
 
         <!-- Custom CSS -->
         {!! Html::style('assets/css/tabagnon.css') !!}
@@ -82,10 +98,6 @@
         </div>
     </footer>
 
-    <!-- javascript-->
-    {!! Html::script('assets/js/bootstrap.min.js') !!}
-    {!! Html::script('assets/js/jquery.js') !!}
-    {!! Html::script('assets/js/bootstrap.min.js') !!}
-    {!! Html::script('assets/js/tabagnon.js') !!}
+
 
 </html>
