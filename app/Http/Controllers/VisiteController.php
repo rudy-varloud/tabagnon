@@ -35,5 +35,11 @@ class VisiteController extends Controller {
         $mesVisites = $uneVisite->getVisite();
         return view('pageVisite', compact ('mesVisites'));
     }
+    
+    public function pageVisiteSpe($idVisite){
+        $uneVisite = new Visite();
+        $mesVisites = $uneVisite->pageVisiteSpe($idVisite);
+        return view('pageVisiteSpe', compact('mesVisites'));
+    }
    
 }

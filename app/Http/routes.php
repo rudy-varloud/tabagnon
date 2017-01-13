@@ -42,6 +42,8 @@ Route::get('/modifUser/{idVis}', ['as' => 'modifUser',
     'uses' => 'VisiteurController@modifUser']);
 Route::post('/postModifUser', 'VisiteurController@postModifUser');
 Route::post('listeUserSpe', 'VisiteurController@listeUserSpe');
+Route::get('getPageVisite', 'VisiteController@pageVisite');
+Route::get('/getVisiteSpe/{idVisiteur}', 'VisiteController@pageVisiteSpe');
 
 
 // ----- VISITEUR -----
