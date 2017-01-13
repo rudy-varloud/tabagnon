@@ -17,14 +17,14 @@ class Carousel extends Model {
 
     public function getImagesCarouselTrue() {
         $images = DB::table('carousel')->Select('image')
-                ->where('statut','=',true)
+                ->where('statut', '=', true)
                 ->get();
         return $images;
     }
-    
+
     public function getImagesCarouselFalse() {
         $images = DB::table('carousel')->Select('image')
-                ->where('statut','=',false)
+                ->where('statut', '=', false)
                 ->get();
         return $images;
     }
@@ -33,16 +33,20 @@ class Carousel extends Model {
         
     }
 
-    public function carouselDel($image) {
-        
+    public function carouselSupprimer($image) {
+        DB::table('carousel')->where('image', '=', $image)
+                ->delete();
+        \File::delete('../../public/assets/image/'.$image);
     }
 
-    public function carouselStatutTrue($image) {
-        
+    public function carouselRetirer($image) {
+        DB::table('carousel')->where('image', '=', $image)
+                ->update(['statut' => false]);
     }
 
-    public function carouselStatutFalse($image) {
-        
+    public function carouselAjouter($image) {
+        DB::table('carousel')->where('image', '=', $image)
+                ->update(['statut' => true]);
     }
 
 }

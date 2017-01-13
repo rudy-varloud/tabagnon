@@ -1,35 +1,35 @@
 @extends('layouts.masterAdmin')
 @section('content')
 
-<!-- Modal -->
-<div id="yourModalID" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Options</h4>
-            </div>
-            <div class="modal-body">
-
-                <a href='' class='lien-popup'><span class="glyphicon glyphicon-export"></span> Enlever l'image du carousel</a>
-                <br><br>
-                <a href='' class='lien-popup'><span class="glyphicon glyphicon-remove"></span> Supprimer l'image</a>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-            </div>
+<div class="box">
+    {!! Form::open(['url' => 'ajoutImageCarousel', 'files' => true]) !!} 
+    
+    <div class="form-group">
+        <h1 class="carousel-title">Ajouter une image à la liste des images</h1>
+        <br> 
+        {{$message or ""}}
+        <div class='col-md-4 col-md-offset-4'>
+            <input type='hidden' name="imageArticle" value=""/>
+            <input type='hidden' name="MAX_FILE_SIZE" value="204800"/>
+            <input type='file' name="imageArticle" class="btn btn-default pull-left" accept="image/*"/> 
         </div>
-
+        
+        <div class='col-md-offset-5 col-md-4'><button type="submit" class="btn btn-default btn-primary">
+                <span class="glyphicon glyphicon-ok"></span> Ajouter
+            </button></div>
     </div>
+    {{ Form::close() }}
 </div>
 
 <div class="box">
     <h1 class="carousel-title">Les images du carousel non affichées</h1>
+    <br>
     @foreach($lesImagesFalse as $uneImage)
-    <div class='col-md-2'>
-        <img class="img-news" src="{{ URL::asset('assets/image/'.$uneImage->image) }}" alt="">
+    <div class='col-md-4'>       
+        <img class="img-news" src="{{ URL::asset('assets/image/'.$uneImage->image) }}" alt=""></a>
+        <a href='{{url('/ajouterCarousel/'.$uneImage->image)}}'><span class="glyphicon glyphicon-circle-arrow-down"></span> Ajouter l'image dans le carousel</a>
+        <br>
+        <a href='{{url('/supprimerCarousel/'.$uneImage->image)}}'><span class="glyphicon glyphicon-remove"></span> Supprimer l'image du carousel</a>
     </div>
     @endforeach
 </div>
@@ -37,19 +37,17 @@
 <div class="box">
 
     <h1 class="carousel-title">Les images qui seront affichées sur la page d'acceuil</h1>
+    <br>
     @foreach($lesImagesTrue as $uneImage)
-    <div class='col-md-4'>
-        <a class="myModal1" data-toggle="modal" data-target="#yourModalID" data-yourparameter="{{$uneImage->image}}">
-            <img class="img-news" src="{{ URL::asset('assets/image/'.$uneImage->image) }}" alt=""></a>
+    <div class='col-md-4'>       
+        <img class="img-news" src="{{ URL::asset('assets/image/'.$uneImage->image) }}" alt=""></a>
+        <a href='{{url('/retirerCarousel/'.$uneImage->image)}}'><span class="glyphicon glyphicon-circle-arrow-up"></span> Retirer l'image du carousel</a>
+        <br>
+        <a href='{{url('/supprimerCarousel/'.$uneImage->image)}}'><span class="glyphicon glyphicon-remove"></span> Supprimer l'image du carousel</a>
     </div>
+
     @endforeach
 </div>
 
-
-<script>
-$('#yourModalID').on('show.bs.modal', function(e) {
-  var yourparameter = e.relatedTarget.dataset.yourparameter;  
-});
-</script>
 
 @stop

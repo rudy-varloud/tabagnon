@@ -10,9 +10,16 @@
                 <div id="carousel-example-generic" class="carousel slide">
                     <!-- Indicators -->
                     <ol class="carousel-indicators hidden-xs">
-                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        @php($cpt = 0)
+                        @foreach($lesImages as $uneImage)
+                        @if($cpt == 0)
+                        <li data-target="#carousel-example-generic" data-slide-to="{{$cpt}}" class="active"></li>
+                        @endif
+                        @if($cpt>0)
+                        <li data-target="#carousel-example-generic" data-slide-to="{{$cpt}}"></li>
+                        @endif
+                        @php($cpt+=1)
+                        @endforeach
                     </ol>
 
                     <!-- Wrapper for slides -->

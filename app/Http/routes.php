@@ -29,9 +29,14 @@ Route::get('/article/{idArticle}', 'ArticleController@getArticle');
 Route::get('/ajoutArticle', 'ArticleController@getFormArticle');
 Route::post('/postFormArticle', 'ArticleController@postFormArticle');
 Route::get('/listerVisiteur', 'VisiteurController@listeUser');
-Route::get('/carouselAccueil', 'AdminController@majCarousel');
+Route::get('/carouselAccueil', 'CarouselController@majCarousel');
 Route::post('/postFormVisite', 'VisiteController@postFormVisite');
-Route::get('/getPageVisite', 'VisiteController@pageVisite');
+Route::get('/retirerCarousel/{image}', 'CarouselController@retirerCarousel');
+Route::get('/supprimerCarousel/{image}', 'CarouselController@supprimerCarousel');
+Route::get('/ajouterCarousel/{image}', 'CarouselController@ajouterCarousel');
+Route::post('/postFormVisite', 'VisiteController@postFormVisite');
+Route::get('/ajoutImageCarousel', 'CarouselController@ajoutImageCarousel');
+
 
 Route::get('/modifUser/{idVis}', ['as' => 'modifUser',
     'uses' => 'VisiteurController@modifUser']);
