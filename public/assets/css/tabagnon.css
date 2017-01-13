@@ -252,11 +252,24 @@ footer p {
 
 }
 
-.mepVis{
-    margin-left: 5%;
-    font-weight: bold;
+.nomVisite{
+    font-weight: bold !important;
 }
 
 .visiteContour{
     border: 1px solid black;
+}
+
+.takeVisite{
+    cursor: pointer;
+    text-decoration: none;
+    color: #333;
+}
+
+.takeVisite:hover{
+    text-decoration: none !important;
+}
+
+.place{
+    font-size: 13px;
 }

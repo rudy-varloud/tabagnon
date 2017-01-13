@@ -1,22 +1,38 @@
 @extends('layouts.master')
 @section('content')
 
-<body>
     <div class="col-lg-12 col-md-12 col-s-12 box">
         @foreach ($mesVisites as $uneVisite)
+        @php
+        $date = date_create($uneVisite->dateVisite);
+        $placeDispo = (($uneVisite->nbPlace) - ($uneVisite->nbPlaceRes))
+        @endphp
+        <a href='{{url ('/getVisiteSpe/'.$uneVisite->idVisite)}}' style='text-decoration: none;' title="Cliquez pour plus d'informations"> <div class='takeVisite'>
         <h3>-/ Informations concernant la visite: {{$uneVisite->libelleVisite}}</h3> 
-        <div class='visiteContour'>
-            <span class='mepVis'>Visite:</span> N°{{$uneVisite->idVisite}}
-            <span class='mepVis'> Nom de la visite: </span>{{$uneVisite->libelleVisite}}
-            <span class='mepVis'>Prix de la visite: </span>{{$uneVisite->prixVisite}}
-            <span class='mepVis'>Place pour cette balade: </span>{{$uneVisite->nbPlace}}
-            <span class='mepVis'>Place déjà reservé: </span>{{$uneVisite->nbPlaceRes}}
-            <span class='mepVis'>Lieux: </span>{{$uneVisite->lieuxVisite}}
-            <span class='mepVis'>Date: </span>{{$uneVisite->dateVisite}}
-        </div>
+        <table class='table table-bordered'>
+            <thead>
+                <tr>
+                    <th>Numéro de visite</th>
+                    <th>Nom de la visite</th>
+                    <th>Prix de la visite</th>
+                    <th>Place restante</th>
+                    <th>Lieux</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{$uneVisite->idVisite}}</td>
+                    <td>{{$uneVisite->libelleVisite}}</td>
+                    <td>{{$uneVisite->prixVisite}}€</td>
+                    <td>{{$placeDispo}}</td>
+                    <td>{{$uneVisite->lieuxVisite}}</td>
+                    <td>{{$date->format('d/m/Y')}}</td>
+                </tr>
+        </table>
         <br>
+            </div></a>
         @endforeach
     </div>
-</body>
 @stop
 

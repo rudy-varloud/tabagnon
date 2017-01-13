@@ -34,6 +34,14 @@ class Visite extends Model {
                 ->get();
         return $mesVisites;
     }
+    
+    public function pageVisiteSpe($idVisite){
+        $mesVisites = DB::table('visite')
+                ->select('idVisite', 'lieuxVisite', 'nbPlace','nbPlaceRes', 'idGuide', 'idGuide', 'libelleVisite', 'prixVisite', 'descriptionVisite', 'dateVisite')
+                -> where ('idVisite', '=', $idVisite)
+                ->get();
+        return $mesVisites;
+    }
 
 
 }
