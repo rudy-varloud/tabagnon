@@ -112,7 +112,7 @@ class Visiteur extends Model {
     public function listeUserSpe($user) {
         $mesVisiteurs = DB::table('visiteur')
                 ->Select('idVis', 'login', 'telVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
-                ->where('nomVis', '=', $user)
+                ->where('nomVis', 'like', '%' . $user . '%')
                 ->orderBy('login', 'ASC')
                 ->get();
         return $mesVisiteurs;

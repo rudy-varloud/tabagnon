@@ -64,6 +64,9 @@
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{url('/getArticles')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Les Articles</a></li>
+                    </ul>
                     @if(Session::get('id') == 0)
                     <ul class="nav navbar-nav">
                         <li><a href="{{url('/getSubscribe')}}">Inscription</a></li>

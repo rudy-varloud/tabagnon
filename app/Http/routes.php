@@ -12,73 +12,68 @@
  */
 
 
+//Routes pour la connexion utilisateur
+Route::get('/getLogin', 'VisiteurController@getLogin');
+Route::post('/login', 'VisiteurController@connect');
+Route::get('/getLogout', 'VisiteurController@signOut');
+Route::post('/signIn', ['as' => 'signIn',
+    'uses' => 'VisiteurController@signIn']);
+Route::get('/getSubscribe', 'VisiteurController@getsubscribe');
+Route::post('/subscribe', 'VisiteurController@SubscribeIn');
 
-Route::get('/', 'ArticleController@getLastArticle');
-Route::get('/welcome', function(){
-    return view('welcome');
-});
-Route::get('/home', function(){
-    return view('home');
-});
-Route::get('/getPageAdmin', function(){
-    return view('pageAdmin');
-});
 
+//Visite
 Route::get('/ajoutVisite', 'VisiteController@ajoutVisite');
+Route::get('/listerVisiteur', 'VisiteurController@listeUser');
+Route::post('/postFormVisite', 'VisiteController@postFormVisite');
+Route::post('/postFormVisite', 'VisiteController@postFormVisite');
+Route::get('getPageVisite', 'VisiteController@pageVisite');
+Route::get('/getVisiteSpe/{idVisiteur}', 'VisiteController@pageVisiteSpe');
+Route::post('listeUserSpe', 'VisiteurController@listeUserSpe');
+
+
+//Article
+Route::get('/', 'ArticleController@getLastArticle');
+Route::get('/getArticles', 'ArticleController@listerArticle');
 Route::get('/article/{idArticle}', 'ArticleController@getArticle');
 Route::get('/ajoutArticle', 'ArticleController@getFormArticle');
 Route::post('/postFormArticle', 'ArticleController@postFormArticle');
-Route::get('/listerVisiteur', 'VisiteurController@listeUser');
+
+
+//Admin
+//Carousel
 Route::get('/carouselAccueil', 'CarouselController@majCarousel');
-Route::post('/postFormVisite', 'VisiteController@postFormVisite');
 Route::get('/retirerCarousel/{image}', 'CarouselController@retirerCarousel');
 Route::get('/supprimerCarousel/{image}', 'CarouselController@supprimerCarousel');
 Route::get('/ajouterCarousel/{image}', 'CarouselController@ajouterCarousel');
-Route::post('/postFormVisite', 'VisiteController@postFormVisite');
 Route::post('/ajoutImageCarousel', 'CarouselController@ajoutImageCarousel');
 
 
+//Accueil
+Route::get('/home', function() {
+    return view('home');
+});
+
+
+//Panel d'administration
+Route::get('/getPageAdmin', function() {
+    return view('pageAdmin');
+});
 Route::get('/modifUser/{idVis}', ['as' => 'modifUser',
     'uses' => 'VisiteurController@modifUser']);
 Route::post('/postModifUser', 'VisiteurController@postModifUser');
-Route::post('listeUserSpe', 'VisiteurController@listeUserSpe');
-Route::get('getPageVisite', 'VisiteController@pageVisite');
-Route::get('/getVisiteSpe/{idVisiteur}', 'VisiteController@pageVisiteSpe');
-
-
-// ----- VISITEUR -----
-
 // Route pour acceder au formulaire de modif d'un user
 Route::get('/modifUser/{id_client}', ['as' => 'modifUser',
     'uses' => 'VisiteurController@modifUser']);
 //Validation des modifications faite pour un visiteur donné
 Route::post('/postmodifierUser/{id_client}', ['as' => 'postmodifierUser',
     'uses' => 'VisiteurController@modificationVisiteur']);
-//Afficher le formulaire d'authentification
-Route::get('/getLogin', 'VisiteurController@getLogin');
-//Authentification du visiteur
-Route::post('/login', 'VisiteurController@connect');
-//Deconnection du visiteur
-Route::get('/getLogout', 'VisiteurController@signOut');
-//Création d'un compte
-Route::get('/getSubscribe', 'VisiteurController@getsubscribe');
-Route::post('/subscribe', 'VisiteurController@SubscribeIn');
+
+
+
+//A classer, servira plus tard...
 Route::post('/mdp', 'EmailController@envoiMdp');
-Route::post('/signIn',['as' => 'signIn',
-    'uses' => 'VisiteurController@signIn']);
-
-
-Route::post('/postAfficherManga/{id}', ['as' => 'postAfficherManga',
-    'uses' => 'ProduitController@postAfficherMangaGenre']);
-
-Route::get('/ajouterMangas', 'ProduitController@ajoutProduit');
 Route::get('/listeUser', 'VisiteurController@listeUser');
-Route::get('/deleteProduit/{id_vet}', ['as' => 'deleteProduit',
-    'uses' => 'ProduitController@deleteProduit']);
-
-
-//Routes pour l'envoie de mails
-//Get
 Route::get('/welcomeMail/{mail}/{nom}', 'EmailController@sendMailWelcome');
 Route::get('/mdpoublie', 'ClientController@Mdpoublie');
 Route::get('/validerMail/{idCli}/{total}/{idCmde}', 'EmailController@sendRecapCommande');

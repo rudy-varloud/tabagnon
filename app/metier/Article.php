@@ -36,11 +36,11 @@ class Article extends Model {
                         ['titreArticle' => $titreArticle, 'description' => $description,
                             'contenu' => $contenue, 'imageArticle' => $imageArticle, 'dateCreation' => $dateJour, 'dateEdition' => $dateJour]);
         $id = DB::table('Article')->Select('idArticle')
-                ->where('titreArticle' , '=' ,$titreArticle)
-                ->where('description' , '=' ,$description)
-                ->where('imageArticle' , '=' ,$imageArticle)
-                ->where('dateCreation' , '=' ,$dateJour)
-                ->where('dateEdition' , '=' ,$dateJour)
+                ->where('titreArticle', '=', $titreArticle)
+                ->where('description', '=', $description)
+                ->where('imageArticle', '=', $imageArticle)
+                ->where('dateCreation', '=', $dateJour)
+                ->where('dateEdition', '=', $dateJour)
                 ->first();
         return $id->idArticle;
     }
@@ -52,11 +52,11 @@ class Article extends Model {
                         ['titreArticle' => $titreArticle, 'description' => $description,
                             'contenu' => $contenue, 'dateCreation' => $dateJour, 'dateEdition' => $dateJour, 'imageArticle' => 'default.png']);
         $id = DB::table('Article')->Select('idArticle')
-                ->where('titreArticle' , '=' ,$titreArticle)
-                ->where('description' , '=' ,$description)
-                ->where('imageArticle' , '=' ,'default.png')
-                ->where('dateCreation' , '=' ,$dateJour)
-                ->where('dateEdition' , '=' ,$dateJour)
+                ->where('titreArticle', '=', $titreArticle)
+                ->where('description', '=', $description)
+                ->where('imageArticle', '=', 'default.png')
+                ->where('dateCreation', '=', $dateJour)
+                ->where('dateEdition', '=', $dateJour)
                 ->first();
         return $id->idArticle;
     }
@@ -65,10 +65,16 @@ class Article extends Model {
         $lesArticles = Article::orderBy('idArticle', 'desc')->take(3)->get();
         return $lesArticles;
     }
-    
-    public function getCompteurImage(){
+
+    public function getCompteurImage() {
         $cpt = DB::table('Article')->count();
-        return $cpt+1;
+        return $cpt + 1;
+    }
+
+    public function listerArticle() {
+        $lesArticles = DB::table('Article')->Select()
+                ->get();
+        return $lesArticles;
     }
 
 }

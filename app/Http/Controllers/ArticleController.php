@@ -51,5 +51,11 @@ class ArticleController extends Controller {
         $unArticle = $unA->getArticle($idA);
         return view('pageArticle', compact('unArticle'));
     }
+    
+    public function listerArticle(){
+        $unA = new Article();
+        $lesArticles = $unA->listerArticle();
+        return view('listeArticle', compact('lesArticles'));
+    }
 
 }
