@@ -42,6 +42,12 @@ class Visite extends Model {
                 ->get();
         return $mesVisites;
     }
+    
+    public function reservationPlace($nbPlaceSouhaite){
+        $mesVisites = DB::table('visite')
+                ->increment('nbPlaceRes', $nbPlaceSouhaite);
+        return $mesVisites;
+    }
 
 
 }

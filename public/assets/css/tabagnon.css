@@ -236,7 +236,7 @@ footer p {
 .contenuArticle{
     text-align: center;
     font-size: 1.2em;
-    max-width: : 180px;
+    max-width: 180px;
 }
 
 .carousel-title{
@@ -272,7 +272,8 @@ footer p {
 }
 
 .place{
-    font-size: 13px;
+    padding-left: 0% !important;
+    font-size: 11px;
 }
 @media screen and (min-width:1200px) {
     .article-image{

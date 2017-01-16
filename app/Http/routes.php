@@ -45,6 +45,8 @@ Route::post('listeUserSpe', 'VisiteurController@listeUserSpe');
 Route::get('getPageVisite', 'VisiteController@pageVisite');
 Route::get('/getVisiteSpe/{idVisiteur}', 'VisiteController@pageVisiteSpe');
 
+Route::post('/reservationPlace', 'VisiteController@reservationPlace');
+
 
 // ----- VISITEUR -----
 
