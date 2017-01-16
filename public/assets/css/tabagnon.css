@@ -330,8 +330,7 @@ footer p {
     background: #D8D8D8;
     padding: 2em; 
 }
-#test {
-    font-size : 4em;
+
 .img-presentation{
     object-fit: cover !important;
     max-height : 60%;
