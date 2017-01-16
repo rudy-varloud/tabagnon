@@ -43,9 +43,10 @@ class VisiteController extends Controller {
     }
     
     public function reservationPlace(){
+        $idVisite = Request::input('nbPlaceDispo');
         $nbPlaceSouhaite = Request::input('nbPlaceVoulu');
         $uneVisite = new Visite();
-        $mesVisites = $uneVisite->reservationPlace($nbPlaceSouhaite);
+        $uneVisite->reservationPlace($idVisite, $nbPlaceSouhaite);
         return view('pageAdmin');
     }
    

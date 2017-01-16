@@ -315,3 +315,14 @@ footer p {
 .carousel-admin .glyphicon-remove{
     color: red !important;
 }
+
+.reservation{
+    margin-bottom: 0px;
+    padding: 30px 15px;
+    background: #fff;
+    background: #D8D8D8;
+    padding: 2em; 
+}
+#test {
+    font-size : 4em;
+}
