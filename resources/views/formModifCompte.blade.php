@@ -4,6 +4,7 @@
 <div>
     <br><br>
     <br><br>
+    <div class="box">
     <div class="container">
         <div class="blanc">
             <h1>Modification du niveau du compte</h1>

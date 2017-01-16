@@ -4,11 +4,11 @@
 <div class="container box">
     <h4> Rechercher un utilisateur </h4>
     <div class="col-md-3">
-        <input type="text" name="filtre" class="form-control" placeholder="Nom de l'utilisateur recherché(e)" >
+        <input type="text" name="filtre" class="form-control" placeholder="Nom de l'utilisateur recherché" >
         <a href='{{url('listeUserSpe')}}'><button type='submit' class='btn btn-info'> Rechercher </button></a>
     </div>
     <br><br><br><br>
-    <h2>Liste de tout les utilisateurs existant: ({{$mesVisiteurs2}})</h2>        
+    <h2>Liste de tous les utilisateurs existants : ({{$mesVisiteurs2}})</h2>        
     <table class="table table-striped listeFiltree">
         <thead>
             <tr>

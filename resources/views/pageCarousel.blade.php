@@ -36,7 +36,7 @@
 
 <div class="box">
 
-    <h1 class="carousel-title">Les images qui seront affichées sur la page d'acceuil</h1>
+    <h1 class="carousel-title">Les images qui seront affichées sur la page d'accueil</h1>
     <br>
     @foreach($lesImagesTrue as $uneImage)   
     <div class='col-md-4 carousel-admin'>       
