@@ -323,6 +323,15 @@ footer p {
     margin-top : 50px;
     border : solid black 2px;
 }
+.reservation{
+    margin-bottom: 0px;
+    padding: 30px 15px;
+    background: #fff;
+    background: #D8D8D8;
+    padding: 2em; 
+}
+#test {
+    font-size : 4em;
 .img-presentation{
     object-fit: cover !important;
     max-height : 60%;
