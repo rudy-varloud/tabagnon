@@ -8,15 +8,15 @@
         $placeDispo = (($uneVisite->nbPlace) - ($uneVisite->nbPlaceRes))
         @endphp
         <a href='{{url ('/getVisiteSpe/'.$uneVisite->idVisite)}}' style='text-decoration: none;' title="Cliquez pour plus d'informations"> <div class='takeVisite'>
-        <h3>-/ Informations concernant la visite: {{$uneVisite->libelleVisite}}</h3> 
+        <h3>-/ Informations concernant la visite : {{$uneVisite->libelleVisite}}</h3> 
         <table class='table table-bordered'>
             <thead>
                 <tr>
                     <th>Numéro de visite</th>
                     <th>Nom de la visite</th>
                     <th>Prix de la visite</th>
-                    <th>Place restante</th>
-                    <th>Lieux</th>
+                    <th>Place(s) restante(s)</th>
+                    <th>Lieu</th>
                     <th>Date</th>
                 </tr>
             </thead>

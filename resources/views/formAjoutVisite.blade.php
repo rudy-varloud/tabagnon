@@ -21,7 +21,7 @@
     </div>
     <br>
     <div class="form-group">
-        <label class="col-md-3 control-label">Lieux de la visite</label>
+        <label class="col-md-3 control-label">Lieu de la visite:</label>
         <input name="lieuxVisite" class="form-control" type="text" placeholder="Lieux de la visite" required>
     </div>
     <div class="form-group">
@@ -40,12 +40,12 @@
     </div>
     <br>
     <div class="form-group">
-        <label class="col-md-4 control-label">Nombre de place pour la visite: </label>
+        <label class="col-md-4 control-label">Nombre de place(s) pour la visite: </label>
         <input name="nbPlace" class="form-control" type="number" placeholder="Nombre de place dispo pour cette visite" required>
     </div>
     <br>
     <div class='form-group'>
-        <label class='col-md-4 control-label'>Selectionnez le guide pour cette visite: </label>
+        <label class='col-md-4 control-label'>Sélectionnez le guide pour cette visite: </label>
         <select name="nomGuideVisite" class="form-control nomGuideVis">
             <option value="Selectionnez le guide souhaité" selected disabled required>Selectionnez le guide souhaité</option>
             @foreach($mesVisiteurs as $unVisiteur)

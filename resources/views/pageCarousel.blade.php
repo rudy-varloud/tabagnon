@@ -36,14 +36,14 @@
 
 <div class="box">
 
-    <h1 class="carousel-title">Les images qui seront affichées sur la page d'acceuil</h1>
+    <h1 class="carousel-title">Les images qui seront affichées sur la page d'accueil</h1>
     <br>
     @foreach($lesImagesTrue as $uneImage)
     <div class='col-md-4'>       
         <img class="img-news" src="{{ URL::asset('assets/image/'.$uneImage->image) }}" alt=""></a>
-        <a href='{{url('/retirerCarousel/'.$uneImage->image)}}'><span class="glyphicon glyphicon-circle-arrow-up"></span> Retirer l'image du carousel</a>
+        <a href='{{url('/retirerCarousel/'.$uneImage->image)}}'><span class="glyphicon glyphicon-circle-arrow-up"></span> Retirer l'image du caroussel</a>
         <br>
-        <a href='{{url('/supprimerCarousel/'.$uneImage->image)}}'><span class="glyphicon glyphicon-remove"></span> Supprimer l'image du carousel</a>
+        <a href='{{url('/supprimerCarousel/'.$uneImage->image)}}'><span class="glyphicon glyphicon-remove"></span> Supprimer l'image du caroussel</a>
     </div>
 
     @endforeach

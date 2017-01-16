@@ -64,8 +64,8 @@
                         <ul class="nav navbar-nav navbar-right connect">
                             <li><a href="{{url('/listerVisiteur')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Lister tous les utilisateurs</a></li>
                             <li><a href="{{url('/ajoutArticle')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Créer un article</a></li>
-                            <li><a href="{{url('/getLogout')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Se deconnecter</a></li>
-                            <li><a href="{{url('/carouselAccueil')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Carousel</a></li>
+                            <li><a href="{{url('/getLogout')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Se déconnecter</a></li>
+                            <li><a href="{{url('/carouselAccueil')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Caroussel</a></li>
                             <li><a href="{{url('/ajoutVisite')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Ajouter une visite</a></li>
                         </ul>
                     </div>
