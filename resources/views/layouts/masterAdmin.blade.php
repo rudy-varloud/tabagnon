@@ -25,7 +25,10 @@
                 mode: "textareas",
                 language: "fr_FR",
                 language_url: 'assets/js/tinymce/langs/fr_FR.js',
-                forced_root_block : ""
+                forced_root_block: "",
+                force_br_newlines: true,
+                force_p_newlines: false,
+                max_width: 500
             });
         </script>
         <!-- Custom CSS -->

@@ -35,7 +35,7 @@ Route::get('/retirerCarousel/{image}', 'CarouselController@retirerCarousel');
 Route::get('/supprimerCarousel/{image}', 'CarouselController@supprimerCarousel');
 Route::get('/ajouterCarousel/{image}', 'CarouselController@ajouterCarousel');
 Route::post('/postFormVisite', 'VisiteController@postFormVisite');
-Route::get('/ajoutImageCarousel', 'CarouselController@ajoutImageCarousel');
+Route::post('/ajoutImageCarousel', 'CarouselController@ajoutImageCarousel');
 
 
 Route::get('/modifUser/{idVis}', ['as' => 'modifUser',

@@ -29,14 +29,16 @@ class Carousel extends Model {
         return $images;
     }
 
-    public function carouselAdd($image) {
-        
+    public function ajouterCarouselImage($imageCarousel) {
+        DB::table('carousel')
+                ->insert(
+                        ['image' => $imageCarousel, 'statut' => false]);
     }
 
     public function carouselSupprimer($image) {
         DB::table('carousel')->where('image', '=', $image)
                 ->delete();
-        \File::delete('../../public/assets/image/'.$image);
+        \File::delete('../../public/assets/image/' . $image);
     }
 
     public function carouselRetirer($image) {
@@ -47,6 +49,11 @@ class Carousel extends Model {
     public function carouselAjouter($image) {
         DB::table('carousel')->where('image', '=', $image)
                 ->update(['statut' => true]);
+    }
+
+    public function getCompteurImage() {
+        $cpt = DB::table('carousel')->count();
+        return $cpt + 1;
     }
 
 }

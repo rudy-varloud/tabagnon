@@ -29,12 +29,12 @@
                         @foreach($lesImages as $uneImage)
                         @if($cpt == 0)
                         <div class="item active">
-                            <img class="img-responsive img-full" src="{{ URL::asset('assets/image/'.$uneImage->image) }}" alt="">
+                            <img class="img-responsive img-full img-carousel" src="{{ URL::asset('assets/image/carousel/'.$uneImage->image) }}" alt="">
                         </div>
                         @endif
                         @if($cpt>0)
                         <div class="item">
-                            <img class="img-responsive img-full" src="{{ URL::asset('assets/image/'.$uneImage->image) }}" alt="">
+                            <img class="img-responsive img-full img-carousel" src="{{ URL::asset('assets/image/carousel/'.$uneImage->image) }}" alt="">
                         </div>
                         @endif
                         @php($cpt+=1)
