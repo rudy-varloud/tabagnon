@@ -33,7 +33,7 @@ Route::post('listeUserSpe', 'VisiteurController@listeUserSpe');
 
 
 //Article
-Route::get('/', 'ArticleController@getLastArticle');
+Route::get('/accueil', 'ArticleController@getLastArticle');
 Route::get('/getArticles', 'ArticleController@listerArticle');
 Route::get('/article/{idArticle}', 'ArticleController@getArticle');
 Route::get('/ajoutArticle', 'ArticleController@getFormArticle');
@@ -50,8 +50,8 @@ Route::post('/ajoutImageCarousel', 'CarouselController@ajoutImageCarousel');
 
 
 //Accueil
-Route::get('/home', function() {
-    return view('home');
+Route::get('/', function() {
+    return view('pagePresentation');
 });
 
 
