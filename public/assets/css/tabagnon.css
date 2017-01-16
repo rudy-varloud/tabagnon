@@ -236,7 +236,7 @@ footer p {
 .contenuArticle{
     text-align: center;
     font-size: 1.2em;
-    max-width: : 180px;
+    word-wrap: break-word;
 }
 
 .carousel-title{
@@ -285,4 +285,32 @@ footer p {
         height: 180px;
         object-fit: cover;
     }
+}
+
+.img-carousel{
+    object-fit: cover;
+    max-height : 500px;
+}
+
+.carousel-admin{
+    margin-bottom: 4%;
+
+}
+
+.carousel-admin a{
+    text-decoration: none;
+    font-size: 1em;
+    letter-spacing: 1px;
+    color: #544B4B;
+}
+
+.carousel-admin .glyphicon{
+    margin-top : 1%;
+    text-decoration: none;
+    font-size: 1.5em;
+    color: black;
+}
+
+.carousel-admin .glyphicon-remove{
+    color: red !important;
 }

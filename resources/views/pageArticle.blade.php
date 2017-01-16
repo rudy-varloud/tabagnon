@@ -9,10 +9,11 @@
     @endphp
     <p class="dateArticle">Publié le {{$date->format('d/m/Y')}} | Tabagnon.fr</p>
     <br>
-    
+    <div class ="col-md-10 col-md-offset-1 contenuArticle">
         @php
         echo $unArticle->contenu;
-        @endphp   
+        @endphp 
+    </div>
 </div>
 @stop
 

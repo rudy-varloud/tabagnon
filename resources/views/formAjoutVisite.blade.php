@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.masterAdmin')
 @section('content')
 {!! Form::open(['url' => 'postFormVisite', 'files' => true]) !!}
 <script>
