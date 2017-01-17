@@ -13,7 +13,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-3 col-lg-3 " align="center"> <img  src="{{URL::asset('assets/image/user.png')}}" class="img-circle img-responsive"> </div>
+                        <div class="col-md-3 col-lg-3 imageProfil" align="center"> <img  src="{{URL::asset('assets/image/user.png')}}" class="img-circle img-responsive"> </div>
 
 
                         <div class=" col-md-9 col-lg-9 "> 
