@@ -21,7 +21,7 @@ class VisiteurController extends Controller {
             return redirect('/accueil');
         }
         else{
-            $erreur = "Login ou mot de passe inconnu, veuillez ressayez ou créer un compte sur SHOP DOZO !";
+            $erreur = "Login ou mot de passe inconnu, veuillez réessayer !";
             return view ('formLogin', compact ('erreur'));
         }
     }

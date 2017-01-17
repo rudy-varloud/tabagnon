@@ -4,7 +4,7 @@
 <div class="container box">
     <h4> Rechercher un utilisateur </h4>
     <div class="col-md-3">
-        <input type="text" name="filtre" class="form-control" placeholder="Nom de l'utilisateur recherché" >
+        <input type="text" name="filtre" class="form-control" placeholder="Nom ou prénom de l'utilisateur" >
         <a href='{{url('listeUserSpe')}}'><button type='submit' class='btn btn-info'> Rechercher </button></a>
     </div>
     <br><br><br><br>

@@ -43,7 +43,7 @@
 
     <body>
         <div class="brand">
-            <a href="{{url('/')}}"><img src="{{URL::asset('assets/image/logoTabagnon.png')}}" alt="Logo Tabagnon" height="123" width="100"></a>
+            <a href="{{url('/accueil')}}"><img src="{{URL::asset('assets/image/logoTabagnon.png')}}" alt="Logo Tabagnon" height="123" width="100"></a>
             Tabagnon | <small>Saint genis les ollières</small></div>
         <!-- Navigation -->
         <nav class="navbar navbar-default" role="navigation">

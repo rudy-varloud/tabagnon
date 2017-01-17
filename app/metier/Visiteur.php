@@ -110,12 +110,19 @@ class Visiteur extends Model {
     }
 
     public function listeUserSpe($user) {
-        $mesVisiteurs = DB::table('visiteur')
+        $mesVisiteursNom = DB::table('visiteur')
                 ->Select('idVis', 'login', 'telVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
                 ->where('nomVis', 'like', '%' . $user . '%')
                 ->orderBy('login', 'ASC')
                 ->get();
-        return $mesVisiteurs;
+        $mesVisiteursPrenom = DB::table('visiteur')
+                ->Select('idVis', 'login', 'telVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
+                ->where('prenomVis', 'like', '%' . $user . '%')
+                ->orderBy('login', 'ASC')
+                ->get();        
+        $Visiteurs = array_merge($mesVisiteursNom,$mesVisiteursPrenom);
+        $Visiteurs = array_map("unserialize", array_unique(array_map("serialize", $Visiteurs)));
+        return $Visiteurs;
     }
 
     public function getVisiteurGuide() {
@@ -128,8 +135,8 @@ class Visiteur extends Model {
 
     public function countUserSpe($user) {
         $mesVisiteurs_compteSpe = DB::table('visiteur')
-        ->where('nomVis', '=', $user)
-        ->count();
+                ->where('nomVis', '=', $user)
+                ->count();
         return $mesVisiteurs_compteSpe;
     }
 

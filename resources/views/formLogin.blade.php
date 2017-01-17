@@ -6,6 +6,7 @@
         <br>
         <div class="form-horizontal">    
             <h1>Authentification</h1>
+            <p>{{$erreur}}</p>
             <div class="form-group">
                 <label class="col-lg-5 col-md-3 control-label">Identifiant : </label>
                 <div class="col-md-5">

@@ -28,7 +28,7 @@
                 forced_root_block: "",
                 force_br_newlines: true,
                 force_p_newlines: false,
-                height : 300
+                height: 300
             });
         </script>
 
@@ -70,7 +70,7 @@
                     @if(Session::get('id') == 0)
                     <ul class="nav navbar-nav">
                         <li><a href="{{url('/getSubscribe')}}">Inscription</a></li>
-                        <li><a href="{{url('/getLogin')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Se connecter</a></li>
+                        <li><a data-target="#loginModal" data-toggle="modal" data-target=".navbar-collapse.in" class="">Se connecter</a></li>
                     </ul>
                     @else
                     <ul class="nav navbar-nav">
@@ -104,4 +104,35 @@
 
 
 
+
+
+
+    <!-- Modal -->
+    <div id="loginModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Authentification</h4>
+                </div>
+                {!! Form::open(['url' => 'login']) !!}
+                <div class="modal-body">                   
+
+                    <label class="control-label">Identifiant : </label>
+                    <input type="text" name="login" class="form-control" placeholder="Votre identifiant" required autofocus>
+                    <label class="control-label">Mot de passe : </label>
+                    <input type="password" name="pwd" class="form-control" placeholder="Votre mot de passe" required>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-log-in"></span> Valider</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                {{ Form::close() }}
+            </div>
+
+        </div>
+    </div>
 </html>
