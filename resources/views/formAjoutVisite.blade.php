@@ -16,7 +16,7 @@
     } else {
         alert('Vous ne pouvez pas remplir les deux champs de guide');
         }
-    }
+    
 </script>
 <body>
     <div class="col-lg-12 col-md-12 col-s-12 box">
