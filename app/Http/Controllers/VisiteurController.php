@@ -135,7 +135,7 @@ class VisiteurController extends Controller {
     public function modifierProfil() {
         $id = Session::get('id');
         $unVisiteur = new Visiteur();
-        $unV = $unVisiteur->getClient($id);
+        $unV = $unVisiteur->getUser($id);
         $erreur = "";
         return view('formProfil', compact('erreur', 'unV'));
     }
@@ -151,9 +151,11 @@ class VisiteurController extends Controller {
         $tel = Request::input('telcli');
         $mdp = Request::input('mdp');
         $mail = Request::input('mail');
+        $nom = Request::input('nom');
+        $prenom = Request::input('prenom');
         $id = Session::get('id');
-        $unClient->modificationProfil($id, $adresse, $tel, $mdp, $mail);
-        return redirect('/getProfil/' . $id);
+        $unClient->modificationProfil($id, $adresse, $tel, $mdp, $mail,$nom,$prenom);
+        return redirect('/getProfil');
     }
     
    /* Créer l'appel de récupération des données d'un client 

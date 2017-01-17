@@ -11,6 +11,27 @@
             {!! Form::open(['url' => 'postmodificationProfil']) !!}
             <div class="form-horizontal">   
                 <div class="form-group">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"><i class="glyphicon glyphicon-list-alt"> </i> Nom : </label>
+                        <div class="col-md-6 col-md-3">
+                            <input type='text' name='nom' value='{{$unV->nomVis or ''}}'
+                                   class='form-control' required >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"><i class="glyphicon glyphicon-list-alt"> </i> Prénom : </label>
+                        <div class="col-md-6 col-md-3">
+                            <input type='text' name='prenom' value='{{$unV->prenomVis or ''}}'
+                                   class='form-control' required >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"><i class="glyphicon glyphicon-envelope"> </i> Adresse e-mail : </label>
+                        <div class="col-md-6 col-md-3">
+                            <input type='text' name='mail' value='{{$unV->mailVis or ''}}'
+                                   class='form-control' required >
+                        </div>
+                    </div>
 
                     <div class="form-group">
                         <label class="col-md-3 control-label"><i class="glyphicon glyphicon-home"> </i> Adresse : </label>
@@ -22,7 +43,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label"><i class="glyphicon glyphicon-earphone"> </i> Téléphone : </label>
                         <div class="col-md-6 col-md-3">
-                            <input type='tel' name='telcli' value='0{{$unV->telVis or ''}}'
+                            <input type='tel' name='telcli' value='{{$unV->telVis or ''}}'
                                    class='form-control' required>
                         </div>
                     </div>

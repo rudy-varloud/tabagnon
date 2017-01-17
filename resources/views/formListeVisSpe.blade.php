@@ -1,7 +1,16 @@
 @extends('layouts.masterAdmin')
 @section('content')
 <div class="container box">
-    <h2>Liste de tous les utilisateurs existants répondant aux critères choisis: ({{$user}})({{$mesVisiteurs2}})</h2>        
+    {!! Form::open(['url' => 'listeUserSpe']) !!}
+    <h4> Rechercher un utilisateur </h4>
+    <div class="col-md-3">
+        <input type="text" name="filtre" class="form-control" placeholder="Nom ou prénom de l'utilisateur" >
+        <a href='{{url('listeUserSpe')}}'><button type='submit' class='btn btn-info'> Rechercher </button></a>
+    </div>
+    {!! Form::close() !!}
+    <br><br><br><br>
+    <h2>Liste de tous les utilisateurs existants répondant aux critères choisis: ({{$user}})({{$mesVisiteurs2}})</h2>      
+    @if($mesVisiteurs != null)
     <table class="table table-striped listeFiltree">
         <thead>
             <tr>
@@ -41,6 +50,10 @@
         @endforeach
         </tbody>
     </table>
+    @endif
+    @if($mesVisiteurs == null)
+    <p>Aucun n'utilisateur ne correspond au critère spécifié.</p>
+    @endif
 </div>
 @stop
 

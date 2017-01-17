@@ -29,7 +29,7 @@
                                         <td>{{$unV->mailVis}}</a></td>
                                     </tr>
                                 <td>Numero de telephone</td>
-                                <td>0{{$unV->telVis}}<br>
+                                <td>{{$unV->telVis}}<br>
                                 </td>
 
                                 </tr>
