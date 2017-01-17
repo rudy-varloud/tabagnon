@@ -5,9 +5,10 @@
     <body class="body">
         <div class="col-md-12 well well-md">
 
-            <center><h1>Modification du profil</h1></center>
+            <center><h1>Modification du profil</h1>
+                <p style="color:red">@if($message != null)<span class="glyphicon glyphicon-warning-sign" ></span>{{$message}}@endif</p></center>
             <br><br>
-
+            
             {!! Form::open(['url' => 'postmodificationProfil']) !!}
             <div class="form-horizontal">   
                 <div class="form-group">
@@ -53,13 +54,6 @@
                         <div class="col-md-6 col-md-3">
                             <input type='password' name='mdp' value='{{$unV->mdpVis or ''}}'
                                    class='form-control' required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-3 control-label"><i class="glyphicon glyphicon-envelope"> </i> Adresse e-mail : </label>
-                        <div class="col-md-6 col-md-3">
-                            <input type='text' name='mail' value='{{$unV->mailVis or ''}}'
-                                   class='form-control' required >
                         </div>
                     </div>
 
