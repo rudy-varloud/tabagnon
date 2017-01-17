@@ -24,6 +24,7 @@ Route::post('/subscribeGuideTemp', 'VisiteurController@subGuideTemp');
 Route::get('/getProfil', 'VisiteurController@getProfil');
 Route::post('/postmodificationProfil', 'VisiteurController@postModifierProfil');
 Route::get('/modifierProfil', 'VisiteurController@modifierProfil');
+Route::get('/majCompteTemp', 'VisiteurController@majCompteTemp');
 
 //Visite
 Route::get('/ajoutVisite', 'VisiteController@ajoutVisite');

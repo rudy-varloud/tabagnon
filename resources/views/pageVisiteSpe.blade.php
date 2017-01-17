@@ -27,5 +27,5 @@
     </div>
     @endforeach
 </div>
-
+{{ Form::close() }}
 @stop

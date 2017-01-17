@@ -171,4 +171,9 @@ class VisiteurController extends Controller {
         $unV = $unVisiteur->getUser($id);
         return view('profil', compact('unV'));
     }
+    public function majCompteTemp(){
+        $unVisiteur = new Visiteur();
+        $id = Session::get('id');
+        $mesVisiteurs = $unVisiteur->
+    }
 }
