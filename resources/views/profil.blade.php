@@ -22,15 +22,28 @@
 
                                     <tr>
                                         <td>Adresse</td>
+                                        @if (($unV->adresseVis) == null)
+                                        <td> Non renseigné </td>
+                                        @endif
                                         <td>{{$unV->adresseVis}}</td>
                                     </tr>
                                     <tr>
                                         <td>Email</td>
+                                        @if (($unV->mailVis) == null)
+                                        <td> Non renseigné </td>
+                                        @endif
                                         <td>{{$unV->mailVis}}</a></td>
                                     </tr>
                                 <td>Numero de telephone</td>
-                                <td>0{{$unV->telVis}}<br>
+                                @if (($unV->telVis) == null)
+                                        <td> Non renseigné </td>
+                                        @endif
+                                <td>{{$unV->telVis}}<br>
                                 </td>
+                                <tr>
+                                <td> Login </td>
+                                <td>{{$unV->login}}</td>
+                            </tr>
 
                                 </tr>
 

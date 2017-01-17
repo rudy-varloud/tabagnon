@@ -31,6 +31,9 @@
                 <td>{{$unVisiteur -> telVis}}</td>
                 <td>{{$unVisiteur -> mailVis}}</td>
                 <td>{{$unVisiteur -> adresseVis}}</td>
+                @if(($unVisiteur -> ncptVis) == 5)
+                <td>Guide temporaire</td>
+                @endif
                 @if(($unVisiteur -> ncptVis) == 4)
                 <td>Administrateur</td>
                 @endif
