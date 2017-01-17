@@ -18,8 +18,9 @@ class VisiteurController extends Controller {
         if ($connected) {
             $id = Session::get('id');
             $unV = $unVisiteur->getUser($id);
-            if ($unV->ncptVis)
+            if ($unV->ncptVis == 5){
                 return redirect('/modifierProfil');
+            }
             return redirect('/accueil');
         }
         else {
