@@ -119,8 +119,8 @@ class Visiteur extends Model {
                 ->Select('idVis', 'login', 'telVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
                 ->where('prenomVis', 'like', '%' . $user . '%')
                 ->orderBy('login', 'ASC')
-                ->get();        
-        $Visiteurs = array_merge($mesVisiteursNom,$mesVisiteursPrenom);
+                ->get();
+        $Visiteurs = array_merge($mesVisiteursNom, $mesVisiteursPrenom);
         $Visiteurs = array_map("unserialize", array_unique(array_map("serialize", $Visiteurs)));
         return $Visiteurs;
     }
@@ -129,7 +129,7 @@ class Visiteur extends Model {
         $mesVisiteurs = DB::table('visiteur')
                 ->Select('idVis', 'login', 'telVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
                 ->where('ncptVis', '=', '3')
-                ->orWhere('ncptVis', '=' ,'5')
+                ->orWhere('ncptVis', '=', '5')
                 ->get();
         return $mesVisiteurs;
     }
@@ -141,20 +141,27 @@ class Visiteur extends Model {
         return $mesVisiteurs_compteSpe;
     }
 
-    public function subGuideMan($prenomUser, $nomUser){
-        $mesVisiteurs =DB::table('visiteur')
+    public function subGuideMan($prenomUser, $nomUser) {
+        $mesVisiteurs = DB::table('visiteur')
                 ->insert(['login' => $prenomUser, 'mdpVis' => $nomUser, 'nomVis' => $nomUser, 'prenomVis' => $prenomUser, 'ncptVis' => 5]);
         return $mesVisiteurs;
     }
-    
+
     //Dialogue aves la bdd pour modifier le profil d'un utilisateur
-    public function modificationProfil($id, $adresse, $tel, $mdp, $mail,$nom,$prenom) {
-        DB::table('visiteur')->where('idVis', $id)
-                ->update(['adresseVis' => $adresse, 'telVis' => $tel, 'mdpVis' => $mdp, 'mailVis' => $mail,'nomVis' => $nom, 'prenomVis' => $prenom]);
+    public function modificationProfil($id, $adresse, $tel, $mdp, $mail, $nom, $prenom, $login) {
+        if ($login != null) {
+            DB::table('visiteur')->where('idVis', $id)
+                    ->update(['adresseVis' => $adresse, 'telVis' => $tel, 'mdpVis' => $mdp, 'mailVis' => $mail, 'nomVis' => $nom, 'prenomVis' => $prenom, 'login' => $login]);
+        }
+        else{
+            DB::table('visiteur')->where('idVis', $id)
+                    ->update(['adresseVis' => $adresse, 'telVis' => $tel, 'mdpVis' => $mdp, 'mailVis' => $mail, 'nomVis' => $nom, 'prenomVis' => $prenom]);
+        }
     }
-    
-    public function updateGuide($id){
+
+    public function updateGuide($id) {
         DB::table('visiteur')->where('idVis', $id)
                 ->update(['ncptVis' => 3]);
     }
+
 }
