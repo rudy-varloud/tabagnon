@@ -176,5 +176,5 @@ class VisiteurController extends Controller {
         $unV = $unVisiteur->getUser($id);
         return view('profil', compact('unV'));
     }
-
+   
 }
