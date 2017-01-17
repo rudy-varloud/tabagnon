@@ -152,4 +152,9 @@ class Visiteur extends Model {
         DB::table('visiteur')->where('idVis', $id)
                 ->update(['adresseVis' => $adresse, 'telVis' => $tel, 'mdpVis' => $mdp, 'mailVis' => $mail,'nomVis' => $nom, 'prenomVis' => $prenom]);
     }
+    
+    public function updateGuide($id){
+        DB::table('visiteur')->where('idVis', $id)
+                ->update(['ncptVis' => 3]);
+    }
 }
