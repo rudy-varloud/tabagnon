@@ -1,3 +1,4 @@
+@if (Session::get('ncpt') == 4)
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,3 +96,9 @@
 
 
 </html>
+@endif
+@if (Session::get('ncpt') != 4)
+<script>
+    window.location.href = "{{url('/getLogin')}}";
+</script>
+@endif
