@@ -128,6 +128,42 @@ class VisiteurController extends Controller {
         return view('pageAdmin');
     }
 
+    /* Créer l'appel de récupération des données d'un client 
+     * et renvoie ces données au formulaire de modification d'un client.   
+     */
+
+    public function modifierProfil() {
+        $id = Session::get('id');
+        $unVisiteur = new Visiteur();
+        $unV = $unVisiteur->getClient($id);
+        $erreur = "";
+        return view('formProfil', compact('erreur', 'unV'));
+    }
+
+    /* Récupère en post les données du formulaire de modification d'un client
+     * et créer l'appel de la modification des données d'un client 
+     * puis renvoie la page profil du client.     
+     */
+
+    public function postModifierProfil() {
+        $unClient = new Visiteur();
+        $adresse = Request::input('adressecli');
+        $tel = Request::input('telcli');
+        $mdp = Request::input('mdp');
+        $mail = Request::input('mail');
+        $id = Session::get('id');
+        $unClient->modificationProfil($id, $adresse, $tel, $mdp, $mail);
+        return redirect('/getProfil/' . $id);
+    }
     
-   
+   /* Créer l'appel de récupération des données d'un client 
+     * et renvoie les données sur la page profil du client.
+     */
+
+    public function getProfil() {
+        $unVisiteur = new Visiteur();
+        $id = Session::get('id');
+        $unV = $unVisiteur->getUser($id);
+        return view('profil', compact('unV'));
+    }
 }
