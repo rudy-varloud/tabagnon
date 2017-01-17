@@ -1,8 +1,3 @@
-@if (Session::get('ncpt') == 5)
-<script>
-    window.location.href = "{{url('/majCompteTemp')}}";
-</script>
-@endif
 <!DOCTYPE html>
 <html lang="en">
 
