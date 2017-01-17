@@ -1,14 +1,24 @@
 @extends('layouts.master')
 @section('content')
 <!doctype html>
+<script>
+    function pass(){
+    $('.verifMdp').mouseup(function () {
+        $('.mdp').attr('type', 'password');
+    });
+    $('.verifMdp').mousedown(function () {
+        $('.mdp').removeAttr('type', 'password');
+    });
+    }
+</script>
 <html lang="fr">
-    <body class="body">
+    <body onLoad="pass();"class="body">
         <div class="col-md-12 well well-md">
 
             <center><h1>Modification du profil</h1>
                 <p style="color:red">@if($message != null)<span class="glyphicon glyphicon-warning-sign" ></span>{{$message}}@endif</p></center>
             <br><br>
-            
+
             {!! Form::open(['url' => 'postmodificationProfil']) !!}
             <div class="form-horizontal">   
                 <div class="form-group">
@@ -53,7 +63,10 @@
                         <label class="col-md-3 control-label"><i class= "glyphicon glyphicon-eye-close"> </i> Mot de passe : </label>
                         <div class="col-md-6 col-md-3">
                             <input type='password' name='mdp' value='{{$unV->mdpVis or ''}}'
-                                   class='form-control' required>
+                                   class='form-control mdp' id="0" required>
+                        </div>
+                        <div class="verifMdp">
+                        <span class='glyphicon glyphicon-eye-open'/>
                         </div>
                     </div>
 
