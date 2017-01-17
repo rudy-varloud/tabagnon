@@ -158,12 +158,13 @@ class VisiteurController extends Controller {
         $mail = Request::input('mail');
         $nom = Request::input('nom');
         $prenom = Request::input('prenom');
+        $login = Request::input('login');
         $id = Session::get('id');
         $unV = $unVisiteur->getUser($id);
         if ($unV->ncptVis == 5) {
             $unVisiteur->updateGuide($id);
         }
-        $unVisiteur->modificationProfil($id, $adresse, $tel, $mdp, $mail, $nom, $prenom);
+        $unVisiteur->modificationProfil($id, $adresse, $tel, $mdp, $mail, $nom, $prenom,$login);
         return redirect('/getProfil');
     }
 

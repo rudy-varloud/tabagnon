@@ -2,13 +2,13 @@
 @section('content')
 <!doctype html>
 <script>
-    function pass(){
-    $('.verifMdp').mouseup(function () {
-        $('.mdp').attr('type', 'password');
-    });
-    $('.verifMdp').mousedown(function () {
-        $('.mdp').removeAttr('type', 'password');
-    });
+    function pass() {
+        $('.verifMdp').mouseup(function () {
+            $('.mdp').attr('type', 'password');
+        });
+        $('.verifMdp').mousedown(function () {
+            $('.mdp').removeAttr('type', 'password');
+        });
     }
 </script>
 <html lang="fr">
@@ -16,7 +16,7 @@
         <div class="col-md-12 well well-md">
 
             <center><h1>Modification du profil</h1>
-                <p style="color:red">@if($message != null)<span class="glyphicon glyphicon-warning-sign" ></span>{{$message}}@endif</p></center>
+                <p style="color:red">@if($message != null)<span class="glyphicon glyphicon-warning-sign" ></span> {{$message}}@endif</p></center>
             <br><br>
 
             {!! Form::open(['url' => 'postmodificationProfil']) !!}
@@ -58,7 +58,15 @@
                                    class='form-control' required>
                         </div>
                     </div>
-
+                    @if(Session::get('ncpt') == 5)
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"><i class="glyphicon glyphicon-list-alt"> </i> Login : </label>
+                        <div class="col-md-6 col-md-3">
+                            <input type='text' name='login' value='{{$unV->login or ''}}'
+                                   class='form-control' required>
+                        </div>
+                    </div>
+                    @endif
                     <div class="form-group">
                         <label class="col-md-3 control-label"><i class= "glyphicon glyphicon-eye-close"> </i> Mot de passe : </label>
                         <div class="col-md-6 col-md-3">
@@ -66,7 +74,7 @@
                                    class='form-control mdp' id="0" required>
                         </div>
                         <div class="verifMdp">
-                        <span class='glyphicon glyphicon-eye-open'/>
+                            <span class='glyphicon glyphicon-eye-open'/>
                         </div>
                     </div>
 
