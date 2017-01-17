@@ -58,7 +58,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                    <a class="navbar-brand" href="{{url('/')}}">
+                    <a class="navbar-brand" href="{{url('/accueil')}}">
                         <img src="{{URL::asset('assets/image/logoTabagnon.png')}}" alt="Logo Tabagnon" height="30" width="24">
                         Association Tabagnon</a>
                 </div>
