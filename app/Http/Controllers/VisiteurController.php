@@ -18,7 +18,7 @@ class VisiteurController extends Controller {
         $unVisiteur = new Visiteur();
         $connected = $unVisiteur->login($login, $pwd);
         if($connected){
-            return redirect('/');
+            return redirect('/accueil');
         }
         else{
             $erreur = "Login ou mot de passe inconnu, veuillez ressayez ou créer un compte sur SHOP DOZO !";
@@ -42,7 +42,7 @@ class VisiteurController extends Controller {
         //Création d'un objet, et appel d'une méthode pour cette objet
         $unVisteur = new Visiteur();
         $unVisteur->logout();
-        return redirect('/');
+        return redirect('/accueil');
     }
     
     //Renvoie sur le formulaire d'inscription
