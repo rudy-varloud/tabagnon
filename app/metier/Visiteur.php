@@ -146,4 +146,10 @@ class Visiteur extends Model {
                 ->insert(['login' => $prenomUser, 'mdpVis' => $nomUser, 'nomVis' => $nomUser, 'prenomVis' => $prenomUser, 'ncptVis' => 5]);
         return $mesVisiteurs;
     }
+    
+    //Dialogue aves la bdd pour modifier le profil d'un utilisateur
+    public function modificationProfil($id, $adresse, $tel, $mdp, $mail,$nom,$prenom) {
+        DB::table('visiteur')->where('idVis', $id)
+                ->update(['adresseVis' => $adresse, 'telVis' => $tel, 'mdpVis' => $mdp, 'mailVis' => $mail,'nomVis' => $nom, 'prenomVis' => $prenom]);
+    }
 }

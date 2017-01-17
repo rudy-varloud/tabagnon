@@ -38,7 +38,7 @@ class Carousel extends Model {
     public function carouselSupprimer($image) {
         DB::table('carousel')->where('image', '=', $image)
                 ->delete();
-        \File::delete('../../public/assets/image/' . $image);
+        \File::delete(public_path()."/assets/image/carousel/".$image);
     }
 
     public function carouselRetirer($image) {
