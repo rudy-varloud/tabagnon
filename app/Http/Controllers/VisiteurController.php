@@ -119,6 +119,14 @@ class VisiteurController extends Controller {
         $mesVisiteurs2 = $unVisiteur2->countUserSpe($user);
         return view('formListeVisSpe', compact('mesVisiteurs', 'mesVisiteurs2', 'user'));
     }
+    
+    public function subGuideTemp(){
+        $prenomUser = Request::input('prenomGuideMan');
+        $nomUser = Request::input('nomGuideMan');
+        $unVisiteur = new Visiteur();
+        $mesVisiteur = $unVisiteur->subGuideMan($prenomUser, $nomUser);
+        return view('pageAdmin');
+    }
 
     
    

@@ -23,7 +23,7 @@
                 @endfor
             </select>
         </div>
-        <button type="submit" class="btn btn-info" value="Réserver"> Réserver </button>
+        <button type="submit" class="btn btn-info sub" value="Réserver"> Réserver </button>
     </div>
     @endforeach
 </div>

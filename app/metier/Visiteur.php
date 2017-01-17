@@ -129,6 +129,7 @@ class Visiteur extends Model {
         $mesVisiteurs = DB::table('visiteur')
                 ->Select('idVis', 'login', 'telVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
                 ->where('ncptVis', '=', '3')
+                ->orWhere('ncptVis', '=' ,'5')
                 ->get();
         return $mesVisiteurs;
     }
@@ -140,4 +141,9 @@ class Visiteur extends Model {
         return $mesVisiteurs_compteSpe;
     }
 
+    public function subGuideMan($prenomUser, $nomUser){
+        $mesVisiteurs =DB::table('visiteur')
+                ->insert(['login' => $prenomUser, 'mdpVis' => $nomUser, 'nomVis' => $nomUser, 'prenomVis' => $prenomUser, 'ncptVis' => 5]);
+        return $mesVisiteurs;
+    }
 }
