@@ -4,7 +4,6 @@
     <div class="col-lg-12 col-md-12 col-s-12 box">
         @foreach ($mesVisites as $uneVisite)
         @php
-        $date = date_create($uneVisite->dateVisite);
         $placeDispo = (($uneVisite->nbPlace) - ($uneVisite->nbPlaceRes))
         @endphp
         <a href='{{url ('/getVisiteSpe/'.$uneVisite->idVisite)}}' style='text-decoration: none;' title="Cliquez pour plus d'informations"> <div class='takeVisite'>
@@ -17,7 +16,6 @@
                     <th>Prix de la visite</th>
                     <th>Place(s) restante(s)</th>
                     <th>Lieu</th>
-                    <th>Date</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,7 +25,6 @@
                     <td>{{$uneVisite->prixVisite}}€</td>
                     <td>{{$placeDispo}}</td>
                     <td>{{$uneVisite->lieuxVisite}}</td>
-                    <td>{{$date->format('d/m/Y')}}</td>
                 </tr>
         </table>
         <br>

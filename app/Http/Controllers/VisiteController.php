@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use App\metier\Visiteur;
 use App\metier\Visite;
+use App\metier\Date_visite;
 use Request;
+use DateTime;
 use Illuminate\Support\Facades\Session;
 use Exception;
 use  Illuminate\Support\Facades\Input;
@@ -11,22 +13,29 @@ use  Illuminate\Support\Facades\Input;
 class VisiteController extends Controller {
    
     public function ajoutVisite(){
+        $cpt = Request::input('nbDate');
         $unVisiteur = new Visiteur();
         $mesVisiteurs = $unVisiteur->getVisiteurGuide();
-        return view('formAjoutVisite', compact('mesVisiteurs'));
+        return view('formAjoutVisite', compact('mesVisiteurs','cpt'));
     }
     
     public function postFormVisite(){
         $nomVisite = Request::input('nomVisite');
         $lieuxVisite = Request::input('lieuxVisite');
         $descVisite = Request::input('description');
-        $dateVisite = Request::input('date');
         $prixVisite = Request::input('prix');
         $nbPlaceVisite = Request::input('nbPlace');
-        $nomGuideVisite = Request::input('nomGuideVisite');
+        $idGuideVisite = Request::input('idGuideVisite');
         $uneVisite = new Visite();
-        $mesVisites = $uneVisite->postFormVisite($nomVisite, $lieuxVisite, $descVisite, $dateVisite, $prixVisite,
-                $nbPlaceVisite, $nomGuideVisite);
+        $id = $uneVisite->postFormVisite($nomVisite, $lieuxVisite, $descVisite, $prixVisite,$nbPlaceVisite, $idGuideVisite);
+        $cpt = Request::input('cpt');
+        $uneDateVisite = new Date_visite();
+        While($cpt>0){
+            $date = new DateTime(trim(Request::input($cpt)));
+            $date = $date->format('Y-m-d');
+            $uneDateVisite->addDate($id,$date);
+            $cpt-=1;
+        }
         return view('pageAdmin', compact('mesVisites'));
     }
     
@@ -37,16 +46,17 @@ class VisiteController extends Controller {
     }
     
     public function pageVisiteSpe($idVisite){
-        $uneVisite = new Visite();
-        $mesVisites = $uneVisite->pageVisiteSpe($idVisite);
+        $mesVisites = new Visite();
+        $mesVisites = $mesVisites->pageVisiteSpe($idVisite);
         return view('pageVisiteSpe', compact('mesVisites'));
     }
     
     public function reservationPlace(){
         $idVisite = Request::input('nbPlaceDispo');
         $nbPlaceSouhaite = Request::input('nbPlaceVoulu');
-        $uneVisite = new Visite();
-        $uneVisite->reservationPlace($idVisite, $nbPlaceSouhaite);
+        $dateVisite = Request::input('dateVisite');
+        $uneVisite = new Date_visite();
+        $uneVisite->reservationPlace($idVisite, $nbPlaceSouhaite,$dateVisite);
         return view('pageAdmin');
     }
    
