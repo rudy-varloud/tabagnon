@@ -3,11 +3,13 @@
 {!! Form::open(['url' => 'listeUserSpe']) !!}
 <div class="container box">
     <h4> Rechercher un utilisateur </h4>
-    <div class="col-md-3">
-        <input type="text" name="filtre" class="form-control" placeholder="Nom ou prénom de l'utilisateur" >
+    <div class='col-md-12 inputRecherche'>
+        <div class="col-md-3">
+            <input type="text" name="filtre" class="form-control" placeholder="Nom ou prénom de l'utilisateur" >
+        </div>
         <a href='{{url('listeUserSpe')}}'><button type='submit' class='btn btn-info'> Rechercher </button></a>
     </div>
-    <br><br><br><br>
+    <br><br><br>
     <h2>Liste de tous les utilisateurs existants : ({{$mesVisiteurs2}})</h2>        
     <table class="table table-striped listeFiltree">
         <thead>
@@ -51,6 +53,7 @@
         @endforeach
         </tbody>
     </table>
+    <center> {{ $mesVisiteurs->render() }} </center>
 </div>
 @stop
 

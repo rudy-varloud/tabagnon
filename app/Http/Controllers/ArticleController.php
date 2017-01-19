@@ -57,5 +57,23 @@ class ArticleController extends Controller {
         $lesArticles = $unA->listerArticle();
         return view('listeArticle', compact('lesArticles'));
     }
+    
+    public function listeArticleAdmin(){
+        $unArticle = new Article();
+        $lesArticles = $unArticle->listeArticleAdmin();
+        return view('listeArticleAdmin', compact('lesArticles'));
+    }
+    
+    public function deleteArticle($idArticle){
+        $unArticle = new Article();
+        $lesArticles = $unArticle->deleteArticle($idArticle);
+        return view('pageAdmin');
+    }
+    
+    public function modifierArticle($idArticle){
+        $unArticle = new Article();
+        $lesArticles = $unArticle->modifierArticle($idArticle);
+        return view('formModifierArticle', compact('lesArticles'));
+    }
 
 }

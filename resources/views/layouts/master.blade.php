@@ -30,6 +30,15 @@
                 force_p_newlines: false,
                 height: 300
             });
+
+            function pass() {
+                $('.verifMdp').mouseup(function () {
+                    $('.pwd').attr('type', 'password');
+                });
+                $('.verifMdp').mousedown(function () {
+                    $('.pwd').removeAttr('type', 'password');
+                });
+            }
         </script>
 
         <!-- Custom CSS -->
@@ -42,7 +51,7 @@
 
     </head>
 
-    <body>
+    <body onLoad="pass();">
         <div class="brand">
             <a href="{{url('/accueil')}}"><img src="{{URL::asset('assets/image/logoTabagnon.png')}}" alt="Logo Tabagnon" height="123" width="100"></a>
             Tabagnon | <small>Saint-Genis-les-Ollières</small></div>
@@ -70,7 +79,7 @@
                     @if(Session::get('id') == 0)
                     <ul class="nav navbar-nav">
                         <li><a href="{{url('/getSubscribe')}}">Inscription</a></li>
-                        <li><a data-target="#loginModal" data-toggle="modal" data-target=".navbar-collapse.in" class="">Se connecter</a></li>
+                        <li><a data-target="#loginModal" data-toggle="modal" data-target=".navbar-collapse.in" class="connec">Se connecter</a></li>
                     </ul>
                     @else
                     <ul class="nav navbar-nav">
@@ -124,7 +133,10 @@
                     <label class="control-label">Identifiant : </label>
                     <input type="text" name="login" class="form-control" placeholder="Votre identifiant" required autofocus>
                     <label class="control-label">Mot de passe : </label>
-                    <input type="password" name="pwd" class="form-control" placeholder="Votre mot de passe" required>
+                    <input type="password" name="pwd" class="form-control pwd" placeholder="Votre mot de passe" required>
+                    <div class="verifMdp">
+                        <span class='glyphicon glyphicon-eye-open'/>
+                    </div>
 
                 </div>
                 <div class="modal-footer">

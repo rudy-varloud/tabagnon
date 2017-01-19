@@ -73,8 +73,29 @@ class Article extends Model {
 
     public function listerArticle() {
         $lesArticles = DB::table('Article')->Select()
-                ->get();
+                ->orderBy('dateCreation', 'DESC')
+                ->paginate(5);
         return $lesArticles;
+    }
+    
+    public function listeArticleAdmin(){
+        $lesArticles = DB::table('Article')
+                ->Select()
+                ->paginate(10);
+        return $lesArticles;
+    }
+    public function deleteArticle($idArticle){
+        $lesArticles = DB::table('Article')
+                ->Where('idArticle', "=", $idArticle)
+                ->Delete();
+    }
+    
+    public function modifierArticle($idArticle){
+        $lesArticles = DB::table('Article')
+                ->Select('idArticle', 'titreArticle', 'description', 'contenue')
+                ->Where('idArticle', '=', $idArticle);
+        return $lesArticles;
+                
     }
 
 }

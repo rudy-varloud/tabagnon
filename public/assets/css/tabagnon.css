@@ -321,14 +321,9 @@ footer p {
     height: 200px;
     object-fit: cover;
     margin-top : 50px;
-    border : solid black 2px;
 }
 .reservation{
-    margin-bottom: 0px;
-    padding: 30px 15px;
-    background: #fff;
-    background: #D8D8D8;
-    padding: 2em; 
+    margin-top: 2.5%; 
 }
 
 .img-presentation{
@@ -347,8 +342,34 @@ footer p {
 .verifMdp{
     margin-right: 48%;
     margin-top: 0.8%;
+    cursor: pointer;
 }
 
 .imageProfil{
     margin-top: 5%;
+}
+
+.connec{
+    cursor: pointer;
+}
+
+.nomArticle{
+    margin-top: 6%;
+}
+
+.sub{
+    margin-top: 2.5%; 
+}
+
+.cliquezArticle{
+    font-style: italic;
+    font-size: 1em;
+}
+
+.descArticle{
+    font-family: 'Open Sans';
+}
+
+.inputRecherche{
+    margin-left: -2.7%;
 }
