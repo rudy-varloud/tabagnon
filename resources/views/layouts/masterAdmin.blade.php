@@ -71,6 +71,7 @@
                             <li><a href="{{url('/getLogout')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Se déconnecter</a></li>
                             <li><a href="{{url('/carouselAccueil')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Carousel</a></li>
                             <li><a href="{{url('/ajoutVisite')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Ajouter une visite</a></li>
+                            <li><a href='{{url('/listeArticleAdmin')}}' data-toggle="collapse" data-target=".navbar-collapse.in" class=''>Lister les articles</a></li>
                         </ul>
                     </div>
                 </div>

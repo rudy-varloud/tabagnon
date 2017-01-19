@@ -85,7 +85,7 @@ class Visiteur extends Model {
         $mesVisiteurs = DB::table('visiteur')
                 ->Select('idVis', 'login', 'telVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
                 ->orderBy('login', 'ASC')
-                ->get();
+                ->paginate(20);
         return $mesVisiteurs;
     }
 

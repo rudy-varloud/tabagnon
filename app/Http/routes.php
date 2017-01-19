@@ -42,6 +42,9 @@ Route::get('/getArticles', 'ArticleController@listerArticle');
 Route::get('/article/{idArticle}', 'ArticleController@getArticle');
 Route::get('/ajoutArticle', 'ArticleController@getFormArticle');
 Route::post('/postFormArticle', 'ArticleController@postFormArticle');
+Route::get('/listeArticleAdmin', 'ArticleController@listeArticleAdmin');
+Route::get('/deleteArticle/{idArticle}', 'ArticleController@deleteArticle');
+Route::get('/modifierArticle/{idArticle}', 'ArticleController@modifierArticle');
 
 
 //Admin
