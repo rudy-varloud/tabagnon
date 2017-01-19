@@ -15,15 +15,17 @@
     <div class="reserverPlace">
 
         <div class="col-lg-6 place"> - Nombre de place disponible(s): {{$placeDispo}}</div>
-        <div class="col-lg-4 reservation"> 
-            <select name='nbPlaceVoulu' class="form-control">
-                <option value="Selectionnez le nombre de place souhaité" disabled selected required>Selectionnez le nombre de place(s) souhaité(s)</option>
-                @for($i = 1; $i<= $placeDispo; $i++)
-                <option value="{{$i}}">{{$i}}</option>
-                @endfor
-            </select>
+        <div class="testReser">
+            <div class="col-lg-4 reservation"> 
+                <select name='nbPlaceVoulu' class="form-control">
+                    <option value="Selectionnez le nombre de place souhaité" disabled selected required>Selectionnez le nombre de place(s) souhaité(s)</option>
+                    @for($i = 1; $i<= $placeDispo; $i++)
+                    <option value="{{$i}}">{{$i}}</option>
+                    @endfor
+                </select>
+            </div>
+            <button type="submit" class="btn btn-info sub" value="Réserver"> Réserver </button>
         </div>
-        <button type="submit" class="btn btn-info sub" value="Réserver"> Réserver </button>
     </div>
     @endforeach
 </div>

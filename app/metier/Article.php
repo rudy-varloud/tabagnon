@@ -73,7 +73,8 @@ class Article extends Model {
 
     public function listerArticle() {
         $lesArticles = DB::table('Article')->Select()
-                ->get();
+                ->orderBy('dateCreation', 'DESC')
+                ->paginate(5);
         return $lesArticles;
     }
 
