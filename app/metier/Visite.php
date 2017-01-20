@@ -20,33 +20,41 @@ class Visite extends Model {
         'descriptionVisite'
     ];
 
-    public function postFormVisite($nomVisite, $lieuxVisite, $descVisite, $dateVisite, $prixVisite, $nbPlaceVisite, $nomGuideVisite) {
-        $mesVisites = DB::table('visite')
-                ->insert(['lieuxVisite' => $lieuxVisite, 'nbPlace' => $nbPlaceVisite, 'idGuide' => $nomGuideVisite,
-            'libelleVisite' => $nomVisite, 'prixVisite' => $prixVisite, 'descriptionVisite' => $descVisite, 'dateVisite' => $dateVisite]);
-        return $mesVisites;
+    public function postFormVisite($nomVisite, $lieuxVisite, $descVisite, $prixVisite, $nbPlaceVisite, $idGuideVisite) {
+        DB::table('visite')
+                ->insert(['lieuxVisite' => $lieuxVisite, 'nbPlace' => $nbPlaceVisite, 'idGuide' => $idGuideVisite,
+                    'libelleVisite' => $nomVisite, 'prixVisite' => $prixVisite, 'descriptionVisite' => $descVisite]);
+        $id = DB::table('visite')->Select('idVisite')
+                ->where('libelleVisite', '=', $nomVisite)
+                ->where('lieuxVisite', '=', $lieuxVisite)
+                ->where('descriptionVisite', '=', $descVisite)
+                ->where('prixVisite', '=', $prixVisite)
+                ->where('nbPlace', '=', $nbPlaceVisite)
+                ->where('idGuide', '=', $idGuideVisite)
+                ->first();
+        return $id->idVisite;
     }
 
-    public function getVisite() {
+    public function getVisites() {
         $mesVisites = DB::table('visite')
-                ->select('idVisite', 'lieuxVisite', 'nbPlace', 'nbPlaceRes', 'idGuide', 'idGuide', 'libelleVisite', 'prixVisite', 'descriptionVisite', 'dateVisite')
-                ->orderBy('dateVisite', 'ASC')
+                ->select('visite.idVisite', 'lieuxVisite', 'nbPlace', 'idGuide', 'libelleVisite', 'prixVisite', 'descriptionVisite')
                 ->get();
         return $mesVisites;
+    }
+    
+    public function nbPlace($idVisite) {
+        $nb = DB::table('visite')->Select('nbPlace')   
+                ->where('idVisite', '=', $idVisite)
+                ->first();
+        return $nb->nbPlace;
     }
 
     public function pageVisiteSpe($idVisite) {
         $mesVisites = DB::table('visite')
-                ->select('idVisite', 'lieuxVisite', 'nbPlace', 'nbPlaceRes', 'idGuide', 'idGuide', 'libelleVisite', 'prixVisite', 'descriptionVisite', 'dateVisite')
-                ->where('idVisite', '=', $idVisite)
+                ->select('visite.idVisite', 'lieuxVisite', 'nbPlace', 'nbPlaceRes', 'idGuide', 'idGuide', 'libelleVisite', 'prixVisite', 'descriptionVisite', 'dateVisite')
+                ->join('date_visite', 'date_visite.idVisite', '=', 'visite.idVisite')
+                ->where('visite.idVisite', '=', $idVisite)
                 ->get();
-        return $mesVisites;
-    }
-
-    public function reservationPlace($idVisite, $nbPlaceSouhaite) {
-        $mesVisites = DB::table('visite')
-                ->where('idVisite', '=', $idVisite)
-                ->increment('nbPlaceRes', $nbPlaceSouhaite);
         return $mesVisites;
     }
 

@@ -1,5 +1,9 @@
 @extends('layouts.masterAdmin')
 @section('content')
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 {!! Form::open(['url' => 'postFormVisite', 'files' => true]) !!}
 <div class="col-lg-12 col-md-12 col-s-12 box">
     <center><h2 class='formVisite'> Créer une visite </h2></center>
@@ -20,8 +24,17 @@
     </div>
     <br>
     <div class='form-group'>
-        <label class="col-md-3 control-label"> Date de la visite: </label>
-        <input name="date" class="form-control" type="date" value="" placeholder="Date et heure souhaitez pour la visite" required>
+        <label class="col-md-3 control-label"> Date(s) de la visite: </label>
+        <input name="cpt" type="hidden" value="{{$cpt}}">
+        @while($cpt>0)
+        <div class="input_fields_wrap">                  
+        <input name="{{$cpt}}" type="text" class="datepicker form-control"  value="{{$dateVisite or ''}}" placeholder="Date et heure souhaitez pour la visite" required>
+        <button type="submit" value="">Supprimer</button>
+        </div>
+        <br>
+        @php(
+        $cpt = $cpt - 1)
+        @endwhile
     </div>
     <br>
     <div class="form-group">
@@ -36,7 +49,7 @@
     <br>
     <div class='form-group'>
         <label class='col-md-4 control-label'>Sélectionnez le guide pour cette visite: </label>
-        <select name="nomGuideVisite" class="form-control nomGuideVis" required>
+        <select name="idGuideVisite" class="form-control nomGuideVis" required>
             <option value="Selectionnez le guide souhaité" selected disabled>Selectionnez le guide souhaité</option>
             @foreach($mesVisiteurs as $unVisiteur)
             <option value="{{$unVisiteur -> idVis}}">{{$unVisiteur->prenomVis}} {{$unVisiteur->nomVis}} @if(($unVisiteur->ncptVis) == 5)<span class='ct'>(Compte temporaire)</span>@endif</option>
@@ -47,7 +60,7 @@
             <center> <button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal">Créer un guide manuellement</button> </center>
         </div>
     </div>
-    
+
     <br>
     <div class="form-group">
         <br><br>
@@ -62,7 +75,7 @@
 </div>
 {{ Form::close() }}
 {!! Form::open(['url' => 'subscribeGuideTemp', 'files' => true]) !!}
-    <div id="myModal" class="modal fade" role="dialog">
+<div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
@@ -84,6 +97,6 @@
             </div>
         </div>
     </div>
-    </div>
-    {{ Form::close() }}
+</div>
+{{ Form::close() }}
 @stop

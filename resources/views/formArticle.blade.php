@@ -42,7 +42,8 @@
                 </button>
                 &nbsp;
                 <button type="button" class="btn btn-default btn-primary" 
-                        onclick="javascript: window.location = '{{url('/acccueil')}}';">
+                        onclick="javascript:if (confirm('Voulez vous vraiment quitter l éditeur ?'))
+                           { window.location ='{{ url('/getPageAdmin') }}'; }">
                     <span class="glyphicon glyphicon-remove" ></span> Annuler</button> </center>
         </div>
     </div>
