@@ -1,3 +1,4 @@
+@if (Session::get('ncpt') > 0)
 <!--View qui sert à voir son profil.-->
 @extends('layouts.master')
 @section('content')
@@ -65,5 +66,12 @@
     </div>
 </div>
 <!--View qui sert à voir son profil.-->
-
 @stop
+
+@endif
+@if (Session::get('ncpt') == 0)
+<script>
+    window.location.href = "{{url('/getLogin')}}";
+</script>
+@endif
+

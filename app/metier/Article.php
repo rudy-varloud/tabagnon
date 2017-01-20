@@ -85,17 +85,24 @@ class Article extends Model {
         return $lesArticles;
     }
     public function deleteArticle($idArticle){
-        $lesArticles = DB::table('Article')
+        $lesArticles = DB::table('article')
                 ->Where('idArticle', "=", $idArticle)
                 ->Delete();
     }
     
     public function modifierArticle($idArticle){
-        $lesArticles = DB::table('Article')
-                ->Select('idArticle', 'titreArticle', 'description', 'contenue')
-                ->Where('idArticle', '=', $idArticle);
-        return $lesArticles;
-                
+        $mesArticles = DB::table('article')
+                ->Select()
+                ->where('idArticle', '=', $idArticle)
+                ->first();
+        return $mesArticles;
+    }
+    
+    public function postModifArticle($id, $titre, $description, $contenu, $date){
+        $mesArticles = DB::table('article')
+                ->where('idArticle', '=', $id)
+                ->update(['titreArticle' => $titre, 'description' => $description, 'contenu' => $contenu, 'dateEdition' => $date]);
+        return $mesArticles;
     }
 
 }

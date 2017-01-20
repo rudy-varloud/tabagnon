@@ -42,9 +42,16 @@ Route::get('/getArticles', 'ArticleController@listerArticle');
 Route::get('/article/{idArticle}', 'ArticleController@getArticle');
 Route::get('/ajoutArticle', 'ArticleController@getFormArticle');
 Route::post('/postFormArticle', 'ArticleController@postFormArticle');
+Route::post('/postFormModifArticle', 'ArticleController@postFormModifArticle');
 Route::get('/listeArticleAdmin', 'ArticleController@listeArticleAdmin');
 Route::get('/deleteArticle/{idArticle}', 'ArticleController@deleteArticle');
 Route::get('/modifierArticle/{idArticle}', 'ArticleController@modifierArticle');
+
+
+//Conférence
+Route::get('/ajoutConference', function(){
+    return view('formAjoutConference');
+});
 
 
 //Admin

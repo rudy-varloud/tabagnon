@@ -1,3 +1,4 @@
+@if (Session::get('ncpt') > 0)
 @extends('layouts.master')
 @section('content')
 {!! Form::open(['url' => 'reservationPlace', 'files' => true]) !!}
@@ -31,3 +32,9 @@
 </div>
 {{ Form::close() }}
 @stop
+@endif
+@if (Session::get('ncpt') == 0)
+<script>
+    window.location.href = "{{url('/getLogin')}}";
+</script>
+@endif

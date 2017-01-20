@@ -2,6 +2,7 @@
 @section('content')
 
 <div class="box">
+    <center><p>______________________________</p></center>
     @foreach ($lesArticles as $unArticle)
     <a href="{{url('/article/'.$unArticle->idArticle)}}">
         <div class="col-md-10 col-md-offset-2 liste-news">    
@@ -13,7 +14,7 @@
             <p class="cliquezArticle">Cliquer pour voir l'article en entier !</p>
         </div>
     </a>
-    <hr class="">
+    <center><p>______________________________</p></center>
     @endforeach
     <center>  {{ $lesArticles->render() }} </center>
 </div>

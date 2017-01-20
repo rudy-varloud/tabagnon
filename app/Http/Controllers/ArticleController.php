@@ -72,8 +72,19 @@ class ArticleController extends Controller {
     
     public function modifierArticle($idArticle){
         $unArticle = new Article();
-        $lesArticles = $unArticle->modifierArticle($idArticle);
-        return view('formModifierArticle', compact('lesArticles'));
+        $mesArticles = $unArticle->modifierArticle($idArticle);
+        return view('formModifierArticle', compact('mesArticles'));
+    }
+    
+    public function postFormModifArticle(){
+        $id = Request::input('idArticle');
+        $titre = Request::input('titreArticle');
+        $description = Request::input('description');
+        $contenu = Request::input('contenu');
+        $date = Request::input('date');
+        $unArticle = new Article();
+        $unArticle->postModifArticle($id, $titre, $description, $contenu, $date);
+        return view ('pageAdmin');
     }
 
 }
