@@ -41,7 +41,7 @@ class VisiteController extends Controller {
     
     public function pageVisite(){
         $uneVisite = new Visite();
-        $mesVisites = $uneVisite->getVisite();
+        $mesVisites = $uneVisite->getVisites();
         return view('pageVisite', compact ('mesVisites'));
     }
     
@@ -51,13 +51,24 @@ class VisiteController extends Controller {
         return view('pageVisiteSpe', compact('mesVisites'));
     }
     
-    public function reservationPlace(){
-        $idVisite = Request::input('nbPlaceDispo');
+    public function reservationPlace(){    
+        $idVisite = Request::input('idVisite');
+        $dateVisite = Request::input('dateVisite'); 
+        $Visite = new Visite();
+        $DateVisite = new Date_visite();
+        $nbPlace = $Visite->nbPlace($idVisite);
+        $nbPlaceRes = $DateVisite->nbPlaceRes($idVisite,$dateVisite);
+        $nbPlaceDispo = $nbPlace-$nbPlaceRes;
+        return view('postPageVisiteSpe', compact('nbPlaceDispo','dateVisite','idVisite'));
+    }
+    
+    public function postReservationPlace(){      
         $nbPlaceSouhaite = Request::input('nbPlaceVoulu');
         $dateVisite = Request::input('dateVisite');
+        $idVisite = Request::input('idVisite');
         $uneVisite = new Date_visite();
         $uneVisite->reservationPlace($idVisite, $nbPlaceSouhaite,$dateVisite);
-        return view('pageAdmin');
+        return redirect('/accueil');
     }
    
 }

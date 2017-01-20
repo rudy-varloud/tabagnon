@@ -27,4 +27,12 @@ class Date_visite extends Model {
     public function addDate($id,$date){
         DB::table('date_visite')->insert(['idVisite' => $id,'dateVisite' => $date,'nbPlaceRes' => 0]);
     }
+    
+    public function nbPlaceRes($idVisite,$dateVisite) {
+        $nb = DB::table('date_visite')->Select('nbPlaceRes')   
+                ->where('idVisite', '=', $idVisite)
+                ->where('dateVisite', '=', $dateVisite)
+                ->first();
+        return $nb->nbPlaceRes;
+    }
 }

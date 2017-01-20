@@ -43,8 +43,21 @@ $(function () {
     $.datepicker.setDefaults($.datepicker.regional['fr']);
 });
 
-$(document).ready(function() {
-    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-        e.preventDefault(); $(this).parent('div').remove(); x--;
-    })
-});
+function checkSelected() {
+    if (document.getElementById('date_selected').value !== "0") {
+        document.getElementById('nbPlaceVoulu').disabled = "";
+    } else {
+        document.getElementById('nbPlaceVoulu').disabled = "disabled";
+    }
+    $("#date_selected").change(function () {
+        if ($(this).data('options') == undefined) {
+            /*Taking an array of all options-2 and kind of embedding it on the select1*/
+            $(this).data('options', $('#nbPlaceVoulu option').clone());
+        }
+        var id = $(this).val();
+        var options = $(this).data('options').filter('[value=' + id + ']');
+        $('#nbPlaceVoulu').html(options);
+    });
+}
+
+

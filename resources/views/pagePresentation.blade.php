@@ -48,7 +48,8 @@
             <img class="img-presentation" src="{{ URL::asset('assets/image/livre-tabagnon1.png') }}" alt=""></a>
         </div>
         <div class="brand">
-            <a style="text-decoration:none;display: inherit;margin: 0;padding: 30px 0 10px;text-align: center;text-shadow: 1px 1px 2px rgba(0,0,0,0.5);font-size: 1em;font-weight: 700;line-height: normal;color: #fff;margin-top: 25%;" href="{{url('/accueil')}}"><img src="{{URL::asset('assets/image/logoTabagnon.png')}}" alt="Logo Tabagnon" height="123" width="100">Tabagnon<br><small>Cliquez pour ici entrer</small></a>
+            
+            <a class="brand" style="text-decoration:none;display: inherit;margin: 0;text-align: center;text-shadow: 1px 1px 2px rgba(0,0,0,0.5);font-size: 1em;font-weight: 700;line-height: normal;color: #fff;margin-top: 17%;" href="{{url('/accueil')}}"><img src="{{URL::asset('assets/image/logoTabagnon.png')}}" alt="Logo Tabagnon" height="123" width="100">Tabagnon<br><small>Cliquez pour ici entrer</small></a>
         </div>
     </body>
 

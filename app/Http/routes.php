@@ -73,6 +73,7 @@ Route::get('getPageVisite', 'VisiteController@pageVisite');
 Route::get('/getVisiteSpe/{idVisite}', 'VisiteController@pageVisiteSpe');
 
 Route::post('/reservationPlace', 'VisiteController@reservationPlace');
+Route::post('/postReservationPlace', 'VisiteController@postReservationPlace');
 
 
 // ----- VISITEUR -----
