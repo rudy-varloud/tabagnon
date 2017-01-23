@@ -16,13 +16,14 @@ class ConferenceController extends Controller {
     public function postFormAjoutConf(){
        $nomConf = Request::input('nomConf');
        $prixConf = Request::input('prixConf');
+       $placeDispoConf = Request::input('placeDispoConf');
        $contenuConf = Request::input('contenu');
        $adresseConf = Request::input('adresseConf');
        $cpConf = Request::input('cpConf');
        $dateConf = Request::input('dateConf');
        $heureConf = Request::input('heureConf');
        $uneConf = new Conference();
-       $mesConferences = $uneConf->postAjoutConf($nomConf, $prixConf, $contenuConf, $adresseConf, $cpConf, $dateConf, $heureConf);
+       $mesConferences = $uneConf->postAjoutConf($nomConf, $prixConf, $placeDispoConf, $contenuConf, $adresseConf, $cpConf, $dateConf, $heureConf);
        return view('pageAdmin');
     }
     
@@ -32,5 +33,18 @@ class ConferenceController extends Controller {
         return view('listeConference', compact ('mesConferences'));
     }
     
+    public function getConferenceSpe($idConf){
+        $uneConference = new Conference();
+        $mesConferences = $uneConference->getConferenceSpe($idConf);
+        return view('listeConfSpe', compact('mesConferences'));
+    }
+    
+    public function postFromReserveConf(){
+        $idConf = Request::input('idConf');
+        $placeSouhaite = Request::input('placeSouhaite');
+        $uneConference = new Conference();
+        $mesConferences = $uneConference->postFromReserveConf($idConf, $placeSouhaite);
+        return redirect ('/accueil');
+    }
    
 }

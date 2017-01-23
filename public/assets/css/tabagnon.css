@@ -1,4 +1,4 @@
-
+connect
 .col-md-12.formulaire{
     margin-top:5%;
 }
@@ -420,4 +420,8 @@ footer {
 .option-admin a{
     font-size: 1.5em;
     text-decoration : none;
+}
+
+ul .connect{
+    margin-right: 12%;
 }
