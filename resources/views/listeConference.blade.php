@@ -2,7 +2,7 @@
 @section('content')
 <div class='box'>
     <h3>Liste des conférences du Tabagnon !</h3>
-        <table class="table table-striped listeFiltree">
+    <table class="table table-striped listeFiltree">
         <thead>
             <tr>
                 <th>Numéro conférence</th>
@@ -12,6 +12,7 @@
                 <th>Adresse</th>
                 <th>Prix</th>
                 <th>Code Postal</th>
+                <th> Reservez vos places ! </th>
             </tr>
         </thead>
         <tbody>
@@ -24,7 +25,9 @@
                 <td>{{$uneConference -> heureConf}}</td>
                 <td>{{$uneConference -> prixConf}}</td>
                 <td>{{$uneConference -> cpConf}}</td>
-        </tr>
+                <td><center><a href='{{url('/getConfSpe/'.$uneConference->idConf)}}'><span class='glyphicon glyphicon-tags'></span></a></center></td>
+            </tr>
+
         @endforeach
         </tbody>
     </table>

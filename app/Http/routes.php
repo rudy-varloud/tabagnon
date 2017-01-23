@@ -53,6 +53,8 @@ Route::get('/ajoutConference', function(){
 });
 Route::post('/postFormAjoutConf', 'ConferenceController@postFormAjoutConf');
 Route::get('/getPageConference', 'ConferenceController@getConference');
+Route::get('/getConfSpe/{idConf}', 'ConferenceController@getConferenceSpe');
+Route::post('/postFormReserveConf', 'ConferenceController@postFromReserveConf');
 
 
 //Admin

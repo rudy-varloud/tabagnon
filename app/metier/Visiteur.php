@@ -46,6 +46,7 @@ class Visiteur extends Model {
     public function logout() {
         Session::put('id', 0);
         Session::put('nom', 0);
+        
     }
 
     //Dialogue avec la bdd pour inscrire un utilisateur (renvoie un booléen) 
