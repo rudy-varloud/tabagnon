@@ -13,5 +13,24 @@ class ConferenceController extends Controller {
         return view('formAjoutConference');
     }
     
+    public function postFormAjoutConf(){
+       $nomConf = Request::input('nomConf');
+       $prixConf = Request::input('prixConf');
+       $contenuConf = Request::input('contenu');
+       $adresseConf = Request::input('adresseConf');
+       $cpConf = Request::input('cpConf');
+       $dateConf = Request::input('dateConf');
+       $heureConf = Request::input('heureConf');
+       $uneConf = new Conference();
+       $mesConferences = $uneConf->postAjoutConf($nomConf, $prixConf, $contenuConf, $adresseConf, $cpConf, $dateConf, $heureConf);
+       return view('pageAdmin');
+    }
+    
+    public function getConference(){
+        $uneConference = new Conference();
+        $mesConferences = $uneConference->getConference();
+        return view('listeConference', compact ('mesConferences'));
+    }
+    
    
 }

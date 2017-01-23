@@ -126,14 +126,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Authentification</h4>
+                    <center> <h3 class="modal-title">Authentification</h3> </center>
                 </div>
                 {!! Form::open(['url' => 'login']) !!}
                 <div class="modal-body">                   
 
-                    <label class="control-label">Identifiant : </label>
+                    <h5 class="control-label">Identifiant : </h5>
                     <input type="text" name="login" class="form-control" placeholder="Votre identifiant" required autofocus>
-                    <label class="control-label">Mot de passe : </label>
+                    <h5 class="control-label">Mot de passe : </h5>
                     <input type="password" name="pwd" class="form-control pwd" placeholder="Votre mot de passe" required>
                     <div class="verifMdp">
                         <span class='glyphicon glyphicon-eye-open'/>

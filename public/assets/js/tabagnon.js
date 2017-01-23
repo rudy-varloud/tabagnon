@@ -43,6 +43,7 @@ $(function () {
     $.datepicker.setDefaults($.datepicker.regional['fr']);
 });
 
+
 function checkSelected() {
     if (document.getElementById('date_selected').value !== "0") {
         document.getElementById('nbPlaceVoulu').disabled = "";
