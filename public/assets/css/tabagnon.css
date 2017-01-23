@@ -373,3 +373,51 @@ footer p {
 .inputRecherche{
     margin-left: -2.7%;
 }
+
+body.modal-open {
+    overflow:inherit;
+    padding-right:inherit !important; 
+}
+
+html{
+    position:relative; 
+    min-height: 100%;
+}
+/*Normalize html and body elements,this style is just good to have*/
+html,body{
+    margin:0;
+    padding:0;
+}
+.pageContentWrapper{
+    margin-bottom:100px;/* Height of footer*/
+} 
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    position: relative;
+}
+body:after {
+    content: '';
+    display: block;
+    height: 100px;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.sous-menu {
+    text-decoration: none;
+}
+
+.titre-admin{
+    margin: 0;
+    font-size: 2.3em;
+    text-transform: capitalize;
+}
+.option-admin a{
+    font-size: 1.5em;
+    text-decoration : none;
+}

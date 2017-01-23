@@ -65,14 +65,10 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right connect">
-                            <li><a href="{{url('/listerVisiteur')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Lister tous les utilisateurs</a></li>
-                            <li><a href="{{url('/ajoutArticle')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Créer un article</a></li>
+                        <ul class="nav navbar-nav navbar-right connect">                          
+                            <li><a href="{{url('/accueil')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Accueil</a></li>  
+                            <li><a href="{{url('/getPageAdmin')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Pannel administration</a></li>
                             <li><a href="{{url('/getLogout')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Se déconnecter</a></li>
-                            <li><a href="{{url('/carouselAccueil')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Carousel</a></li>                  
-                            <li><a href='{{url('/listeArticleAdmin')}}' data-toggle="collapse" data-target=".navbar-collapse.in" class=''>Lister les articles</a></li>
-                            <li><a  data-toggle="modal" data-target="#nbModal" class="">Ajouter une visite</a></li>
-                            <li><a href='{{url('/ajoutConference')}}' data-toggle='collapse' data-target='.navbar-collapse.in' class=''>Ajouter une conférence</a></li>
                         </ul>
                     </div>
                 </div>
@@ -85,6 +81,7 @@
             @yield('content')
         </div>
     </body>
+    <br>
     <br>
     <footer>
         <div class="container">

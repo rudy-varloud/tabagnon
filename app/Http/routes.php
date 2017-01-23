@@ -31,7 +31,7 @@ Route::post('/ajoutVisite', 'VisiteController@ajoutVisite');
 Route::get('/listerVisiteur', 'VisiteurController@listeUser');
 Route::post('/postFormVisite', 'VisiteController@postFormVisite');
 Route::get('getPageVisite', 'VisiteController@pageVisite');
-Route::get('/getVisiteSpe/{idVisiteur}', 'VisiteController@pageVisiteSpe');
+Route::get('/getVisiteSpe/{idVisite}', 'VisiteController@pageVisiteSpe');
 Route::post('listeUserSpe', 'VisiteurController@listeUserSpe');
 
 
