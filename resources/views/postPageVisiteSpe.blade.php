@@ -1,6 +1,7 @@
 @if (Session::get('ncpt') > 0)
 @extends('layouts.master')
 @section('content')
+@if($nbPlaceDispo != 0)
 {!! Form::open(['url' => 'postReservationPlace', 'files' => true]) !!}
 <div class="box">
     <div class="reserverPlace">
@@ -20,10 +21,20 @@
     </div>
 </div>
 {{ Form::close() }}
-@stop
+@endif
+@if ($nbPlaceDispo == 0)
+<div class='box'>
+<p>Désolé, mais il n'y a plus de place disponible pour cette date.
+    <br>
+    <a href='{{url('/getVisiteSpe')}}/{{$idVisite}}'>Cliquez ici pour sélectionnez une autre date</a>
+    <br>
+    <a href='{{url('/accueil')}}'>Cliquez là pour revenir sur la page d'acceuil</a>
+</div>
+@endif
 @endif
 @if (Session::get('ncpt') == 0)
 <script>
     window.location.href = "{{url('/getLogin')}}";
 </script>
 @endif
+@stop
