@@ -13,11 +13,13 @@ class Carousel extends Model {
     protected $fillable = [
         'image',
         'statut',
+        'date'
     ];
 
     public function getImagesCarouselTrue() {
         $images = DB::table('carousel')->Select('image')
                 ->where('statut', '=', true)
+                ->orderBy('date','ASC')
                 ->get();
         return $images;
     }
@@ -30,9 +32,10 @@ class Carousel extends Model {
     }
 
     public function ajouterCarouselImage($imageCarousel) {
+        $dateJour = date('Y/m/d  H:i:s', time());
         DB::table('carousel')
                 ->insert(
-                        ['image' => $imageCarousel, 'statut' => false]);
+                        ['image' => $imageCarousel, 'statut' => false, 'date' => $dateJour]);
     }
 
     public function carouselSupprimer($image) {
@@ -41,14 +44,15 @@ class Carousel extends Model {
         \File::delete(public_path()."/assets/image/carousel/".$image);
     }
 
-    public function carouselRetirer($image) {
+    public function carouselRetirer($image) {        
         DB::table('carousel')->where('image', '=', $image)
                 ->update(['statut' => false]);
     }
 
     public function carouselAjouter($image) {
+        $dateJour = date('Y/m/d  H:i:s', time());
         DB::table('carousel')->where('image', '=', $image)
-                ->update(['statut' => true]);
+                ->update(['statut' => true, 'date' => $dateJour]);
     }
 
     public function getCompteurImage() {
