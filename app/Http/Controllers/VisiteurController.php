@@ -68,10 +68,11 @@ class VisiteurController extends Controller {
         $mail = Request::input('mail');
         $adr = Request::input('adr');
         $tel = Request::input('tel');
+        $mobile = Request::input('mobile');
         $ville = Request::input('ville');
         $cp = Request::input('cp');
         $unVisiteur = new Visiteur();
-        $inscription = $unVisiteur->subscribe($login, $pwd, $nom, $prenom, $mail, $adr, $tel, $ville, $cp);
+        $inscription = $unVisiteur->subscribe($login, $pwd, $nom, $prenom, $mail, $adr, $tel, $mobile, $ville, $cp);
         if ($inscription) {
             $unVisiteur->login($login, $pwd);
             return view('Merci', compact('mail', 'nom'));
@@ -154,6 +155,7 @@ class VisiteurController extends Controller {
         $unVisiteur = new Visiteur();
         $adresse = Request::input('adressecli');
         $tel = Request::input('telcli');
+        $mobile = Request::input('mobile');
         $mdp = Request::input('mdp');
         $mail = Request::input('mail');
         $nom = Request::input('nom');
@@ -164,7 +166,7 @@ class VisiteurController extends Controller {
         if ($unV->ncptVis == 5) {
             $unVisiteur->updateGuide($id);
         }
-        $unVisiteur->modificationProfil($id, $adresse, $tel, $mdp, $mail, $nom, $prenom,$login);
+        $unVisiteur->modificationProfil($id, $adresse, $tel, $mobile, $mdp, $mail, $nom, $prenom,$login);
         return redirect('/getProfil');
     }
 

@@ -17,7 +17,8 @@
                 <th>Pseudo</th>
                 <th>Nom</th>
                 <th>Prénom</th>
-                <th>Téléphone</th>
+                <th>Téléphone fixe</th>
+                <th>Téléphone portable</th>
                 <th>Adresse mail</th>
                 <th>Adresse</th>
                 <th>Niveau du compte</th>
@@ -30,7 +31,8 @@
                 <td>{{$unVisiteur -> login}}</td>
                 <td>{{$unVisiteur -> nomVis}}</td>
                 <td>{{$unVisiteur -> prenomVis}}</td>
-                <td>{{$unVisiteur -> telVis}}</td>
+                <td>{{$unVisiteur -> telFixeVis}}</td>
+                <td>{{$unVisiteur -> mobileVis}}</td>
                 <td>{{$unVisiteur -> mailVis}}</td>
                 <td>{{$unVisiteur -> adresseVis}}</td>
                 @if(($unVisiteur -> ncptVis) == 4)

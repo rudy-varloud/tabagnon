@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\metier\Carousel;
 use App\metier\Article;
+use App\metier\Visite;
+use App\metier\Conference;
 use Request;
 use Illuminate\Support\Facades\Session;
 use Exception;
@@ -38,12 +40,16 @@ class ArticleController extends Controller {
         return redirect('/article/' . $id);
     }
 
-    public function getLastArticle() {
+    public function getLastDonnees() {
         $unArticle = new Article();
         $lesArticles = $unArticle->getLastArticle();
         $Carousel = new Carousel;
         $lesImages = $Carousel->getImagesCarouselTrue();
-        return view('accueil', compact('lesArticles', 'lesImages'));
+        $uneVisite = new Visite();
+        $uneConference = new Conference();
+        $lesVisites = $uneVisite->getLastVisite();
+        $lesConferences = $uneConference->getLastConference();
+        return view('accueil', compact('lesArticles', 'lesImages','lesVisites','lesConferences'));
     }
 
     public function getArticle($idA) {

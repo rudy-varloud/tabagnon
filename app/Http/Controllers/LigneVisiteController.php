@@ -8,8 +8,7 @@ use Exception;
 use  Illuminate\Support\Facades\Input;
 
 class LigneVisiteController extends Controller {
-    
-
-    
+   
+   
    
 }

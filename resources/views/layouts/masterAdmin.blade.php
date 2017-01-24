@@ -65,7 +65,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right connect">                          
+                        <ul class="nav navbar-nav">                          
                             <li><a href="{{url('/accueil')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Accueil</a></li>  
                             <li><a href="{{url('/getPageAdmin')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Pannel administration</a></li>
                             <li><a href="{{url('/getLogout')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Se déconnecter</a></li>

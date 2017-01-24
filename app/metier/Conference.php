@@ -17,36 +17,39 @@ class Conference extends Model {
         'prixConf',
         'dateCreation',
     ];
-    
-    public function postAjoutConf($nomConf,  $prixConf, $placeDispoConf, $contenuConf, $adresseConf, $cpConf, $dateConf, $heureConf){
-       $conference = DB::table('conference')
+
+    public function postAjoutConf($nomConf, $prixConf, $placeDispoConf, $contenuConf, $adresseConf, $cpConf, $dateConf, $heureConf) {
+        $conference = DB::table('conference')
                 ->Insert(['libConf' => $nomConf, 'prixConf' => $prixConf, 'placeDispoConf' => $placeDispoConf, 'contenuConf' => $contenuConf,
-                    'adresseConf' => $adresseConf, 'cpConf' => $cpConf, 'dateConf' => $dateConf, 'heureConf' => $heureConf]);
+            'adresseConf' => $adresseConf, 'cpConf' => $cpConf, 'dateConf' => $dateConf, 'heureConf' => $heureConf]);
         return $conference;
     }
-    
-    public function getConference(){
+
+    public function getConference() {
         $conference = DB::table('conference')
                 ->select()
                 ->get();
         return $conference;
     }
-    
-    public function getConferenceSpe($idConf){
+
+    public function getConferenceSpe($idConf) {
         $conference = DB::table('conference')
                 ->select()
                 ->where('idConf', '=', $idConf)
                 ->first();
         return $conference;
     }
-    
-    public function postFromReserveConf($idConf, $placeSouhaite){
+
+    public function postFromReserveConf($idConf, $placeSouhaite) {
         $conference = DB::table('conference')
                 ->where('idConf', '=', $idConf)
                 ->increment('placeReserConf', $placeSouhaite);
         return $conference;
     }
-    
+
+    public function getLastConference() {
+        $lesConf = Conference::orderBy('idConf', 'desc')->take(3)->get();
+        return $lesConf;
     }
-    
-    
+
+}

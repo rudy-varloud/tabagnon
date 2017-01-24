@@ -49,9 +49,16 @@
             </div>
             <div class="form-group ">
 
-                <label class="item item-input col-md-3 control-label "> <i class="glyphicon glyphicon-earphone"> </i> Téléphone :</label>
+                <label class="item item-input col-md-3 control-label "> <i class="glyphicon glyphicon-earphone"> </i> Téléphone fixe :</label>
                 <div class="col-md-6 col-md-3 ">
-                    <input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" name="tel" class="form-control" value = "{{$tel or ''}}" placeholder="Votre téléphone">
+                    <input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" name="tel" class="form-control" value = "{{$tel or ''}}" placeholder="Votre numéro de téléphone fixe" required>
+                </div>
+            </div>
+            <div class="form-group ">
+
+                <label class="item item-input col-md-3 control-label "> <i class="glyphicon glyphicon-earphone"> </i> Téléphone mobile :</label>
+                <div class="col-md-6 col-md-3 ">
+                    <input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" name="mobile" class="form-control" value = "{{$mobile or ''}}" placeholder="Votre numéro de téléphone portable" required>
                 </div>
             </div>
             <div class="form-group">

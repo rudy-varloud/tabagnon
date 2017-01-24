@@ -36,11 +36,20 @@
                                         <td>{{$unV->mailVis}}</a></td>
                                     </tr>
                                     <tr>
-                                        <td>Numero de telephone</td>
-                                        @if(($unV->telVis) == null)
+                                        <td>Numéro de téléphone fixe</td>
+                                        @if(($unV->telFixeVis) == null)
                                         <td> Non renseigné </td>
                                         @endif
-                                        <td>{{$unV->telVis}}<br>
+                                        <td>{{$unV->telFixeVis}}<br>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Numéro de téléphone portable</td>
+                                        @if(($unV->mobileVis) == null)
+                                        <td> Non renseigné </td>
+                                        @endif
+                                        <td>{{$unV->mobileVis}}<br>
                                         </td>
 
                                     </tr>

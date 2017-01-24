@@ -9,13 +9,14 @@
 
         </div>
         <div class='option-admin'>
-            <h1 class="titre-admin"><span class='glyphicon glyphicon-user'></span> Gestion visiteur</h1>
+            <h1 class="titre-admin"><span class='glyphicon glyphicon-user'></span> Gestion visiteurs</h1>
             <a href="{{url('/listerVisiteur')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Lister tous les utilisateurs</a><br><br><br><br>
         </div>       
         <div class='option-admin'>
-            <h1 class="titre-admin"><span class='glyphicon glyphicon-calendar'></span> Gestion visite et conférence</h1>
+            <h1 class="titre-admin"><span class='glyphicon glyphicon-calendar'></span> Gestion des visites et des conférences</h1>
             <a href='{{url('/ajoutConference')}}' data-toggle='collapse' data-target='.navbar-collapse.in' class=''>Ajouter une conférence</a><br>
-            <a  data-toggle="modal" data-target="#nbModal" class="">Ajouter une visite</a><br><br><br><br>
+            <a  data-toggle="modal" data-target="#nbModal" class="">Ajouter une visite</a><br>
+            <a href="{{url('/getPageVisite')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Liste des visites</a><br><br><br><br>
         </div>       
         <div class='option-admin'>
             <h1 class="titre-admin"><span class='glyphicon glyphicon-th-large'></span> Divers</h1>

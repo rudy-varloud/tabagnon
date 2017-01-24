@@ -51,11 +51,23 @@ class Visite extends Model {
 
     public function pageVisiteSpe($idVisite) {
         $mesVisites = DB::table('visite')
-                ->select('visite.idVisite', 'lieuxVisite', 'nbPlace', 'nbPlaceRes', 'idGuide', 'idGuide', 'libelleVisite', 'prixVisite', 'descriptionVisite', 'dateVisite')
+                ->select('visite.idVisite', 'lieuxVisite', 'nbPlace', 'nbPlaceRes', 'idGuide', 'libelleVisite', 'prixVisite', 'descriptionVisite', 'dateVisite')
                 ->join('date_visite', 'date_visite.idVisite', '=', 'visite.idVisite')
                 ->where('visite.idVisite', '=', $idVisite)
                 ->get();
         return $mesVisites;
     }
+    public function getVisite($idVisite){
+        $uneVisite = DB::table('visite')
+                ->select()
+                ->where('visite.idVisite', '=', $idVisite)
+                ->first();
+        return $uneVisite;
+    }
+    public function getLastVisite() {
+        $lesVisites = Visite::orderBy('idVisite', 'desc')->take(3)->get();
+        return $lesVisites;
+    }
+    
 
 }

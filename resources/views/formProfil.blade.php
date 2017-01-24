@@ -52,10 +52,15 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 control-label"><i class="glyphicon glyphicon-earphone"> </i> Téléphone : </label>
+                        <label class="col-md-3 control-label"><i class="glyphicon glyphicon-earphone"> </i> Téléphone fixe : </label>
                         <div class="col-md-6 col-md-3">
-                            <input type='tel' name='telcli' value='{{$unV->telVis or ''}}'
-                                   class='form-control' required>
+                                   <input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" name="telcli" class="form-control" value='{{$unV->telFixeVis or ''}}' placeholder="Votre numéro de téléphone portable" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"><i class="glyphicon glyphicon-earphone"> </i> Téléphone portable : </label>
+                        <div class="col-md-6 col-md-3">
+                            <input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" name="mobile" class="form-control" value = "{{$unV->mobileVis or ''}}" placeholder="Votre numéro de téléphone portable" required>
                         </div>
                     </div>
                     @if(Session::get('ncpt') == 5)

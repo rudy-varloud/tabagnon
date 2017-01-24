@@ -19,7 +19,8 @@ class Visiteur extends Model {
         'prenomVis',
         'adresseVis',
         'mailVis',
-        'telVis',
+        'telFixeVis',
+        'mobileVis',
         'villeVis',
         'codePostVis',
         'ageVis',
@@ -50,10 +51,10 @@ class Visiteur extends Model {
     }
 
     //Dialogue avec la bdd pour inscrire un utilisateur (renvoie un booléen) 
-    public function subscribe($login, $pwd, $nom, $prenom, $mail, $adr, $tel, $cp, $ville) {
+    public function subscribe($login, $pwd, $nom, $prenom, $mail, $adr, $tel, $mobile, $cp, $ville) {
         $Visiteur = New Visiteur();
         if ($Visiteur->verificationLogin($login)) {
-            DB::table('visiteur')->insert(['nomVis' => $nom, 'prenomVis' => $prenom, 'adresseVis' => $adr, 'telVis' => $tel, 'login' => $login, 'mdpVis' => $pwd, 'ncptVis' => 1, 'mailVis' => $mail, 'codePostVis' => $cp, 'villeVis' => $ville]);
+            DB::table('visiteur')->insert(['nomVis' => $nom, 'prenomVis' => $prenom, 'adresseVis' => $adr, 'telFixeVis' => $tel, 'mobileVis' => $mobile, 'login' => $login, 'mdpVis' => $pwd, 'ncptVis' => 1, 'mailVis' => $mail, 'codePostVis' => $cp, 'villeVis' => $ville]);
             return true;
         } else {
             return false;
@@ -63,7 +64,7 @@ class Visiteur extends Model {
     //Dialogue avec la bdd pour récupérer un visiteur en fonction de l'id visiteur
     public function getVisiteur($id) {
         $visiteur = DB::table('visiteur')
-                ->Select('nomVis', 'prenomVis', 'login', 'ncptVis', 'telVis', 'adresseVis', 'mailVis', 'mdpVis')
+                ->Select('nomVis', 'prenomVis', 'login', 'ncptVis', 'telFixeVis', 'mobileVis', 'adresseVis', 'mailVis', 'mdpVis')
                 ->Where('idVis', '=', $id)
                 ->first();
         return $visiteur;
@@ -84,7 +85,7 @@ class Visiteur extends Model {
     //Dialogue avec la bdd pour récuperer les infos de tout les utilisateurs
     public function listeUser() {
         $mesVisiteurs = DB::table('visiteur')
-                ->Select('idVis', 'login', 'telVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
+                ->Select('idVis', 'login', 'telFixeVis', 'mobileVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
                 ->orderBy('login', 'ASC')
                 ->paginate(20);
         return $mesVisiteurs;
@@ -112,12 +113,12 @@ class Visiteur extends Model {
 
     public function listeUserSpe($user) {
         $mesVisiteursNom = DB::table('visiteur')
-                ->Select('idVis', 'login', 'telVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
+                ->Select('idVis', 'login', 'telFixeVis', 'mobileVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
                 ->where('nomVis', 'like', '%' . $user . '%')
                 ->orderBy('login', 'ASC')
                 ->get();
         $mesVisiteursPrenom = DB::table('visiteur')
-                ->Select('idVis', 'login', 'telVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
+                ->Select('idVis', 'login', 'telFixeVis', 'mobileVis','nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
                 ->where('prenomVis', 'like', '%' . $user . '%')
                 ->orderBy('login', 'ASC')
                 ->get();
@@ -128,7 +129,7 @@ class Visiteur extends Model {
 
     public function getVisiteurGuide() {
         $mesVisiteurs = DB::table('visiteur')
-                ->Select('idVis', 'login', 'telVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
+                ->Select('idVis', 'login', 'telFixeVis','mobileVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
                 ->where('ncptVis', '=', '3')
                 ->orWhere('ncptVis', '=', '5')
                 ->get();
@@ -149,14 +150,14 @@ class Visiteur extends Model {
     }
 
     //Dialogue aves la bdd pour modifier le profil d'un utilisateur
-    public function modificationProfil($id, $adresse, $tel, $mdp, $mail, $nom, $prenom, $login) {
+    public function modificationProfil($id, $adresse, $tel, $mobile, $mdp, $mail, $nom, $prenom, $login) {
         if ($login != null) {
             DB::table('visiteur')->where('idVis', $id)
-                    ->update(['adresseVis' => $adresse, 'telVis' => $tel, 'mdpVis' => $mdp, 'mailVis' => $mail, 'nomVis' => $nom, 'prenomVis' => $prenom, 'login' => $login]);
+                    ->update(['adresseVis' => $adresse, 'telFixeVis' => $tel,'mobileVis' =>$mobile, 'mdpVis' => $mdp, 'mailVis' => $mail, 'nomVis' => $nom, 'prenomVis' => $prenom, 'login' => $login]);
         }
         else{
             DB::table('visiteur')->where('idVis', $id)
-                    ->update(['adresseVis' => $adresse, 'telVis' => $tel, 'mdpVis' => $mdp, 'mailVis' => $mail, 'nomVis' => $nom, 'prenomVis' => $prenom]);
+                    ->update(['adresseVis' => $adresse, 'telFixeVis' => $tel,'mobileVis' =>$mobile, 'mdpVis' => $mdp, 'mailVis' => $mail, 'nomVis' => $nom, 'prenomVis' => $prenom]);
         }
     }
 

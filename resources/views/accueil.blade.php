@@ -23,7 +23,7 @@
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
-                        
+
                         @php($cpt = 0)
                         @foreach($lesImages as $uneImage)
                         @if($cpt == 0)
@@ -54,13 +54,41 @@
                 <h1 class="brand-name">Tabagnon</h1>
                 <hr class="tagline-divider">
             </div>
-        </div>
+        </div>        
     </div>
-
-
+    <br>
     <div class="row">
         <div class="box">
+            <div class="col-md-6">
+                <hr>
+                <h3 class="intro-text text-center">Nos dernières visites !
+                </h3>
+                <hr>   
+                <div class="col-md-offset-4">
+                    <ul>
+                        @foreach($lesVisites as $uneVisite)
+                        <li><a href="{{url('/getVisiteSpe/'.$uneVisite->idVisite)}}" data-toggle="collapse" data-target=".navbar-collapse.in" style="font-size:1.3em;">{{$uneVisite->libelleVisite}}</a></li>
+                        @endforeach
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <hr>
+                <h3 class="intro-text text-center">Nos dernières conférences  !
+                </h3>
+                <hr>
+                <div class="col-md-offset-4">
+                    <ul>
+                        @foreach($lesConferences as $uneConference)
+                        <li><a href="{{url('/getConfSpe/'.$uneConference->idConf)}}" data-toggle="collapse" data-target=".navbar-collapse.in" style="font-size:1.3em;">{{$uneConference->libConf}}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            
             <div class="col-lg-12">
+                <br>
                 <hr>
                 <h2 class="intro-text text-center">Nos derniers articles !
                 </h2>

@@ -8,18 +8,22 @@
         <table class='table table-bordered'>
             <thead>
                 <tr>
-                    <th>Numéro de visite</th>
-                    <th>Nom de la visite</th>
-                    <th>Prix de la visite</th>
-                    <th>Lieu</th>
+                    <th width="40%">Nom de la visite</th>
+                    <th width="40%">Lieu</th>
+                    <th width="10%">Prix</th>        
+                    @if(Session::get('ncpt') == 4)
+                    <th width="10%">Réservations</th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>{{$uneVisite->idVisite}}</td>
                     <td>{{$uneVisite->libelleVisite}}</td>
-                    <td>{{$uneVisite->prixVisite}}€</td>
                     <td>{{$uneVisite->lieuxVisite}}</td>
+                    <td>{{$uneVisite->prixVisite}}€</td>                   
+                    @if(Session::get('ncpt') == 4)
+                    <th ><a href="{{url('/getReservationVis/'.$uneVisite->idVisite)}}"><span class="glyphicon glyphicon-calendar"></span></a></th>
+                    @endif
                 </tr>
         </table>
         <br>

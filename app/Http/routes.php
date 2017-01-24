@@ -30,13 +30,17 @@ Route::get('/modifierProfil', 'VisiteurController@modifierProfil');
 Route::post('/ajoutVisite', 'VisiteController@ajoutVisite');
 Route::get('/listerVisiteur', 'VisiteurController@listeUser');
 Route::post('/postFormVisite', 'VisiteController@postFormVisite');
-Route::get('getPageVisite', 'VisiteController@pageVisite');
+Route::get('/getPageVisite', 'VisiteController@pageVisite');
 Route::get('/getVisiteSpe/{idVisite}', 'VisiteController@pageVisiteSpe');
-Route::post('listeUserSpe', 'VisiteurController@listeUserSpe');
+Route::post('/listeUserSpe', 'VisiteurController@listeUserSpe');
+Route::get('/getReservationVis/{idVisite}', 'VisiteController@getVisiteReservation');
+Route::post('/getReservations', 'VisiteController@getReservation');
+Route::post('/reservationPlace', 'VisiteController@reservationPlace');
+Route::post('/postReservationPlace', 'VisiteController@postReservationPlace');
 
 
 //Article
-Route::get('/accueil', 'ArticleController@getLastArticle');
+Route::get('/accueil', 'ArticleController@getLastDonnees');
 Route::get('/getArticles', 'ArticleController@listerArticle');
 Route::get('/article/{idArticle}', 'ArticleController@getArticle');
 Route::get('/ajoutArticle', 'ArticleController@getFormArticle');
@@ -81,10 +85,6 @@ Route::get('/modifUser/{idVis}', ['as' => 'modifUser',
 Route::post('/postModifUser', 'VisiteurController@postModifUser');
 Route::post('listeUserSpe', 'VisiteurController@listeUserSpe');
 Route::get('getPageVisite', 'VisiteController@pageVisite');
-Route::get('/getVisiteSpe/{idVisite}', 'VisiteController@pageVisiteSpe');
-
-Route::post('/reservationPlace', 'VisiteController@reservationPlace');
-Route::post('/postReservationPlace', 'VisiteController@postReservationPlace');
 
 
 // ----- VISITEUR -----
