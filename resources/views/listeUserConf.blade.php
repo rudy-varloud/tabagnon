@@ -10,7 +10,8 @@
                 <th><center>Pseudo</center></th>
                 <th><center>Nom</center></th>
                 <th><center>Prénom</center></th>
-                <th><center>Téléphone</center></th>
+                <th><center>Mobile</center></th>
+                <th><center>Fixe</center></th>
                 <th><center>Adresse mail</center></th>
                 <th><center>Nombre de places réservée(s)</center></th>
             </tr>
@@ -24,7 +25,8 @@
                 <td><center>{{$uneConference -> login}}</center></td>
                 <td><center>{{$uneConference -> nomVis}}</center></td>
                 <td><center>{{$uneConference -> prenomVis}}</center></td>
-                <td><center>{{$uneConference -> telVis}}</center></td>
+                <td><center>{{$uneConference -> telFixeVis}}</center></td>
+                <td><center>{{$uneConference -> mobileVis}}</center></td>
                 <td><center>{{$uneConference -> mailVis}}</center></td>
                 <td><center>{{$uneConference -> qteBillet}}</center></td> 
             </tr>
