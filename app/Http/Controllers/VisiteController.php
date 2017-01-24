@@ -69,8 +69,11 @@ class VisiteController extends Controller {
         $nbPlaceSouhaite = Request::input('nbPlaceVoulu');
         $dateVisite = Request::input('dateVisite');
         $idVisite = Request::input('idVisite');
+        $idVisiteur = Session::get('id');
         $uneVisite = new Date_visite();
         $uneVisite->reservationPlace($idVisite, $nbPlaceSouhaite, $dateVisite);
+        $uneLigneVisite = new Ligne_visite();
+        $uneLigneVisite->reservationPlace($idVisite, $idVisiteur, $nbPlaceSouhaite);
         return redirect('/accueil');
     }
     

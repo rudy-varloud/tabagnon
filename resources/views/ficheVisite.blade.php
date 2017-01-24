@@ -19,9 +19,9 @@
         </div>
     </div>
 
-{{ Form::close() }}
-@if($lesReservations != null)
-<h3>Liste des réservations pour la visite {{$uneVisite->libelleVisite}} </h3>
+    {{ Form::close() }}
+    @if($lesReservations != null)
+    <h3>Liste des réservations pour la visite {{$uneVisite->libelleVisite}} </h3>
     <table class="table table-striped listeFiltree">
         <thead>
             <tr>
@@ -36,6 +36,7 @@
         </thead>
         <tbody>
             @foreach( $lesReservations as $uneReservation )
+            @if($uneReservation->nbPlaceRes != 0)
             <tr>
                 <td>{{$uneReservation -> nomVis}}</td>
                 <td>{{$uneReservation -> prenomVis}}</td>
@@ -44,10 +45,12 @@
                 <td>{{$uneReservation -> mailVis}}</td>
                 <td>{{$uneReservation -> adresseVis}}</td>
                 <td>{{$uneReservation -> nbPlaceRes}}</td>
-        </tr>
-        @endforeach
+
+            </tr>
+            @endif
+            @endforeach
         </tbody>
     </table>
-@endif
+    @endif
 </div>
 @stop
