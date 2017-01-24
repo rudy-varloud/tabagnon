@@ -6,6 +6,7 @@ use App\metier\Visiteur;
 use App\metier\Visite;
 use App\metier\Ligne_visite;
 use App\metier\Date_visite;
+use App\metier\Conference;
 use Request;
 use DateTime;
 use Illuminate\Support\Facades\Session;
@@ -94,4 +95,12 @@ class VisiteController extends Controller {
         return view('ficheVisite',compact('lesReservations','uneVisite','mesVisites'));
     }
     
+    public function mesReservations($idVis){
+        $uneConference = new Conference();
+        $mesConferences = $uneConference->getConfUser($idVis);
+        $uneVisite = new Visite();
+        $mesVisites = $uneVisite->getVisiteUser($idVis);
+        return view('listeVisiteConference', compact('mesConferences', 'mesVisites'));
+    }
+   
 }

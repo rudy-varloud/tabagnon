@@ -51,5 +51,28 @@ class Conference extends Model {
         $lesConf = Conference::orderBy('idConf', 'desc')->take(3)->get();
         return $lesConf;
     }
+    public function postLigneReserve($idVis, $idConf, $placeSouhaite) {
+        $conference = DB::table('ligne_conference')
+                ->insert(['idConf' => $idConf, 'idVisiteur' => $idVis, 'qteBillet' => $placeSouhaite]);
+        return $conference;
+    }
+
+    public function getUserConf($idConf) {
+        $conference = DB::table('ligne_conference')
+                ->select()
+                ->join('visiteur', 'ligne_conference.idVisiteur', '=', 'visiteur.idVis')
+                ->Where('idConf', '=', $idConf)
+                ->get();
+        return $conference;
+    }
+    
+    public function getConfUser($idVis){
+        $conference = DB::table('conference')
+                ->select()
+                ->join('ligne_conference', 'conference.idConf', '=', 'ligne_conference.idConf')
+                ->where('idVisiteur', '=', $idVis)
+                ->get();
+        return $conference;
+    }
 
 }

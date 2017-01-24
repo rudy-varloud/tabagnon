@@ -40,11 +40,20 @@ class ConferenceController extends Controller {
     }
     
     public function postFromReserveConf(){
+        $idVis = Session::get('id');
         $idConf = Request::input('idConf');
         $placeSouhaite = Request::input('placeSouhaite');
         $uneConference = new Conference();
         $mesConferences = $uneConference->postFromReserveConf($idConf, $placeSouhaite);
+        $uneConference2 = new Conference();
+        $mesConferences2 = $uneConference2->postLigneReserve($idVis, $idConf, $placeSouhaite);
         return redirect ('/accueil');
+    }
+    
+    public function getUserConf($idConf){
+        $uneConference = new Conference();
+        $mesConferences = $uneConference->getUserConf($idConf);
+        return view('listeUserConf', compact('mesConferences'));
     }
    
 }

@@ -69,5 +69,14 @@ class Visite extends Model {
         return $lesVisites;
     }
     
+    
+    public function getVisiteUser($idVis){
+        $mesVisites = DB::table('ligne_visite')
+                ->select()
+                ->join('visite', 'visite.idVisite', '=', 'ligne_visite.idVisite')
+                ->where('ligne_visite.id', '=', $idVis)
+                ->get();
+        return $mesVisites;
+    }
 
 }

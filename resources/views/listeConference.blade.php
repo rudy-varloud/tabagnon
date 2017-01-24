@@ -12,7 +12,12 @@
                 <th>Adresse</th>
                 <th>Prix</th>
                 <th>Code Postal</th>
-                <th> Reservez vos places ! </th>
+                @if (Session::get('ncpt') != 0)
+                <th>Reservez vos places !</th>
+                @endif
+                @if (Session::get('ncpt') == 4)
+                <th>Voir réservation</th>
+                @endif
             </tr>
         </thead>
         <tbody>
@@ -25,7 +30,12 @@
                 <td>{{$uneConference -> heureConf}}</td>
                 <td>{{$uneConference -> prixConf}}</td>
                 <td>{{$uneConference -> cpConf}}</td>
+                @if (Session::get('ncpt') != 0)
                 <td><center><a href='{{url('/getConfSpe/'.$uneConference->idConf)}}'><span class='glyphicon glyphicon-tags'></span></a></center></td>
+                @endif
+                @if (Session::get('ncpt') == 4)
+                <td><center><a href='{{url('/getUserConf/'.$uneConference->idConf)}}'><span class='glyphicon glyphicon-th-list'></span></a></center></td>
+                @endif
             </tr>
 
         @endforeach
