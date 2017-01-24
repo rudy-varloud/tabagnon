@@ -16,8 +16,7 @@
             <h1 class="titre-admin"><span class='glyphicon glyphicon-calendar'></span> Gestion des visites et des conférences</h1>
             <a href='{{url('/ajoutConference')}}' data-toggle='collapse' data-target='.navbar-collapse.in' class=''>Ajouter une conférence</a><br>
             <a  data-toggle="modal" data-target="#nbModal" class="">Ajouter une visite</a><br>
-            <a href="{{url('/getPageVisite')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Liste des visites</a><br><br><br><br>
-            <a  data-toggle="modal" data-target="#nbModal" class="">Ajouter une visite</a></br>
+            <a href="{{url('/getPageVisite')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Liste des visites</a><br>
             <a href="{{url('/getPageConference')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Lister les conférences</a><br><br><br><br>
         </div>       
         <div class='option-admin'>

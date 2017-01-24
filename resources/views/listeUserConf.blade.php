@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('content')
-
+@php
+    $placeRes = 0;
+@endphp
 <div class='box'>
     <table class="table table-striped listeFiltree">
         <thead>
@@ -15,6 +17,9 @@
         </thead>
         <tbody>
             @foreach($mesConferences as $uneConference)
+            @php
+                $placeRes += $uneConference -> qteBillet;
+            @endphp
             <tr>
                 <td><center>{{$uneConference -> login}}</center></td>
                 <td><center>{{$uneConference -> nomVis}}</center></td>
@@ -24,7 +29,8 @@
                 <td><center>{{$uneConference -> qteBillet}}</center></td> 
             </tr>
             @endforeach
-        </tbody>
+    </tbody>
     </table>
+    <center><h5>Nombre de places actuellement réservée(s): {{$placeRes}}</h5></center>
 </div>
 @stop
