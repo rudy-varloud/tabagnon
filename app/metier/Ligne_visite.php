@@ -20,12 +20,14 @@ class Ligne_visite extends Model {
      public function getReservations($dateVisite,$idVisite){
         $reservations = DB::table('ligne_visite')->Select()
                 ->join('visiteur', 'visiteur.idVis', '=', 'ligne_visite.idVisiteur')
-                ->join('visite', 'visite.idVisite', '=', 'ligne_visite.idVisite')
                 ->join('date_visite', 'date_visite.idVisite', '=', 'ligne_visite.idVisite')
-                ->where('visite.idVisite', '=', $idVisite)
-                ->where('datevisite', '=', $dateVisite)
+                ->where('ligne_visite.idVisite', '=', $idVisite)
+                ->where('date_visite.datevisite', '=', $dateVisite)
                 ->get();
-        return $reservations;
+        return $reservations;     
+    }
+     public function reservationPlace($idVisite, $idVisiteur, $nbPlaceSouhaite) {
+        DB::table('ligne_visite')->insert(['idVisite' => $idVisite, 'idVisiteur' => $idVisiteur, 'qteBillet' => $nbPlaceSouhaite]);
     }
 
 }
