@@ -24,7 +24,7 @@ Route::post('/subscribeGuideTemp', 'VisiteurController@subGuideTemp');
 Route::get('/getProfil', 'VisiteurController@getProfil');
 Route::post('/postmodificationProfil', 'VisiteurController@postModifierProfil');
 Route::get('/modifierProfil', 'VisiteurController@modifierProfil');
-
+Route::get('/mesReservations', 'VisiteController@mesReservations');
 
 //Visite
 Route::post('/ajoutVisite', 'VisiteController@ajoutVisite');
@@ -55,6 +55,7 @@ Route::post('/postFormAjoutConf', 'ConferenceController@postFormAjoutConf');
 Route::get('/getPageConference', 'ConferenceController@getConference');
 Route::get('/getConfSpe/{idConf}', 'ConferenceController@getConferenceSpe');
 Route::post('/postFormReserveConf', 'ConferenceController@postFromReserveConf');
+Route::get('/getUserConf/{idConf}', 'ConferenceController@getUserConf');
 
 
 //Admin

@@ -59,6 +59,7 @@
                 <div class="panel-footer">
                     <a href="{{url( '/modifierProfil') }}"><button  type="submit"data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i> Editer profil</button></a>
                     <a href="{{url( '/getLogout') }}"data-original-title="Se deconnecter" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-off"> </span> Se deconnecter</a>
+                    <a href="{{url( '/mesReservations') }}"data-original-title="Mes réservations" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-th-list"> </span> Mes réservations</a>
                 </div>
 
             </div>

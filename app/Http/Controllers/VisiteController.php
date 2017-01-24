@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\metier\Visiteur;
 use App\metier\Visite;
 use App\metier\Date_visite;
+use App\metier\Conference;
 use Request;
 use DateTime;
 use Illuminate\Support\Facades\Session;
@@ -69,6 +70,14 @@ class VisiteController extends Controller {
         $uneVisite = new Date_visite();
         $uneVisite->reservationPlace($idVisite, $nbPlaceSouhaite,$dateVisite);
         return redirect('/accueil');
+    }
+    
+    public function mesReservations($idVis){
+        $uneConference = new Conference();
+        $mesConferences = $uneConference->getConfUser($idVis);
+        $uneVisite = new Visite();
+        $mesVisites = $uneVisite->getVisiteUser($idVis);
+        return view('listeVisiteConference', compact('mesConferences', 'mesVisites'));
     }
    
 }

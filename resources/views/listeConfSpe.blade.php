@@ -13,7 +13,7 @@
     <div class='col-md-8'>
         <div class='col-md-5'>
     <select class='form-control col-md-4' name='placeSouhaite'>
-        @for($i=0;$i<= $place; $i++)
+        @for($i=1;$i<= $place; $i++)
         <option value='{{$i}}'>{{$i}}</option>
         @endfor
     </select>
