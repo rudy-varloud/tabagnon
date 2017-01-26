@@ -144,9 +144,9 @@ class Visiteur extends Model {
         return $mesVisiteurs_compteSpe;
     }
 
-    public function subGuideMan($prenomUser, $nomUser) {
+    public function subGuideMan($prenomUser, $nomUser, $mdp_encyrpt) {
         $mesVisiteurs = DB::table('visiteur')
-                ->insert(['login' => $prenomUser, 'mdpVis' => $nomUser, 'nomVis' => $nomUser, 'prenomVis' => $prenomUser, 'ncptVis' => 5]);
+                ->insert(['login' => $prenomUser, 'mdpVis' => $mdp_encyrpt, 'nomVis' => $nomUser, 'prenomVis' => $prenomUser, 'ncptVis' => 5]);
         return $mesVisiteurs;
     }
 

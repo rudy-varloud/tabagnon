@@ -127,8 +127,9 @@ class VisiteurController extends Controller {
     public function subGuideTemp() {
         $prenomUser = Request::input('prenomGuideMan');
         $nomUser = Request::input('nomGuideMan');
+        $mdp_encyrpt = encrypt($nomUser);
         $unVisiteur = new Visiteur();
-        $mesVisiteur = $unVisiteur->subGuideMan($prenomUser, $nomUser);
+        $mesVisiteur = $unVisiteur->subGuideMan($prenomUser, $nomUser, $mdp_encyrpt);
         return view('pageAdmin');
     }
 
