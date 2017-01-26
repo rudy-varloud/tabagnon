@@ -9,7 +9,10 @@
             <select id="date_selected" name='dateVisite' onclick="checkSelected()" class="form-control">
                 <option value="Selectionnez la date souhaitée" disabled selected required>Selectionnez une date</option>
                 @foreach($mesVisites as $uneVisite)
-                <option value="{{$uneVisite->dateVisite}}">{{$uneVisite->dateVisite}}</option>
+                @php
+                    $date = date_create($uneVisite->dateVisite);
+                @endphp
+                <option value="{{$date->format('d-m-Y')}}">{{$date->format('d-m-Y')}}</option>
                 @endforeach
             </select>
             <br>       

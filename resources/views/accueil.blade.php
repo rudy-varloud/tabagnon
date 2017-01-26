@@ -65,7 +65,7 @@
                 </h3>
                 <hr>   
                 <div class="col-md-offset-4">
-                    <ul>
+                    <ul class="presVisite">
                         @foreach($lesVisites as $uneVisite)
                         <li><a href="{{url('/getVisiteSpe/'.$uneVisite->idVisite)}}" data-toggle="collapse" data-target=".navbar-collapse.in" style="font-size:1.3em;">{{$uneVisite->libelleVisite}}</a></li>
                         @endforeach

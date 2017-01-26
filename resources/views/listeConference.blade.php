@@ -22,10 +22,13 @@
         </thead>
         <tbody>
             @foreach( $mesConferences as $uneConference )
+            @php
+                $date = date_create($uneConference->dateConf);
+            @endphp
             <tr>
                 <td>{{$uneConference -> idConf}}</td>
                 <td>{{$uneConference -> libConf}}</td>
-                <td>{{$uneConference -> dateConf}}</td>
+                <td>{{$date->format('d-m-Y')}}</td>
                 <td>{{$uneConference -> adresseConf}} </td>
                 <td>{{$uneConference -> heureConf}}</td>
                 <td>{{$uneConference -> prixConf}}€</td>
