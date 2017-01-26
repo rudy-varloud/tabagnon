@@ -34,7 +34,8 @@ class Visiteur extends Model {
                 ->where('login', '=', $login)
                 ->first();
         if ($visiteur) {
-            if ($visiteur->mdpVis == $pwd) {
+            $mdp = decrypt($visiteur->mdpVis);
+            if ($mdp == $pwd) {
                 Session::put('id', $visiteur->idVis);
                 Session::put('ncpt', $visiteur->ncptVis);
                 Session::put('prenom', $visiteur->prenomVis);
@@ -85,7 +86,7 @@ class Visiteur extends Model {
     //Dialogue avec la bdd pour récuperer les infos de tout les utilisateurs
     public function listeUser() {
         $mesVisiteurs = DB::table('visiteur')
-                ->Select('idVis', 'login', 'telFixeVis', 'mobileVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
+                ->Select('idVis', 'login', 'mdpVis', 'telFixeVis', 'mobileVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
                 ->orderBy('login', 'ASC')
                 ->paginate(20);
         return $mesVisiteurs;

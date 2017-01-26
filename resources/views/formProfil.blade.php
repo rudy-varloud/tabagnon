@@ -72,10 +72,13 @@
                         </div>
                     </div>
                     @endif
+                    @php
+                        $mdp_decrypt = decrypt($unV->mdpVis);
+                    @endphp
                     <div class="form-group">
                         <label class="col-md-3 control-label"><i class= "glyphicon glyphicon-eye-close"> </i> Mot de passe : </label>
                         <div class="col-md-6 col-md-3">
-                            <input type='password' name='mdp' value='{{$unV->mdpVis or ''}}'
+                            <input type='password' name='mdp' value='{{$mdp_decrypt}}'
                                    class='form-control mdp' id="0" required>
                         </div>
                         <div class="verifMdp">
