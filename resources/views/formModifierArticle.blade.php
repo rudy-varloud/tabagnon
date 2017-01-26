@@ -20,7 +20,7 @@
             <input name='description' class="form-control" type="text" value="{{$mesArticles->description}}" placeholder="Description de l'article" required autofocus>
         </div>
         <br>
-        <input type='text' name='date' value='{{$date}}'>
+        <input type='hidden' name='date' value='{{$date}}'>
         <div class="form-group">
             <label class='col-md-3 control-label'>Contenue de l'article: </label>
             <textarea name='contenu'class="form-control" type="text" >{{$mesArticles->contenu}}</textarea>

@@ -22,13 +22,16 @@
         </thead>
         <tbody>
             @foreach( $mesConferences as $uneConference )
+            @php
+                $date = date_create($uneConference->dateConf);
+            @endphp
             <tr>
                 <td>{{$uneConference -> idConf}}</td>
                 <td>{{$uneConference -> libConf}}</td>
-                <td>{{$uneConference -> dateConf}}</td>
+                <td>{{$date->format('d-m-Y')}}</td>
                 <td>{{$uneConference -> adresseConf}} </td>
                 <td>{{$uneConference -> heureConf}}</td>
-                <td>{{$uneConference -> prixConf}}</td>
+                <td>{{$uneConference -> prixConf}}€</td>
                 <td>{{$uneConference -> cpConf}}</td>
                 @if (Session::get('ncpt') != 0)
                 <td><center><a href='{{url('/getConfSpe/'.$uneConference->idConf)}}'><span class='glyphicon glyphicon-tags'></span></a></center></td>
