@@ -28,7 +28,7 @@
                 <td>{{$uneConference -> dateConf}}</td>
                 <td>{{$uneConference -> adresseConf}} </td>
                 <td>{{$uneConference -> heureConf}}</td>
-                <td>{{$uneConference -> prixConf}}</td>
+                <td>{{$uneConference -> prixConf}}€</td>
                 <td>{{$uneConference -> cpConf}}</td>
                 @if (Session::get('ncpt') != 0)
                 <td><center><a href='{{url('/getConfSpe/'.$uneConference->idConf)}}'><span class='glyphicon glyphicon-tags'></span></a></center></td>
