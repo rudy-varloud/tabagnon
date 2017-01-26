@@ -26,8 +26,8 @@ class Ligne_visite extends Model {
                 ->get();
         return $reservations;     
     }
-     public function reservationPlace($idVisite, $idVisiteur, $nbPlaceSouhaite) {
-        DB::table('ligne_visite')->insert(['idVisite' => $idVisite, 'idVisiteur' => $idVisiteur, 'qteBillet' => $nbPlaceSouhaite]);
+     public function reservationPlace($idVisite, $idVisiteur, $nbPlaceSouhaite, $dateVisite) {
+        DB::table('ligne_visite')->insert(['idVisite' => $idVisite, 'idVisiteur' => $idVisiteur, 'dateVisite' => $dateVisite, 'qteBillet' => $nbPlaceSouhaite]);
     }
 
 }

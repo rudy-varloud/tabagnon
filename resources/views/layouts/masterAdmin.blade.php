@@ -59,7 +59,7 @@
                     <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
                     <a class="navbar-brand" href="{{url('/accueil')}}">
                         <img src="{{URL::asset('assets/image/logoTabagnon.png')}}" alt="Logo Tabagnon" height="30" width="24">
-                        Tabagnon | <small>Saint genis les ollières</small></a>
+                        Tabagnon | <small>Saint-Genis-les-Ollières</small></a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

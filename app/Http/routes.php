@@ -24,7 +24,7 @@ Route::post('/subscribeGuideTemp', 'VisiteurController@subGuideTemp');
 Route::get('/getProfil', 'VisiteurController@getProfil');
 Route::post('/postmodificationProfil', 'VisiteurController@postModifierProfil');
 Route::get('/modifierProfil', 'VisiteurController@modifierProfil');
-Route::get('/mesReservations', 'VisiteController@mesReservations');
+Route::get('/mesReservations/{id}', 'VisiteController@mesReservations');
 
 //Visite
 Route::post('/ajoutVisite', 'VisiteController@ajoutVisite');

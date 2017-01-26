@@ -74,7 +74,7 @@ class VisiteController extends Controller {
         $uneVisite = new Date_visite();
         $uneVisite->reservationPlace($idVisite, $nbPlaceSouhaite, $dateVisite);
         $uneLigneVisite = new Ligne_visite();
-        $uneLigneVisite->reservationPlace($idVisite, $idVisiteur, $nbPlaceSouhaite);
+        $uneLigneVisite->reservationPlace($idVisite, $idVisiteur, $nbPlaceSouhaite, $dateVisite);
         return redirect('/accueil');
     }
     
@@ -104,7 +104,7 @@ class VisiteController extends Controller {
         $mesConferences = $uneConference->getConfUser($idVis);
         $uneVisite = new Visite();
         $mesVisites = $uneVisite->getVisiteUser($idVis);
-        return view('listeVisiteConference', compact('mesConferences', 'mesVisites'));
+        return view('listeReservation', compact('mesConferences', 'mesVisites'));
     }
    
 }

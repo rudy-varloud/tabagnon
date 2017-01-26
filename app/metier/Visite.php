@@ -74,7 +74,7 @@ class Visite extends Model {
         $mesVisites = DB::table('ligne_visite')
                 ->select()
                 ->join('visite', 'visite.idVisite', '=', 'ligne_visite.idVisite')
-                ->where('ligne_visite.id', '=', $idVis)
+                ->where('idVisiteur', '=', $idVis)
                 ->get();
         return $mesVisites;
     }
