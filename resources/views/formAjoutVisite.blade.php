@@ -4,6 +4,14 @@
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+{!! Html::script('assets/pickadate.js/lib/picker.time.js') !!}  
+{!! Html::script('assets/pickadate.js/lib/picker.js') !!}    
+{!! Html::script('assets/pickadate.js/lib/picker.date.js') !!} 
+{!! Html::style('assets/pickadate.js/lib/themes/default.css') !!}
+{!! Html::style('assets/pickadate.js/lib/themes/default.date.css') !!}
+{!! Html::style('assets/pickadate.js/lib/themes/default.time.css') !!}
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 {!! Form::open(['url' => 'postFormVisite', 'files' => true]) !!}
 <div class="col-lg-12 col-md-12 col-s-12 box">
     <center><h2 class='formVisite'> Créer une visite </h2></center>
@@ -11,7 +19,7 @@
     <!--        <div class="form-control">-->
     <div class="form-group">
         <label class="col-md-3 control-label">Nom de la visite: </label>
-        <input name="nomVisite" class="form-control" type="text" value="{{$titreArticle or ''}}" placeholder="Titre de l'aticle" required autofocus>
+        <input name="nomVisite" class="form-control" type="text" value="{{$titreArticle or ''}}" placeholder="Titre de la visite" required autofocus>
     </div>
     <br>
     <div class="form-group">
@@ -23,15 +31,13 @@
         <input name='description' class="form-control" type="text" value="{{$description or ''}}" placeholder="Description de l'article" required autofocus>
     </div>
     <br>
+    <input name="cpt" type="hidden" value="{{$cpt}}">
     <div class='form-group'>
-        <label class="col-md-3 control-label"> Date(s) de la visite: </label>
-        <input name="cpt" type="hidden" value="{{$cpt}}">
+        <label class="col-md-3 control-label"> Date(s) de la visite: </label>    
         @while($cpt>0)
-        <div class="input_fields_wrap">                  
-        <input name="{{$cpt}}" type="text" class="datepicker form-control"  value="{{$dateVisite or ''}}" placeholder="Date et heure souhaitez pour la visite" required>
-        <button type="submit" value="">Supprimer</button>
-        </div>
         <br>
+            <input name="date{{$cpt}}" type="text" class="datepicker form-control"  value="{{$dateVisite or ''}}" placeholder="Choisir la date" required>
+            <input name="heure{{$cpt}}" type="text" class="timepicker form-control"  value="{{$heureVisite or ''}}" placeholder="Choisir l'heure" required>
         @php(
         $cpt = $cpt - 1)
         @endwhile

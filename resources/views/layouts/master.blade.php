@@ -13,13 +13,12 @@
 
         <!-- Bootstrap Core CSS -->
         {!! Html::style('assets/css/bootstrap.css') !!}
-        {!! Html::style('assets/css/mdb.min.css') !!}
+        {!! Html::style('assets/css/mdb.min.css') !!}     
         <!-- javascript-->
-        {!! Html::script('assets/js/bootstrap.min.js') !!}
         {!! Html::script('assets/js/jquery.js') !!}
+        {!! Html::script('assets/js/tabagnon.js') !!}  
         {!! Html::script('assets/js/bootstrap.min.js') !!}
-        {!! Html::script('assets/js/tabagnon.js') !!}
-        {!! Html::script('assets/js/tinymce/tinymce.min.js') !!}
+        {!! Html::script('assets/tinymce/tinymce.min.js') !!}
         <script type="text/javascript">
             tinyMCE.init({
                 mode: "textareas",

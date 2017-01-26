@@ -425,3 +425,22 @@ footer {
 ul .connect{
     margin-right: 12%;
 }
+
+@media screen and (min-width:1200px) {
+    .datepicker{
+        width : 30% !important;
+        margin-top : 1%;
+    }
+    .timepicker{
+        width : 30% !important;
+    }
+}
+@media screen and (max-width:1200px) {
+    .datepicker{
+        width : 60% !important;
+        margin-top : 1%;
+    }
+    .timepicker{
+        width : 60% !important;
+    }
+}
