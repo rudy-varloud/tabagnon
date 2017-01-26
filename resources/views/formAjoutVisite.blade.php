@@ -69,7 +69,7 @@
             </button>
             &nbsp;
             <button type="button" class="btn btn-default btn-primary" 
-                    onclick="javascript: window.location = '{{url('/accueil')}}';">
+                    onclick="javascript: window.location = '{{url('/getPageAdmin')}}';">
                 <span class="glyphicon glyphicon-remove" ></span> Annuler</button> </center>
     </div>
 </div>
