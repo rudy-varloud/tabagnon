@@ -10,9 +10,9 @@
                 <option value="Selectionnez la date souhaitée" disabled selected required>Selectionnez une date</option>
                 @foreach($mesVisites as $uneVisite)
                 @php
-                    $date = date_create($uneVisite->dateVisite);
+                $date = date_create($uneVisite->dateVisite);
                 @endphp
-                <option value="{{$date->format('d-m-Y')}}">{{$date->format('d-m-Y')}}</option>
+                <option value="{{$uneVisite->dateVisite}}">Le {{$date->format("d/m/Y")}} à {{$date->format("H:i")}}</option>
                 @endforeach
             </select>
             <br>       

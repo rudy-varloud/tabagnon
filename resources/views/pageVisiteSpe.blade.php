@@ -1,7 +1,9 @@
 @if (Session::get('ncpt') > 0)
 @extends('layouts.master')
 @section('content')
-@php($uneVisite = $mesVisites[0])
+@php
+$uneVisite = $mesVisites[0];
+@endphp
 {!! Form::open(['url' => 'reservationPlace']) !!}
 <div class="box">
     <input type="hidden" value="{{ $uneVisite->idVisite }}" name="idVisite">
@@ -13,7 +15,10 @@
             <select id="date_selected" name='dateVisite' onclick="checkSelected()" class="form-control">
                 <option value="Selectionnez la date souhaitée" disabled selected required>Selectionnez une date</option>
                 @foreach($mesVisites as $uneVisite)
-                <option value="{{$uneVisite->dateVisite}}">{{$uneVisite->dateVisite}}</option>
+                @php
+                $date = date_create($uneVisite->dateVisite);
+                @endphp
+                <option value="{{$uneVisite->dateVisite}}">Le {{$date->format("d/m/Y")}} à {{$date->format("H:i")}}</option>
                 @endforeach
             </select>
             <br>       

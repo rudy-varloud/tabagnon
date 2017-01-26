@@ -34,9 +34,10 @@ class VisiteController extends Controller {
         $cpt = Request::input('cpt');
         $uneDateVisite = new Date_visite();
         While ($cpt > 0) {
-            $date = new DateTime(trim(Request::input($cpt)));
-            $date = $date->format('Y-m-d');
-            $uneDateVisite->addDate($id, $date);
+            $date = Request::input("date".$cpt);
+            $heure = Request::input("heure".$cpt);
+            $datetime = $date." ".$heure;
+            $uneDateVisite->addDate($id, $datetime);
             $cpt -= 1;
         }
         return view('pageAdmin', compact('mesVisites'));

@@ -20,29 +20,29 @@ function verifGuide() {
     alert(guide_select);
 }
 
+$(document).ready(function () {
 
-$(function () {
-    $(".datepicker").datepicker();
-    $.datepicker.regional['fr'] = {clearText: 'Effacer', clearStatus: '',
-        closeText: 'Fermer', closeStatus: 'Fermer sans modifier',
-        prevText: '<Préc', prevStatus: 'Voir le mois précédent',
-        nextText: 'Suiv>', nextStatus: 'Voir le mois suivant',
-        currentText: 'Courant', currentStatus: 'Voir le mois courant',
-        monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
-            'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-        monthNamesShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun',
-            'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'],
-        monthStatus: 'Voir un autre mois', yearStatus: 'Voir un autre année',
-        weekHeader: 'Sm', weekStatus: '',
-        dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
-        dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
-        dayNamesMin: ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa'],
-        dayStatus: 'Utiliser DD comme premier jour de la semaine', dateStatus: 'Choisir le DD, MM d',
-        dateFormat: 'yy/mm/dd', firstDay: 0,
-        initStatus: 'Choisir la date', isRTL: false};
-    $.datepicker.setDefaults($.datepicker.regional['fr']);
+    $('.datepicker').pickadate({
+        monthsFull: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+        weekdaysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+        today: 'Aujourd\'hui',
+        clear: 'Effacer',
+        close: 'Fermer',
+        formatSubmit: 'yyyy/mm/dd',
+        hiddenName: true
+    });
+    $('.timepicker').timepicker({
+        timeFormat: 'HH:mm ',
+        interval: 15,
+        minTime: '06:00',
+        maxTime: '22:00',
+        defaultTime: '6:00',
+        startTime: '6:00',
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true
+    });
 });
-
 
 function checkSelected() {
     if (document.getElementById('date_selected').value !== "0") {
