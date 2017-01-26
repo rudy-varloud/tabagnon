@@ -18,12 +18,11 @@ class VisiteurController extends Controller {
         if ($connected) {
             $id = Session::get('id');
             $unV = $unVisiteur->getUser($id);
-            if ($unV->ncptVis == 5){
+            if ($unV->ncptVis == 5) {
                 return redirect('/modifierProfil');
             }
             return redirect('/accueil');
-        }
-        else {
+        } else {
             $erreur = "Login ou mot de passe inconnu, veuillez réessayer !";
             return view('formLogin', compact('erreur'));
         }
@@ -63,6 +62,7 @@ class VisiteurController extends Controller {
     public function SubscribeIn() {
         $login = Request::input('login');
         $pwd = Request::input('pwd');
+        $pwd_encrypt = encrypt($pwd);
         $nom = Request::input('nom');
         $prenom = Request::input('prenom');
         $mail = Request::input('mail');
@@ -72,7 +72,7 @@ class VisiteurController extends Controller {
         $ville = Request::input('ville');
         $cp = Request::input('cp');
         $unVisiteur = new Visiteur();
-        $inscription = $unVisiteur->subscribe($login, $pwd, $nom, $prenom, $mail, $adr, $tel, $mobile, $ville, $cp);
+        $inscription = $unVisiteur->subscribe($login, $pwd_encrypt, $nom, $prenom, $mail, $adr, $tel, $mobile, $ville, $cp);
         if ($inscription) {
             $unVisiteur->login($login, $pwd);
             return view('Merci', compact('mail', 'nom'));
@@ -127,8 +127,9 @@ class VisiteurController extends Controller {
     public function subGuideTemp() {
         $prenomUser = Request::input('prenomGuideMan');
         $nomUser = Request::input('nomGuideMan');
+        $mdp_encyrpt = encrypt($nomUser);
         $unVisiteur = new Visiteur();
-        $mesVisiteur = $unVisiteur->subGuideMan($prenomUser, $nomUser);
+        $mesVisiteur = $unVisiteur->subGuideMan($prenomUser, $nomUser, $mdp_encyrpt);
         return view('pageAdmin');
     }
 
@@ -137,7 +138,7 @@ class VisiteurController extends Controller {
      */
 
     public function modifierProfil() {
-        $message="";
+        $message = "";
         $id = Session::get('id');
         $unVisiteur = new Visiteur();
         $unV = $unVisiteur->getUser($id);
@@ -166,7 +167,7 @@ class VisiteurController extends Controller {
         if ($unV->ncptVis == 5) {
             $unVisiteur->updateGuide($id);
         }
-        $unVisiteur->modificationProfil($id, $adresse, $tel, $mobile, $mdp, $mail, $nom, $prenom,$login);
+        $unVisiteur->modificationProfil($id, $adresse, $tel, $mobile, $mdp, $mail, $nom, $prenom, $login);
         return redirect('/getProfil');
     }
 
@@ -180,5 +181,5 @@ class VisiteurController extends Controller {
         $unV = $unVisiteur->getUser($id);
         return view('profil', compact('unV'));
     }
-   
+
 }
