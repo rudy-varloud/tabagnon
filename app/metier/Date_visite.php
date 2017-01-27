@@ -16,23 +16,38 @@ class Date_visite extends Model {
         'dateVisite',
         'nbPlaceRes'
     ];
-    
-    public function reservationPlace($idVisite, $nbPlaceSouhaite,$dateVisite) {
+
+    public function reservationPlace($idVisite, $nbPlaceSouhaite, $dateVisite) {
         $mesVisites = DB::table('date_visite')
                 ->where('idVisite', '=', $idVisite)
-                ->where('dateVisite','=',$dateVisite)
+                ->where('dateVisite', '=', $dateVisite)
                 ->increment('nbPlaceRes', $nbPlaceSouhaite);
         return $mesVisites;
     }
-    public function addDate($id,$date){
-        DB::table('date_visite')->insert(['idVisite' => $id,'dateVisite' => $date,'nbPlaceRes' => 0]);
+
+    public function addDate($id, $date) {
+        DB::table('date_visite')->insert(['idVisite' => $id, 'dateVisite' => $date, 'nbPlaceRes' => 0]);
     }
-    
-    public function nbPlaceRes($idVisite,$dateVisite) {
-        $nb = DB::table('date_visite')->Select('nbPlaceRes')   
+
+    public function nbPlaceRes($idVisite, $dateVisite) {
+        $nb = DB::table('date_visite')->Select('nbPlaceRes')
                 ->where('idVisite', '=', $idVisite)
                 ->where('dateVisite', '=', $dateVisite)
                 ->first();
         return $nb->nbPlaceRes;
     }
+
+    public function rajoutBillet($idVisite, $dateVisite, $qteBillet) {
+        DB::table('date_visite')->where('idVisite', '=', $idVisite)
+                ->where('dateVisite', '=', $dateVisite)
+                ->decrement('nbPlaceRes', $qteBillet);
+    }
+
+    public function modifierPlaceLibre($idVisite, $dateVisite, $qteBillet, $placeRes) {
+        $update = $placeRes - $qteBillet;
+        DB::table('date_visite')->where('idVisite', '=', $idVisite)
+                ->where('dateVisite', '=', $dateVisite)
+                ->decrement('nbPlaceRes', $update);
+    }
+
 }

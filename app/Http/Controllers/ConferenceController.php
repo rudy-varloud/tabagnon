@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\metier\Conference;
+use App\metier\Visite;
+use App\metier\Ligne_conference;
 use Request;
 use Illuminate\Support\Facades\Session;
 use Exception;
@@ -20,10 +22,11 @@ class ConferenceController extends Controller {
        $contenuConf = Request::input('contenu');
        $adresseConf = Request::input('adresseConf');
        $cpConf = Request::input('cpConf');
-       $dateConf = Request::input('dateConf');
-       $heureConf = Request::input('heureConf');
+       $date = Request::input('date');
+       $heure = Request::input('heure');
+       $datetime = $date." ".$heure;
        $uneConf = new Conference();
-       $mesConferences = $uneConf->postAjoutConf($nomConf, $prixConf, $placeDispoConf, $contenuConf, $adresseConf, $cpConf, $dateConf, $heureConf);
+       $uneConf->postAjoutConf($nomConf, $prixConf, $placeDispoConf, $contenuConf, $adresseConf, $cpConf, $datetime);
        return view('pageAdmin');
     }
     
@@ -44,9 +47,8 @@ class ConferenceController extends Controller {
         $idConf = Request::input('idConf');
         $placeSouhaite = Request::input('placeSouhaite');
         $uneConference = new Conference();
-        $mesConferences = $uneConference->postFromReserveConf($idConf, $placeSouhaite);
-        $uneConference2 = new Conference();
-        $mesConferences2 = $uneConference2->postLigneReserve($idVis, $idConf, $placeSouhaite);
+        $uneConference->postFromReserveConf($idConf, $placeSouhaite);
+        $uneConference->postLigneReserve($idVis, $idConf, $placeSouhaite);
         return redirect ('/accueil');
     }
     
@@ -54,6 +56,34 @@ class ConferenceController extends Controller {
         $uneConference = new Conference();
         $mesConferences = $uneConference->getUserConf($idConf);
         return view('listeUserConf', compact('mesConferences'));
+    }
+    
+    public function annulerConf(){
+        $idVis = Request::input('idVis');
+        $idConf = Request::input('idConf');
+        $qteBillet = Request::input('qteBillet');
+        $uneConference = new Conference();
+        $uneLigneConference = new Ligne_conference();
+        $uneLigneConference->annulerConf($idConf,$idVis);
+        $uneConference->rajoutBillet($idConf,$qteBillet);
+        $mesConferences = $uneConference->getConfUser($idVis);
+        $uneVisite = new Visite();
+        $mesVisites = $uneVisite->getVisiteUser($idVis);
+        return view('listeReservation', compact('mesConferences', 'mesVisites'));
+    }
+    public function modifierPlaceConf(){
+        $idVis = Request::input('idVis');
+        $idConf = Request::input('idConf');
+        $qteBillet = Request::input('qteBillet');
+        $placeRes = Request::input('nbPlaceRes');
+        $uneConference = new Conference();
+        $uneLigneConference = new Ligne_conference();
+        $uneLigneConference->modifierPlaceConf($idConf,$idVis,$qteBillet);
+        $uneConference->modifierPlaceLibre($idConf,$qteBillet,$placeRes);
+        $mesConferences = $uneConference->getConfUser($idVis);
+        $uneVisite = new Visite();
+        $mesVisites = $uneVisite->getVisiteUser($idVis);
+        return view('listeReservation', compact('mesConferences', 'mesVisites'));
     }
    
 }

@@ -13,12 +13,16 @@
 
         <!-- Bootstrap Core CSS -->
         {!! Html::style('assets/css/bootstrap.css') !!}
-        {!! Html::style('assets/css/mdb.min.css') !!}     
+        {!! Html::style('assets/css/mdb.min.css') !!} 
         <!-- javascript-->
         {!! Html::script('assets/js/jquery.js') !!}
         {!! Html::script('assets/js/tabagnon.js') !!}  
         {!! Html::script('assets/js/bootstrap.min.js') !!}
         {!! Html::script('assets/tinymce/tinymce.min.js') !!}
+        <!-- Custom CSS -->
+        {!! Html::style('assets/css/tabagnon.css') !!}
+        {!! Html::style('assets/font-awesome/css/font-awesome.min.css') !!}
+        
         <script type="text/javascript">
             tinyMCE.init({
                 mode: "textareas",
@@ -40,8 +44,7 @@
             }
         </script>
 
-        <!-- Custom CSS -->
-        {!! Html::style('assets/css/tabagnon.css') !!}
+        
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">

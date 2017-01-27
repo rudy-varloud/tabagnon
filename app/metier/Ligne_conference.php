@@ -18,5 +18,18 @@ class Ligne_conference extends Model {
         'idImage',
     ];
 
+    public function annulerConf($idConf, $idVis) {
+        DB::table('ligne_conference')
+                ->where('idVisiteur', '=', $idVis)
+                ->where('idConf', '=', $idConf)
+                ->delete();
+    }
+
+    public function modifierPlaceConf($idConf, $idVis, $qteBillet) {
+        DB::table('ligne_conference')
+        ->where('idVisiteur', '=', $idVis)
+        ->where('idConf', '=', $idConf)
+        ->update(['qteBillet' =>$qteBillet]);
+    }
+
 }
-    

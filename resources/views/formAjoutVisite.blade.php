@@ -1,17 +1,13 @@
 @extends('layouts.masterAdmin')
 @section('content')
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 {!! Html::script('assets/pickadate.js/lib/picker.time.js') !!}  
 {!! Html::script('assets/pickadate.js/lib/picker.js') !!}    
 {!! Html::script('assets/pickadate.js/lib/picker.date.js') !!} 
 {!! Html::style('assets/pickadate.js/lib/themes/default.css') !!}
 {!! Html::style('assets/pickadate.js/lib/themes/default.date.css') !!}
 {!! Html::style('assets/pickadate.js/lib/themes/default.time.css') !!}
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+{!! Html::script('assets/timepicker/jquery.timepicker.min.js') !!} 
+{!! Html::style('assets/timepicker/jquery.timepicker.min.css') !!}
 {!! Form::open(['url' => 'postFormVisite', 'files' => true]) !!}
 <div class="col-lg-12 col-md-12 col-s-12 box">
     <center><h2 class='formVisite'> Créer une visite </h2></center>

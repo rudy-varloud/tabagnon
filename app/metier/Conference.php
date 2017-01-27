@@ -18,11 +18,10 @@ class Conference extends Model {
         'dateCreation',
     ];
 
-    public function postAjoutConf($nomConf, $prixConf, $placeDispoConf, $contenuConf, $adresseConf, $cpConf, $dateConf, $heureConf) {
-        $conference = DB::table('conference')
+    public function postAjoutConf($nomConf, $prixConf, $placeDispoConf, $contenuConf, $adresseConf, $cpConf, $dateConf) {
+        DB::table('conference')
                 ->Insert(['libConf' => $nomConf, 'prixConf' => $prixConf, 'placeDispoConf' => $placeDispoConf, 'contenuConf' => $contenuConf,
-            'adresseConf' => $adresseConf, 'cpConf' => $cpConf, 'dateConf' => $dateConf, 'heureConf' => $heureConf]);
-        return $conference;
+                    'adresseConf' => $adresseConf, 'cpConf' => $cpConf, 'dateConf' => $dateConf]);
     }
 
     public function getConference() {
@@ -41,20 +40,19 @@ class Conference extends Model {
     }
 
     public function postFromReserveConf($idConf, $placeSouhaite) {
-        $conference = DB::table('conference')
+        DB::table('conference')
                 ->where('idConf', '=', $idConf)
                 ->increment('placeReserConf', $placeSouhaite);
-        return $conference;
     }
 
     public function getLastConference() {
         $lesConf = Conference::orderBy('idConf', 'desc')->take(3)->get();
         return $lesConf;
     }
+
     public function postLigneReserve($idVis, $idConf, $placeSouhaite) {
-        $conference = DB::table('ligne_conference')
+        DB::table('ligne_conference')
                 ->insert(['idConf' => $idConf, 'idVisiteur' => $idVis, 'qteBillet' => $placeSouhaite]);
-        return $conference;
     }
 
     public function getUserConf($idConf) {
@@ -65,8 +63,8 @@ class Conference extends Model {
                 ->get();
         return $conference;
     }
-    
-    public function getConfUser($idVis){
+
+    public function getConfUser($idVis) {
         $conference = DB::table('conference')
                 ->select()
                 ->join('ligne_conference', 'conference.idConf', '=', 'ligne_conference.idConf')
@@ -74,5 +72,15 @@ class Conference extends Model {
                 ->get();
         return $conference;
     }
-
+    
+    public function rajoutBillet($idConf,$qteBillet){
+        DB::table('conference')->where('idConf','=',$idConf)
+                ->decrement('placeReserConf',$qteBillet);
+    }
+    
+    public function modifierPlaceLibre($idConf,$qteBillet,$placeRes){
+        $update = $placeRes-$qteBillet;
+         DB::table('conference')->where('idConf','=',$idConf)
+                ->decrement('placeReserConf',$update);
+    }
 }

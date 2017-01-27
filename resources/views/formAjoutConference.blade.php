@@ -1,10 +1,15 @@
 @extends('layouts.masterAdmin')
 @section('content')
 {!! Form::open(['url' => 'postFormAjoutConf']) !!}
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+{!! Html::script('assets/pickadate.js/lib/picker.time.js') !!}  
+{!! Html::script('assets/pickadate.js/lib/picker.js') !!}    
+{!! Html::script('assets/pickadate.js/lib/picker.date.js') !!} 
+{!! Html::style('assets/pickadate.js/lib/themes/default.css') !!}
+{!! Html::style('assets/pickadate.js/lib/themes/default.date.css') !!}
+{!! Html::style('assets/pickadate.js/lib/themes/default.time.css') !!}
+{!! Html::script('assets/timepicker/jquery.timepicker.min.js') !!} 
+{!! Html::style('assets/timepicker/jquery.timepicker.min.css') !!}
+
 <div class='box'>
     <h3> Remplir le formulaire pour créer une conférence </h3>
     <div class='formulaire_conf'>
@@ -27,15 +32,14 @@
         <input type='text' class='form-control cpConf' name='cpConf' value='' placeholder='Code Postale de la conférence'>
         <br>
         <div class="input_fields_wrap">
-        <label> Date de la conférence: </label>
-        <input type="date" class="datepicker form-control dateConf" name="dateConf" value="" placeholder="Date de la conférence">
+            <div class='form-group'>
+                <label class="col-md-3 control-label"> Date et heure de la conférence: </label>    
+                <br>
+                <input name="date" type="text" class="datepicker form-control"  value="{{$dateVisite or ''}}" placeholder="Choisir la date" required>
+                <input name="heure" type="text" class="timepicker form-control"  value="{{$heureVisite or ''}}" placeholder="Choisir l'heure" required>
+            </div>
+            <center> <button type='submit' class='btn btn-info' value='Envoyer'>Envoyer</button></center>
         </div>
-        <br>
-        <label> Heure de la conférence: </label>
-        <input type='text' class='form-control heureConf' name='heureConf' value='' placeholder='Heure de la conférence'>
-        <br>
-        <center> <button type='submit' class='btn btn-info' value='Envoyer'>Envoyer</button></center>
     </div>
-</div>
-{{ Form::close() }}
-@stop
+    {{ Form::close() }}
+    @stop

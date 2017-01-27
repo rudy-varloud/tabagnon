@@ -26,3 +26,28 @@
     </div>
 </center>
 @stop
+
+
+<div id="nbModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Nombre de dates</h4>
+            </div>
+            {!! Form::open(['url' => '/ajoutVisite']) !!}
+            <div class="modal-body">                   
+                <label class="control-label">Nombres de dates pour la visite : </label>
+                <input type="number" value="1" min="1" max="5" name="nbDate" class="form-control" required>             
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-log-in"></span> Valider</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            </div>
+            {{ Form::close() }}
+        </div>
+
+    </div>
+</div>

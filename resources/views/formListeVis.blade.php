@@ -35,6 +35,7 @@
                 <td>{{$unVisiteur -> mobileVis}}</td>
                 <td>{{$unVisiteur -> mailVis}}</td>
                 <td>{{$unVisiteur -> adresseVis}}</td>
+                @if(Session::get('id') != $unVisiteur -> idVis)
                 @if(($unVisiteur -> ncptVis) == 5)
                 <td>Guide temporaire</td>
                 @endif
@@ -51,6 +52,11 @@
                 <td>Utilisateur non confirmé</td>
                 @endif
                 <td><center><a href=" {{ url('/modifUser') }}/{{ $unVisiteur -> idVis }} "><span class="glyphicon glyphicon-sort" title="Modifier le status de ce compte"></span></a></center></td>
+                @endif
+                @if(Session::get('id') == $unVisiteur -> idVis)
+                <td>Administrateur</td>
+                <td>Votre compte</td>
+                @endif     
         </tr>
         @endforeach
         </tbody>
