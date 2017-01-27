@@ -2,6 +2,7 @@
 @section('content')
 <div class='box'>
     <h3>Liste des conférences du Tabagnon !</h3>
+    <div class="table-responsive">
     <table class="table table-striped listeFiltree">
         <thead>
             <tr>
@@ -44,5 +45,6 @@
         @endforeach
         </tbody>
     </table>
+    </div>
 </div>
 @stop

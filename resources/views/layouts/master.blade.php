@@ -97,6 +97,7 @@
                         <li><a href="{{url('/getArticles')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Les Articles</a></li>
                         <li><a href="{{url('/getPageConference')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Conférence</a></li>
                         <li><a href="{{url('/getPageVisite')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Visite Disponible</a></li>
+                        <li><a href="{{url('/getMosaique')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Mosaïque</a></li>
                         
                     </ul>
                 </div>

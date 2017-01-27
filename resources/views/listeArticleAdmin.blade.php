@@ -3,6 +3,7 @@
 
 <div class='box'>
     <h2> Liste de tous les articles publiés </h2>
+    <div class="table-responsive">
     <table class="table table-bordered listeFiltree">
         <thead>
             <tr>
@@ -32,6 +33,7 @@
         @endforeach
         </tbody>
     </table>
+    </div>
     <br>
     
 </div>

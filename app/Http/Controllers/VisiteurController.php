@@ -158,6 +158,7 @@ class VisiteurController extends Controller {
         $tel = Request::input('telcli');
         $mobile = Request::input('mobile');
         $mdp = Request::input('mdp');
+        $mdp_encrypt = encrypt($mdp);
         $mail = Request::input('mail');
         $nom = Request::input('nom');
         $prenom = Request::input('prenom');
@@ -167,7 +168,7 @@ class VisiteurController extends Controller {
         if ($unV->ncptVis == 5) {
             $unVisiteur->updateGuide($id);
         }
-        $unVisiteur->modificationProfil($id, $adresse, $tel, $mobile, $mdp, $mail, $nom, $prenom, $login);
+        $unVisiteur->modificationProfil($id, $adresse, $tel, $mobile, $mdp_encrypt, $mail, $nom, $prenom, $login);
         return redirect('/getProfil');
     }
 

@@ -10,7 +10,8 @@
         <a href='{{url('listeUserSpe')}}'><button type='submit' class='btn btn-info'> Rechercher </button></a>
     </div>
     <br><br><br>
-    <h2>Liste de tous les utilisateurs existants : ({{$mesVisiteurs2}})</h2>        
+    <h2>Liste de tous les utilisateurs existants : ({{$mesVisiteurs2}})</h2>      
+    <div class="table-responsive">
     <table class="table table-striped listeFiltree">
         <thead>
             <tr>
@@ -55,6 +56,7 @@
         @endforeach
         </tbody>
     </table>
+    </div>
     <center> {{ $mesVisiteurs->render() }} </center>
 </div>
 @stop

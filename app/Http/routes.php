@@ -61,6 +61,9 @@ Route::get('/getConfSpe/{idConf}', 'ConferenceController@getConferenceSpe');
 Route::post('/postFormReserveConf', 'ConferenceController@postFromReserveConf');
 Route::get('/getUserConf/{idConf}', 'ConferenceController@getUserConf');
 
+//Mosaïque
+Route::get('/getMosaique', 'MosaiqueController@listePhoto');
+Route::post('/postFormMosaique', 'MosaiqueController@postPhotoMosaique');
 
 //Admin
 //Carousel

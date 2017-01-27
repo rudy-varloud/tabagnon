@@ -61,3 +61,17 @@ function checkSelected() {
     });
 }
 
+function ajoutImage(){
+     if (document.getElementById('formAjoutImage').style.display != 'none')
+  {
+      $( ".formAjoutImage" ).fadeOut( "slow", function() {
+      });
+  }
+  else
+  {
+       $( ".formAjoutImage" ).fadeIn( "slow", function() {
+       });
+  }
+}
+
+

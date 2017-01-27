@@ -11,6 +11,7 @@
     <br><br><br><br>
     <h2>Liste de tous les utilisateurs existants répondant aux critères choisis: ({{$user}})({{$mesVisiteurs2}})</h2>      
     @if($mesVisiteurs != null)
+    <div class="table-responsive">
     <table class="table table-striped listeFiltree">
         <thead>
             <tr>
@@ -52,6 +53,7 @@
         @endforeach
         </tbody>
     </table>
+    </div> 
     @endif
     @if($mesVisiteurs == null)
     <p>Aucun n'utilisateur ne correspond au critère spécifié.</p>
