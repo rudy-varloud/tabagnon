@@ -37,7 +37,8 @@ Route::get('/getReservationVis/{idVisite}', 'VisiteController@getVisiteReservati
 Route::post('/getReservations', 'VisiteController@getReservation');
 Route::post('/reservationPlace', 'VisiteController@reservationPlace');
 Route::post('/postReservationPlace', 'VisiteController@postReservationPlace');
-
+Route::post('/annulerVis', 'VisiteController@annulerVis');
+Route::post('/modifierPlaceVis', 'VisiteController@modifierPlaceVis');
 
 //Article
 Route::get('/accueil', 'ArticleController@getLastDonnees');
@@ -60,6 +61,9 @@ Route::get('/getPageConference', 'ConferenceController@getConference');
 Route::get('/getConfSpe/{idConf}', 'ConferenceController@getConferenceSpe');
 Route::post('/postFormReserveConf', 'ConferenceController@postFromReserveConf');
 Route::get('/getUserConf/{idConf}', 'ConferenceController@getUserConf');
+Route::post('/annulerConf', 'ConferenceController@annulerConf');
+Route::post('/modifierPlaceConf', 'ConferenceController@modifierPlaceConf');
+
 
 //Mosaïque
 Route::get('/getMosaique', 'MosaiqueController@listePhoto');

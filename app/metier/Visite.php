@@ -73,7 +73,12 @@ class Visite extends Model {
     public function getVisiteUser($idVis){
         $mesVisites = DB::table('ligne_visite')
                 ->select()
-                ->join('visite', 'visite.idVisite', '=', 'ligne_visite.idVisite')
+                ->join('visite','visite.idVisite','=','ligne_visite.idVisite') 
+                ->join('date_visite', function($join) 
+                {
+                    $join->on('ligne_visite.idVisite' ,'=',  'date_visite.idVisite');
+                    $join->on('ligne_visite.dateVisite' ,'=',  'date_visite.dateVisite');
+                })
                 ->where('idVisiteur', '=', $idVis)
                 ->get();
         return $mesVisites;

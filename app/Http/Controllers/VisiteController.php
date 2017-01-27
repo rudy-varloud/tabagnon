@@ -106,5 +106,36 @@ class VisiteController extends Controller {
         $mesVisites = $uneVisite->getVisiteUser($idVis);
         return view('listeReservation', compact('mesConferences', 'mesVisites'));
     }
+    public function annulerVis(){
+        $idVisite = Request::input('idVisite');
+        $idVisiteur = Request::input('idVisiteur');
+        $qteBillet = Request::input('qteBillet');
+        $dateVisite = Request::input('dateVisite');
+        $uneDateVisite = new Date_visite();
+        $uneLigneVisite = new Ligne_visite();
+        $uneLigneVisite->annulerVis($idVisite,$idVisiteur,$dateVisite);
+        $uneDateVisite->rajoutBillet($idVisite,$dateVisite,$qteBillet);
+        $uneConference = new Conference();
+        $mesConferences = $uneConference->getConfUser($idVisiteur);
+        $uneVisite = new Visite();
+        $mesVisites = $uneVisite->getVisiteUser($idVisiteur);
+        return view('listeReservation', compact('mesConferences', 'mesVisites'));
+    }
+    public function modifierPlaceVis(){
+        $idVisite = Request::input('idVisite');
+        $idVisiteur = Request::input('idVisiteur');
+        $qteBillet = Request::input('qteBillet');
+        $dateVisite = Request::input('dateVisite');
+        $placeRes = Request::input('nbPlaceRes');
+        $uneLigneVisite = new Ligne_visite();
+        $uneLigneVisite->modifierPlaceVis($idVisite,$idVisiteur,$dateVisite,$qteBillet);
+        $uneDateVisite = new Date_visite();
+        $uneDateVisite->modifierPlaceLibre($idVisite, $dateVisite, $qteBillet, $placeRes);
+        $uneConference = new Conference();
+        $mesConferences = $uneConference->getConfUser($idVisiteur);
+        $uneVisite = new Visite();
+        $mesVisites = $uneVisite->getVisiteUser($idVisiteur);
+        return view('listeReservation', compact('mesConferences', 'mesVisites'));
+    }
    
 }

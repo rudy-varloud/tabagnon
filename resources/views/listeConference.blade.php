@@ -30,8 +30,8 @@
                 <td>{{$uneConference -> idConf}}</td>
                 <td>{{$uneConference -> libConf}}</td>
                 <td>{{$date->format('d-m-Y')}}</td>
-                <td>{{$uneConference -> adresseConf}} </td>
-                <td>{{$uneConference -> heureConf}}</td>
+                <td>{{$date->format('H:i')}}</td>
+                <td>{{$uneConference -> adresseConf}} </td>               
                 <td>{{$uneConference -> prixConf}}€</td>
                 <td>{{$uneConference -> cpConf}}</td>
                 @if (Session::get('ncpt') != 0)

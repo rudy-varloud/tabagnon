@@ -29,6 +29,22 @@ class Ligne_visite extends Model {
      public function reservationPlace($idVisite, $idVisiteur, $nbPlaceSouhaite, $dateVisite) {
         DB::table('ligne_visite')->insert(['idVisite' => $idVisite, 'idVisiteur' => $idVisiteur, 'dateVisite' => $dateVisite, 'qteBillet' => $nbPlaceSouhaite]);
     }
+    
+    public function annulerVis($idVisite,$idVisiteur,$dateVisite){
+        DB::table('ligne_visite')             
+                ->where('idVisite', '=', $idVisite)
+                ->where('idVisiteur', '=', $idVisiteur)
+                ->where('dateVisite', '=', $dateVisite)
+                ->delete();
+    }
+    
+    public function modifierPlaceVis($idVisite, $idVisiteur, $dateVisite, $qteBillet) {
+        DB::table('ligne_visite')
+        ->where('idVisiteur', '=', $idVisiteur)
+        ->where('idVisite', '=', $idVisite)
+        ->where('dateVisite', '=', $dateVisite)
+        ->update(['qteBillet' =>$qteBillet]);
+    }
 
 }
     
