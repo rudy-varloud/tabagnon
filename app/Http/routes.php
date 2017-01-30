@@ -20,7 +20,6 @@ Route::post('/signIn', ['as' => 'signIn',
     'uses' => 'VisiteurController@signIn']);
 Route::get('/getSubscribe', 'VisiteurController@getsubscribe');
 Route::post('/subscribe', 'VisiteurController@SubscribeIn');
-Route::post('/subscribeGuideTemp', 'VisiteurController@subGuideTemp');
 Route::get('/getProfil', 'VisiteurController@getProfil');
 Route::post('/postmodificationProfil', 'VisiteurController@postModifierProfil');
 Route::get('/modifierProfil', 'VisiteurController@modifierProfil');

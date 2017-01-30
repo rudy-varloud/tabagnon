@@ -22,7 +22,7 @@
             <tr>
                 <td>{{$uneConference -> idConf}}</td>
                 <td>{{$uneConference -> libConf}}</td>
-                <td>{{$dateConf->format('d-m-Y')}}</td>               
+                <td>{{$dateConf->format('d/m/Y')}}</td>               
                 <td>{{$dateConf->format('H:i')}}</td>
                 <td>{{$uneConference -> adresseConf}} </td>
                 <td>{{$uneConference -> cpConf}}</td>

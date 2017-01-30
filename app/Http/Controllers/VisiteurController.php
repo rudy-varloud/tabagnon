@@ -124,14 +124,6 @@ class VisiteurController extends Controller {
         return view('formListeVisSpe', compact('mesVisiteurs', 'mesVisiteurs2', 'user'));
     }
 
-    public function subGuideTemp() {
-        $prenomUser = Request::input('prenomGuideMan');
-        $nomUser = Request::input('nomGuideMan');
-        $mdp_encyrpt = encrypt($nomUser);
-        $unVisiteur = new Visiteur();
-        $mesVisiteur = $unVisiteur->subGuideMan($prenomUser, $nomUser, $mdp_encyrpt);
-        return view('pageAdmin');
-    }
 
     /* Créer l'appel de récupération des données d'un client 
      * et renvoie ces données au formulaire de modification d'un client.   
