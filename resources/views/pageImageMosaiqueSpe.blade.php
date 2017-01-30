@@ -22,8 +22,9 @@
         <img class='article-image' src="{{ URL::asset('assets/image/mosaique/'.$mesMosaiques->nomImage) }}" alt="">
         <h3> {{ $mesMosaiques->descriptionImage}} </h3>
         <h6> Publié le: {{ $date->format('d-m-Y') }} par {{$mesMosaiques->prenomVis}} {{ $mesMosaiques->nomVis }} </h6>
-        @if (Session::get('ncpt') == 4)
-        <a href='{{url ('/deleteImage/'. $mesMosaiques->idImage)}}'><i class="fa fa-trash" aria-hidden="true"> Supprimer cette image </i></a>
+        @if ((Session::get('ncpt') == 4) || (Session::get('id') == $mesMosaiques->idVisiteur))
+        <a href='#' onclick="javascript:if (confirm('Voulez vous vraiment supprimer ce produit ?'))
+                           { window.location ='{{url ('/deleteImage/'. $mesMosaiques->idImage)}}'; }"><i class="fa fa-trash" aria-hidden="true" /> Supprimer cette image </i></a>
         @endif
 
     </div> </center>
@@ -47,6 +48,9 @@
         @endphp
         <p> {{$uneMosaique->commentaire}} </p>
         <h6 class='nomCom'>De {{$uneMosaique->login}} le {{$date_com->format('d-m-Y H:i')}}</h6>
+            @if ((Session::get('ncpt') == 4)||(Session::get('id') == $uneMosaique->idVisi))
+        <i class="fa fa-eraser" aria-hidden="true"></i>
+            @endif
         @endforeach
         <center>{{ $mesMosaiques2->render() }}</center>
         @endif

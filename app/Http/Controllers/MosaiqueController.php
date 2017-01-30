@@ -43,7 +43,7 @@ class MosaiqueController extends Controller {
         $commentaire = Request::input('commentaire');
         $uneMosaique = new Mosaique();
         $uneMosaique->postAjoutCommentaire($idImage, $date, $idVis, $commentaire);
-        return redirect('/getMosaique');
+        return redirect('/getImage/'.$idImage);
     }
     
     public function deleteImage($idImage){
