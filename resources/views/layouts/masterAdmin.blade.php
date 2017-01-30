@@ -25,19 +25,6 @@
         {!! Html::style('assets/css/tabagnon.css') !!}
         {!! Html::style('assets/font-awesome/css/font-awesome.min.css') !!}
         
-        <script type="text/javascript">
-            tinyMCE.init({
-                mode: "textareas",
-                language: "fr_FR",
-                language_url: 'assets/tinymce/langs/fr_FR.js',
-                forced_root_block: "",
-                force_br_newlines: true,
-                force_p_newlines: false,
-                max_width: 500
-            });
-        </script>
-        
-
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">

@@ -1,6 +1,18 @@
 @extends('layouts.master')
 @section('content')
+<script type="text/javascript">
+    tinyMCE.init({
+        mode: "textareas",
+        language: "fr_FR",
+        language_url: '../assets/tinymce/langs/fr_FR.js',
+        forced_root_block: "",
+        force_br_newlines: true,
+        force_p_newlines: false,
+        height: 150,
+        plugins: "autoresize"
+    });
 
+</script>
 <center><div class="box">
         @if ($mesMosaiques != null)
         @php
@@ -17,6 +29,7 @@
     </div> </center>
 <br>
 {!! Form::open(['url' => 'postAjoutCommentaire']) !!}
+<center
 <div class='box commentaire'>
     <input type='hidden' name='idImg' value='{{$mesMosaiques->idImage}}'>
     <input type='hidden' name="date" value='{{$date_jour}}'>
@@ -26,11 +39,11 @@
     <br>
     <center> <button type='submit' class='btn btn-info' value='Envoyer'> Envoyer </button>
         <br><BR>
-{{ Form::close() }}
+        {{ Form::close() }}
         <h3 class='titre'> Commentaires: </h3>
         @foreach ($mesMosaiques2 as $uneMosaique)
         @php
-            $date_com = date_create($uneMosaique->dateCommentaire);
+        $date_com = date_create($uneMosaique->dateCommentaire);
         @endphp
         <p> {{$uneMosaique->commentaire}} </p>
         <h6 class='nomCom'>De {{$uneMosaique->login}} le {{$date_com->format('d-m-Y H:i')}}</h6>
@@ -38,4 +51,5 @@
         <center>{{ $mesMosaiques2->render() }}</center>
         @endif
 </div>
+</center>
 @stop

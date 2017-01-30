@@ -1,7 +1,19 @@
 @extends('layouts.masterAdmin')
 @section('content')
 
+<script type="text/javascript">
+    tinyMCE.init({
+        mode: "textareas",
+        language: "fr_FR",
+        language_url: 'assets/tinymce/langs/fr_FR.js',
+        forced_root_block: "",
+        force_br_newlines: true,
+        force_p_newlines: false,
+        height: 300,
+        plugins: "autoresize"
+    });
 
+</script>
 
 <div class='box'>
     {!! Form::open(['url' => 'postFormArticle', 'files' => true]) !!}
