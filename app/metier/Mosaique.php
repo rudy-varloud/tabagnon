@@ -52,7 +52,7 @@ class Mosaique extends Model {
                 ->Select()
                 ->join('visiteur', 'visiteur.idVis', '=', 'commentaire_image.idVisi')
                 ->Where('idImg', '=', $idImage)
-                ->orderBy('dateCommentaire', 'ASC')
+                ->orderBy('dateCommentaire', 'DESC')
                 ->paginate(15);
         return $mesMosaiques;
     }
