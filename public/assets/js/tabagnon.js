@@ -61,17 +61,27 @@ function checkSelected() {
     });
 }
 
-function ajoutImage(){
-     if (document.getElementById('formAjoutImage').style.display != 'none')
-  {
-      $( ".formAjoutImage" ).fadeOut( "slow", function() {
-      });
-  }
-  else
-  {
-       $( ".formAjoutImage" ).fadeIn( "slow", function() {
-       });
-  }
+function ajoutImage() {
+    if (document.getElementById('formAjoutImage').style.display != 'none')
+    {
+        $(".formAjoutImage").fadeOut("slow", function () {
+        });
+    } else
+    {
+        $(".formAjoutImage").fadeIn("slow", function () {
+        });
+    }
 }
 
-
+$(document).ready(function () {
+    $('#guideModal').on('hidden.bs.modal', function () {
+        $(".visiteform").prop('required', true);
+        $(".guide").prop('required', false);
+        $("#formCheck").val("0");
+    });
+    $('#guideModal').on('show.bs.modal', function () {
+        $(".visiteform").prop('required', false);
+        $(".guide").prop('required', true);
+        $("#formCheck").val("1");
+    });
+});

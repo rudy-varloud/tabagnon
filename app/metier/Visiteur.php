@@ -119,7 +119,7 @@ class Visiteur extends Model {
                 ->orderBy('login', 'ASC')
                 ->get();
         $mesVisiteursPrenom = DB::table('visiteur')
-                ->Select('idVis', 'login', 'telFixeVis', 'mobileVis','nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
+                ->Select('idVis', 'login', 'telFixeVis', 'mobileVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
                 ->where('prenomVis', 'like', '%' . $user . '%')
                 ->orderBy('login', 'ASC')
                 ->get();
@@ -130,7 +130,7 @@ class Visiteur extends Model {
 
     public function getVisiteurGuide() {
         $mesVisiteurs = DB::table('visiteur')
-                ->Select('idVis', 'login', 'telFixeVis','mobileVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
+                ->Select('idVis', 'login', 'telFixeVis', 'mobileVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
                 ->where('ncptVis', '=', '3')
                 ->orWhere('ncptVis', '=', '5')
                 ->get();
@@ -145,20 +145,24 @@ class Visiteur extends Model {
     }
 
     public function subGuideMan($prenomUser, $nomUser, $mdp_encyrpt) {
-        $mesVisiteurs = DB::table('visiteur')
+        DB::table('visiteur')
                 ->insert(['login' => $prenomUser, 'mdpVis' => $mdp_encyrpt, 'nomVis' => $nomUser, 'prenomVis' => $prenomUser, 'ncptVis' => 5]);
-        return $mesVisiteurs;
+        $idGuide = DB::table('visiteur')
+                ->Select('idVis')
+                ->where('login', '=', $prenomUser)
+                ->where('mdpVis', '=', $mdp_encyrpt)
+                ->first();
+        return $idGuide->idVis;
     }
 
     //Dialogue aves la bdd pour modifier le profil d'un utilisateur
     public function modificationProfil($id, $adresse, $tel, $mobile, $mdp_encrypt, $mail, $nom, $prenom, $login) {
         if ($login != null) {
             DB::table('visiteur')->where('idVis', $id)
-                    ->update(['adresseVis' => $adresse, 'telFixeVis' => $tel,'mobileVis' =>$mobile, 'mdpVis' => $mdp_encrypt, 'mailVis' => $mail, 'nomVis' => $nom, 'prenomVis' => $prenom, 'login' => $login]);
-        }
-        else{
+                    ->update(['adresseVis' => $adresse, 'telFixeVis' => $tel, 'mobileVis' => $mobile, 'mdpVis' => $mdp_encrypt, 'mailVis' => $mail, 'nomVis' => $nom, 'prenomVis' => $prenom, 'login' => $login]);
+        } else {
             DB::table('visiteur')->where('idVis', $id)
-                    ->update(['adresseVis' => $adresse, 'telFixeVis' => $tel,'mobileVis' =>$mobile, 'mdpVis' => $mdp_encrypt, 'mailVis' => $mail, 'nomVis' => $nom, 'prenomVis' => $prenom]);
+                    ->update(['adresseVis' => $adresse, 'telFixeVis' => $tel, 'mobileVis' => $mobile, 'mdpVis' => $mdp_encrypt, 'mailVis' => $mail, 'nomVis' => $nom, 'prenomVis' => $prenom]);
         }
     }
 

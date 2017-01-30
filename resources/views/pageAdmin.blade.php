@@ -9,7 +9,7 @@
 
         </div>
         <div class='option-admin'>
-            <h1 class="titre-admin"><span class='glyphicon glyphicon-user'></span> Gestion visiteurs</h1>
+            <h1 class="titre-admin"><span class='glyphicon glyphicon-user'></span> Gestion des utilisateurs</h1>
             <a href="{{url('/listerVisiteur')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Lister tous les utilisateurs</a><br><br><br><br>
         </div>       
         <div class='option-admin'>

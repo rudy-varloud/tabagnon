@@ -17,7 +17,8 @@ class Visite extends Model {
         'idGuide',
         'libelleVisite',
         'prixVisite',
-        'descriptionVisite'
+        'descriptionVisite',
+        'visibiliteVisite'
     ];
 
     public function postFormVisite($nomVisite, $lieuxVisite, $descVisite, $prixVisite, $nbPlaceVisite, $idGuideVisite) {
