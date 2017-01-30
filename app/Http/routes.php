@@ -71,6 +71,7 @@ Route::get('/getImage/{idImage}', 'MosaiqueController@getImage');
 Route::get('/deleteImage/{idImage}', 'MosaiqueController@deleteImage');
 //Commentaire Mosaique
 Route::post('/postAjoutCommentaire', 'MosaiqueController@postAjoutCommentaire');
+Route::get('deleteCom/{idCommentaire}', 'MosaiqueController@deleteCom');
 
 //Admin
 //Carousel

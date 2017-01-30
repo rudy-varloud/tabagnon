@@ -70,5 +70,12 @@ class Mosaique extends Model {
                 ->Delete();
         return $mesMosaiques;
     }
+    
+    public function deleteComSpe($idCommentaire){
+        $mesMosaiques = Db::table('commentaire_image')
+                ->Where('idCommentaire', '=', $idCommentaire)
+                ->Delete();
+        return $mesMosaiques;
+    }
 
 }
