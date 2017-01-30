@@ -24,7 +24,33 @@ class MosaiqueController extends Controller {
                 $nomImage=$image->getClientOriginalName();
                 $uneMosaique = new Mosaique();
                 $image->move(public_path("/assets/image/mosaique/"), $nomImage);
-                $uneMosaique->postFormArticleImage($nomImage, $description, $date, $idVis);
+                $uneMosaique->postFormMosaiqueImage($nomImage, $description, $date, $idVis);
+        return redirect('/getMosaique');
+    }
+    
+    public function getImage($idImage){
+        $uneMosaique = new Mosaique();
+        $mesMosaiques = $uneMosaique->getImage($idImage);
+        $uneMosaique2 = new Mosaique();
+        $mesMosaiques2 = $uneMosaique2->getCommentaireImage($idImage);
+        return view('pageImageMosaiqueSpe', compact('mesMosaiques', 'mesMosaiques2'));
+    }
+    
+    public function postAjoutCommentaire(){
+        $idImage = Request::input('idImg');
+        $date = Request::input('date');
+        $idVis = Request::input('idVis');
+        $commentaire = Request::input('commentaire');
+        $uneMosaique = new Mosaique();
+        $uneMosaique->postAjoutCommentaire($idImage, $date, $idVis, $commentaire);
+        return redirect('/getMosaique');
+    }
+    
+    public function deleteImage($idImage){
+        $uneMosaique = new Mosaique();
+        $mesMosaiques = $uneMosaique->deleteImage($idImage);
+        $uneMosaique2 = new Mosaique();
+        $mesMosaiques2 = $uneMosaique2->deleteCom($idImage);
         return redirect('/getMosaique');
     }
 }

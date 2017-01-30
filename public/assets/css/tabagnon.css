@@ -440,9 +440,11 @@ ul .connect{
         width : 60% !important;
         margin-top : 1%;
     }
+
     .timepicker{
         width : 60% !important;
     }
+}
     .presVisite{
         margin-left: -35%;
     }
@@ -459,8 +461,16 @@ ul .connect{
         margin-left: 5% !important;
         margin-top: 0.4%;
     }
-    
+
     .formAjoutImage{
         cursor: pointer;
+    }
+
+    .nomCom{
+        margin-top: -0.5% !important;
+    }
+    
+    .titre{
+        text-decoration: underline;
     }
 

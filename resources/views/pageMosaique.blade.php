@@ -1,3 +1,4 @@
+@if (Session::get('ncpt') != 0) 
 @extends('layouts.master')
 @section('content')
 <div class="box">
@@ -24,9 +25,15 @@
     {{ Form::close() }}
     <br>
     @foreach($mesMosaiques as $maMosaique)
-    <img class='article-image' src="{{ URL::asset('assets/image/mosaique/'.$maMosaique->nomImage) }}" alt="">
+    <a href="{{ url('/getImage/'.$maMosaique->idImage)}}"><img class='article-image' src="{{ URL::asset('assets/image/mosaique/'.$maMosaique->nomImage) }}" alt=""></a>
     @endforeach
     <center>{{ $mesMosaiques->render() }}</center>
 </div>
 @stop
+@endif
+@if (Session::get('ncpt') == 0)
+<script>
+    window.location.href = "{{url('/getLogin')}}";
+</script>
+@endif
 

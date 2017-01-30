@@ -68,6 +68,10 @@ Route::post('/modifierPlaceConf', 'ConferenceController@modifierPlaceConf');
 //Mosaïque
 Route::get('/getMosaique', 'MosaiqueController@listePhoto');
 Route::post('/postFormMosaique', 'MosaiqueController@postPhotoMosaique');
+Route::get('/getImage/{idImage}', 'MosaiqueController@getImage');
+Route::get('/deleteImage/{idImage}', 'MosaiqueController@deleteImage');
+//Commentaire Mosaique
+Route::post('/postAjoutCommentaire', 'MosaiqueController@postAjoutCommentaire');
 
 //Admin
 //Carousel
