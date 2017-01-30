@@ -80,12 +80,12 @@
         @endif
     </div>
     <div class="form-group">
-        <center> <button onClick="formCheckGuide();" class="btn btn-info" type="button" data-toggle="modal" data-target="#guideModal">Créer un guide manuellement</button> </center>
+        <center> <button class="btn btn-info" type="button" data-toggle="modal" data-target="#guideModal">Créer un guide manuellement</button> </center>
     </div> 
     <br>
     <div class="form-group">
         <br><br>
-        <center> <button onsubmit ="formCheck();" type="submit" class="btn btn-default btn-primary">
+        <center> <button type="submit" class="btn btn-default btn-primary">
                 <span class="glyphicon glyphicon-ok"></span> Valider
             </button>
             &nbsp;
