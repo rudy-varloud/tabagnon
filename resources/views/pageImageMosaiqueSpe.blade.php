@@ -49,7 +49,7 @@
         <p> {{$uneMosaique->commentaire}} </p>
         <h6 class='nomCom'>De {{$uneMosaique->login}} le {{$date_com->format('d-m-Y H:i')}}</h6>
             @if ((Session::get('ncpt') == 4)||(Session::get('id') == $uneMosaique->idVisi))
-        <i class="fa fa-eraser" aria-hidden="true"></i>
+            <a href="{{url('/deleteCom/'.$uneMosaique->idCommentaire)}}"<i class="fa fa-eraser" aria-hidden="true"></i></a>
             @endif
         @endforeach
         <center>{{ $mesMosaiques2->render() }}</center>

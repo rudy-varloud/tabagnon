@@ -53,6 +53,12 @@ class MosaiqueController extends Controller {
         $mesMosaiques2 = $uneMosaique2->deleteCom($idImage);
         return redirect('/getMosaique');
     }
+    
+    public function deleteCom($idCommentaire){
+        $uneMosaique = new Mosaique();
+        $mesMosaiques = $uneMosaique->deleteComSpe($idCommentaire);
+        return redirect('/getMosaique');
+    }
 }
             
 
