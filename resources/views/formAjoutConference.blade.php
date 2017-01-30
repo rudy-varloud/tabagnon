@@ -9,7 +9,19 @@
 {!! Html::style('assets/pickadate.js/lib/themes/default.time.css') !!}
 {!! Html::script('assets/timepicker/jquery.timepicker.min.js') !!} 
 {!! Html::style('assets/timepicker/jquery.timepicker.min.css') !!}
+<script type="text/javascript">
+    tinyMCE.init({
+        mode: "textareas",
+        language: "fr_FR",
+        language_url: 'assets/tinymce/langs/fr_FR.js',
+        forced_root_block: "",
+        force_br_newlines: true,
+        force_p_newlines: false,
+        height: 300,
+        plugins: "autoresize"
+    });
 
+</script>
 <div class='box'>
     <h3> Remplir le formulaire pour créer une conférence </h3>
     <div class='formulaire_conf'>

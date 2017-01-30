@@ -22,18 +22,8 @@
         <!-- Custom CSS -->
         {!! Html::style('assets/css/tabagnon.css') !!}
         {!! Html::style('assets/font-awesome/css/font-awesome.min.css') !!}
-        
-        <script type="text/javascript">
-            tinyMCE.init({
-                mode: "textareas",
-                language: "fr_FR",
-                language_url: 'assets/tinymce/langs/fr_FR.js',
-                forced_root_block: "",
-                force_br_newlines: true,
-                force_p_newlines: false,
-                height: 300
-            });
 
+        <script type="text/javascript">
             function pass() {
                 $('.verifMdp').mouseup(function () {
                     $('.pwd').attr('type', 'password');
@@ -44,7 +34,7 @@
             }
         </script>
 
-        
+
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -82,7 +72,7 @@
                         @if(Session::get('id') > 0)
                         <li><a href="{{url('/getProfil')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Compte</a></li>
                         <li><a href="{{url('/getLogout')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Se deconnecter</a></li>
-                        
+
                         @endif
                     </ul>
                     @if(Session::get('id') > 0)
@@ -96,12 +86,12 @@
                     <hr>
                     @endif
                     <ul class="nav navbar-nav">
-                 
+
                         <li><a href="{{url('/getArticles')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Les Articles</a></li>
                         <li><a href="{{url('/getPageConference')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Conférence</a></li>
                         <li><a href="{{url('/getPageVisite')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Visite Disponible</a></li>
                         <li><a href="{{url('/getMosaique')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Mosaïque</a></li>
-                        
+
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
