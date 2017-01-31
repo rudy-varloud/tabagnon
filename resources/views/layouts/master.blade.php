@@ -20,7 +20,7 @@
         {!! Html::script('assets/js/bootstrap.min.js') !!}
         {!! Html::script('assets/tinymce/tinymce.min.js') !!}
         <!-- Custom CSS -->
-        {!! Html::style('assets/css/tabagnon.css') !!}
+        {!! Html::style('assets/css/tabagnon.css') !!}  
         {!! Html::style('assets/font-awesome/css/font-awesome.min.css') !!}
 
         <script type="text/javascript">
@@ -65,12 +65,17 @@
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">  
+                    <ul class="nav navbar-nav"> 
                         @if(Session::get('ncpt') == 4)
-                        <li><a href='{{ url('/getPageAdmin')}}' data-toggle='collapse' data-target='.navbar-collapse.in' class=''>Pannel Administration</a></li>
+                        <li><a href='{{ url('/getPageAdmin')}}' data-toggle='collapse' data-target='.navbar-collapse.in' class=''>Pannel Administration</a></li><hr>
                         @endif
+                    </ul>
+                    <hr>
+                    <ul class="nav navbar-nav">                          
                         @if(Session::get('id') > 0)
                         <li><a href="{{url('/getProfil')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Compte</a></li>
+                        <li><a href="{{url( '/mesReservations') }}/{{Session::get('id')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Agenda</a></li>
+                        <li><a href="{{url( '/monHistorique') }}/{{Session::get('id')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Historique</a></li>
                         <li><a href="{{url('/getLogout')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Se deconnecter</a></li>
 
                         @endif
@@ -89,7 +94,7 @@
 
                         <li><a href="{{url('/getArticles')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Les Articles</a></li>
                         <li><a href="{{url('/getPageConference')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Conférence</a></li>
-                        <li><a href="{{url('/getPageVisite')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Visite Disponible</a></li>
+                        <li><a href="{{url('/getPageVisite')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Visites</a></li>
                         <li><a href="{{url('/getMosaique')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Mosaïque</a></li>
 
                     </ul>

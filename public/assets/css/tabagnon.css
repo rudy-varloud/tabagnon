@@ -453,9 +453,6 @@ ul .connect{
     box-shadow: 5px 5px 0px #aaa; 
 }
 
-td{
-    width: 100%;
-}
 
 .btn_mosaique{
     margin-left: 5% !important;
@@ -505,3 +502,5 @@ table.mceLayout, textarea.tinyMCE {
 .red{
     color : #DF0101; 
 }
+
+

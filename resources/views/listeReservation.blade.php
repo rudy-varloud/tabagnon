@@ -5,7 +5,6 @@
     <table class="table table-striped listeFiltree">
         <thead>
             <tr>
-                <th>Numéro conférence</th>
                 <th>Nom</th>
                 <th>Date</th>
                 <th>Heure</th>
@@ -20,7 +19,6 @@
             $dateConf = date_create($uneConference->dateConf);
             @endphp
             <tr>
-                <td>{{$uneConference -> idConf}}</td>
                 <td>{{$uneConference -> libConf}}</td>
                 <td>{{$dateConf->format('d/m/Y')}}</td>               
                 <td>{{$dateConf->format('H:i')}}</td>
@@ -69,7 +67,6 @@
     <table class="table table-striped listeFiltree">
         <thead>
             <tr>
-                <th>Numéro de la visite</th>
                 <th>Nom</th>
                 <th>Date</th>
                 <th>Heure</th>
@@ -83,7 +80,6 @@
             $dateVis = date_create($uneVisite->dateVisite);
             @endphp
             <tr>
-                <td>{{$uneVisite -> idVisite}}</td>
                 <td>{{$uneVisite -> libelleVisite}}</td>
                 <td>{{$dateVis->format('d/m/Y')}}</td>
                 <td>{{$dateVis->format('H:i')}}</td>

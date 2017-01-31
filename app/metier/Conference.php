@@ -65,12 +65,21 @@ class Conference extends Model {
     }
 
     public function getConfUser($idVis) {
-        $conference = DB::table('conference')
+        $conferences = DB::table('conference')
                 ->select()
                 ->join('ligne_conference', 'conference.idConf', '=', 'ligne_conference.idConf')
                 ->where('idVisiteur', '=', $idVis)
                 ->get();
-        return $conference;
+        return $conferences;
+    }
+    public function getConfUserEffec($idVis) {
+        $conferences = DB::table('conference')
+                ->select()
+                ->join('ligne_conference', 'conference.idConf', '=', 'ligne_conference.idConf')
+                ->where('idVisiteur', '=', $idVis)
+                ->where('statut','=',true)
+                ->get();
+        return $conferences;
     }
     
     public function rajoutBillet($idConf,$qteBillet){

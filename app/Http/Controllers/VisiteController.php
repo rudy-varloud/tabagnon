@@ -157,5 +157,5 @@ class VisiteController extends Controller {
         $mesVisites = $uneVisite->getVisiteUser($idVisiteur);
         return view('listeReservation', compact('mesConferences', 'mesVisites'));
     }
-
+    
 }

@@ -9,7 +9,7 @@ use DB;
 class Ligne_visite extends Model {
 
     //
-    protected $table = 'client';
+    protected $table = 'ligne_visite';
     public $timestamps = false;
     protected $fillable = [
         'idVisite',

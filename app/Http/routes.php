@@ -24,6 +24,9 @@ Route::get('/getProfil', 'VisiteurController@getProfil');
 Route::post('/postmodificationProfil', 'VisiteurController@postModifierProfil');
 Route::get('/modifierProfil', 'VisiteurController@modifierProfil');
 Route::get('/mesReservations/{id}', 'VisiteController@mesReservations');
+Route::get('/monHistorique/{idVis}', 'HistoriqueController@monHistorique');
+Route::post('/avisVisite', 'HistoriqueController@avisVisite');
+
 
 //Visite
 Route::post('/ajoutVisite', 'VisiteController@ajoutVisite');
@@ -38,6 +41,7 @@ Route::post('/reservationPlace', 'VisiteController@reservationPlace');
 Route::post('/postReservationPlace', 'VisiteController@postReservationPlace');
 Route::post('/annulerVis', 'VisiteController@annulerVis');
 Route::post('/modifierPlaceVis', 'VisiteController@modifierPlaceVis');
+
 
 //Article
 Route::get('/accueil', 'ArticleController@getLastDonnees');
