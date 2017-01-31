@@ -51,7 +51,7 @@
                 <h2 class="brand-before">
                     <small>Bienvenue sur le site de l'association</small>
                 </h2>
-                <h1 class="brand-name">Tabagnon</h1>
+                <h1 class="brand-name titre_accueil">Tabagnon</h1>
                 <hr class="tagline-divider">
             </div>
         </div>        

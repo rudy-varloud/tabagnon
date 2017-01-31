@@ -62,6 +62,9 @@ Route::post('/postFormReserveConf', 'ConferenceController@postFromReserveConf');
 Route::get('/getUserConf/{idConf}', 'ConferenceController@getUserConf');
 Route::post('/annulerConf', 'ConferenceController@annulerConf');
 Route::post('/modifierPlaceConf', 'ConferenceController@modifierPlaceConf');
+Route::get('/modifConference/{idConf}', 'ConferenceController@modifConf');
+Route::post('/postModifAjoutConf', 'ConferenceController@postModifAjoutConf');
+Route::get('/supprimerConference/{idConf}', 'ConferenceController@supprConf');
 
 
 //Mosaïque

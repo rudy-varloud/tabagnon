@@ -75,9 +75,8 @@ hr {
     margin: 15px 0;
 }
 
-.brand-name {
-    margin: 0;
-    font-size: 4em;
+.titre_accueil{
+    font-size: 420% !important;
 }
 
 .tagline-divider {
@@ -104,6 +103,10 @@ hr {
     float: none;
     margin: 0 auto 0;
     border: #999999 solid 1px;
+}
+
+.container{
+    width: auto;
 }
 
 .img-left {
@@ -445,16 +448,9 @@ ul .connect{
         width : 60% !important;
     }
 }
-.presVisite{
-    margin-left: -35%;
-}
 
 .imgArticle{
     box-shadow: 5px 5px 0px #aaa; 
-}
-
-td{
-    width: 100%;
 }
 
 .btn_mosaique{
