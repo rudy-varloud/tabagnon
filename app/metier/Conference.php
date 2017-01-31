@@ -92,4 +92,28 @@ class Conference extends Model {
          DB::table('conference')->where('idConf','=',$idConf)
                 ->decrement('placeReserConf',$update);
     }
+ 
+    public function modifConf($idConf){
+        $mesConferences = DB::table('conference')
+                ->Select()
+                ->Where('idConf', '=', $idConf)
+                ->First();
+        return $mesConferences;
+    }
+    
+    public function postModifAjoutConf($id,$nom, $prix, $place, $contenu, $adresseConf, $cpConf, $date, $heure){
+        $mesConferences = DB::table('conference')
+                ->where('idConf', '=', $id)
+                ->update(['libConf' => $nom, 'prixConf' => $prix, 'placeDispoConf' => $place, 'contenuConf' => $contenu,
+                    'adresseConf' => $adresseConf, 'cpConf' => $cpConf, 'dateConf' => $date, 'heureConf' => $heure]);
+        return $mesConferences;
+    }
+    
+    public function supprConf($idConf){
+        $mesConferences = DB::table('conference')
+                ->Where('idConf', '=', $idConf)
+                ->Delete();
+        return $mesConferences;
+    }
+    
 }

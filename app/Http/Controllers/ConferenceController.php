@@ -85,5 +85,33 @@ class ConferenceController extends Controller {
         $mesVisites = $uneVisite->getVisiteUser($idVis);
         return view('listeReservation', compact('mesConferences', 'mesVisites'));
     }
+    
+    public function modifConf($idConf){
+        $uneConference = new Conference();
+        $mesConferences = $uneConference->modifConf($idConf);
+        return view('pageModifConf', compact('mesConferences'));
+    }
+    
+    public function postModifAjoutConf(){
+        $id = Request::input('id');
+        $nom = Request::input('nomConf');
+        $prix = Request::input('prixConf');
+        $place = Request::input('placeDispoConf');
+        $contenu = Request::input('contenu');
+        $adresseConf = Request::input('adresseConf');
+        $cpConf = Request::input('cpConf');
+        $date = Request::input('date');
+        $heure = Request::input('heure');
+        
+        $uneConference = new Conference();
+        $mesConferences = $uneConference->postModifAjoutConf($id, $nom, $prix, $place, $contenu, $adresseConf, $cpConf, $date, $heure);
+        return redirect('/getPageConference');
+    }
+    
+    public function supprConf($idConf){
+        $uneConference = new Conference();
+        $mesConferences = $uneConference->supprConf($idConf);
+        return redirect('/getPageConference');
+    }
    
 }
