@@ -498,3 +498,10 @@ table.mceLayout, textarea.tinyMCE {
         clear: none;
     }
 }
+
+.green{
+    color : #01DF01; 
+}
+.red{
+    color : #DF0101; 
+}

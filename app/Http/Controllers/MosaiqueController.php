@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\metier\Mosaique;
+use App\metier\Like_image;
 use Request;
 use Illuminate\Support\Facades\Session;
 use Exception;
@@ -33,7 +34,11 @@ class MosaiqueController extends Controller {
         $mesMosaiques = $uneMosaique->getImage($idImage);
         $uneMosaique2 = new Mosaique();
         $mesMosaiques2 = $uneMosaique2->getCommentaireImage($idImage);
-        return view('pageImageMosaiqueSpe', compact('mesMosaiques', 'mesMosaiques2'));
+        $LikeImage = new Like_image();
+        $compteur = $LikeImage->countLike($idImage);
+        $idVis = Session::get('id');
+        $statut = $LikeImage->checkLike($idVis,$idImage);
+        return view('pageImageMosaiqueSpe', compact('mesMosaiques', 'mesMosaiques2','idImage','compteur','statut'));
     }
     
     public function postAjoutCommentaire(){
