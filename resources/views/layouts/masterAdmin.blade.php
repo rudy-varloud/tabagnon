@@ -15,6 +15,7 @@
         <!-- Bootstrap Core CSS -->
         {!! Html::style('assets/css/bootstrap.css') !!}
         {!! Html::style('assets/css/mdb.min.css') !!}
+        {!! Html::style('assets/css/tabagnon.css') !!}
         <!-- javascript-->       
         {!! Html::script('assets/js/jquery.js') !!}
         {!! Html::script('assets/js/tabagnon.js') !!}
@@ -22,6 +23,7 @@
         
         <!-- Custom CSS -->
         {!! Html::style('assets/font-awesome/css/font-awesome.min.css') !!}
+        
         
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -89,3 +91,4 @@
     window.location.href = "{{url('/getLogin')}}";
 </script>
 @endif
+

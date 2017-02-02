@@ -22,13 +22,14 @@ class Mosaique extends Model {
     public function listeMosaique() {
         $mesMosaiques = DB::table('mosaique_image')
                 ->Select()
+                ->Where('visibilite', '=', 2)
                 ->paginate(10);
         return $mesMosaiques;
     }
 
     public function postFormMosaiqueImage($image, $description, $date, $idVis) {
         $mesMosaiques = DB::table('mosaique_image')
-                ->insert(['idVisiteur' => $idVis, 'nomImage' => $image, 'descriptionImage' => $description, 'dateCrea' => $date]);
+                ->insert(['idVisiteur' => $idVis, 'nomImage' => $image, 'descriptionImage' => $description, 'dateCrea' => $date, 'visibilite' => '1']);
         return $mesMosaiques;
     }
 
@@ -75,6 +76,36 @@ class Mosaique extends Model {
         $mesMosaiques = Db::table('commentaire_image')
                 ->Where('idCommentaire', '=', $idCommentaire)
                 ->Delete();
+        return $mesMosaiques;
+    }
+    
+    public function ValidMosa(){
+        $mesMosaiques = DB::table('mosaique_image')
+                ->Select()
+                ->Where('visibilite', '=', 1)
+                ->paginate(10);
+        return $mesMosaiques;
+    }
+    
+    public function postValidMosa($idImage){
+        $mesMosaiques = DB::table('mosaique_image')
+                ->Select()
+                ->Where('idImage', '=', $idImage)
+                ->first();
+        return $mesMosaiques;
+    }
+    
+    public function valideImage($id){
+        $mesMosaiques = DB::table('mosaique_image')
+                ->Where('idImage', '=', $id)
+                ->update(['visibilite' => '2']);
+        return $mesMosaiques;
+    }
+    
+    public function refuseImage($id){
+        $mesMosaiques = DB::table('mosaique_image')
+                ->Where('idImage', '=', $id)
+                ->update(['visibilite' => '0']);
         return $mesMosaiques;
     }
 

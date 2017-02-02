@@ -5,7 +5,7 @@
     <div class="form-subscribe col-md-offset-3 col-md-6">
         <br>
         <div class="form-horizontal">    
-            <h1>Authentification</h1>
+            <h1 class='titreLogin'>Authentification</h1>
             <p>{{$erreur}}</p>
             <div class="form-group">
                 <label class="col-lg-5 col-md-3 control-label">Identifiant : </label>

@@ -12,7 +12,7 @@ use  Illuminate\Support\Facades\Input;
 class ConferenceController extends Controller {
     
     public function ajoutConference(){
-        return view('formAjoutConference');
+        return view('/Conference/formAjoutConference');
     }
     
     public function postFormAjoutConf(){
@@ -33,13 +33,13 @@ class ConferenceController extends Controller {
     public function getConference(){
         $uneConference = new Conference();
         $mesConferences = $uneConference->getConference();
-        return view('listeConference', compact ('mesConferences'));
+        return view('/Conference/listeConference', compact ('mesConferences'));
     }
     
     public function getConferenceSpe($idConf){
         $uneConference = new Conference();
         $mesConferences = $uneConference->getConferenceSpe($idConf);
-        return view('listeConfSpe', compact('mesConferences'));
+        return view('/Conference/listeConfSpe', compact('mesConferences'));
     }
     
     public function postFromReserveConf(){
@@ -55,7 +55,7 @@ class ConferenceController extends Controller {
     public function getUserConf($idConf){
         $uneConference = new Conference();
         $mesConferences = $uneConference->getUserConf($idConf);
-        return view('listeUserConf', compact('mesConferences'));
+        return view('/Conference/listeUserConf', compact('mesConferences'));
     }
     
     public function annulerConf(){
@@ -89,7 +89,7 @@ class ConferenceController extends Controller {
     public function modifConf($idConf){
         $uneConference = new Conference();
         $mesConferences = $uneConference->modifConf($idConf);
-        return view('pageModifConf', compact('mesConferences'));
+        return view('/Conference/pageModifConf', compact('mesConferences'));
     }
     
     public function postModifAjoutConf(){

@@ -76,7 +76,11 @@ hr {
 }
 
 .titre_accueil{
-    font-size: 420% !important;
+    font-size: 5vw !important;
+}
+
+.titreLogin{
+    font-size: 3vw !important;
 }
 
 .tagline-divider {
@@ -500,6 +504,10 @@ table.mceLayout, textarea.tinyMCE {
 }
 .red{
     color : #DF0101; 
+}
+
+.btnModif{
+    cursor: pointer;
 }
 
 

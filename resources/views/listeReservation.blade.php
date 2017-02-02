@@ -84,7 +84,7 @@
                 <td>{{$dateVis->format('d/m/Y')}}</td>
                 <td>{{$dateVis->format('H:i')}}</td>
                 <td>{{$uneVisite -> lieuxVisite}} </td>
-                <td>{{$uneVisite -> prixVisite * $uneVisite -> qteBillet}} € pour {{$uneVisite -> qteBillet}} places<a data-toggle="modal" data-target="#nbPlaceVis" ><i class="fa fa-ellipsis-v fa-pull-right fa-2x" aria-hidden="true"></i></a></td>
+                <td>{{$uneVisite -> prixVisite * $uneVisite -> qteBillet}} € pour {{$uneVisite -> qteBillet}} places<a data-toggle="modal" data-target="#nbPlaceVis" class="btnModif" ><i class="fa fa-ellipsis-v fa-pull-right fa-2x" aria-hidden="true"></i></a></td>
             </tr>
         <div id="nbPlaceVis" class="modal fade" role="dialog">
             <div class="modal-dialog">

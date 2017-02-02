@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Input;
 class ArticleController extends Controller {
 
     public function getFormArticle() {
-        return view('formArticle');
+        return view('/Article/formArticle');
     }
 
     public function postFormArticle() {
@@ -31,7 +31,7 @@ class ArticleController extends Controller {
                 $id = $unArticle->postFormArticleImage($titreArticle, $description, $contenu, $imageArticle);
             } else {
                 $error = "L'image n'est pas valide (elle ne doit pas dépasser 200ko)";
-                return view('formArticle', compact('error', 'titreArticle', 'description', 'contenu'));
+                return view('/Article/formArticle', compact('error', 'titreArticle', 'description', 'contenu'));
             }
         } else {
             $unArticle = new Article();
@@ -55,19 +55,19 @@ class ArticleController extends Controller {
     public function getArticle($idA) {
         $unA = new Article();
         $unArticle = $unA->getArticle($idA);
-        return view('pageArticle', compact('unArticle'));
+        return view('/Article/pageArticle', compact('unArticle'));
     }
     
     public function listerArticle(){
         $unA = new Article();
         $lesArticles = $unA->listerArticle();
-        return view('listeArticle', compact('lesArticles'));
+        return view('/Article/listeArticle', compact('lesArticles'));
     }
     
     public function listeArticleAdmin(){
         $unArticle = new Article();
         $lesArticles = $unArticle->listeArticleAdmin();
-        return view('listeArticleAdmin', compact('lesArticles'));
+        return view('/Article/listeArticleAdmin', compact('lesArticles'));
     }
     
     public function deleteArticle($idArticle){
@@ -79,7 +79,7 @@ class ArticleController extends Controller {
     public function modifierArticle($idArticle){
         $unArticle = new Article();
         $mesArticles = $unArticle->modifierArticle($idArticle);
-        return view('formModifierArticle', compact('mesArticles'));
+        return view('/Article/formModifierArticle', compact('mesArticles'));
     }
     
     public function postFormModifArticle(){

@@ -14,7 +14,7 @@ class MosaiqueController extends Controller {
     public function listePhoto(){
         $uneMosaique = new Mosaique();
         $mesMosaiques = $uneMosaique->listeMosaique();
-        return view('pageMosaique', compact('mesMosaiques'));
+        return view('/Mosaique/pageMosaique', compact('mesMosaiques'));
     }
     
     public function postPhotoMosaique(){
@@ -38,7 +38,7 @@ class MosaiqueController extends Controller {
         $compteur = $LikeImage->countLike($idImage);
         $idVis = Session::get('id');
         $statut = $LikeImage->checkLike($idVis,$idImage);
-        return view('pageImageMosaiqueSpe', compact('mesMosaiques', 'mesMosaiques2','idImage','compteur','statut'));
+        return view('/Mosaique/pageImageMosaiqueSpe', compact('mesMosaiques', 'mesMosaiques2','idImage','compteur','statut'));
     }
     
     public function postAjoutCommentaire(){
@@ -63,6 +63,32 @@ class MosaiqueController extends Controller {
         $uneMosaique = new Mosaique();
         $mesMosaiques = $uneMosaique->deleteComSpe($idCommentaire);
         return redirect('/getMosaique');
+    }
+    
+    public function ValidMosa(){
+        $uneMosaique = new Mosaique();
+        $mesMosaiques = $uneMosaique->ValidMosa();
+        return view('/Mosaique/pageImageMosaAttente', compact('mesMosaiques'));
+    }
+    
+    public function postValidMosa($idImage){
+        $uneMosaique = new Mosaique();
+        $mesMosaiques = $uneMosaique->postValidMosa($idImage);
+        return view('/Mosaique/pageValidMosa', compact('mesMosaiques'));
+    }
+    
+    public function valideImage(){
+        $id = Request::input('id');
+        $uneMosaique = new Mosaique();
+        $mesMosaiques = $uneMosaique->valideImage($id);
+        return redirect ('/getPageValidMosa');
+    }
+    
+    public function refuseImage(){
+        $id = Request::input('idImage');
+        $uneMosaique = new Mosaique();
+        $mesMosaiques = $uneMosaique->refuseImage($id);
+        return redirect('/getPageValidMosa');
     }
 }
             

@@ -65,12 +65,12 @@
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    @if(Session::get('ncpt') == 4)
                     <ul class="nav navbar-nav"> 
-                        @if(Session::get('ncpt') == 4)
                         <li><a href='{{ url('/getPageAdmin')}}' data-toggle='collapse' data-target='.navbar-collapse.in' class=''>Pannel Administration</a></li><hr>
-                        @endif
                     </ul>
                     <hr>
+                    @endif
                     <ul class="nav navbar-nav">                          
                         @if(Session::get('id') > 0)
                         <li><a href="{{url('/getProfil')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Compte</a></li>

@@ -76,6 +76,10 @@ Route::get('/getMosaique', 'MosaiqueController@listePhoto');
 Route::post('/postFormMosaique', 'MosaiqueController@postPhotoMosaique');
 Route::get('/getImage/{idImage}', 'MosaiqueController@getImage');
 Route::get('/deleteImage/{idImage}', 'MosaiqueController@deleteImage');
+Route::get('/getPageValidMosa', 'MosaiqueController@ValidMosa');
+Route::get('/getImageValid/{idImage}', 'MosaiqueController@postValidMosa');
+Route::post('/valideImage', 'MosaiqueController@valideImage');
+Route::post('/refuseImage', 'MosaiqueController@refuseImage');
 //Commentaire Mosaique
 Route::post('/postAjoutCommentaire', 'MosaiqueController@postAjoutCommentaire');
 Route::get('/deleteCom/{idCommentaire}', 'MosaiqueController@deleteCom');
