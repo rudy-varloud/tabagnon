@@ -1,7 +1,12 @@
 @extends('layouts.master')
 @section('content')
-{!! Html::script('assets/star-rating/js/star-rating.min.js') !!}
-{!! Html::style('assets/star-rating/css/star-rating.min.css') !!} 
+{!! Html::script('assets/jquery-rating/jquery.barrating.js') !!}
+{!! Html::style('assets/jquery-rating/dist/themes/fontawesome-stars.css') !!}
+
+@php
+$cptConf = 0;
+$cptVisite = 0;
+@endphp
 <script type="text/javascript">
     tinyMCE.init({
         mode: "textareas",
@@ -13,7 +18,6 @@
         height: 300,
         plugins: "autoresize"
     });
-
 </script>
 <div class='box'>
     <h3>Liste de vos conférences</h3>
@@ -38,7 +42,6 @@
                 <td>{{$uneConference -> qteBillet}} places</td>
                 <td><i class="fa fa-commenting" aria-hidden="true"></i> Avis</td>
             </tr>
-
             @endforeach
         </tbody>        
     </table>
@@ -63,10 +66,10 @@
                 <td>{{$dateVis->format('d/m/Y')}}</td>
                 <td>{{$uneVisite -> lieuxVisite}} </td>
                 <td>{{$uneVisite -> qteBillet}} places</td>
-                <td><a data-toggle="modal" data-target="#avisVisite">Avis <i class="fa fa-commenting" aria-hidden="true"></i></a></td>
+                <td><a data-toggle="modal" data-target="#avisVisite{{$cptVisite}}">Avis <i class="fa fa-commenting" aria-hidden="true"></i></a></td>
             </tr>
             <!--MODAL CONF-->
-        <div id="avisVisite" class="modal fade" role="dialog">
+        <div id="avisVisite{{$cptVisite}}" class="modal fade" role="dialog">
             <div class="modal-dialog">
 
                 <!-- Modal content-->
@@ -75,13 +78,20 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Votre avis</h4>                      
                     </div>
-                    {!! Form::open(['url' => '/avisVisite']) !!}
+                    {!! Form::open(['url' => '/avisVisite', 'files' => true]) !!}
                     <input  name="idVisite" type="hidden" value="{{$uneVisite->idVisite}}">
+                    <input  name="cptVisite" type="hidden" value="{{$cptVisite}}">
                     <input  name="dateVisite" type="hidden" value="{{$uneVisite->dateVisite}}">
                     <br>
                     <div>
                         <p>Votre note globale pour cette visite :</p>
-                        <input name="note" type="number" class="rating"  data-show-clear="false" data-show-caption="false">                   
+                        <select id="select" name="note">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>     
                     </div>
                     <br>
                     <div>
@@ -96,9 +106,11 @@
                 </div>
             </div>
         </div>
+        @php($cptVisite += 1)
         @endforeach
         </tbody>
     </table>
+
 </div>
 @stop
 

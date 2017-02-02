@@ -23,9 +23,10 @@ class HistoriqueController extends Controller {
         return view('historique', compact('mesConferences', 'mesVisites'));
     }
     
-    public function avisVisite(){
-        $note = Request::input('note');
+    public function avisVisite(){  
         $avis = Request::input('avis');
+        $cptVisite = Request::input('cptVisite'); 
+        $note = Request::input('note');
         $idVisite = Request::input('idVisite');
         $dateVisite = Request::input('dateVisite');
         $idVisiteur = Session::get('id');

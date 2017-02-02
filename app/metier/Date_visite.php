@@ -18,11 +18,10 @@ class Date_visite extends Model {
     ];
 
     public function reservationPlace($idVisite, $nbPlaceSouhaite, $dateVisite) {
-        $mesVisites = DB::table('date_visite')
+        DB::table('date_visite')
                 ->where('idVisite', '=', $idVisite)
                 ->where('dateVisite', '=', $dateVisite)
                 ->increment('nbPlaceRes', $nbPlaceSouhaite);
-        return $mesVisites;
     }
 
     public function addDate($id, $date) {
@@ -41,13 +40,6 @@ class Date_visite extends Model {
         DB::table('date_visite')->where('idVisite', '=', $idVisite)
                 ->where('dateVisite', '=', $dateVisite)
                 ->decrement('nbPlaceRes', $qteBillet);
-    }
-
-    public function modifierPlaceLibre($idVisite, $dateVisite, $qteBillet, $placeRes) {
-        $update = $placeRes - $qteBillet;
-        DB::table('date_visite')->where('idVisite', '=', $idVisite)
-                ->where('dateVisite', '=', $dateVisite)
-                ->decrement('nbPlaceRes', $update);
     }
 
 }

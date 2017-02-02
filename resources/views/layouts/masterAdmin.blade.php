@@ -12,15 +12,16 @@
 
         <title>Association Tabagnon</title>
 
-        <!-- Bootstrap Core CSS -->
+       <!-- Bootstrap Core CSS -->
         {!! Html::style('assets/css/bootstrap.css') !!}
-        {!! Html::style('assets/css/mdb.min.css') !!}
-        <!-- javascript-->       
+        {!! Html::style('assets/css/mdb.min.css') !!} 
+        <!-- javascript-->
         {!! Html::script('assets/js/jquery.js') !!}
-        {!! Html::script('assets/js/tabagnon.js') !!}
+        {!! Html::script('assets/js/tabagnon.js') !!}  
         {!! Html::script('assets/js/bootstrap.min.js') !!}
-        
+        {!! Html::script('assets/tinymce/tinymce.min.js') !!}
         <!-- Custom CSS -->
+        {!! Html::style('assets/css/tabagnon.css') !!}  
         {!! Html::style('assets/font-awesome/css/font-awesome.min.css') !!}
         
         <!-- Fonts -->

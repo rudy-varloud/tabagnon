@@ -76,12 +76,15 @@ class VisiteController extends Controller {
     public function reservationPlace() {
         $idVisite = Request::input('idVisite');
         $dateVisite = Request::input('dateVisite');
-        $Visite = new Visite();
+        $Visite = new Visite();    
         $DateVisite = new Date_visite();
+        $ligneVisite = new Ligne_visite();
         $nbPlace = $Visite->nbPlace($idVisite);
         $nbPlaceRes = $DateVisite->nbPlaceRes($idVisite, $dateVisite);
+        $idVisiteur = Session::get('id');
+        $alerte = $ligneVisite->checkReservation($idVisite,$dateVisite,$idVisiteur);
         $nbPlaceDispo = $nbPlace - $nbPlaceRes;
-        return view('postPageVisiteSpe', compact('nbPlaceDispo', 'dateVisite', 'idVisite'));
+        return view('postPageVisiteSpe', compact('nbPlaceDispo', 'dateVisite', 'idVisite','alerte'));
     }
 
     public function postReservationPlace() {
@@ -141,21 +144,4 @@ class VisiteController extends Controller {
         return view('listeReservation', compact('mesConferences', 'mesVisites'));
     }
 
-    public function modifierPlaceVis() {
-        $idVisite = Request::input('idVisite');
-        $idVisiteur = Request::input('idVisiteur');
-        $qteBillet = Request::input('qteBillet');
-        $dateVisite = Request::input('dateVisite');
-        $placeRes = Request::input('nbPlaceRes');
-        $uneLigneVisite = new Ligne_visite();
-        $uneLigneVisite->modifierPlaceVis($idVisite, $idVisiteur, $dateVisite, $qteBillet);
-        $uneDateVisite = new Date_visite();
-        $uneDateVisite->modifierPlaceLibre($idVisite, $dateVisite, $qteBillet, $placeRes);
-        $uneConference = new Conference();
-        $mesConferences = $uneConference->getConfUser($idVisiteur);
-        $uneVisite = new Visite();
-        $mesVisites = $uneVisite->getVisiteUser($idVisiteur);
-        return view('listeReservation', compact('mesConferences', 'mesVisites'));
-    }
-    
 }

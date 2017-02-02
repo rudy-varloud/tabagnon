@@ -84,5 +84,9 @@ $(document).ready(function () {
         $(".guide").prop('required', true);
         $("#formCheck").val("1");
     });
+    $(function () {
+        $('#select').barrating({
+            theme: 'fontawesome-stars'
+        });
+    });
 });
-
