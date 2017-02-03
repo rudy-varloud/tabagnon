@@ -43,11 +43,12 @@ class Ligne_visite extends Model {
         $check = DB::table('ligne_visite')->select()
                 ->where('idVisiteur', '=', $idVisiteur)
                 ->where('idVisite', '=', $idVisite)
-                ->where('dateVisite', '=', $dateVisite);
+                ->where('dateVisite', '=', $dateVisite)
+                ->first();
         if ($check != null) {
             return "Vous disposez déjà d'une réservation pour cette date !";
         } else {
-            return "";
+            return null;
         }
     }
 

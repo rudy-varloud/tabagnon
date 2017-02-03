@@ -24,7 +24,7 @@ class VisiteurController extends Controller {
             return redirect('/accueil');
         } else {
             $erreur = "Login ou mot de passe inconnu, veuillez réessayer !";
-            return view('formLogin', compact('erreur'));
+            return view('/Connection/formLogin', compact('erreur'));
         }
     }
 
@@ -37,7 +37,7 @@ class VisiteurController extends Controller {
 
     public function getLogin() {
         $erreur = "";
-        return view('formLogin', compact('erreur'));
+        return view('/Connection/formLogin', compact('erreur'));
     }
 
     public function signOut() {
@@ -51,7 +51,7 @@ class VisiteurController extends Controller {
 
     public function getSubscribe() {
         $erreur = "";
-        return view('formSubscribe', compact('erreur'));
+        return view('/Connection/formSubscribe', compact('erreur'));
     }
 
     /* Récupère en post les données du formulaire d'inscription 
@@ -82,7 +82,7 @@ class VisiteurController extends Controller {
                 $erreur = "Identifiant déja pris, veuillez en choisir un autre. Suggestion: " . $exemple;
             else
                 $erreur = "Identifiant déja pris, veuillez en choisir un autre.";
-            return view('formSubscribe', compact('erreur', 'login', 'nom', 'prenom', 'mail', 'adr', 'tel', 'ville', 'cp'));
+            return view('/Connection/formSubscribe', compact('erreur', 'login', 'nom', 'prenom', 'mail', 'adr', 'tel', 'ville', 'cp'));
         }
     }
 
@@ -98,13 +98,13 @@ class VisiteurController extends Controller {
         $mesVisiteurs = $unVisiteur->listeUser();
         $unVisiteur2 = new Visiteur();
         $mesVisiteurs2 = $unVisiteur2->countUser();
-        return view('formListeVis', compact('mesVisiteurs', 'mesVisiteurs2'));
+        return view('/Utilisateur/formListeVis', compact('mesVisiteurs', 'mesVisiteurs2'));
     }
 
     public function modifUser($idVis) {
         $unVisiteur = new Visiteur();
         $mesVisiteurs = $unVisiteur->getUser($idVis);
-        return view('formModifCompte', compact('mesVisiteurs'));
+        return view('/Utilisateur/formModifCompte', compact('mesVisiteurs'));
     }
 
     public function postModifUser() {
@@ -121,7 +121,7 @@ class VisiteurController extends Controller {
         $mesVisiteurs = $unVisiteur->listeUserSpe($user);
         $unVisiteur2 = new Visiteur();
         $mesVisiteurs2 = $unVisiteur2->countUserSpe($user);
-        return view('formListeVisSpe', compact('mesVisiteurs', 'mesVisiteurs2', 'user'));
+        return view('/Utilisateur/formListeVisSpe', compact('mesVisiteurs', 'mesVisiteurs2', 'user'));
     }
 
 
@@ -136,7 +136,7 @@ class VisiteurController extends Controller {
         $unV = $unVisiteur->getUser($id);
         if ($unV->ncptVis == 5)
             $message = "Merci de modifier vos informations pour valider votre compte.";
-        return view('formProfil', compact('message', 'unV'));
+        return view('/Utilisateur/formProfil', compact('message', 'unV'));
     }
 
     /* Récupère en post les données du formulaire de modification d'un client
@@ -172,7 +172,7 @@ class VisiteurController extends Controller {
         $unVisiteur = new Visiteur();
         $id = Session::get('id');
         $unV = $unVisiteur->getUser($id);
-        return view('profil', compact('unV'));
+        return view('/Utilisateur/profil', compact('unV'));
     }
 
 }

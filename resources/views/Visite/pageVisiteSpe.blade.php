@@ -2,14 +2,14 @@
 @extends('layouts.master')
 @section('content')
 @php
-$uneV = $mesVisites[0];
+$uneVisite = $mesVisites[0];
 @endphp
 {!! Form::open(['url' => 'reservationPlace']) !!}
 <div class="box">
-    <input type="hidden" value="{{ $uneV->idVisite }}" name="idVisite">
-    <h3> Bienvenue sur la balade: {{$uneV->libelleVisite}}</h3>
-    <p> {{$uneV->descriptionVisite}} </p>
-    <h5> Le prix par personne de cette visite est de : {{$uneV->prixVisite}} €</h5>
+    <input type="hidden" value="{{ $uneVisite->idVisite }}" name="idVisite">
+    <h3> Bienvenue sur la balade: {{$uneVisite->libelleVisite}}</h3>
+    <p> {{$uneVisite->descriptionVisite}} </p>
+    <h5> Le prix par personne de cette visite est de : {{$uneVisite->prixVisite}} €</h5>
     <div class="reserverPlace">
         <div class="col-lg-4 reservation"> 
             <select id="date_selected" name='dateVisite' onclick="checkSelected()" class="form-control">

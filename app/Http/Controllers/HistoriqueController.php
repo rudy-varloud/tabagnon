@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\metier\Avis_visite;
+use App\metier\Avis_conference;
 use App\metier\Visite;
 use App\metier\Ligne_visite;
 use App\metier\Date_visite;
@@ -15,18 +16,23 @@ use Illuminate\Support\Facades\Input;
 
 class HistoriqueController extends Controller {
     
-    public function monHistorique($idVis){
+    public function monHistorique(){
+        $idVis = Session::get('id');
         $uneConference = new Conference();
         $mesConferences = $uneConference->getConfUserEffec($idVis);
         $uneVisite = new Visite();
         $mesVisites = $uneVisite->getVisiteUserEffec($idVis);
-        return view('historique', compact('mesConferences', 'mesVisites'));
+        $avisVis = new Avis_visite();
+        $mesAvisVis = $avisVis->getAvisVisite($idVis);
+        $avisConf = new Avis_conference();
+        $mesAvisConf = $avisConf->getAvisConference($idVis);
+        return view('Reservation_Historique/historique', compact('mesConferences', 'mesVisites','mesAvisVis','mesAvisConf'));
     }
     
-    public function avisVisite(){  
-        $avis = Request::input('avis');
-        $cptVisite = Request::input('cptVisite'); 
-        $note = Request::input('note');
+    public function avisVisite(){
+        $cpt = Request::input('cptVisite');
+        $avis = Request::input('avisV'.$cpt);
+        $note = Request::input('noteV'.$cpt);
         $idVisite = Request::input('idVisite');
         $dateVisite = Request::input('dateVisite');
         $idVisiteur = Session::get('id');
@@ -38,7 +44,24 @@ class HistoriqueController extends Controller {
         else{
             $avisVisite->addAvis($idVisite,$idVisiteur,$dateVisite,$note,$avis);
         }
-        return redirect('/monHistorique'.$idVisiteur)  ;  
+        return redirect('/monHistorique/')  ;  
+    }
+    
+    public function avisConference(){
+        $cpt = Request::input('cptConf');
+        $avis = Request::input('avisC'.$cpt);
+        $note = Request::input('noteC'.$cpt);
+        $idConf = Request::input('idConf');
+        $idVisiteur = Session::get('id');
+        $avisConf = new Avis_conference();
+        $existance = $avisConf->checkAvis($idConf,$idVisiteur);
+        if ($existance){
+            $avisConf->updateAvis($idConf,$idVisiteur,$note,$avis);
+        }
+        else{
+            $avisConf->addAvis($idConf,$idVisiteur,$note,$avis);
+        }
+        return redirect('/monHistorique/')  ;  
     }
 
 }

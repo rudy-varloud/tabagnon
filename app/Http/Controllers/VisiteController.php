@@ -20,7 +20,7 @@ class VisiteController extends Controller {
         $unVisiteur = new Visiteur();
         $mesVisiteurs = $unVisiteur->getVisiteurGuide();
         $idGuide = null;
-        return view('formAjoutVisite', compact('mesVisiteurs', 'cpt', 'idGuide'));
+        return view('/Visite/formAjoutVisite', compact('mesVisiteurs', 'cpt', 'idGuide'));
     }
 
     public function postFormVisite() {
@@ -57,20 +57,20 @@ class VisiteController extends Controller {
             $idGuide = $unVisiteur->subGuideMan($prenomUser, $nomUser, $mdp_encyrpt);
             $cpt = Request::input('cpt');
             $mesVisiteurs = $unVisiteur->getVisiteurGuide();
-            return view('formAjoutVisite', compact('nomVisite','descVisite','prixVisite','nbPlaceVisite','lieuxVisite','idGuide', 'cpt', 'mesVisiteurs'));
+            return view('/Visite/formAjoutVisite', compact('nomVisite','descVisite','prixVisite','nbPlaceVisite','lieuxVisite','idGuide', 'cpt', 'mesVisiteurs'));
         }
     }
 
     public function pageVisite() {
         $uneVisite = new Visite();
         $mesVisites = $uneVisite->getVisites();
-        return view('pageVisite', compact('mesVisites'));
+        return view('/Visite/pageVisite', compact('mesVisites'));
     }
 
     public function pageVisiteSpe($idVisite) {
         $Visites = new Visite();
         $mesVisites = $Visites->pageVisiteSpe($idVisite);
-        return view('pageVisiteSpe', compact('mesVisites'));
+        return view('/Visite/pageVisiteSpe', compact('mesVisites'));
     }
 
     public function reservationPlace() {
@@ -84,7 +84,7 @@ class VisiteController extends Controller {
         $idVisiteur = Session::get('id');
         $alerte = $ligneVisite->checkReservation($idVisite,$dateVisite,$idVisiteur);
         $nbPlaceDispo = $nbPlace - $nbPlaceRes;
-        return view('postPageVisiteSpe', compact('nbPlaceDispo', 'dateVisite', 'idVisite','alerte'));
+        return view('/Visite/postPageVisiteSpe', compact('nbPlaceDispo', 'dateVisite', 'idVisite','alerte'));
     }
 
     public function postReservationPlace() {
@@ -105,7 +105,7 @@ class VisiteController extends Controller {
         $Visite = new Visite();
         $uneVisite = $Visite->getVisite($idVisite);
         $lesReservations = null;
-        return view('ficheVisite', compact('lesReservations', 'uneVisite', 'mesVisites'));
+        return view('/Visite/ficheVisite', compact('lesReservations', 'uneVisite', 'mesVisites'));
     }
 
     public function getReservation() {
@@ -117,15 +117,16 @@ class VisiteController extends Controller {
         $mesVisites = $Visites->pageVisiteSpe($idVisite);
         $Visite = new Visite();
         $uneVisite = $Visite->getVisite($idVisite);
-        return view('ficheVisite', compact('lesReservations', 'uneVisite', 'mesVisites'));
+        return view('/Visite/ficheVisite', compact('lesReservations', 'uneVisite', 'mesVisites'));
     }
 
-    public function mesReservations($idVis) {
+    public function mesReservations() {
+        $idVis = Session::get('id');
         $uneConference = new Conference();
         $mesConferences = $uneConference->getConfUser($idVis);
         $uneVisite = new Visite();
         $mesVisites = $uneVisite->getVisiteUser($idVis);
-        return view('listeReservation', compact('mesConferences', 'mesVisites'));
+        return view('Reservation_Historique/listeReservation', compact('mesConferences', 'mesVisites'));
     }
 
     public function annulerVis() {
@@ -141,7 +142,9 @@ class VisiteController extends Controller {
         $mesConferences = $uneConference->getConfUser($idVisiteur);
         $uneVisite = new Visite();
         $mesVisites = $uneVisite->getVisiteUser($idVisiteur);
-        return view('listeReservation', compact('mesConferences', 'mesVisites'));
+        return view('Reservation_Historique/listeReservation', compact('mesConferences', 'mesVisites'));
     }
+    
+    
 
 }

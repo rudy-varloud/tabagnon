@@ -76,7 +76,11 @@ hr {
 }
 
 .titre_accueil{
-    font-size: 420% !important;
+    font-size: 5vw !important;
+}
+
+.titreLogin{
+    font-size: 3vw !important;
 }
 
 .tagline-divider {
@@ -179,7 +183,7 @@ footer p {
     }
 
     .nav>li>a {
-        padding: 35px;
+        padding: 20px;
     }
 
     .navbar-nav>li>a {
@@ -191,7 +195,7 @@ footer p {
         float: none;
         margin: 0 auto;
         table-layout: fixed;
-        font-size: 1.25em;
+        font-size: 1.15em;
     }
 }
 
@@ -500,6 +504,10 @@ table.mceLayout, textarea.tinyMCE {
 }
 .red{
     color : #DF0101; 
+}
+
+.btnModif{
+    cursor: pointer;
 }
 
 

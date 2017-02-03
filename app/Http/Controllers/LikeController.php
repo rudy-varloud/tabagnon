@@ -21,5 +21,7 @@ class LikeController extends Controller {
         }
         return redirect('/getImage/'.$idImage);
     }
+    
+    
 
 }

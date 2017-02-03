@@ -5,6 +5,7 @@
     @php
         $date = date("Y-m-d");
     @endphp
+    @if (Session::get('ncpt') >= 2)
     <button type='button' class='btn btn-info' onclick='ajoutImage();'>Ajouter une image</button>
     {!! Form::open(['url' => 'postFormMosaique', 'files' => true]) !!}
     <div class="form-group formAjoutImage" id='formAjoutImage' style='display : none;'>
@@ -23,6 +24,7 @@
         <button type="submit" class="btn btn-info btn_mosaique" value="Envoyer">Envoyer</button>
     </div>
     {{ Form::close() }}
+    @endif
     <br>
     @foreach($mesMosaiques as $maMosaique)
     <a href="{{ url('/getImage/'.$maMosaique->idImage)}}"><img class='article-image' src="{{ URL::asset('assets/image/mosaique/'.$maMosaique->nomImage) }}" alt=""></a>

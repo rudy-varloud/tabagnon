@@ -23,9 +23,10 @@ Route::post('/subscribe', 'VisiteurController@SubscribeIn');
 Route::get('/getProfil', 'VisiteurController@getProfil');
 Route::post('/postmodificationProfil', 'VisiteurController@postModifierProfil');
 Route::get('/modifierProfil', 'VisiteurController@modifierProfil');
-Route::get('/mesReservations/{id}', 'VisiteController@mesReservations');
-Route::get('/monHistorique/{idVis}', 'HistoriqueController@monHistorique');
+Route::get('/mesReservations', 'VisiteController@mesReservations');
+Route::get('/monHistorique', 'HistoriqueController@monHistorique');
 Route::post('/avisVisite', 'HistoriqueController@avisVisite');
+Route::post('/avisConference', 'HistoriqueController@avisConference');
 
 
 //Visite
@@ -57,7 +58,7 @@ Route::get('/modifierArticle/{idArticle}', 'ArticleController@modifierArticle');
 
 //Conférence
 Route::get('/ajoutConference', function(){
-    return view('formAjoutConference');
+    return view('/Conference/formAjoutConference');
 });
 Route::post('/postFormAjoutConf', 'ConferenceController@postFormAjoutConf');
 Route::get('/getPageConference', 'ConferenceController@getConference');
@@ -76,6 +77,10 @@ Route::get('/getMosaique', 'MosaiqueController@listePhoto');
 Route::post('/postFormMosaique', 'MosaiqueController@postPhotoMosaique');
 Route::get('/getImage/{idImage}', 'MosaiqueController@getImage');
 Route::get('/deleteImage/{idImage}', 'MosaiqueController@deleteImage');
+Route::get('/getPageValidMosa', 'MosaiqueController@ValidMosa');
+Route::get('/getImageValid/{idImage}', 'MosaiqueController@postValidMosa');
+Route::get('/validerImage/{idImage}', 'MosaiqueController@validerImage');
+Route::get('/refuserImage/{idImage}', 'MosaiqueController@refuserImage');
 //Commentaire Mosaique
 Route::post('/postAjoutCommentaire', 'MosaiqueController@postAjoutCommentaire');
 Route::get('/deleteCom/{idCommentaire}', 'MosaiqueController@deleteCom');

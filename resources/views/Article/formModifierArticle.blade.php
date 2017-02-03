@@ -16,7 +16,7 @@
 <div class='box'>
     {!! Form::open(['url' => 'postFormModifArticle', 'files' => true]) !!}
     @php
-        $date = date("Y-m-d");
+    $date = date("Y-m-d");
     @endphp
     <div class="col-lg-12 col-md-12 col-s-12">
         <center><h2> Poster un article ! </h2></center>

@@ -22,14 +22,14 @@ class Mosaique extends Model {
     public function listeMosaique() {
         $mesMosaiques = DB::table('mosaique_image')
                 ->Select()
+                ->Where('visibilite', '=', 2)
                 ->paginate(10);
         return $mesMosaiques;
     }
 
     public function postFormMosaiqueImage($image, $description, $date, $idVis) {
-        $mesMosaiques = DB::table('mosaique_image')
-                ->insert(['idVisiteur' => $idVis, 'nomImage' => $image, 'descriptionImage' => $description, 'dateCrea' => $date]);
-        return $mesMosaiques;
+        DB::table('mosaique_image')
+                ->insert(['idVisiteur' => $idVis, 'nomImage' => $image, 'descriptionImage' => $description, 'dateCrea' => $date, 'visibilite' => '1']);
     }
 
     public function getImage($idImage) {
@@ -42,9 +42,8 @@ class Mosaique extends Model {
     }
 
     public function postAjoutCommentaire($idImage, $date, $idVis, $commentaire) {
-        $mesMosaiques = Db::table('commentaire_image')
+        Db::table('commentaire_image')
                 ->insert(['idVisi' => $idVis, 'idImg' => $idImage, 'commentaire' => $commentaire, 'dateCommentaire' => $date]);
-        return $mesMosaiques;
     }
 
     public function getCommentaireImage($idImage) {
@@ -56,26 +55,44 @@ class Mosaique extends Model {
                 ->paginate(15);
         return $mesMosaiques;
     }
-    
-    public function deleteImage($idImage){
-        $mesMosaiques = DB::table('mosaique_image')
-                ->Where('idImage', "=", $idImage)
+
+    public function deleteImage($nomImage) {
+        DB::table('mosaique_image')
+                ->Where('nomImage', "=", $nomImage)
                 ->Delete();
-        return $mesMosaiques;
+        \File::delete(public_path()."/assets/image/mosaique/".$nomImage);
     }
-    
-    public function deleteCom($idImage){
+
+    public function deleteCom($idImage) {
         $mesMosaiques = DB::table('commentaire_image')
                 ->Where('idImg', "=", $idImage)
                 ->Delete();
         return $mesMosaiques;
     }
-    
-    public function deleteComSpe($idCommentaire){
-        $mesMosaiques = Db::table('commentaire_image')
+
+    public function deleteComSpe($idCommentaire) {
+        Db::table('commentaire_image')
                 ->Where('idCommentaire', '=', $idCommentaire)
                 ->Delete();
+    }
+
+    public function ValidMosa() {
+        $mesMosaiques = DB::table('mosaique_image')
+                ->Select()
+                ->Where('visibilite', '=', 1)
+                ->paginate(10);
         return $mesMosaiques;
+    }
+
+    public function validerImage($id) {
+        DB::table('mosaique_image')
+                ->Where('idImage', '=', $id)
+                ->update(['visibilite' => '2']);
+    }
+
+    public function getCompteurImage() {
+        $cpt = DB::table('mosaique_image')->count();
+        return $cpt + 1;
     }
 
 }

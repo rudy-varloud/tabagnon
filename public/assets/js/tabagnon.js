@@ -62,7 +62,7 @@ function checkSelected() {
 }
 
 function ajoutImage() {
-    if (document.getElementById('formAjoutImage').style.display != 'none')
+    if (document.getElementById('formAjoutImage').style.display !== 'none')
     {
         $(".formAjoutImage").fadeOut("slow", function () {
         });
@@ -72,6 +72,7 @@ function ajoutImage() {
         });
     }
 }
+
 
 $(document).ready(function () {
     $('#guideModal').on('hidden.bs.modal', function () {
@@ -85,8 +86,41 @@ $(document).ready(function () {
         $("#formCheck").val("1");
     });
     $(function () {
-        $('#select').barrating({
+        $('.select').barrating({
             theme: 'fontawesome-stars'
         });
     });
 });
+
+function ajoutAvisV(c) {
+    if (document.getElementById('formAjoutAvisV' + c).style.display !== 'none')
+    {
+        $(".formAjoutAvisV" + c).fadeOut("slow", function () {
+        });
+    } else
+    {
+        $(".formAjoutAvisV" + c).fadeIn("slow", function () {
+        });
+    }
+};
+
+function ajoutAvisC(c) {
+    if (document.getElementById('formAjoutAvisC' + c).style.display !== 'none')
+    {
+        $(".formAjoutAvisC" + c).fadeOut("slow", function () {
+        });
+    } else
+    {
+        $(".formAjoutAvisC" + c).fadeIn("slow", function () {
+        });
+    }
+};
+
+function setNoteV(note,cptVisite) {
+    $('#selectV'+cptVisite).barrating('set', note);
+}
+
+function setNoteC(note,cptConf) {
+    $('#selectC'+cptConf).barrating('set', note);
+}
+
