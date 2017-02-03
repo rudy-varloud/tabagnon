@@ -29,7 +29,7 @@
 <div class='box'>
     <h3> Remplir le formulaire pour créer une conférence </h3>
     <div class='formulaire_conf'>
-        <input type="hidden" value="{{$placeDispo}}" name='place' class='place'>
+        <input type="hidden" value="{{$mesConferences->placeReserConf}}" name='place' class='place'>
         <input type="hidden" value="{{$mesConferences->idConf}}" name='id'>
         <label> Nom de la conférence: </label>
         <input type='text' class='form-control nomConf' name='nomConf' value='{{$mesConferences->libConf}}' placeholder='Nom de la conférence'>
