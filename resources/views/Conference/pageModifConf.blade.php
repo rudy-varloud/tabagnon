@@ -29,13 +29,10 @@
 <div class='box'>
     <h3> Remplir le formulaire pour créer une conférence </h3>
     <div class='formulaire_conf'>
-        <input type="hidden" value="{{$placeDispo}}" name='place' class='place'>
+        <input type="hidden" value="{{$mesConferences->placeReserConf}}" name='place' class='place'>
         <input type="hidden" value="{{$mesConferences->idConf}}" name='id'>
         <label> Nom de la conférence: </label>
         <input type='text' class='form-control nomConf' name='nomConf' value='{{$mesConferences->libConf}}' placeholder='Nom de la conférence'>
-        <br>
-        <label> Prix de la conférence: </label>
-        <input type='text' class='form-control prixConf' name='prixConf' value='{{$mesConferences->prixConf}}' placeholder='Prix de la conférence'>
         <br>
         <p class="msgErrorPlace">{{$erreur or ''}} ({{$mesConferences->placeReserConf}})</p>
         <label> Places disponibles conférence: (Attention le nombre de place disponible ne peut être inférieur à {{ $mesConferences->placeReserConf}}) </label>
@@ -50,15 +47,6 @@
         <label> Code Postale de la conférence: </label>
         <input type='text' class='form-control cpConf' name='cpConf' value='{{$mesConferences->cpConf}}' placeholder='Code Postale de la conférence'>
         <br>
-        <div class="input_fields_wrap">
-            <div class='form-group'>
-                <label class="col-md-3 control-label"> Date et heure de la conférence: </label>    
-                <br>
-                <input name="date" type="text" class="datepicker form-control"  value="{{$dateVisite or ''}}" placeholder="Choisir la date" required>
-                <input name="heure" type="text" class="timepicker form-control"  value="{{$heureVisite or ''}}" placeholder="Choisir l'heure" required>
-            </div>
-            <center> <button type='submit' class='btn btn-info' value='Envoyer'>Envoyer</button></center>
-        </div>
     </div>
     {{ Form::close() }}
     @stop

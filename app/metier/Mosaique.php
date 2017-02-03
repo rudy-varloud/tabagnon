@@ -64,10 +64,9 @@ class Mosaique extends Model {
     }
 
     public function deleteCom($idImage) {
-        $mesMosaiques = DB::table('commentaire_image')
+        DB::table('commentaire_image')
                 ->Where('idImg', "=", $idImage)
                 ->Delete();
-        return $mesMosaiques;
     }
 
     public function deleteComSpe($idCommentaire) {

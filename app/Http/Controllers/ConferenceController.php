@@ -92,33 +92,28 @@ class ConferenceController extends Controller {
     public function postModifAjoutConf(){
         $id = Request::input('id');
         $nom = Request::input('nomConf');
-        $prix = Request::input('prixConf');
         $place = Request::input('placeDispoConf');
         $contenu = Request::input('contenu');
         $adresseConf = Request::input('adresseConf');
         $cpConf = Request::input('cpConf');
-        $date = Request::input('date');
-        $heure = Request::input('heure');
-        $placeRes = Request::input('place');
-        
-        if ($place < $placeRes){
-            
+        $placeRes = Request::input('place');  
+        if ($place < $placeRes){            
         $uneConference = new Conference();
         $mesConferences = $uneConference->modifConf($id);
-        $erreur = 'Veuillez entrer un nombre de place suppérieur au nombre de place réservées !';
+        $erreur = 'Veuillez entrer un nombre de place supérieur au nombre de place réservées !';
         return view('/Conference/pageModifConf', compact('mesConferences', 'erreur'));
             
         }else{
         
         $uneConference = new Conference();
-        $mesConferences = $uneConference->postModifAjoutConf($id, $nom, $prix, $place, $contenu, $adresseConf, $cpConf, $date, $heure);
+        $mesConferences = $uneConference->postModifAjoutConf($id, $nom, $place, $contenu, $adresseConf, $cpConf);
         return redirect('/getPageConference');
         }
     }
     
     public function supprConf($idConf){
         $uneConference = new Conference();
-        $mesConferences = $uneConference->supprConf($idConf);
+        $uneConference->supprConf($idConf);
         return redirect('/getPageConference');
     }
    
