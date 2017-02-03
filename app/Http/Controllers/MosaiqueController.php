@@ -80,9 +80,17 @@ class MosaiqueController extends Controller {
         return view('/Mosaique/pageImageMosaAttente', compact('mesMosaiques'));
     }
 
-    public function validerImage($idImage) {
+    public function postValidMosa($idImage) {
         $uneMosaique = new Mosaique();
         $uneMosaique->validerImage($idImage);
+        $mesMosaiques = $uneMosaique->postValidMosa($idImage);
+        return view('/Mosaique/pageValidMosa', compact('mesMosaiques'));
+    }
+
+    public function validerImage() {
+        $id = Request::input('id');
+        $uneMosaique = new Mosaique();
+        $uneMosaique->valideImage($id);
         return redirect('/getPageValidMosa');
     }
 

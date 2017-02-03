@@ -37,6 +37,7 @@
         <label> Prix de la conférence: </label>
         <input type='text' class='form-control prixConf' name='prixConf' value='{{$mesConferences->prixConf}}' placeholder='Prix de la conférence'>
         <br>
+        <p class="msgErrorPlace">{{$erreur or ''}} ({{$mesConferences->placeReserConf}})</p>
         <label> Places disponibles conférence: (Attention le nombre de place disponible ne peut être inférieur à {{ $mesConferences->placeReserConf}}) </label>
         <input name='placeDispoConf' class="form-control placeDispo" type="text" value="{{$mesConferences->placeDispoConf}}"></input>
         <br>

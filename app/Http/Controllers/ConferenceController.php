@@ -10,10 +10,7 @@ use Exception;
 use  Illuminate\Support\Facades\Input;
 
 class ConferenceController extends Controller {
-    
-    public function ajoutConference(){
-        return view('/Conference/formAjoutConference');
-    }
+
     
     public function postFormAjoutConf(){
        $nomConf = Request::input('nomConf');
@@ -102,10 +99,21 @@ class ConferenceController extends Controller {
         $cpConf = Request::input('cpConf');
         $date = Request::input('date');
         $heure = Request::input('heure');
+        $placeRes = Request::input('place');
+        
+        if ($place < $placeRes){
+            
+        $uneConference = new Conference();
+        $mesConferences = $uneConference->modifConf($id);
+        $erreur = 'Veuillez entrer un nombre de place suppérieur au nombre de place réservées !';
+        return view('/Conference/pageModifConf', compact('mesConferences', 'erreur'));
+            
+        }else{
         
         $uneConference = new Conference();
         $mesConferences = $uneConference->postModifAjoutConf($id, $nom, $prix, $place, $contenu, $adresseConf, $cpConf, $date, $heure);
         return redirect('/getPageConference');
+        }
     }
     
     public function supprConf($idConf){
