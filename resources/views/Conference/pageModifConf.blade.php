@@ -47,6 +47,7 @@
         <label> Code Postale de la conférence: </label>
         <input type='text' class='form-control cpConf' name='cpConf' value='{{$mesConferences->cpConf}}' placeholder='Code Postale de la conférence'>
         <br>
+        <center><button type='submit' class='btn btn-info' value='Envoyer'>Envoyer</button></center>
     </div>
     {{ Form::close() }}
     @stop
