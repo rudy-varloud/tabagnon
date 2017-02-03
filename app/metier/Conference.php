@@ -101,12 +101,11 @@ class Conference extends Model {
         return $mesConferences;
     }
     
-    public function postModifAjoutConf($id,$nom, $prix, $place, $contenu, $adresseConf, $cpConf, $date, $heure){
-        $mesConferences = DB::table('conference')
+    public function postModifAjoutConf($id,$nom,$place, $contenu, $adresseConf, $cpConf){
+        DB::table('conference')
                 ->where('idConf', '=', $id)
-                ->update(['libConf' => $nom, 'prixConf' => $prix, 'placeDispoConf' => $place, 'contenuConf' => $contenu,
-                    'adresseConf' => $adresseConf, 'cpConf' => $cpConf, 'dateConf' => $date, 'heureConf' => $heure]);
-        return $mesConferences;
+                ->update(['libConf' => $nom, 'placeDispoConf' => $place, 'contenuConf' => $contenu,
+                    'adresseConf' => $adresseConf, 'cpConf' => $cpConf]);
     }
     
     public function supprConf($idConf){

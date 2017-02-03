@@ -72,7 +72,7 @@ class ArticleController extends Controller {
     
     public function deleteArticle($idArticle){
         $unArticle = new Article();
-        $lesArticles = $unArticle->deleteArticle($idArticle);
+        $unArticle->deleteArticle($idArticle);
         return view('pageAdmin');
     }
     
