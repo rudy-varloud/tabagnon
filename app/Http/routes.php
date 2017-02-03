@@ -57,7 +57,7 @@ Route::get('/modifierArticle/{idArticle}', 'ArticleController@modifierArticle');
 
 //Conférence
 Route::get('/ajoutConference', function(){
-    return view('formAjoutConference');
+    return view('/Conference/formAjoutConference');
 });
 Route::post('/postFormAjoutConf', 'ConferenceController@postFormAjoutConf');
 Route::get('/getPageConference', 'ConferenceController@getConference');

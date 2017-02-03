@@ -96,6 +96,10 @@ hr {
     background: rgba(255,255,255,0.9);
 }
 
+.box_valid {
+    color: #67e54b;
+}
+
 .intro-text {
     text-transform: uppercase;
     font-size: 1.25em;
@@ -508,6 +512,10 @@ table.mceLayout, textarea.tinyMCE {
 
 .btnModif{
     cursor: pointer;
+}
+
+.msgErrorPlace{
+    color: red;
 }
 
 

@@ -2,6 +2,7 @@
 @extends('layouts.master')
 @section('content')
 <div class="box">
+    <h3 class='box_valid'>{{$erreur or ''}}</h3><br>
     @php
         $date = date("Y-m-d");
     @endphp
