@@ -51,8 +51,10 @@ $cptConf = 0;
                 @endif
                 @endforeach
                 @php
+                if($cpt != 0){
                 $moy = $nbStarP / $cpt;
                 $nbStarV = round(5 - $moy, 0, PHP_ROUND_HALF_DOWN);
+                }
                 @endphp
                 <tr>
                     <td>{{$uneVisite -> libelleVisite}}</td>
@@ -155,8 +157,8 @@ $cptConf = 0;
                 @php
                 if($cpt != 0){
                 $moy = $nbStarP / $cpt;
-                }
                 $nbStarV = round(5 - $moy, 0, PHP_ROUND_HALF_DOWN);
+                }               
                 @endphp
                 <tr>
                     <td>{{$uneConference -> libConf}}</td>
