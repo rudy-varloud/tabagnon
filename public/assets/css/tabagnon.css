@@ -491,9 +491,9 @@ table.mceLayout, textarea.tinyMCE {
 
 @media only screen and (min-width: 600px) {
     table.mceLayout, textarea.richEditor {
-       width: 600px !important;
+        width: 600px !important;
     }
-    
+
     .mceToolbar td {
         display:table-cell;
         float: none;

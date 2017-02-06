@@ -139,7 +139,7 @@ class Visiteur extends Model {
 
     public function countUserSpe($user) {
         $mesVisiteurs_compteSpe = DB::table('visiteur')
-                ->where('nomVis', '=', $user)
+                ->where('nomVis', 'like', '%' . $user . '%')
                 ->count();
         return $mesVisiteurs_compteSpe;
     }
