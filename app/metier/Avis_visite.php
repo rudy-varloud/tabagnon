@@ -62,4 +62,11 @@ class Avis_visite extends Model {
         return $lesAvis;
     }
 
+    public function getAvisVisites() {
+        $lesAvis = DB::table('avis_visite')->Select()
+                ->join('visiteur','visiteur.idVis','=','avis_visite.idVisiteur')
+                ->get();
+        return $lesAvis;
+    }
+
 }

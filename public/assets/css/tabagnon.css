@@ -509,6 +509,9 @@ table.mceLayout, textarea.tinyMCE {
 .red{
     color : #DF0101; 
 }
+.yellow{
+    color : #F7FE2E; 
+}
 
 .btnModif{
     cursor: pointer;
@@ -517,5 +520,4 @@ table.mceLayout, textarea.tinyMCE {
 .msgErrorPlace{
     color: red;
 }
-
 

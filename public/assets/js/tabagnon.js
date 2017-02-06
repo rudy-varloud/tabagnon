@@ -102,7 +102,8 @@ function ajoutAvisV(c) {
         $(".formAjoutAvisV" + c).fadeIn("slow", function () {
         });
     }
-};
+}
+;
 
 function ajoutAvisC(c) {
     if (document.getElementById('formAjoutAvisC' + c).style.display !== 'none')
@@ -114,13 +115,15 @@ function ajoutAvisC(c) {
         $(".formAjoutAvisC" + c).fadeIn("slow", function () {
         });
     }
-};
+}
+;
 
-function setNoteV(note,cptVisite) {
-    $('#selectV'+cptVisite).barrating('set', note);
+function setNoteV(note, cptVisite) {
+    $('#selectV' + cptVisite).barrating('set', note);
 }
 
-function setNoteC(note,cptConf) {
-    $('#selectC'+cptConf).barrating('set', note);
+function setNoteC(note, cptConf) {
+    $('#selectC' + cptConf).barrating('set', note);
 }
+
 

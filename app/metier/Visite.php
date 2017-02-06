@@ -45,6 +45,22 @@ class Visite extends Model {
         return $mesVisites;
     }
 
+    public function getVisitesEffec() {
+        $mesVisites = DB::table('visite')
+                ->select()
+                ->join('visiteur', 'visiteur.idVis', '=', 'visite.idGuide')
+                ->get();
+        return $mesVisites;
+    }
+
+    public function getPlaceRes() {
+        $placeVisite = DB::table('date_visite')
+                ->select()
+                ->where('statut', '=', true)
+                ->get();
+        return $placeVisite;
+    }
+
     public function nbPlace($idVisite) {
         $nb = DB::table('visite')->Select('nbPlace')
                 ->where('idVisite', '=', $idVisite)
@@ -57,7 +73,7 @@ class Visite extends Model {
                 ->select('visite.idVisite', 'lieuxVisite', 'nbPlace', 'nbPlaceRes', 'idGuide', 'libelleVisite', 'prixVisite', 'descriptionVisite', 'dateVisite')
                 ->join('date_visite', 'date_visite.idVisite', '=', 'visite.idVisite')
                 ->where('visite.idVisite', '=', $idVisite)
-                ->where('statut','=',false)
+                ->where('statut', '=', false)
                 ->get();
         return $mesVisites;
     }

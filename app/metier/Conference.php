@@ -30,6 +30,14 @@ class Conference extends Model {
                 ->get();
         return $conference;
     }
+    
+    public function getConferencesEffec() {
+        $conferences = DB::table('conference')
+                ->select()
+                ->where('statut','=',true)
+                ->get();
+        return $conferences;
+    }
 
     public function getConferenceSpe($idConf) {
         $conference = DB::table('conference')

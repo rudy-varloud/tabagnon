@@ -57,5 +57,12 @@ class Avis_conference extends Model {
                 ->get();
         return $lesAvis;
     }
+    
+    public function getAvisConferences() {
+        $lesAvis = DB::table('avis_conference')->Select()
+                ->join('visiteur','visiteur.idVis','=','avis_conference.idVisiteur')
+                ->get();
+        return $lesAvis;
+    }
 
 }
