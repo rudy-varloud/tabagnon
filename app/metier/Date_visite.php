@@ -17,6 +17,9 @@ class Date_visite extends Model {
         'nbPlaceRes'
     ];
 
+    /* 
+     * Dialogue avec la BDD incrémenter le nombre de place reservée d'une visite
+     */
     public function reservationPlace($idVisite, $nbPlaceSouhaite, $dateVisite) {
         DB::table('date_visite')
                 ->where('idVisite', '=', $idVisite)
@@ -24,10 +27,16 @@ class Date_visite extends Model {
                 ->increment('nbPlaceRes', $nbPlaceSouhaite);
     }
 
+    /* 
+     * Dialogue avec la BDD pour ajouter une date a une visite
+     */
     public function addDate($id, $date) {
         DB::table('date_visite')->insert(['idVisite' => $id, 'dateVisite' => $date, 'nbPlaceRes' => 0]);
     }
 
+    /* 
+     * Dialogue avec la BDD pour récupérer le nombre de place reservée d'une visite
+     */
     public function nbPlaceRes($idVisite, $dateVisite) {
         $nb = DB::table('date_visite')->Select('nbPlaceRes')
                 ->where('idVisite', '=', $idVisite)
@@ -35,11 +44,4 @@ class Date_visite extends Model {
                 ->first();
         return $nb->nbPlaceRes;
     }
-
-    public function rajoutBillet($idVisite, $dateVisite, $qteBillet) {
-        DB::table('date_visite')->where('idVisite', '=', $idVisite)
-                ->where('dateVisite', '=', $dateVisite)
-                ->decrement('nbPlaceRes', $qteBillet);
-    }
-
 }

@@ -31,7 +31,7 @@
         <h6> Publié le: {{ $date->format('d-m-Y') }} par {{$mesMosaiques->prenomVis}} {{ $mesMosaiques->nomVis }} </h6>
         @if ((Session::get('ncpt') == 4) || (Session::get('id') == $mesMosaiques->idVisiteur))
         <a href='#' onclick="javascript:if (confirm('Voulez vous vraiment supprimer cette image ?'))
-            { window.location ='{{url ('/deleteImage/'. $mesMosaiques->idImage)}}'; }"><i class="fa fa-trash" aria-hidden="true" /> Supprimer cette image </i></a>
+            { window.location ='{{url ('/deleteImage/' . $mesMosaiques->idImage)}}'; }"><i class="fa fa-trash" aria-hidden="true" /> Supprimer cette image </i></a>
         @endif
 
     </div> </center>

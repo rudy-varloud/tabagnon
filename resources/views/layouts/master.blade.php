@@ -108,12 +108,25 @@
             @yield('content')
         </div>
     </body>
-    <br><br>
+    <br><br><br>
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p>Copyright &copy; Tabagnon 2017</p>
+                <div class="col-lg-12 ">
+                    <div class="col-md-offset-1 col-md-5 footerContact">
+                        <p id='footerContactez'>Contactez nous :</p>
+                        <div class='col-md-offset-3 footerOption'>
+                            <p>
+                                <i class="fa fa-envelope-o" aria-hidden="true"></i> E-mail : <br>
+                                <i class="fa fa-phone" aria-hidden="true"></i> Téléphone : <br>
+                                <i class="fa fa-home" aria-hidden="true"></i> Adresse : 
+                            </p>
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-offset-3 col-md-3 footerCredits"><p>Copyright &copy; Tabagnon 2017<br>
+                            <small>Crédits fond d'écran : JL BESSENAY</p></small>
+                    </div>     
                 </div>
             </div>
         </div>

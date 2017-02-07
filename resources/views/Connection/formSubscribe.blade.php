@@ -1,3 +1,8 @@
+@if (Session::get('id') != 0)
+<script>
+    window.location.href = "{{url('/accueil')}}";
+</script>
+@endif
 @extends('layouts.master')
 @section('content')
 <script>
@@ -20,13 +25,13 @@
             <div class="form-group">
                 <label class="col-md-3 control-label"><i class="glyphicon glyphicon-tag"> </i> Nom : </label>   
                 <div class="col-md-6 col-md-3">
-                    <input type="text" name="nom" class="form-control" pattern=".{2,25}" value = "{{$nom or ''}}"  placeholder="Votre Nom" required autofocus>
+                    <input type="text" name="nom" class="form-control" value = "{{$nom or ''}}"  placeholder="Votre Nom" required autofocus pattern="[a-zA-Z]*.{2,50}" title="Votre nom ne doit pas contenir de chiffres et doit faire moins de 50 caractères.">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-3 control-label"><i class="glyphicon glyphicon-tag" > </i> Prénom : </label>
                 <div class="col-md-6 col-md-3">
-                    <input type="text" name="prenom" class="form-control"  pattern=".{2,25}" value = "{{$prenom or ''}}" placeholder="Votre Prénom" required>
+                    <input type="text" name="prenom" class="form-control" value = "{{$prenom or ''}}" placeholder="Votre Prénom" required pattern="[a-zA-Z]*.{2,50}" title="Votre prénom ne doit pas contenir de chiffres et doit faire moins de 50 caractères.">
                 </div>
             </div>
             <div class="form-group">

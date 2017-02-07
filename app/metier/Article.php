@@ -22,6 +22,9 @@ class Article extends Model {
         'dateEdition'
     ];
 
+    /* 
+     * Dialogue avec la BDD pour récupérer un article
+     */
     public function getArticle($idA) {
         $unA = DB::table('Article')->Select()
                 ->where('idArticle', '=', $idA)
@@ -29,6 +32,9 @@ class Article extends Model {
         return $unA;
     }
 
+    /* 
+     * Dialogue avec la BDD pour ajout un article avec une image
+     */
     public function postFormArticleImage($titreArticle, $description, $contenue, $imageArticle) {
         $dateJour = date('Y/m/d', time());
         DB::table('Article')
@@ -45,6 +51,9 @@ class Article extends Model {
         return $id->idArticle;
     }
 
+    /* 
+     * Dialogue avec la BDD pour ajouter un article sans image
+     */
     public function postFormArticle($titreArticle, $description, $contenue) {
         $dateJour = date('Y/m/d', time());
         DB::table('Article')
@@ -61,16 +70,25 @@ class Article extends Model {
         return $id->idArticle;
     }
 
+    /* 
+     * Dialogue avec la BDD pour récupérer les 3 derniers articles (id)
+     */
     public function getLastArticle() {
         $lesArticles = Article::orderBy('idArticle', 'desc')->take(3)->get();
         return $lesArticles;
     }
 
+    /* 
+     * Dialogue avec la BDD pour récupérer le nombre d'article dans la BDD
+     */
     public function getCompteurImage() {
         $cpt = DB::table('Article')->count();
         return $cpt + 1;
     }
 
+    /* 
+     * Dialogue avec la BDD pour récupérer la liste des articles (5 par page)
+     */
     public function listerArticle() {
         $lesArticles = DB::table('Article')->Select()
                 ->orderBy('dateCreation', 'DESC')
@@ -78,6 +96,10 @@ class Article extends Model {
         return $lesArticles;
     }
 
+    /* 
+     * Dialogue avec la BDD pour récupérer la liste des articles pour l'administration 
+     * 10 par page.
+     */
     public function listeArticleAdmin() {
         $lesArticles = DB::table('Article')
                 ->Select()
@@ -85,12 +107,18 @@ class Article extends Model {
         return $lesArticles;
     }
 
+    /* 
+     * Dialogue avec la BDD pour supprimer un article
+     */
     public function deleteArticle($idArticle) {
         DB::table('article')
                 ->Where('idArticle', "=", $idArticle)
                 ->Delete();
     }
 
+    /* 
+     * Dialogue avec la BDD pour récupérer un article
+     */
     public function modifierArticle($idArticle) {
         $mesArticles = DB::table('article')
                 ->Select()
@@ -99,6 +127,9 @@ class Article extends Model {
         return $mesArticles;
     }
 
+    /* 
+     * Dialogue avec la BDD pour modifier un article
+     */
     public function postModifArticle($id, $titre, $description, $contenu, $date) {
         DB::table('article')
                 ->where('idArticle', '=', $id)

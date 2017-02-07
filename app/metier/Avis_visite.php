@@ -17,6 +17,9 @@ class Avis_visite extends Model {
         'avis'
     ];
 
+    /* 
+     * Dialogue avec la BDD pour vérifier l'existance d'un avis d'une visite
+     */
     public function checkAvis($idVisite, $idVisiteur, $dateVisite) {
         $avis = DB::table('avis_visite')->Select()
                 ->where('idVisite', '=', $idVisite)
@@ -30,6 +33,9 @@ class Avis_visite extends Model {
         }
     }
 
+    /* 
+     * Dialogue avec la BDD pour modifier un avis d'une visite
+     */
     public function updateAvis($idVisite, $idVisiteur, $dateVisite, $note, $avis) {
         DB::table('avis_visite')->Select()
                 ->where('idVisite', '=', $idVisite)
@@ -38,6 +44,9 @@ class Avis_visite extends Model {
                 ->update(['note' => $note, 'avis' => $avis]);
     }
 
+    /* 
+     * Dialogue avec la BDD pour ajouter un avis sur une visite
+     */
     public function addAvis($idVisite, $idVisiteur, $dateVisite, $note, $avis) {
         DB::table('avis_visite')->Select()
                 ->where('idVisite', '=', $idVisite)
@@ -46,6 +55,9 @@ class Avis_visite extends Model {
                 ->insert(['idVisite' => $idVisite, 'idVisiteur' => $idVisiteur, 'dateVisite' => $dateVisite, 'note' => $note, 'avis' => $avis]);
     }
 
+    /* 
+     * Dialogue avec la BDD pour récupérer un avis d'une visite
+     */
     public function getAvis($idVisiteur, $idVisite, $dateVisite) {
         $unAvis = DB::table('avis_visite')
                 ->where('idVisite', '=', $idVisite)
@@ -55,6 +67,9 @@ class Avis_visite extends Model {
         return $unAvis;
     }
 
+    /* 
+     * Dialogue avec la BDD pour récupérer la liste des avis pour une visite
+     */
     public function getAvisVisite($idVisiteur) {
         $lesAvis = DB::table('avis_visite')->Select()
                 ->where('idVisiteur', '=', $idVisiteur)
@@ -62,6 +77,9 @@ class Avis_visite extends Model {
         return $lesAvis;
     }
 
+    /* 
+     * Dialogue avec la BDD pour récupérer un la liste des avis pour les visistes
+     */
     public function getAvisVisites() {
         $lesAvis = DB::table('avis_visite')->Select()
                 ->join('visiteur','visiteur.idVis','=','avis_visite.idVisiteur')

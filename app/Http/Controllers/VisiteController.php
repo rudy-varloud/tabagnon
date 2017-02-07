@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Input;
 
 class VisiteController extends Controller {
 
+    /* 
+     * Récupére le nombre de date lié à la création de la visite
+     * et créer l'appel pour obtenir la liste des guides puis les renvoie
+     * sur le formulaire d'ajout d'une visite
+     */
     public function ajoutVisite() {
         $cpt = Request::input('nbDate');
         $unVisiteur = new Visiteur();
@@ -23,6 +28,10 @@ class VisiteController extends Controller {
         return view('/Visite/formAjoutVisite', compact('mesVisiteurs', 'cpt', 'idGuide'));
     }
 
+    /* 
+     * Récupèrer les données du formulaire d'ajout d'une visite
+     * puis créer l'appel pour ajouter une visite
+     */
     public function postFormVisite() {
         $formCheck = Request::input('formCheck');
         if ($formCheck != 1) {
@@ -61,18 +70,28 @@ class VisiteController extends Controller {
         }
     }
 
+    /* 
+     * Créer l'appel récupérer l'a liste'ensemble des visites non dépassées
+     */
     public function pageVisite() {
         $uneVisite = new Visite();
         $mesVisites = $uneVisite->getVisites();
         return view('/Visite/pageVisite', compact('mesVisites'));
     }
 
+    /* 
+     * Créer l'appel récupérer une visite particulière
+     */
     public function pageVisiteSpe($idVisite) {
         $Visites = new Visite();
         $mesVisites = $Visites->pageVisiteSpe($idVisite);
         return view('/Visite/pageVisiteSpe', compact('mesVisites'));
     }
 
+    /* 
+     * Récupère les données de reservation d'un place
+     * puis vérifie si il reste assez de place 
+     */
     public function reservationPlace() {
         $idVisite = Request::input('idVisite');
         $dateVisite = Request::input('dateVisite');
@@ -86,7 +105,12 @@ class VisiteController extends Controller {
         $nbPlaceDispo = $nbPlace - $nbPlaceRes;
         return view('/Visite/postPageVisiteSpe', compact('nbPlaceDispo', 'dateVisite', 'idVisite','alerte'));
     }
-
+    
+    
+    /* 
+     * Récupère les données d'ajout de reservation d'une place
+     * et créer l'appel de reservation d'une place
+     */
     public function postReservationPlace() {
         $nbPlaceSouhaite = Request::input('nbPlaceVoulu');
         $dateVisite = Request::input('dateVisite');
@@ -99,6 +123,10 @@ class VisiteController extends Controller {
         return redirect('/accueil');
     }
 
+    /* 
+     * Créer l'appel récupérer la liste des utilisateurs qui ont reservés
+     * pour une visite 
+     */
     public function getVisiteReservation($idVisite) {
         $Visites = new Visite();
         $mesVisites = $Visites->pageVisiteSpe($idVisite);
@@ -108,6 +136,9 @@ class VisiteController extends Controller {
         return view('/Visite/ficheVisite', compact('lesReservations', 'uneVisite', 'mesVisites'));
     }
 
+    /* 
+     * Créer l'appel récupérer la liste des reservations pour une visite
+     */
     public function getReservation() {
         $dateVisite = Request::input('dateVisite');
         $idVisite = Request::input('idVisite');
@@ -120,6 +151,9 @@ class VisiteController extends Controller {
         return view('/Visite/ficheVisite', compact('lesReservations', 'uneVisite', 'mesVisites'));
     }
 
+    /* 
+     * Créer l'appel récupérer la liste des reservations d'un utilisateur
+     */
     public function mesReservations() {
         $idVis = Session::get('id');
         $uneConference = new Conference();
@@ -127,24 +161,6 @@ class VisiteController extends Controller {
         $uneVisite = new Visite();
         $mesVisites = $uneVisite->getVisiteUser($idVis);
         return view('Reservation_Historique/listeReservation', compact('mesConferences', 'mesVisites'));
-    }
-
-    public function annulerVis() {
-        $idVisite = Request::input('idVisite');
-        $idVisiteur = Request::input('idVisiteur');
-        $qteBillet = Request::input('qteBillet');
-        $dateVisite = Request::input('dateVisite');
-        $uneDateVisite = new Date_visite();
-        $uneLigneVisite = new Ligne_visite();
-        $uneLigneVisite->annulerVis($idVisite, $idVisiteur, $dateVisite);
-        $uneDateVisite->rajoutBillet($idVisite, $dateVisite, $qteBillet);
-        $uneConference = new Conference();
-        $mesConferences = $uneConference->getConfUser($idVisiteur);
-        $uneVisite = new Visite();
-        $mesVisites = $uneVisite->getVisiteUser($idVisiteur);
-        return view('Reservation_Historique/listeReservation', compact('mesConferences', 'mesVisites'));
-    }
-    
-    
+    }   
 
 }

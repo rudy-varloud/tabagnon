@@ -18,18 +18,13 @@ class Ligne_conference extends Model {
         'idImage',
     ];
 
-    public function annulerConf($idConf, $idVis) {
+    /* 
+     * Dialogue avec la BDD pour ajouter une ligne conférence (reservation utilisateur)
+     */
+    public function postLigneReserve($idVis, $idConf, $placeSouhaite) {
         DB::table('ligne_conference')
-                ->where('idVisiteur', '=', $idVis)
-                ->where('idConf', '=', $idConf)
-                ->delete();
+                ->insert(['idConf' => $idConf, 'idVisiteur' => $idVis, 'qteBillet' => $placeSouhaite]);
     }
 
-    public function modifierPlaceConf($idConf, $idVis, $qteBillet) {
-        DB::table('ligne_conference')
-        ->where('idVisiteur', '=', $idVis)
-        ->where('idConf', '=', $idConf)
-        ->update(['qteBillet' =>$qteBillet]);
-    }
 
 }

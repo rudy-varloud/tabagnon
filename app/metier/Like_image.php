@@ -16,6 +16,9 @@ class Like_image extends Model {
         'idVisiteur',
     ];
 
+    /* 
+     * Dialogue avec la BDD pour vérifier l'existance d'un like
+     */
     public function checkLike($idVis, $idImage) {
         $statut = DB::table('like_image')->Select()
                 ->where('idVisiteur', '=', $idVis)
@@ -28,18 +31,27 @@ class Like_image extends Model {
         }
     }
 
+    /* 
+     * Dialogue avec la BDD pour supprimer un like
+     */
     public function removeLike($idVis, $idImage) {
         DB::table('like_image')->where('idVisiteur', '=', $idVis)
                 ->where('idImage', '=', $idImage)
                 ->delete();
     }
 
+    /* 
+     * Dialogue avec la BDD pour ajouter un like
+     */
     public function addLike($idVis, $idImage) {
         DB::table('like_image')->where('idVisiteur', '=', $idVis)
                 ->where('idImage', '=', $idImage)
                 ->insert(['idImage' => $idImage, 'idVisiteur' => $idVis]);
     }
 
+    /* 
+     * Dialogue avec la BDD pour compter le nombre de like
+     */
     public function countLike($idImage) {
         $compteur = DB::table('like_image')->where('idImage', '=', $idImage)
                 ->count();

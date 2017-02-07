@@ -21,6 +21,9 @@ class Visite extends Model {
         'visibiliteVisite'
     ];
 
+    /* 
+     * Dialogue avec la BDD pour ajouter une visite
+     */
     public function postFormVisite($nomVisite, $lieuxVisite, $descVisite, $prixVisite, $nbPlaceVisite, $idGuideVisite) {
         DB::table('visite')
                 ->insert(['lieuxVisite' => $lieuxVisite, 'nbPlace' => $nbPlaceVisite, 'idGuide' => $idGuideVisite,
@@ -36,6 +39,9 @@ class Visite extends Model {
         return $id->idVisite;
     }
 
+    /* 
+     * Dialogue avec la BDD pour récuperer la liste des visites
+     */
     public function getVisites() {
         $mesVisites = DB::table('visite')
                 ->select('visite.idVisite', 'lieuxVisite', 'nbPlace', 'idGuide', 'libelleVisite', 'prixVisite', 'descriptionVisite')
@@ -45,6 +51,9 @@ class Visite extends Model {
         return $mesVisites;
     }
 
+    /* 
+     * Dialogue avec la BDD pour récuperer la liste des visites effectuées
+     */
     public function getVisitesEffec() {
         $mesVisites = DB::table('visite')
                 ->select()
@@ -53,6 +62,9 @@ class Visite extends Model {
         return $mesVisites;
     }
 
+    /* 
+     * Dialogue avec la BDD pour récuperer une visite effectuée (renvoie le nombre de place reservée)
+     */
     public function getPlaceRes() {
         $placeVisite = DB::table('date_visite')
                 ->select()
@@ -61,6 +73,9 @@ class Visite extends Model {
         return $placeVisite;
     }
 
+    /* 
+     * Dialogue avec la BDD pour récuperer le nombre de place d'une visite
+     */
     public function nbPlace($idVisite) {
         $nb = DB::table('visite')->Select('nbPlace')
                 ->where('idVisite', '=', $idVisite)
@@ -68,6 +83,9 @@ class Visite extends Model {
         return $nb->nbPlace;
     }
 
+    /* 
+     * Dialogue avec la BDD pour récuperer une visite particulière non dépassée
+     */
     public function pageVisiteSpe($idVisite) {
         $mesVisites = DB::table('visite')
                 ->select('visite.idVisite', 'lieuxVisite', 'nbPlace', 'nbPlaceRes', 'idGuide', 'libelleVisite', 'prixVisite', 'descriptionVisite', 'dateVisite')
@@ -78,6 +96,9 @@ class Visite extends Model {
         return $mesVisites;
     }
 
+    /* 
+     * Dialogue avec la BDD pour récuperer une visite
+     */
     public function getVisite($idVisite) {
         $uneVisite = DB::table('visite')
                 ->select()
@@ -86,11 +107,17 @@ class Visite extends Model {
         return $uneVisite;
     }
 
+    /* 
+     * Dialogue avec la BDD pour récuperer les 3 dernières visites (id)
+     */
     public function getLastVisite() {
         $lesVisites = Visite::orderBy('idVisite', 'desc')->take(3)->get();
         return $lesVisites;
     }
 
+    /* 
+     * Dialogue avec la BDD pour récuperer la liste des visites reservées par un utilisateur
+     */
     public function getVisiteUser($idVis) {
         $mesVisites = DB::table('ligne_visite')
                 ->select()
@@ -104,6 +131,9 @@ class Visite extends Model {
         return $mesVisites;
     }
 
+    /* 
+     * Dialogue avec la BDD pour récuperer la liste des visites effectuées par un utilisateur
+     */
     public function getVisiteUserEffec($idVis) {
         $mesVisites = DB::table('ligne_visite')
                 ->select()
