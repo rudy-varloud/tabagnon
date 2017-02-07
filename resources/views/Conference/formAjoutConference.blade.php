@@ -47,7 +47,7 @@
             <div class='form-group'>
                 <label class="col-md-3 control-label"> Date et heure de la conférence: </label>    
                 <br>
-                <input name="date" type="text" class="datepicker form-control"  value="{{$dateVisite or ''}}" placeholder="Choisir la date" required>
+                <input name="date" type="text" class="datepicker form-control"  value="{{$dateVisite or ''}}" placeholder="Choisir la date">
                 <input name="heure" type="text" class="timepicker form-control"  value="{{$heureVisite or ''}}" placeholder="Choisir l'heure" required>
             </div>
             <center> <button type='submit' class='btn btn-info' value='Envoyer'>Envoyer</button></center>

@@ -157,13 +157,13 @@ class Visiteur extends Model {
     }
 
     //Dialogue aves la bdd pour modifier le profil d'un utilisateur
-    public function modificationProfil($id, $adresse, $tel, $mobile, $mdp_encrypt, $mail, $nom, $prenom, $login) {
+    public function modificationProfil($id, $adresse, $tel, $mobile, $mdp_encrypt, $mail, $nom, $prenom, $login, $ville, $cp) {
         if ($login != null) {
             DB::table('visiteur')->where('idVis', $id)
                     ->update(['adresseVis' => $adresse, 'telFixeVis' => $tel, 'mobileVis' => $mobile, 'mdpVis' => $mdp_encrypt, 'mailVis' => $mail, 'nomVis' => $nom, 'prenomVis' => $prenom, 'login' => $login]);
         } else {
             DB::table('visiteur')->where('idVis', $id)
-                    ->update(['adresseVis' => $adresse, 'telFixeVis' => $tel, 'mobileVis' => $mobile, 'mdpVis' => $mdp_encrypt, 'mailVis' => $mail, 'nomVis' => $nom, 'prenomVis' => $prenom]);
+                    ->update(['adresseVis' => $adresse, 'telFixeVis' => $tel, 'mobileVis' => $mobile, 'mdpVis' => $mdp_encrypt, 'mailVis' => $mail, 'nomVis' => $nom, 'prenomVis' => $prenom, 'villeVis' => $ville, 'codePostVis' => $cp]);
         }
     }
 

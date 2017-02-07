@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Input;
 
 class LikeController extends Controller {
 
+    /* 
+     * Créer l'appel pour vérifier si le "like" existe déja pour cet utilisateur
+     * et cette image puis :
+     * Supprimer le like si il existe déja
+     * Ajouter le like s'il n'existe pas
+     */
     public function likeImage($idVis,$idImage) {
         $LikeImage = new Like_image();
         $statut = $LikeImage->checkLike($idVis,$idImage);
@@ -22,6 +28,4 @@ class LikeController extends Controller {
         return redirect('/getImage/'.$idImage);
     }
     
-    
-
 }

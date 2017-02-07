@@ -291,12 +291,41 @@ footer p {
         height: 300px;
         object-fit: cover;
     }
+    #mosaique-image{
+        width: 400px;
+        height: 300px;
+        object-fit: cover;   
+        position : relative;
+    }
+    .filtreTabagnon{
+    z-index:1000;
+    position:absolute;
+    bottom:0;
+    right:0;
+    font-family: Gabriola, "Gentium Basic", Georgia;
+    font-size: 4em;
+    color:rgba(210,210,210,0.6);
+}
 }
 @media screen and (max-width:1200px) {
     .article-image{
         height: 180px;
         object-fit: cover;
     }
+    #mosaique-image{
+        width: 240px;
+        height: 180px;
+        object-fit: cover;
+    }
+    .filtreTabagnon{
+    z-index:1000;
+    position:absolute;
+    bottom:0;
+    right:0; 
+    font-family: Gabriola, "Gentium Basic", Georgia;
+    font-size: 4em;
+    color:rgba(210,210,210,0.6);
+}
 }
 
 .img-carousel{
@@ -416,7 +445,6 @@ body:after {
 }
 footer {
     position: absolute;
-    bottom: 0;
     width: 100%;
 }
 .sous-menu {
@@ -521,6 +549,23 @@ table.mceLayout, textarea.tinyMCE {
     color: red;
 }
 
+
+.footerCredits p{
+    margin-top : 50px;
+    margin-bottom : 10px;
+    padding : 5px !important;
+}
+.footerContact p{
+    margin-top : 5px;
+    margin-bottom : 10px;
+    padding : 5px !important;
+}
+#footerOption p{
+    font-size : 1.2em;
+}
+
+#footerContactez{
+    font-size : 1.4em;   
 .avis{
     cursor: pointer;
 }

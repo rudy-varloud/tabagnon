@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Input;
 
 class CarouselController extends Controller {
 
+    /* 
+     * Créer l'appel de récupération des données du carousel
+     */
     public function majCarousel() {
         $Carousel = new Carousel();
         $lesImagesTrue = $Carousel->getImagesCarouselTrue();
@@ -17,24 +20,37 @@ class CarouselController extends Controller {
         return view('pageCarousel', compact('lesImagesTrue', 'lesImagesFalse'));
     }
 
+    /* 
+     * Créer l'appel pour retirer une image du carousel (que l'on voit)
+     */
     public function retirerCarousel($image) {
         $Carousel = new Carousel();
         $Carousel->carouselRetirer($image);
         return redirect('/carouselAccueil');
     }
 
+    /* 
+     * Créer l'appel pour supprimer une image du carousel
+     */
     public function supprimerCarousel($image) {
         $Carousel = new Carousel();
         $Carousel->carouselSupprimer($image);        
         return redirect('/carouselAccueil');
     }
 
+    /* 
+     * Créer l'appel pour ajouter une image au carousel (que l'on voit)
+     */
     public function ajouterCarousel($image) {
         $Carousel = new Carousel();
         $Carousel->carouselAjouter($image);
         return redirect('/carouselAccueil');
     }
 
+    /* 
+     * Créer l'appel pour ajouter une image au carousel :
+     * Edite le nom de l'image et la place dans un dossier spécifié.
+     */
     public function ajoutImageCarousel() {
         $Carousel = new Carousel();
         if (Request::file('imageCarousel') != null) {
@@ -45,7 +61,7 @@ class CarouselController extends Controller {
                 $image->move(public_path("/assets/image/carousel/"), $imageCarousel);
                 $Carousel->ajouterCarouselImage($imageCarousel);
             } else {
-                $message = "L'image n'est pas valide (elle ne doit pas dépasser 2 Méga octets (Mo) )";
+                $message = "L'image n'est pas valide (elle ne doit pas dépasser 5 Méga octets (Mo) )";
             }
         } else {
             $message = 'Veuillez choisir un fichier';

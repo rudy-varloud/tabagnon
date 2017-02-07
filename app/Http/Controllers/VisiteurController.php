@@ -156,11 +156,13 @@ class VisiteurController extends Controller {
         $prenom = Request::input('prenom');
         $login = Request::input('login');
         $id = Session::get('id');
+        $ville = Request::input('ville');
+        $cp = Request::input('cp');
         $unV = $unVisiteur->getUser($id);
         if ($unV->ncptVis == 5) {
             $unVisiteur->updateGuide($id);
         }
-        $unVisiteur->modificationProfil($id, $adresse, $tel, $mobile, $mdp_encrypt, $mail, $nom, $prenom, $login);
+        $unVisiteur->modificationProfil($id, $adresse, $tel, $mobile, $mdp_encrypt, $mail, $nom, $prenom, $login, $ville, $cp);
         return redirect('/getProfil');
     }
 

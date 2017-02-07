@@ -17,6 +17,9 @@ class Ligne_visite extends Model {
         'qteBillet',
     ];
 
+    /* 
+     * Dialogue avec la BDD pour obtenir la liste des reservations pour une visite
+     */
     public function getReservations($dateVisite, $idVisite) {
         $reservations = DB::table('ligne_visite')->Select()
                 ->join('visiteur', 'visiteur.idVis', '=', 'ligne_visite.idVisiteur')
@@ -27,18 +30,16 @@ class Ligne_visite extends Model {
         return $reservations;
     }
 
+    /* 
+     * Dialogue avec la BDD pour ajouter une reservation pour une visite
+     */
     public function reservationPlace($idVisite, $idVisiteur, $nbPlaceSouhaite, $dateVisite) {
         DB::table('ligne_visite')->insert(['idVisite' => $idVisite, 'idVisiteur' => $idVisiteur, 'dateVisite' => $dateVisite, 'qteBillet' => $nbPlaceSouhaite]);
     }
 
-    public function annulerVis($idVisite, $idVisiteur, $dateVisite) {
-        DB::table('ligne_visite')
-                ->where('idVisite', '=', $idVisite)
-                ->where('idVisiteur', '=', $idVisiteur)
-                ->where('dateVisite', '=', $dateVisite)
-                ->delete();
-    }
-
+    /* 
+     * Dialogue avec la BDD pour vérifier l'existance d'une réservation
+     */
     public function checkReservation($idVisite, $dateVisite, $idVisiteur) {
         $check = DB::table('ligne_visite')->select()
                 ->where('idVisiteur', '=', $idVisiteur)

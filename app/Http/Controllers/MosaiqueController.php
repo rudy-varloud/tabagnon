@@ -11,12 +11,20 @@ use Illuminate\Support\Facades\Input;
 
 class MosaiqueController extends Controller {
 
+    /* 
+     * Créer l'appel pour récupèrer les données de la mosaïque
+     */
     public function listePhoto() {
         $uneMosaique = new Mosaique();
         $mesMosaiques = $uneMosaique->listeMosaique();
         return view('/Mosaique/pageMosaique', compact('mesMosaiques'));
     }
 
+    /* 
+     * Créer l'appel pour récupèrer les données du formulaire d'ajout d'image
+     * dans la mosaïque :
+     * Edite le nom de l'image et la place dans le dossier spécifié
+     */
     public function postPhotoMosaique() {
         $image = Request::file('imageMosaique');
         $description = Request::input('descriptionImage');
@@ -39,6 +47,10 @@ class MosaiqueController extends Controller {
         return redirect('/getMosaique');
     }
 
+    /* 
+     * Créer l'appel pour récupèrer les images ainsi que les commentaires
+     * de la mosaïque
+     */
     public function getImage($idImage) {
         $uneMosaique = new Mosaique();
         $mesMosaiques = $uneMosaique->getImage($idImage);
@@ -51,6 +63,10 @@ class MosaiqueController extends Controller {
         return view('/Mosaique/pageImageMosaiqueSpe', compact('mesMosaiques', 'mesMosaiques2', 'idImage', 'compteur', 'statut'));
     }
 
+    /* 
+     * Récupère les données du formulaire d'ajout de commentaire
+     * et créer l'appel pour ajouter le commentaire
+     */
     public function postAjoutCommentaire() {
         $idImage = Request::input('idImg');
         $date = Request::input('date');
@@ -61,42 +77,53 @@ class MosaiqueController extends Controller {
         return redirect('/getImage/' . $idImage);
     }
 
+    /* 
+     * Créer l'appel pour supprimer une image de la mosaïque
+     */
     public function deleteImage($idImage) {
         $uneMosaique = new Mosaique();
-        $uneMosaique->deleteImage($idImage);
+        $image = $uneMosaique->getImage($idImage);
+        $uneMosaique->deleteImage($idImage,$image->nomImage);
         $uneMosaique->deleteCom($idImage);
+        $uneMosaique->deleteLike($idImage);
         return redirect('/getMosaique');
     }
 
+    /* 
+     * Créer l'appel pour supprimer un commentaire de la mosaïque
+     */
     public function deleteCom($idCommentaire) {
         $uneMosaique = new Mosaique();
         $uneMosaique->deleteComSpe($idCommentaire);
         return redirect('/getMosaique');
     }
 
+    /* 
+     * Créer l'appel pour récupérer les images de la mosaïque en attente
+     */
     public function ValidMosa() {
         $uneMosaique = new Mosaique();
-        $mesMosaiques = $uneMosaique->ValidMosa();
+        $mesMosaiques = $uneMosaique->getAttenteMosa();
         return view('/Mosaique/pageImageMosaAttente', compact('mesMosaiques'));
     }
+    
 
-    public function postValidMosa($idImage) {
-        $uneMosaique = new Mosaique();
-        $uneMosaique->validerImage($idImage);
-        $mesMosaiques = $uneMosaique->postValidMosa($idImage);
-        return view('/Mosaique/pageValidMosa', compact('mesMosaiques'));
-    }
-
+    /* 
+     * Créer l'appel pour valider une image de la mosaïque en attente
+     */
     public function validerImage($id) {
         $uneMosaique = new Mosaique();
         $uneMosaique->validerImage($id);
         return redirect('/getPageValidMosa');
     }
 
+    /* 
+     * Créer l'appel pour refuser (supprimer) une image de la mosaïque en attente
+     */
     public function refuserImage($idImage) {
         $uneMosaique = new Mosaique();
         $image = $uneMosaique->getImage($idImage);
-        $uneMosaique->deleteImage($image->nomImage);      
+        $uneMosaique->deleteImage($idImage,$image->nomImage);      
         return redirect('/getPageValidMosa');
     }
 

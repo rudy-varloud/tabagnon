@@ -1,3 +1,8 @@
+@if (Session::get('id') == 0)
+<script>
+    window.location.href = "{{url('/accueil')}}";
+</script>
+@endif
 @extends('layouts.master')
 @section('content')
 {!! Html::script('assets/jquery-rating/jquery.barrating.js') !!}

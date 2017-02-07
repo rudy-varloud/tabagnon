@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Input;
 
 class HistoriqueController extends Controller {
 
+    /* 
+     * Créer l'appel pour récupèrer l'historique des visites/conférences
+     * d'un utilisateur
+     */
     public function monHistorique() {
         $idVis = Session::get('id');
         $uneConference = new Conference();
@@ -29,6 +33,12 @@ class HistoriqueController extends Controller {
         return view('Reservation_Historique/historique', compact('mesConferences', 'mesVisites', 'mesAvisVis', 'mesAvisConf'));
     }
 
+    /* 
+     * Créer l'appel pour récupèrer les données du formulaire d'avis d'une visite
+     * Vérifie si l'avis pour cette visite n'existe pas déja :
+     * S'il existe, crér l'appel pour modifier l'avis
+     * S'il n'existe pas, créer l'appel pour ajouter l'avis
+     */
     public function avisVisite() {
         $cpt = Request::input('cptVisite');
         $avis = Request::input('avisV' . $cpt);
@@ -46,6 +56,12 @@ class HistoriqueController extends Controller {
         return redirect('/monHistorique/');
     }
 
+    /* 
+     * Créer l'appel pour récupèrer les données du formulaire d'avis d'une conférence
+     * Vérifie si l'avis pour cette conférence n'existe pas déja :
+     * S'il existe, crér l'appel pour modifier l'avis
+     * S'il n'existe pas, créer l'appel pour ajouter l'avis
+     */
     public function avisConference() {
         $cpt = Request::input('cptConf');
         $avis = Request::input('avisC' . $cpt);
@@ -62,6 +78,9 @@ class HistoriqueController extends Controller {
         return redirect('/monHistorique/');
     }
 
+    /* 
+     * Créer l'appel pour récupèrer l'ensemble des avis 
+     */
     public function getAvis() {
         $Visite = new Visite();
         $Conference = new Conference();

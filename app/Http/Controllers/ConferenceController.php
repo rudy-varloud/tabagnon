@@ -11,7 +11,10 @@ use  Illuminate\Support\Facades\Input;
 
 class ConferenceController extends Controller {
 
-    
+    /* 
+     * Récupère les données du formulaire d'ajout de conférence et
+     * créer l'appel pour ajouter une conférence
+     */
     public function postFormAjoutConf(){
        $nomConf = Request::input('nomConf');
        $prixConf = Request::input('prixConf');
@@ -27,68 +30,59 @@ class ConferenceController extends Controller {
        return view('pageAdmin');
     }
     
+    /* 
+     * Créer l'appel pour récupèrer l'ensemble des conférences
+     */
     public function getConference(){
         $uneConference = new Conference();
         $mesConferences = $uneConference->getConference();
         return view('/Conference/listeConference', compact ('mesConferences'));
     }
     
+    /* 
+     * Créer l'appel pour récupèrer une conférence particulière
+     */
     public function getConferenceSpe($idConf){
         $uneConference = new Conference();
         $mesConferences = $uneConference->getConferenceSpe($idConf);
         return view('/Conference/listeConfSpe', compact('mesConferences'));
     }
     
+    /* 
+     * Créer l'appel pour réserver des places pour une conférence
+     */
     public function postFromReserveConf(){
         $idVis = Session::get('id');
         $idConf = Request::input('idConf');
         $placeSouhaite = Request::input('placeSouhaite');
         $uneConference = new Conference();
+        $LigneConference = new Ligne_conference();
         $uneConference->postFromReserveConf($idConf, $placeSouhaite);
-        $uneConference->postLigneReserve($idVis, $idConf, $placeSouhaite);
+        $LigneConference->postLigneReserve($idVis, $idConf, $placeSouhaite);
         return redirect ('/accueil');
     }
     
+    /* 
+     * Créer l'appel pour récupèrer les conférences effectuées par un utilisateur
+     */
     public function getUserConf($idConf){
         $uneConference = new Conference();
         $mesConferences = $uneConference->getUserConf($idConf);
         return view('/Conference/listeUserConf', compact('mesConferences'));
     }
     
-    public function annulerConf(){
-        $idVis = Request::input('idVis');
-        $idConf = Request::input('idConf');
-        $qteBillet = Request::input('qteBillet');
-        $uneConference = new Conference();
-        $uneLigneConference = new Ligne_conference();
-        $uneLigneConference->annulerConf($idConf,$idVis);
-        $uneConference->rajoutBillet($idConf,$qteBillet);
-        $mesConferences = $uneConference->getConfUser($idVis);
-        $uneVisite = new Visite();
-        $mesVisites = $uneVisite->getVisiteUser($idVis);
-        return view('listeReservation', compact('mesConferences', 'mesVisites'));
-    }
-    public function modifierPlaceConf(){
-        $idVis = Request::input('idVis');
-        $idConf = Request::input('idConf');
-        $qteBillet = Request::input('qteBillet');
-        $placeRes = Request::input('nbPlaceRes');
-        $uneConference = new Conference();
-        $uneLigneConference = new Ligne_conference();
-        $uneLigneConference->modifierPlaceConf($idConf,$idVis,$qteBillet);
-        $uneConference->modifierPlaceLibre($idConf,$qteBillet,$placeRes);
-        $mesConferences = $uneConference->getConfUser($idVis);
-        $uneVisite = new Visite();
-        $mesVisites = $uneVisite->getVisiteUser($idVis);
-        return view('listeReservation', compact('mesConferences', 'mesVisites'));
-    }
-    
+    /* 
+     * Créer l'appel pour envoyer une conférence au formulaire de modification de conférence
+     */   
     public function modifConf($idConf){
         $uneConference = new Conference();
         $mesConferences = $uneConference->modifConf($idConf);
         return view('/Conference/pageModifConf', compact('mesConferences'));
     }
     
+    /* 
+     * Créer l'appel pour modifier une conférence
+     */
     public function postModifAjoutConf(){
         $id = Request::input('id');
         $nom = Request::input('nomConf');
@@ -111,6 +105,9 @@ class ConferenceController extends Controller {
         }
     }
     
+    /* 
+     * Créer l'appel pour supprimer une conférence particulière
+     */
     public function supprConf($idConf){
         $uneConference = new Conference();
         $uneConference->supprConf($idConf);
