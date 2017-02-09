@@ -1,10 +1,11 @@
 @extends('layouts.masterAdmin')
 @section('content')
 {!! Form::open(['url' => 'getReservations']) !!}
-<div class="box"> 
+<div class="box">
+    <center><h3>Choisissez une date et une heure pour votre visite</h3></center>
     <input type="hidden" value="{{ $uneVisite->idVisite }}" name="idVisite">
-    <div class="reserverPlace">
-        <div class="col-lg-4 reservation"> 
+    <center><div class="reserverPlace">
+        <div class="col-lg-offset-4 col-lg-4 reservation"> 
             <select id="date_selected" name='dateVisite' onclick="checkSelected()" class="form-control">
                 <option value="Selectionnez la date souhaitée" disabled selected required>Selectionnez une date</option>
                 @foreach($mesVisites as $uneVisite)
@@ -19,11 +20,11 @@
                 <button type="submit" class="btn btn-info sub" value="Réserver"> Voir les réservations </button>
             </div>
         </div>
-    </div>
+        </div></center>
 
     {{ Form::close() }}
     @if($lesReservations != null)
-    <h3>Liste des réservations pour la visite {{$uneVisite->libelleVisite}} </h3>
+    <center><h3 class="listeResa">Liste des réservations pour la visite {{$uneVisite->libelleVisite}} </h3></center>
     <div class="table-responsive">
         <table class="table table-striped listeFiltree">
             <thead>
