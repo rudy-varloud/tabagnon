@@ -46,7 +46,7 @@
     <br>
     <div class="form-group">
         <label class="col-md-4 control-label">Nombre de place(s) pour la visite: </label>
-        <input name="nbPlace" class="visiteform form-control" value="{{$nbPlaceVisite or ''}}" type="number" placeholder="Nombre de place dispo pour cette visite" required>
+        <input name="nbPlace" class="visiteform form-control" value="{{$nbPlaceVisite or ''}}" type="number" placeholder="Nombre de place disponible pour cette visite" required>
     </div>
     <br>
 

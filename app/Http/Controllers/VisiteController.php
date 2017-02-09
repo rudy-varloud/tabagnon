@@ -54,7 +54,10 @@ class VisiteController extends Controller {
                 $uneDateVisite->addDate($id, $datetime);
                 $cpt -= 1;
             }
-            return view('pageAdmin', compact('mesVisites'));
+            $message = "La visite a bien été ajoutée.";
+            $mesVisites = $uneVisite->getVisites();
+            $mesVisitesND = $uneVisite->getVisitesND();
+            return view('/Visite/pageVisite', compact('mesVisites', 'mesVisitesND', 'message'));
         } else {
             $nomVisite = Request::input('nomVisite');
             $lieuxVisite = Request::input('lieuxVisite');
@@ -80,7 +83,8 @@ class VisiteController extends Controller {
         $uneVisite = new Visite();
         $mesVisites = $uneVisite->getVisites();
         $mesVisitesND = $uneVisite->getVisitesND();
-        return view('/Visite/pageVisite', compact('mesVisites', 'mesVisitesND'));
+        $message = "";
+        return view('/Visite/pageVisite', compact('mesVisites', 'mesVisitesND', 'message'));
     }
 
     /*
@@ -193,18 +197,46 @@ class VisiteController extends Controller {
         $dateVisite = new Date_visite();
         $idVisite = Request::input('idVisite');
         $cpt = Request::input('cpt');
+        $cptV = 0;
         while ($cpt >= 0) {
-            if (Request::input('choixdateVisite'.$cpt) != null) {
-                $DateVisite = Request::input('dateVisite'.$cpt);
+            if (Request::input('choixdateVisite' . $cpt) != null) {
+                $DateVisite = Request::input('dateVisite' . $cpt);
                 $dateVisite->supprimerDateVis($idVisite, $DateVisite);
+                $cptV += 1;
             }
             $cpt -= 1;
         }
         $datesVisite = $dateVisite->getDatesVisite($idVisite);
-        if($datesVisite == null){
+        if ($datesVisite == null) {
             $visite->supprimerVisEff($idVisite);
         }
-        return redirect('/getPageVisite');
+        if ($cptV > 1) {
+            $message = "Les dates ont bien été supprimées.";
+        } else {
+            $message = "La date a bien été supprimée.";
+        }
+        $mesVisites = $visite->getVisites();
+        $mesVisitesND = $visite->getVisitesND();
+        return view('/Visite/pageVisite', compact('mesVisites', 'mesVisitesND', 'message'));
+    }
+
+    public function modifierVisite($idVisite) {
+        $Visite = new Visite();
+        $maVisite = $Visite->getVisite($idVisite);
+        return view('/Visite/formModifVisite', compact('maVisite'));
+    }
+
+    public function postModifierVisite() {
+        $uneVisite = new Visite();
+        $idVisite = Request::input('idVisite');
+        $nomVisite = Request::input('nomVisite');
+        $lieuxVisite = Request::input('lieuxVisite');
+        $descVisite = Request::input('description');
+        $uneVisite->updateVisite($idVisite,$nomVisite,$lieuxVisite,$descVisite);
+        $message = "La visite a bien été modifiée.";
+        $mesVisites = $uneVisite->getVisites();
+        $mesVisitesND = $uneVisite->getVisitesND();
+        return view('/Visite/pageVisite', compact('mesVisites', 'mesVisitesND', 'message'));
     }
 
 }

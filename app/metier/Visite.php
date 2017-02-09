@@ -171,5 +171,13 @@ class Visite extends Model {
         DB::table('visite')->where('idVisite','=',$idVisite)
                 ->delete();
     }
+    
+    /* 
+     * Dialogue avec la BDD pour modifier une visite
+     */
+    public function updateVisite($idVisite,$nomVisite,$lieuxVisite,$descVisite){
+        DB::table('visite')->where('idVisite','=',$idVisite)
+                ->update(['libelleVisite' => $nomVisite, 'lieuxVisite' => $lieuxVisite, 'descriptionVisite' => $descVisite]);
+    }
 
 }

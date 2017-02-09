@@ -298,14 +298,14 @@ footer p {
         position : relative;
     }
     .filtreTabagnon{
-    z-index:1000;
-    position:absolute;
-    bottom:0;
-    right:0;
-    font-family: Gabriola, "Gentium Basic", Georgia;
-    font-size: 4em;
-    color:rgba(210,210,210,0.6);
-}
+        z-index:1000;
+        position:absolute;
+        bottom:0;
+        right:0;
+        font-family: Gabriola, "Gentium Basic", Georgia;
+        font-size: 4em;
+        color:rgba(210,210,210,0.6);
+    }
 }
 @media screen and (max-width:1200px) {
     .article-image{
@@ -318,14 +318,14 @@ footer p {
         object-fit: cover;
     }
     .filtreTabagnon{
-    z-index:1000;
-    position:absolute;
-    bottom:0;
-    right:0; 
-    font-family: Gabriola, "Gentium Basic", Georgia;
-    font-size: 4em;
-    color:rgba(210,210,210,0.6);
-}
+        z-index:1000;
+        position:absolute;
+        bottom:0;
+        right:0; 
+        font-family: Gabriola, "Gentium Basic", Georgia;
+        font-size: 4em;
+        color:rgba(210,210,210,0.6);
+    }
 }
 
 .img-carousel{
@@ -565,8 +565,12 @@ table.mceLayout, textarea.tinyMCE {
 }
 
 #footerContactez{
-    font-size : 1.4em;   
+    font-size : 1.4em;  
+}
 .avis{
     cursor: pointer;
 }
 
+.bold{
+    font-weight : 700;
+}

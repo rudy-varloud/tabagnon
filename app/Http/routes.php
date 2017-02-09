@@ -43,6 +43,9 @@ Route::post('/postReservationPlace', 'VisiteController@postReservationPlace');
 Route::post('/modifierPlaceVis', 'VisiteController@modifierPlaceVis');
 Route::get('/supprimerVisEffec/{idVisite}', 'VisiteController@supprimerVisEffec');
 Route::post('/supprimerDateVisite', 'VisiteController@supprimerDateVisite');
+Route::get('/modifierVisite/{idVisite}', 'VisiteController@modifierVisite');
+Route::post('/postModifVisite', 'VisiteController@postModifierVisite');
+
 
 
 //Article

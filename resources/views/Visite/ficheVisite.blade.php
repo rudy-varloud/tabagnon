@@ -1,8 +1,7 @@
 @extends('layouts.masterAdmin')
 @section('content')
-
 {!! Form::open(['url' => 'getReservations']) !!}
-<div class="box">
+<div class="box"> 
     <input type="hidden" value="{{ $uneVisite->idVisite }}" name="idVisite">
     <div class="reserverPlace">
         <div class="col-lg-4 reservation"> 

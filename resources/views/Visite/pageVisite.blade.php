@@ -2,6 +2,12 @@
 @section('content')
 @php($cptVis =0)
 <div class="col-lg-12 col-md-12 col-s-12 box">
+    @if($message != null)
+    <div class="alert alert-info alert-dismissable fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <p>{{$message}}</p>
+    </div>
+    @endif
     @foreach ($mesVisites as $uneVisite)
     <a href='{{url ('/getVisiteSpe/'.$uneVisite->idVisite)}}'  title="Cliquez pour plus d'informations"> 
         <h3>-/ Informations concernant la visite : {{$uneVisite->libelleVisite}}</h3> </a>
@@ -26,7 +32,7 @@
                     <td>{{$uneVisite->prixVisite}}€</td>                   
                     @if(Session::get('ncpt') == 4)
                     <th ><a href="{{url('/getReservationVis/'.$uneVisite->idVisite)}}"><i class="fa fa-calendar-o fa-2x" aria-hidden="true"></i></a></th>
-                    <th ><a href="{{url('/getReservationVis/'.$uneVisite->idVisite)}}"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a></th>
+                    <th ><a href="{{url('/modifierVisite/'.$uneVisite->idVisite)}}"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a></th>
                     <th ><a data-target="#supprDateModal{{$cptVis}}" data-toggle="modal" data-target=".navbar-collapse.in"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></th>
                     @endif
                 </tr>

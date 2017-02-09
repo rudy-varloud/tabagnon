@@ -137,14 +137,6 @@ class Visiteur extends Model {
         return $mesVisiteurs;
     }
 
-    public function countUserSpe($user) {
-        $mesVisiteurs_compteSpe = DB::table('visiteur')
-                ->where('nomVis', 'like', '%' . $user . '%')
-                ->where('prenomVis', 'like', '%' . $user . '%')
-                ->count();
-        return $mesVisiteurs_compteSpe;
-    }
-
     public function subGuideMan($prenomUser, $nomUser, $mdp_encyrpt) {
         DB::table('visiteur')
                 ->insert(['login' => $prenomUser, 'mdpVis' => $mdp_encyrpt, 'nomVis' => $nomUser, 'prenomVis' => $prenomUser, 'ncptVis' => 5]);
