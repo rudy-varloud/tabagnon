@@ -569,4 +569,13 @@ table.mceLayout, textarea.tinyMCE {
 .avis{
     cursor: pointer;
 }
+}
+
+.footerCredits{
+    margin-top: -2%;
+}
+
+.listeResa{
+    margin-top: 15%;
+}
 

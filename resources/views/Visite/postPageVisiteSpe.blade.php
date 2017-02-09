@@ -11,8 +11,9 @@
 {!! Form::open(['url' => 'postReservationPlace', 'files' => true]) !!}
 <div class="box">
     <div class="reserverPlace">
+        <center> <h3>Selectionnez le nombre de place à réserver</h3> </center>
         <div class="testReser">
-            <div class="col-lg-4 reservation"> 
+            <div class="col-lg-offset-4 col-lg-4 reservation"> 
                 <input type="hidden" value="{{ $idVisite }}" name="idVisite">
                 <input type="hidden" value="{{ $dateVisite }}" name="dateVisite">
                 <select name='nbPlaceVoulu' class="form-control">
