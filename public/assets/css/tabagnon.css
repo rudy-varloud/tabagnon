@@ -566,5 +566,7 @@ table.mceLayout, textarea.tinyMCE {
 
 #footerContactez{
     font-size : 1.4em;   
+.avis{
+    cursor: pointer;
 }
 
