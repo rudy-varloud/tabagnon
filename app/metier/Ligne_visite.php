@@ -53,4 +53,11 @@ class Ligne_visite extends Model {
         }
     }
 
+    /* 
+     * Dialogue avec la BDD pour supprimer les lignes d'une visite
+     */
+    public function supprimerLigneEff($idVisite){
+        DB::table('ligne_visite')->where('idVisite','=',$idVisite)
+                ->delete();
+    }
 }

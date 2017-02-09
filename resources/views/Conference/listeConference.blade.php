@@ -6,7 +6,6 @@
         <table class="table table-striped listeFiltree">
             <thead>
                 <tr>
-                    <th>Numéro conférence</th>
                     <th>Nom</th>
                     <th>Date</th>
                     <th>Heure</th>
@@ -29,7 +28,6 @@
                 $date = date_create($uneConference->dateConf);
                 @endphp
                 <tr>
-                    <td>{{$uneConference -> idConf}}</td>
                     <td>{{$uneConference -> libConf}}</td>
                     <td>{{$date->format('d-m-Y')}}</td>
                     <td>{{$date->format('H:i')}}</td>
@@ -41,8 +39,8 @@
             @endif
             @if (Session::get('ncpt') == 4)
             <td><center><a href='{{url('/getUserConf/'.$uneConference->idConf)}}'><span class='glyphicon glyphicon-th-list'></span></a></center></td>
-            <td><center><a href="{{url('/modifConference/'.$uneConference->idConf)}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></center></td>
-            <td><center><a href="{{url('/supprimerConference/'.$uneConference->idConf)}}"><i class="fa fa-trash" aria-hidden="true"></i></a></center></td>
+            <td><center><a href="{{url('/modifConference/'.$uneConference->idConf)}}"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a></center></td>
+            <td><center><a href="{{url('/supprimerConference/'.$uneConference->idConf)}}"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></center></td>
             @endif
             </tr>
 

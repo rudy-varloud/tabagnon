@@ -86,5 +86,13 @@ class Avis_visite extends Model {
                 ->get();
         return $lesAvis;
     }
+    
+    /* 
+     * Dialogue avec la BDD pour supprimer les avis d'une visite
+     */
+    public function supprimerAvisEff($idVisite){
+        DB::table('avis_visite')->where('idVisite','=',$idVisite)
+                ->delete();
+    }
 
 }

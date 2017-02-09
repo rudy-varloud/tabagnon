@@ -44,7 +44,20 @@ class Visite extends Model {
      */
     public function getVisites() {
         $mesVisites = DB::table('visite')
+                ->distinct('idVisite')
                 ->select('visite.idVisite', 'lieuxVisite', 'nbPlace', 'idGuide', 'libelleVisite', 'prixVisite', 'descriptionVisite')
+                ->join('date_visite', 'date_visite.idVisite', '=', 'visite.idVisite')
+                ->where('statut', '=', false)
+                ->get();
+        return $mesVisites;
+    }
+    
+    /* 
+     * Dialogue avec la BDD pour récuperer la liste des visites non distinct
+     */
+    public function getVisitesND() {
+        $mesVisites = DB::table('visite')
+                ->select()
                 ->join('date_visite', 'date_visite.idVisite', '=', 'visite.idVisite')
                 ->where('statut', '=', false)
                 ->get();
@@ -56,8 +69,11 @@ class Visite extends Model {
      */
     public function getVisitesEffec() {
         $mesVisites = DB::table('visite')
-                ->select()
+                ->distinct('idVisite')
+                ->select('visite.idVisite', 'lieuxVisite', 'nbPlace', 'nomVis', 'prenomVis', 'libelleVisite', 'prixVisite', 'descriptionVisite')          
                 ->join('visiteur', 'visiteur.idVis', '=', 'visite.idGuide')
+                ->join('date_visite', 'date_visite.idVisite', '=', 'visite.idVisite')
+                ->where('statut', '=', true)
                 ->get();
         return $mesVisites;
     }
@@ -146,6 +162,14 @@ class Visite extends Model {
                 ->where('statut', '=', true)
                 ->get();
         return $mesVisites;
+    }
+    
+    /* 
+     * Dialogue avec la BDD pour supprimer une visite
+     */
+    public function supprimerVisEff($idVisite){
+        DB::table('visite')->where('idVisite','=',$idVisite)
+                ->delete();
     }
 
 }

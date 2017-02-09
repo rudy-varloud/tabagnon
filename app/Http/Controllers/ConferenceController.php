@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\metier\Conference;
 use App\metier\Visite;
 use App\metier\Ligne_conference;
+use App\metier\Avis_conference;
 use Request;
 use Illuminate\Support\Facades\Session;
 use Exception;
@@ -113,5 +114,19 @@ class ConferenceController extends Controller {
         $uneConference->supprConf($idConf);
         return redirect('/getPageConference');
     }
+    
+    /* 
+     * Créer l'appel pour supprimer une conférence effectué ainsi que les lignes et avis liés.
+     */
+    public function supprimerConfEffec($idConf){
+        $uneConference = new Conference();
+        $avisConference = new Avis_conference();
+        $ligneConference = new Ligne_conference();
+        $avisConference->supprimerAvisEff($idConf);
+        $ligneConference->supprimerLigneEff($idConf);
+        $uneConference->supprimerConfEff($idConf);
+        return redirect('/getAvis');  
+    }
+    
    
 }

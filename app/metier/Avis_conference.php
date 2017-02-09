@@ -82,5 +82,13 @@ class Avis_conference extends Model {
                 ->get();
         return $lesAvis;
     }
+    
+    /* 
+     * Dialogue avec la BDD pour supprimer les avis d'une visite
+     */
+    public function supprimerAvisEff($idConf){
+        DB::table('avis_conference')->where('idConf','=',$idConf)
+                ->delete();
+    }
 
 }

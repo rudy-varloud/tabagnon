@@ -92,8 +92,8 @@
                     @endif
                     <ul class="nav navbar-nav">
 
-                        <li><a href="{{url('/getArticles')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Les Articles</a></li>
-                        <li><a href="{{url('/getPageConference')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Conférence</a></li>
+                        <li><a href="{{url('/getArticles')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Articles</a></li>
+                        <li><a href="{{url('/getPageConference')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Conférences</a></li>
                         <li><a href="{{url('/getPageVisite')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Visites</a></li>
                         <li><a href="{{url('/getMosaique')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Mosaïque</a></li>
 
@@ -113,18 +113,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 ">
-                    <div class="col-md-offset-1 col-md-5 footerContact">
-                        <p id='footerContactez'>Contactez nous :</p>
-                        <div class='col-md-offset-3 footerOption'>
-                            <p>
-                                <i class="fa fa-envelope-o" aria-hidden="true"></i> E-mail : <br>
-                                <i class="fa fa-phone" aria-hidden="true"></i> Téléphone : <br>
-                                <i class="fa fa-home" aria-hidden="true"></i> Adresse : 
-                            </p>
+                    <div class=" col-md-7 footerContact">
+                        <div class='col-md-4'>
+                        <p id='footerContactez'>Contactez nous : </p>
                         </div>
-                        
+                        <div class='col-md-8 footerOption'>
+                            <p>
+                                <i class="fa fa-envelope-o" aria-hidden="true"></i> E-mail : tabagnon.saintgenis@gmail.com<br>
+                                <i class="fa fa-phone" aria-hidden="true"></i> Téléphone : 06.81.80.85.69<br>
+                                <i class="fa fa-home" aria-hidden="true"></i> Adresse : Mairie de Saint-Genis les Ollières
+                            </p>
+                        </div> 
                     </div>
-                    <div class="col-md-offset-3 col-md-3 footerCredits"><p>Copyright &copy; Tabagnon 2017<br>
+                    <div class="col-md-offset-2 col-md-3 footerCredits"><p>Copyright &copy; Tabagnon 2017<br>
                             <small>Crédits fond d'écran : JL BESSENAY</p></small>
                     </div>     
                 </div>

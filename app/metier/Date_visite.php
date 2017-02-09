@@ -44,4 +44,25 @@ class Date_visite extends Model {
                 ->first();
         return $nb->nbPlaceRes;
     }
+    
+    /* 
+     * Dialogue avec la BDD pour supprimer les dates d'une visite
+     */
+    public function supprimerDateEff($idVisite){
+        DB::table('date_visite')->where('idVisite','=',$idVisite)
+                ->delete();
+    }
+    
+    public function supprimerDateVis($idVisite,$choixDateVisite){
+        DB::table('date_visite')->where('idVisite','=',$idVisite)
+                ->where('dateVisite','=',$choixDateVisite)
+                ->delete();
+    }
+    
+    public function getDatesVisite($idVisite){
+        DB::table('date_visite')
+                ->select()
+                ->where('idVisite','=',$idVisite)
+                ->get();
+    }
 }

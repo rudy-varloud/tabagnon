@@ -16,7 +16,7 @@
                 @endforeach
             </select>
             <br>       
-            <div class="testReser">
+            <div >
                 <button type="submit" class="btn btn-info sub" value="Réserver"> Voir les réservations </button>
             </div>
         </div>
@@ -25,35 +25,37 @@
     {{ Form::close() }}
     @if($lesReservations != null)
     <h3>Liste des réservations pour la visite {{$uneVisite->libelleVisite}} </h3>
-    <table class="table table-striped listeFiltree">
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Téléphone fixe</th>
-                <th>Téléphone portable</th>
-                <th>Adresse mail</th>
-                <th>Adresse</th>
-                <th>Nombre de place réservées</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach( $lesReservations as $uneReservation )
-            @if($uneReservation->nbPlaceRes != 0)
-            <tr>
-                <td>{{$uneReservation -> nomVis}}</td>
-                <td>{{$uneReservation -> prenomVis}}</td>
-                <td>{{$uneReservation -> telFixeVis}}</td>
-                <td>{{$uneReservation -> mobileVis}}</td>
-                <td>{{$uneReservation -> mailVis}}</td>
-                <td>{{$uneReservation -> adresseVis}}</td>
-                <td>{{$uneReservation -> nbPlaceRes}}</td>
+    <div class="table-responsive">
+        <table class="table table-striped listeFiltree">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Téléphone fixe</th>
+                    <th>Téléphone portable</th>
+                    <th>Adresse mail</th>
+                    <th>Adresse</th>
+                    <th>Nombre de place réservées</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach( $lesReservations as $uneReservation )
+                @if($uneReservation->nbPlaceRes != 0)
+                <tr>
+                    <td>{{$uneReservation -> nomVis}}</td>
+                    <td>{{$uneReservation -> prenomVis}}</td>
+                    <td>{{$uneReservation -> telFixeVis}}</td>
+                    <td>{{$uneReservation -> mobileVis}}</td>
+                    <td>{{$uneReservation -> mailVis}}</td>
+                    <td>{{$uneReservation -> adresseVis}}</td>
+                    <td>{{$uneReservation -> nbPlaceRes}}</td>
 
-            </tr>
-            @endif
-            @endforeach
-        </tbody>
-    </table>
+                </tr>
+                @endif
+                @endforeach
+            </tbody>
+        </table>
+    </div>
     @endif
 </div>
 @stop

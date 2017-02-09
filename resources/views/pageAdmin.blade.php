@@ -22,8 +22,8 @@
         <div class='option-admin'>
             <h1 class="titre-admin"><span class='glyphicon glyphicon-th-large'></span> Divers</h1>
             <a href="{{url('/carouselAccueil')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Carousel</a><br>
-            <a href='{{url('/getPageValidMosa')}}' data-toggle="collapse" data-target=".narvar-collapse.in" class="">Validation photo Mosaïque</a><br><br>
-            <a href='{{url('/getAvis')}}' data-toggle="collapse" data-target=".narvar-collapse.in" class="">Voir les avis</a><br>
+            <a href='{{url('/getPageValidMosa')}}' data-toggle="collapse" data-target=".narvar-collapse.in" class="">Validation photo Mosaïque</a><br>
+            <a href='{{url('/getAvis')}}' data-toggle="collapse" data-target=".narvar-collapse.in" class="">Voir les avis</a><br><br>
         </div>      
     </div>
 </center>

@@ -40,8 +40,9 @@ Route::get('/getReservationVis/{idVisite}', 'VisiteController@getVisiteReservati
 Route::post('/getReservations', 'VisiteController@getReservation');
 Route::post('/reservationPlace', 'VisiteController@reservationPlace');
 Route::post('/postReservationPlace', 'VisiteController@postReservationPlace');
-Route::post('/annulerVis', 'VisiteController@annulerVis');
 Route::post('/modifierPlaceVis', 'VisiteController@modifierPlaceVis');
+Route::get('/supprimerVisEffec/{idVisite}', 'VisiteController@supprimerVisEffec');
+Route::post('/supprimerDateVisite', 'VisiteController@supprimerDateVisite');
 
 
 //Article
@@ -70,7 +71,7 @@ Route::post('/modifierPlaceConf', 'ConferenceController@modifierPlaceConf');
 Route::get('/modifConference/{idConf}', 'ConferenceController@modifConf');
 Route::post('/postModifAjoutConf', 'ConferenceController@postModifAjoutConf');
 Route::get('/supprimerConference/{idConf}', 'ConferenceController@supprConf');
-
+Route::get('/supprimerConfEffec/{idConf}', 'ConferenceController@supprimerConfEffec');
 
 //Mosaïque
 Route::get('/getMosaique', 'MosaiqueController@listePhoto');
