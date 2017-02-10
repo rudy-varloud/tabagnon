@@ -1,6 +1,12 @@
 @extends('layouts.master')
 @section('content')
 <div class='box'>
+    @if($message != null)
+    <div class="alert alert-info alert-dismissable fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <p>{{$message}}</p>
+    </div>
+    @endif
     <h3>Liste des conférences du Tabagnon !</h3>
     <div class="table-responsive">
         <table class="table table-striped listeFiltree">

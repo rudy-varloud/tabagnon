@@ -12,6 +12,12 @@
             plugins: "autoresize"
     });</script>
 <center><div class="box">
+        @if($message != null)
+        <div class="alert alert-info alert-dismissable fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <p>{{$message}}</p>
+        </div>
+        @endif
         @if ($mesMosaiques != null)
         @php
         $date = date_create($mesMosaiques->dateCrea);
@@ -48,7 +54,7 @@
         <br>
         <center> <button type='submit' class='btn btn-info' value='Envoyer'> Envoyer </button>
             <br><BR>
-        @endif
+            @endif
             {{ Form::close() }}
             <h3 class='titre'> Commentaires: </h3>
             @foreach ($mesMosaiques2 as $uneMosaique)
@@ -58,7 +64,7 @@
             <p> {{$uneMosaique->commentaire}} </p>
             <h6 class='nomCom'>De {{$uneMosaique->login}} le {{$date_com->format('d-m-Y H:i')}}</h6>
             @if ((Session::get('ncpt') == 4)||(Session::get('id') == $uneMosaique->idVisi))
-            <a href="{{url('/deleteCom/'.$uneMosaique->idCommentaire)}}"><i class="fa fa-eraser" aria-hidden="true" title="Supprimer ce commentaire"></i></a>
+            <a href="{{url('/deleteCom/'.$uneMosaique->idCommentaire.'/'.$uneMosaique->idImg)}}"><i class="fa fa-eraser" aria-hidden="true" title="Supprimer ce commentaire"></i></a>
             @endif
             @endforeach
             <center>{{ $mesMosaiques2->render() }}</center>

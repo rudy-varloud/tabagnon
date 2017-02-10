@@ -23,9 +23,10 @@ class Conference extends Model {
      */
 
     public function postAjoutConf($nomConf, $prixConf, $placeDispoConf, $contenuConf, $adresseConf, $cpConf, $datetime) {
+        $date = date_create($datetime);
         DB::table('conference')
                 ->Insert(['libConf' => $nomConf, 'prixConf' => $prixConf, 'placeDispoConf' => $placeDispoConf, 'contenuConf' => $contenuConf,
-                    'adresseConf' => $adresseConf, 'cpConf' => $cpConf, 'dateConf' => $datetime]);
+                    'adresseConf' => $adresseConf, 'cpConf' => $cpConf, 'dateConf' => $date]);
     }
 
     /*

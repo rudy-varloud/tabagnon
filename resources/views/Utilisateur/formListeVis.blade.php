@@ -35,7 +35,7 @@
                     <td>{{$unVisiteur -> telFixeVis}}</td>
                     <td>{{$unVisiteur -> mobileVis}}</td>
                     <td>{{$unVisiteur -> mailVis}}</td>
-                    <td>{{$unVisiteur -> adresseVis}}</td>
+                    <td>{{$unVisiteur -> adresseVis}} {{$unVisiteur -> villeVis}} {{$unVisiteur -> codePostVis}}</td>
                     @if(Session::get('id') != $unVisiteur -> idVis)
                     @if(($unVisiteur -> ncptVis) == 5)
                     <td>Guide temporaire</td>

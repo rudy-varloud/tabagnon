@@ -87,7 +87,7 @@ Route::get('/validerImage/{idImage}', 'MosaiqueController@validerImage');
 Route::get('/refuserImage/{idImage}', 'MosaiqueController@refuserImage');
 //Commentaire Mosaique
 Route::post('/postAjoutCommentaire', 'MosaiqueController@postAjoutCommentaire');
-Route::get('/deleteCom/{idCommentaire}', 'MosaiqueController@deleteCom');
+Route::get('/deleteCom/{idCommentaire}/{idImage}', 'MosaiqueController@deleteCom');
 Route::get('/likeImage/{idVis}/{idImage}', 'LikeController@likeImage');
 
 

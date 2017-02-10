@@ -54,13 +54,13 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label"><i class="glyphicon glyphicon-home"> </i> Ville : </label>
                         <div class="col-md-6 col-md-3">
-                            <input type="text" name="ville" class="form-control" pattern=".{0,40}" value = "{{$ville or ''}}" placeholder="Votre ville" required>
+                            <input type="text" name="ville" class="form-control" pattern=".{0,40}" value = "{{$unV->villeVis or ''}}" placeholder="Votre ville" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label"><i class="glyphicon glyphicon-home"> </i> Code Postal : </label>
                         <div class="col-md-6 col-md-3">
-                            <input type="text" name="cp" class="form-control" pattern="[0-9]{5}" value = "{{$cp or ''}}" placeholder="Votre code postal" required>
+                            <input type="text" name="cp" class="form-control" pattern="[0-9]{5}" value = "{{$unV->codePostVis or ''}}" placeholder="Votre code postal" required>
                         </div>
                     </div>
                     <div class="form-group">

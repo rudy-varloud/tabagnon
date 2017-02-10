@@ -30,7 +30,8 @@ class Date_visite extends Model {
     /* 
      * Dialogue avec la BDD pour ajouter une date a une visite
      */
-    public function addDate($id, $date) {
+    public function addDate($id, $datetime) {
+        $date = date_create($datetime);
         DB::table('date_visite')->insert(['idVisite' => $id, 'dateVisite' => $date, 'nbPlaceRes' => 0]);
     }
 

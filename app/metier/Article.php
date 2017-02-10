@@ -9,7 +9,7 @@ use DB;
 class Article extends Model {
 
     //
-    protected $table = 'article';
+    protected $table = 'ARTICLE';
     public $timestamps = false;
     protected $fillable = [
         'idArticle',
@@ -26,7 +26,7 @@ class Article extends Model {
      * Dialogue avec la BDD pour récupérer un article
      */
     public function getArticle($idA) {
-        $unA = DB::table('Article')->Select()
+        $unA = DB::table('article')->Select()
                 ->where('idArticle', '=', $idA)
                 ->first();
         return $unA;
@@ -37,11 +37,11 @@ class Article extends Model {
      */
     public function postFormArticleImage($titreArticle, $description, $contenue, $imageArticle) {
         $dateJour = date('Y/m/d', time());
-        DB::table('Article')
+        DB::table('article')
                 ->insert(
                         ['titreArticle' => $titreArticle, 'description' => $description,
                             'contenu' => $contenue, 'imageArticle' => $imageArticle, 'dateCreation' => $dateJour, 'dateEdition' => $dateJour]);
-        $id = DB::table('Article')->Select('idArticle')
+        $id = DB::table('article')->Select('idArticle')
                 ->where('titreArticle', '=', $titreArticle)
                 ->where('description', '=', $description)
                 ->where('imageArticle', '=', $imageArticle)
@@ -56,11 +56,11 @@ class Article extends Model {
      */
     public function postFormArticle($titreArticle, $description, $contenue) {
         $dateJour = date('Y/m/d', time());
-        DB::table('Article')
+        DB::table('article')
                 ->insert(
                         ['titreArticle' => $titreArticle, 'description' => $description,
                             'contenu' => $contenue, 'dateCreation' => $dateJour, 'dateEdition' => $dateJour, 'imageArticle' => 'default.png']);
-        $id = DB::table('Article')->Select('idArticle')
+        $id = DB::table('article')->Select('idArticle')
                 ->where('titreArticle', '=', $titreArticle)
                 ->where('description', '=', $description)
                 ->where('imageArticle', '=', 'default.png')
@@ -74,7 +74,10 @@ class Article extends Model {
      * Dialogue avec la BDD pour récupérer les 3 derniers articles (id)
      */
     public function getLastArticle() {
-        $lesArticles = Article::orderBy('idArticle', 'desc')->take(3)->get();
+        $lesArticles = DB::table('article')
+                ->orderBy('idArticle', 'desc')
+                ->take(3)
+                ->get();
         return $lesArticles;
     }
 
@@ -82,7 +85,7 @@ class Article extends Model {
      * Dialogue avec la BDD pour récupérer le nombre d'article dans la BDD
      */
     public function getCompteurImage() {
-        $cpt = DB::table('Article')->count();
+        $cpt = DB::table('article')->count();
         return $cpt + 1;
     }
 
@@ -90,7 +93,7 @@ class Article extends Model {
      * Dialogue avec la BDD pour récupérer la liste des articles (5 par page)
      */
     public function listerArticle() {
-        $lesArticles = DB::table('Article')->Select()
+        $lesArticles = DB::table('article')->Select()
                 ->orderBy('dateCreation', 'DESC')
                 ->paginate(5);
         return $lesArticles;
@@ -101,7 +104,7 @@ class Article extends Model {
      * 10 par page.
      */
     public function listeArticleAdmin() {
-        $lesArticles = DB::table('Article')
+        $lesArticles = DB::table('article')
                 ->Select()
                 ->paginate(10);
         return $lesArticles;
