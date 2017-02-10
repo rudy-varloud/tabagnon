@@ -163,5 +163,10 @@ class Visiteur extends Model {
         DB::table('visiteur')->where('idVis', $id)
                 ->update(['ncptVis' => 3]);
     }
+    
+    public function supprUserVis($idVisiteur){
+        DB::table('visiteur')->where('idVis', '=', $idVisiteur)
+                ->delete();
+    }
 
 }

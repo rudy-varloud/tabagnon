@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\metier\Visiteur;
+use App\metier\Like_image;
+use App\metier\Ligne_visite;
+use App\metier\Ligne_conference;
+use App\metier\Mosaique;
+use App\metier\Avis_visite;
+use App\metier\Avis_conference;
 use Request;
 use Illuminate\Support\Facades\Session;
 use Exception;
@@ -172,6 +178,28 @@ class VisiteurController extends Controller {
         $id = Session::get('id');
         $unV = $unVisiteur->getUser($id);
         return view('/Utilisateur/profil', compact('unV'));
+    }
+    
+    public function supprCompte($idVisiteur){
+        $unVisiteur = new Visiteur();
+        $unVisiteur->supprUserVis($idVisiteur);
+        $uneMosaique = new Mosaique();
+        $uneMosaique->supprUserMosaique($idVisiteur);
+        $unLikeImage = new Like_image();
+        $unLikeImage->supprUserLikeImage($idVisiteur);
+        $uneLigneVisite = new Ligne_visite();
+        $uneLigneVisite->supprUserLigneVisite($idVisiteur);
+        $uneLigneConference = new Ligne_conference();
+        $uneLigneConference->supprUserLigneConference($idVisiteur);
+        $unCommentaireImage = new Mosaique();
+        $unCommentaireImage->supprUserCommentaireImage($idVisiteur);
+        $unAvisVisite = new Avis_visite();
+        $unAvisVisite->supprUserAvisVisite($idVisiteur);
+        $unAvisConference = new Avis_conference();
+        $unAvisConference->supprUserAvisConference($idVisiteur);
+        
+        return redirect ('/listerVisiteur');
+        
     }
 
 }

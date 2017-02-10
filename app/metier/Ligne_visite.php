@@ -60,4 +60,10 @@ class Ligne_visite extends Model {
         DB::table('ligne_visite')->where('idVisite','=',$idVisite)
                 ->delete();
     }
+    
+    public function supprUserLigneVisite($idVisiteur){
+        DB::table('ligne_visite')
+                ->where('idVisiteur', '=', $idVisiteur)
+                ->delete();
+    }
 }

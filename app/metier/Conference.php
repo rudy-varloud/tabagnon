@@ -178,5 +178,5 @@ class Conference extends Model {
                 ->Where('idConf', '=', $idConf)
                 ->Delete();
     }
-
+    
 }

@@ -113,22 +113,11 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 ">
-                    <div class=" col-md-7 footerContact">
-                        <div class='col-md-4'>
-                        <p id='footerContactez'>Contactez nous : </p>
-                        </div>
-                        <div class='col-md-8 footerOption'>
-                            <p>
-                                <i class="fa fa-envelope-o" aria-hidden="true"></i> E-mail : tabagnon.saintgenis@gmail.com<br>
-                                <i class="fa fa-phone" aria-hidden="true"></i> Téléphone : 06.81.80.85.69<br>
-                                <i class="fa fa-home" aria-hidden="true"></i> Adresse : Mairie de Saint-Genis les Ollières
-                            </p>
-                        </div> 
-                    </div>
-                    <div class="col-md-offset-2 col-md-3 footerCredits"><p>Copyright &copy; Tabagnon 2017<br>
-                            <small>Crédits fond d'écran : JL BESSENAY</p></small>
-                    </div>     
+                <center>
+                    <div class="footerCredits"><p>Copyright &copy; Tabagnon 2017 <br>
+                            06.81.80.85.69 | tabagnon.saintgenis@gmail.com<br>
+                            <small>Crédits background : JL BESSENAY</p></small>
+                    </div>     </center>
                 </div>
             </div>
         </div>

@@ -28,6 +28,7 @@
                     <th>Adresse</th>
                     <th>Niveau du compte</th>
                     <th>Modifier le niveau du compte</th>
+                    <th>Supression du compte</th>
                 </tr>
             </thead>
             <tbody>
@@ -62,6 +63,9 @@
             <td>Administrateur</td>
             <td class="bold red">Votre compte</td>
             @endif 
+            <td><a class="fa fa-trash" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Supprimer" href="#"
+                   onclick="javascript:if (confirm('Voulez vous vraiment supprimer ce compte ?'))
+                       { window.location ='{{ url('/supprimerCompte') }}/{{ $unVisiteur -> idVis }}'; }"></td>
 
             </tr>
 
