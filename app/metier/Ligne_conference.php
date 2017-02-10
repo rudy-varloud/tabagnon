@@ -35,5 +35,11 @@ class Ligne_conference extends Model {
         DB::table('ligne_conference')->where('idConf', '=', $idConf)
                 ->delete();
     }
+    
+    public function supprUserLigneConference($idVisiteur){
+        Db::table('ligne_conference')
+                ->where('idVisiteur', '=', $idVisiteur)
+                ->delete();
+    }
 
 }

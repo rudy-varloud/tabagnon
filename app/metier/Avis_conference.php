@@ -90,5 +90,11 @@ class Avis_conference extends Model {
         DB::table('avis_conference')->where('idConf','=',$idConf)
                 ->delete();
     }
+    
+    public function supprUserAvisConference($idVisiteur){
+        DB::table('avis_conference')
+                ->where('idVisiteur', '=', $idVisiteur)
+                ->delete();
+    }
 
 }

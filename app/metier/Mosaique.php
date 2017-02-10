@@ -132,4 +132,16 @@ class Mosaique extends Model {
                 ->where('idImage', '=', $idImage)
                 ->delete();
     }
+    
+    public function supprUserMosaique($id){
+        DB::table('mosaique_image')
+                ->where('idVisiteur', '=', $id)
+                ->delete();
+    }
+    
+    public function supprUserCommentaireImage($idVisiteur){
+        DB::table('commentaire_image')
+                ->where('idVisi', '=', $idVisiteur)
+                ->delete();
+    }
 }

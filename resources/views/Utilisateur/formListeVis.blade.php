@@ -24,6 +24,7 @@
                     <th>Adresse</th>
                     <th>Niveau du compte</th>
                     <th>Modifier le niveau du compte</th>
+                    <th>Supression du compte</th>
                 </tr>
             </thead>
             <tbody>
@@ -53,6 +54,9 @@
                     <td>Utilisateur non confirmé</td>
                     @endif
                     <td><center><a href=" {{ url('/modifUser') }}/{{ $unVisiteur -> idVis }} "><span class="glyphicon glyphicon-sort" title="Modifier le status de ce compte"></span></a></center></td>
+                    <td><a class="fa fa-trash" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Supprimer" href="#"
+                       onclick="javascript:if (confirm('Voulez vous vraiment supprimer ce compte ?'))
+                           { window.location ='{{ url('/supprimerCompte') }}/{{ $unVisiteur -> idVis }}'; }"></td>
             @endif
             @if(Session::get('id') == $unVisiteur -> idVis)
             <td>Administrateur</td>

@@ -77,8 +77,11 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p>Copyright &copy; Tabagnon 2017</p>
+                <center>
+                    <div class="footerCredits"><p>Copyright &copy; Tabagnon 2017 <br>
+                            06.81.80.85.69 | tabagnon.saintgenis@gmail.com<br>
+                            <small>Crédits background : JL BESSENAY</p></small>
+                    </div>     </center>
                 </div>
             </div>
         </div>

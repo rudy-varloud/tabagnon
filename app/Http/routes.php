@@ -127,6 +127,7 @@ Route::get('/modifUser/{id_client}', ['as' => 'modifUser',
 //Validation des modifications faite pour un visiteur donné
 Route::post('/postmodifierUser/{id_client}', ['as' => 'postmodifierUser',
     'uses' => 'VisiteurController@modificationVisiteur']);
+Route::get('/supprimerCompte/{idVis}', 'VisiteurController@supprCompte');
 
 
 

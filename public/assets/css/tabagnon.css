@@ -551,7 +551,7 @@ table.mceLayout, textarea.tinyMCE {
 
 
 .footerCredits p{
-    margin-top : 50px;
+    margin-top : 40px;
     margin-bottom : 10px;
     padding : 5px !important;
 }
@@ -569,7 +569,6 @@ table.mceLayout, textarea.tinyMCE {
 }
 .avis{
     cursor: pointer;
-}
 }
 
 .footerCredits{

@@ -94,5 +94,11 @@ class Avis_visite extends Model {
         DB::table('avis_visite')->where('idVisite','=',$idVisite)
                 ->delete();
     }
+    
+    public function supprUserAvisVisite($idVisiteur){
+        DB::table('avis_visite')
+                ->where('idVisiteur', '=', $idVisiteur)
+                ->delete();
+    }
 
 }

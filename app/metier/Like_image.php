@@ -57,5 +57,11 @@ class Like_image extends Model {
                 ->count();
         return $compteur;
     }
+    
+    public function supprUserLikeImage($idVisiteur){
+        DB::table('like_image')
+                ->where('idVisiteur', '=', $idVisiteur)
+                ->delete();
+    }
 
 }
