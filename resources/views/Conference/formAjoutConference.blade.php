@@ -40,8 +40,8 @@
         <label> Adresse de la conférence: </label>
         <input type='text' class='form-control adresseConf' name='adresseConf' value='' placeholder='Adresse de la conférence'>
         <br>
-        <label> Code Postale de la conférence: </label>
-        <input type='text' class='form-control cpConf' name='cpConf' value='' placeholder='Code Postale de la conférence'>
+        <label> Code Postal de la conférence: </label>
+        <input type='text' class='form-control cpConf' name='cpConf' value='' placeholder='Code Postal de la conférence'>
         <br>
         <div class="input_fields_wrap">
             <div class='form-group'>

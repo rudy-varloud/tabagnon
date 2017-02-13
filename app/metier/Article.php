@@ -76,7 +76,7 @@ class Article extends Model {
     public function getLastArticle() {
         $lesArticles = DB::table('article')
                 ->orderBy('idArticle', 'desc')
-                ->take(3)
+                ->take(4)
                 ->get();
         return $lesArticles;
     }

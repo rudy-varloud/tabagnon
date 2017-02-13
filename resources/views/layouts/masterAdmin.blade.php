@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Association Tabagnon</title>
+        <title>Association Le Tabagnon</title>
 
        <!-- Bootstrap Core CSS -->
         {!! Html::style('assets/css/bootstrap.css') !!}
@@ -36,7 +36,7 @@
     <body>
         <div class="brand">
             <a href="{{url('/accueil')}}"><img src="{{URL::asset('assets/image/logoTabagnon.png')}}" alt="Logo Tabagnon" height="123" width="100"></a>
-            Tabagnon | <small>Saint-Genis-les-Ollières</small></div>
+            Le Tabagnon | <small>Saint-Genis-les-Ollières</small></div>
         <!-- Navigation -->
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
@@ -51,17 +51,15 @@
                     <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
                     <a class="navbar-brand" href="{{url('/accueil')}}">
                         <img src="{{URL::asset('assets/image/logoTabagnon.png')}}" alt="Logo Tabagnon" height="30" width="24">
-                        Tabagnon | <small>Saint-Genis-les-Ollières</small></a>
+                        Le Tabagnon</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">                          
                             <li><a href="{{url('/accueil')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Accueil</a></li>  
                             <li><a href="{{url('/getPageAdmin')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Pannel administration</a></li>
                             <li><a href="{{url('/getLogout')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Se déconnecter</a></li>
                         </ul>
-                    </div>
                 </div>
                 <!-- /.navbar-collapse -->
             </div>

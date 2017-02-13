@@ -20,7 +20,7 @@
         <div class='col-md-4'>
             <input type='hidden' name="imageMosaique" value=""/>
             <input type='hidden' name="MAX_FILE_SIZE" value="5000000"/>
-            <input type='file' name="imageMosaique" class="btn btn-default pull-left" accept="image/*" required/>
+            <input type='file' name="imageMosaique" class="btn btn-default" accept="image/*" required/>
         </div>
         <div class="col-md-4">
             <input type="text" class="form-control" name="descriptionImage" value="" placeholder="Courte description de l'image" required>

@@ -1,8 +1,9 @@
 @extends('layouts.master')
 @section('content')
-
+@php
+$cptA = 0;
+@endphp
 <div class="box">
-    <center><p>______________________________</p></center>
     @foreach ($lesArticles as $unArticle)
     <a href="{{url('/article/'.$unArticle->idArticle)}}">
         <div class="col-md-10 col-md-offset-2 liste-news">    
@@ -14,7 +15,10 @@
             <p class="cliquezArticle">Cliquer pour voir l'article en entier !</p>
         </div>
     </a>
+    @if($cptA != count($lesArticles)-1)
     <center><p>______________________________</p></center>
+    @endif
+    @php($cptA += 1) 
     @endforeach
     <center>  {{ $lesArticles->render() }} </center>
 </div>

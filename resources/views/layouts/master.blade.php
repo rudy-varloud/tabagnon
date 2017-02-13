@@ -47,7 +47,7 @@
     <body onLoad="pass();">
         <div class="brand">
             <a href="{{url('/accueil')}}"><img src="{{URL::asset('assets/image/logoTabagnon.png')}}" alt="Logo Tabagnon" height="123" width="100"></a>
-            Tabagnon | <small>Saint-Genis-les-Ollières</small></div>
+            Le Tabagnon | <small>Saint-Genis-les-Ollières</small></div>
         <!-- Navigation -->
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
@@ -62,17 +62,17 @@
                     <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
                     <a class="navbar-brand" href="{{url('/accueil')}}">
                         <img src="{{URL::asset('assets/image/logoTabagnon.png')}}" alt="Logo Tabagnon" height="30" width="24">
-                        Association Tabagnon</a>
+                        Le Tabagnon</a> 
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> 
                     @if(Session::get('ncpt') == 4)
                     <ul class="nav navbar-nav"> 
-                        <li><a href='{{ url('/getPageAdmin')}}' data-toggle='collapse' data-target='.navbar-collapse.in' class=''>Pannel Administration</a></li><hr>
+                        <li><a href='{{ url('/getPageAdmin')}}' data-toggle='collapse' data-target='.navbar-collapse.in' class=''>Pannel Administration</a></li>
                     </ul>
                     <hr>
-                    @endif
-                    <ul class="nav navbar-nav">                          
+                    @endif    
+                    <ul class="nav navbar-nav">
                         @if(Session::get('id') > 0)
                         <li><a href="{{url('/getProfil')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Compte</a></li>
                         <li><a href="{{url( '/mesReservations')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Agenda</a></li>

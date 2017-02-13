@@ -24,7 +24,7 @@
                     <th>Adresse</th>
                     <th>Niveau du compte</th>
                     <th>Modifier le niveau du compte</th>
-                    <th>Supression du compte</th>
+                    <th>Suppression du compte</th>
                 </tr>
             </thead>
             <tbody>

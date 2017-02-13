@@ -42,7 +42,7 @@ p {
 
 hr {
     max-width: 400px;
-    border-color: #999999;
+    border-color: #999999 !important;
 }
 
 .brand,
@@ -367,12 +367,7 @@ footer p {
 }
 
 .img-presentation{
-    object-fit: cover !important;
-    max-width : 30%;
-    margin-left : 7%;
-    margin-top : 2%;
-    margin-bottom : 2%;
-    float:left;
+    height : 50em;
 }
 
 .nomGuideVisite .ct{
@@ -444,8 +439,8 @@ body:after {
     height: 100px;
 }
 footer {
-    position: absolute;
-    width: 100%;
+    position: absolute !important;
+    width: 100% !important;
 }
 .sous-menu {
     text-decoration: none;

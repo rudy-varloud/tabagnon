@@ -23,7 +23,6 @@
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
-
                         @php($cpt = 0)
                         @foreach($lesImages as $uneImage)
                         @if($cpt == 0)
@@ -51,7 +50,7 @@
                 <h2 class="brand-before">
                     <small>Bienvenue sur le site de l'association</small>
                 </h2>
-                <h1 class="brand-name titre_accueil">Tabagnon</h1>
+                <h1 class="brand-name titre_accueil">Le Tabagnon</h1>
                 <hr class="tagline-divider">
             </div>
         </div>        
@@ -96,14 +95,16 @@
                 <br>
                 @foreach($lesArticles as $unArticle)
                 <a href="{{url('/article/'.$unArticle->idArticle)}}">
-                    <div class="col-md-4">    
+                    <div class="col-lg-3 col-sm-6">   
+                        <center>
                         <img class="img-news" src="{{ URL::asset('assets/image/article/'.$unArticle->imageArticle) }}" alt="{{$unArticle->titreArticle}}">
                         <div class="col-md-12">        
                             <div class="news-title">
                                 <h4>{{$unArticle->titreArticle}}</h4>
                             </div>
                         </div>
-                        <br>
+                        <br><br>
+                        </center>
                     </div>
                 </a>
                 @endforeach

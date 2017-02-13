@@ -43,7 +43,7 @@
             <div class='col-md-3'>
                 <input type='hidden' name="imageArticle" value=""/>
                 <input type='hidden' name="MAX_FILE_SIZE" value="204800"/>
-                <input type='file' name="imageArticle" class="btn btn-default pull-left" accept="image/*"/>
+                <input type='file' name="imageArticle" class="btn btn-default" accept="image/*"/>
             </div>
         </div>
         <br>
