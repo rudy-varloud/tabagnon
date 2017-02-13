@@ -24,6 +24,9 @@
     $cpt = 0;
     @endphp
     <h3> Images en attentes de validation </h3>
+    @if ($mesMosaiques == null)
+    Vous n'avez pas encore effectué de visite
+    @endif
     @foreach($mesMosaiques as $maMosaique)
     <a data-toggle="modal" data-target="#modalMosaique{{$cpt}}"><img class='article-image' src="{{ URL::asset('assets/image/mosaique/'.$maMosaique->nomImage) }}" alt=""></a>
     <div id="modalMosaique{{$cpt}}" class="modal fade" >
