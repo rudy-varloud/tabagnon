@@ -13,6 +13,12 @@
     });
 </script>
 <div class="box">
+    @if($message != null)
+    <div class="alert alert-info alert-dismissable fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <p>{{$message}}</p>
+    </div>
+    @endif
     @php
     $date = date("Y-m-d");
     $cpt = 0;

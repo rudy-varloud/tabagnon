@@ -582,3 +582,12 @@ table.mceLayout, textarea.tinyMCE {
 .bold{
     font-weight : 700;
 }
+
+.error404p{
+    font-size: 2.5em;
+    margin-top : 11%;
+    font-family: 'Open Sans';
+}
+.error404i{
+    font-size: 17em;
+}

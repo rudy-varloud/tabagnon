@@ -28,7 +28,7 @@ $(document).ready(function () {
         today: 'Aujourd\'hui',
         clear: 'Effacer',
         close: 'Fermer',
-        formatSubmit: 'yyyy/mm/dd',
+        formatSubmit: 'yyyy-mm-dd',
         hiddenName: true
     });
     $('.timepicker').timepicker({

@@ -2,25 +2,29 @@
 @extends('layouts.master')
 @section('content')
 <div class="box">
-    <h3 class='box_valid'>{{$erreur or ''}}</h3><br>
+    @if($message != null)
+    <div class="alert alert-info alert-dismissable fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <p>{{$message}}</p>
+    </div>
+    @endif
     @php
-        $date = date("Y-m-d");
+    $date = date("Y-m-d");
     @endphp
     @if (Session::get('ncpt') >= 2)
     <button type='button' class='btn btn-info' onclick='ajoutImage();'>Ajouter une image</button>
     {!! Form::open(['url' => 'postFormMosaique', 'files' => true]) !!}
     <div class="form-group formAjoutImage" id='formAjoutImage' style='display : none;'>
-        {{$error or ""}}
         <br>
         <label class='col-md-3 control-label'>Image que vous souhaitez ajouter à la mosaïque</label>
         <div class='col-md-4'>
             <input type='hidden' name="imageMosaique" value=""/>
-            <input type='hidden' name="MAX_FILE_SIZE" value="204800"/>
+            <input type='hidden' name="MAX_FILE_SIZE" value="5000000"/>
             <input type='file' name="imageMosaique" class="btn btn-default pull-left" accept="image/*" required/>
         </div>
         <div class="col-md-4">
-        <input type="text" class="form-control" name="descriptionImage" value="" placeholder="Courte description de l'image" required>
-        <input type='hidden' value='{{$date}}' name='date'>
+            <input type="text" class="form-control" name="descriptionImage" value="" placeholder="Courte description de l'image" required>
+            <input type='hidden' value='{{$date}}' name='date'>
         </div>
         <button type="submit" class="btn btn-info btn_mosaique" value="Envoyer">Envoyer</button>
     </div>
@@ -28,7 +32,7 @@
     @endif
     <br>
     @foreach($mesMosaiques as $maMosaique)
-    <a href="{{ url('/getImage/'.$maMosaique->idImage)}}"><img class='mosaique-image' src="{{ URL::asset('assets/image/mosaique/'.$maMosaique->nomImage) }}" alt=""></a>
+    <a href="{{ url('/getImage/'.$maMosaique->idImage)}}"><img class='article-image' src="{{ URL::asset('assets/image/mosaique/'.$maMosaique->nomImage) }}" alt=""></a>
     @endforeach
     <center>{{ $mesMosaiques->render() }}</center>
 </div>

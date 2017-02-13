@@ -81,7 +81,7 @@ class VisiteurController extends Controller {
         $inscription = $unVisiteur->subscribe($login, $pwd_encrypt, $nom, $prenom, $mail, $adr, $tel, $mobile, $ville, $cp);
         if ($inscription) {
             $unVisiteur->login($login, $pwd);
-            return view('Merci', compact('mail', 'nom'));
+            return redirect('/accueil');
         } else {
             $exemple = $prenom . "." . $nom;
             if ($unVisiteur->verificationLogin($exemple))
@@ -125,9 +125,8 @@ class VisiteurController extends Controller {
         $user = Request::input('filtre');
         $unVisiteur = new Visiteur();
         $mesVisiteurs = $unVisiteur->listeUserSpe($user);
-        return view('/Utilisateur/formListeVisSpe', compact('mesVisiteurs','user'));
+        return view('/Utilisateur/formListeVisSpe', compact('mesVisiteurs', 'user'));
     }
-
 
     /* Créer l'appel de récupération des données d'un client 
      * et renvoie ces données au formulaire de modification d'un client.   

@@ -33,9 +33,9 @@ class Mosaique extends Model {
     /* 
      * Dialogue avec la BDD pour ajouter une image à la mosaïque
      */
-    public function postFormMosaiqueImage($image, $description, $date, $idVis) {
+    public function postFormMosaiqueImage($image, $description, $date, $idVis,$visibilite) {
         DB::table('mosaique_image')
-                ->insert(['idVisiteur' => $idVis, 'nomImage' => $image, 'descriptionImage' => $description, 'dateCrea' => $date, 'visibilite' => '1']);
+                ->insert(['idVisiteur' => $idVis, 'nomImage' => $image, 'descriptionImage' => $description, 'dateCrea' => $date, 'visibilite' => $visibilite]);
     }
 
     /* 

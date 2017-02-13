@@ -17,7 +17,8 @@ class MosaiqueController extends Controller {
     public function listePhoto() {
         $uneMosaique = new Mosaique();
         $mesMosaiques = $uneMosaique->listeMosaique();
-        return view('/Mosaique/pageMosaique', compact('mesMosaiques'));
+        $message = '';
+        return view('/Mosaique/pageMosaique', compact('mesMosaiques','message'));
     }
 
     /* 
@@ -26,6 +27,7 @@ class MosaiqueController extends Controller {
      * Edite le nom de l'image et la place dans le dossier spécifié
      */
     public function postPhotoMosaique() {
+        $visibilite = 1;
         $image = Request::file('imageMosaique');
         $description = Request::input('descriptionImage');
         $date = Request::input('date');
@@ -37,14 +39,22 @@ class MosaiqueController extends Controller {
                 $ext = substr(strrchr($image->getClientOriginalName(), "."), 1);
                 $imageMosaique = 'image-' . $uneMosaique->getCompteurImage() . "." . $ext;
                 $image->move(public_path("/assets/image/mosaique/"), $imageMosaique);
-                $uneMosaique->postFormMosaiqueImage($imageMosaique, $description, $date, $idVis);
+                if(Session::get('ncpt') == 4){
+                    $visibilite = 2;
+                    $message = "L'image a bien été ajoutée.";
+                }
+                else{
+                    $message = "L'image a bien été ajoutée et va être vérifiée par un administrateur avant d'être visible sur le site web.";
+                }
+                $uneMosaique->postFormMosaiqueImage($imageMosaique, $description, $date, $idVis,$visibilite);
             } else {
                 $message = "L'image n'est pas valide (elle ne doit pas dépasser 2 Méga octets (Mo) )";
             }
         } else {
             $message = 'Veuillez choisir un fichier';
         }      
-        return redirect('/getMosaique');
+        $mesMosaiques = $uneMosaique->listeMosaique();
+        return view('/Mosaique/pageMosaique', compact('mesMosaiques','message'));
     }
 
     /* 
@@ -60,7 +70,8 @@ class MosaiqueController extends Controller {
         $compteur = $LikeImage->countLike($idImage);
         $idVis = Session::get('id');
         $statut = $LikeImage->checkLike($idVis, $idImage);
-        return view('/Mosaique/pageImageMosaiqueSpe', compact('mesMosaiques', 'mesMosaiques2', 'idImage', 'compteur', 'statut'));
+        $message= "";
+        return view('/Mosaique/pageImageMosaiqueSpe', compact('mesMosaiques', 'mesMosaiques2', 'idImage', 'compteur', 'statut', 'message'));
     }
 
     /* 
@@ -73,8 +84,15 @@ class MosaiqueController extends Controller {
         $idVis = Request::input('idVis');
         $commentaire = Request::input('commentaire');
         $uneMosaique = new Mosaique();
+        $uneMosaique2 = new Mosaique();
         $uneMosaique->postAjoutCommentaire($idImage, $date, $idVis, $commentaire);
-        return redirect('/getImage/' . $idImage);
+        $mesMosaiques = $uneMosaique->getImage($idImage);
+        $mesMosaiques2 = $uneMosaique2->getCommentaireImage($idImage);
+        $LikeImage = new Like_image();
+        $compteur = $LikeImage->countLike($idImage);
+        $statut = $LikeImage->checkLike($idVis, $idImage);
+        $message = "Le commentaire a bien été ajouté.";
+        return view('/Mosaique/pageImageMosaiqueSpe', compact('mesMosaiques', 'mesMosaiques2', 'idImage', 'compteur', 'statut','message'));
     }
 
     /* 
@@ -86,16 +104,26 @@ class MosaiqueController extends Controller {
         $uneMosaique->deleteImage($idImage,$image->nomImage);
         $uneMosaique->deleteCom($idImage);
         $uneMosaique->deleteLike($idImage);
-        return redirect('/getMosaique');
+        $mesMosaiques = $uneMosaique->listeMosaique();
+        $message = "L'image a bien été supprimée.";
+        return view('/Mosaique/pageMosaique', compact('mesMosaiques','message'));
     }
 
     /* 
      * Créer l'appel pour supprimer un commentaire de la mosaïque
      */
-    public function deleteCom($idCommentaire) {
+    public function deleteCom($idCommentaire,$idImage) {
         $uneMosaique = new Mosaique();
+        $uneMosaique2 = new Mosaique();
         $uneMosaique->deleteComSpe($idCommentaire);
-        return redirect('/getMosaique');
+        $mesMosaiques = $uneMosaique->getImage($idImage);
+        $mesMosaiques2 = $uneMosaique2->getCommentaireImage($idImage);
+        $LikeImage = new Like_image();
+        $compteur = $LikeImage->countLike($idImage);
+        $idVis = Session::get('id');
+        $statut = $LikeImage->checkLike($idVis, $idImage);
+        $message = "Le commentaire a bien été supprimé.";
+        return view('/Mosaique/pageImageMosaiqueSpe', compact('mesMosaiques', 'mesMosaiques2', 'idImage', 'compteur', 'statut','message'));
     }
 
     /* 
@@ -104,7 +132,8 @@ class MosaiqueController extends Controller {
     public function ValidMosa() {
         $uneMosaique = new Mosaique();
         $mesMosaiques = $uneMosaique->getAttenteMosa();
-        return view('/Mosaique/pageImageMosaAttente', compact('mesMosaiques'));
+        $message = "";
+        return view('/Mosaique/pageImageMosaAttente', compact('mesMosaiques','message'));
     }
     
 
@@ -114,7 +143,9 @@ class MosaiqueController extends Controller {
     public function validerImage($id) {
         $uneMosaique = new Mosaique();
         $uneMosaique->validerImage($id);
-        return redirect('/getPageValidMosa');
+        $mesMosaiques = $uneMosaique->getAttenteMosa();
+        $message = "L'image a bien été validée.";
+        return view('/Mosaique/pageImageMosaAttente', compact('mesMosaiques','message'));
     }
 
     /* 
@@ -124,7 +155,9 @@ class MosaiqueController extends Controller {
         $uneMosaique = new Mosaique();
         $image = $uneMosaique->getImage($idImage);
         $uneMosaique->deleteImage($idImage,$image->nomImage);      
-        return redirect('/getPageValidMosa');
+        $mesMosaiques = $uneMosaique->getAttenteMosa();
+        $message = "L'image a bien été supprimée.";
+        return view('/Mosaique/pageImageMosaAttente', compact('mesMosaiques','message'));
     }
 
 }

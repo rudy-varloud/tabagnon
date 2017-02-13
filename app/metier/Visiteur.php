@@ -52,7 +52,7 @@ class Visiteur extends Model {
     }
 
     //Dialogue avec la bdd pour inscrire un utilisateur (renvoie un booléen) 
-    public function subscribe($login, $pwd, $nom, $prenom, $mail, $adr, $tel, $mobile, $cp, $ville) {
+    public function subscribe($login, $pwd, $nom, $prenom, $mail, $adr, $tel, $mobile, $ville,$cp) {
         $Visiteur = New Visiteur();
         if ($Visiteur->verificationLogin($login)) {
             DB::table('visiteur')->insert(['nomVis' => $nom, 'prenomVis' => $prenom, 'adresseVis' => $adr, 'telFixeVis' => $tel, 'mobileVis' => $mobile, 'login' => $login, 'mdpVis' => $pwd, 'ncptVis' => 1, 'mailVis' => $mail, 'codePostVis' => $cp, 'villeVis' => $ville]);
@@ -86,7 +86,7 @@ class Visiteur extends Model {
     //Dialogue avec la bdd pour récuperer les infos de tout les utilisateurs
     public function listeUser() {
         $mesVisiteurs = DB::table('visiteur')
-                ->Select('idVis', 'login', 'mdpVis', 'telFixeVis', 'mobileVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
+                ->Select()
                 ->orderBy('login', 'ASC')
                 ->paginate(20);
         return $mesVisiteurs;
@@ -114,12 +114,12 @@ class Visiteur extends Model {
 
     public function listeUserSpe($user) {
         $mesVisiteursNom = DB::table('visiteur')
-                ->Select('idVis', 'login', 'telFixeVis', 'mobileVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
+                ->Select()
                 ->where('nomVis', 'like', '%' . $user . '%')
                 ->orderBy('login', 'ASC')
                 ->get();
         $mesVisiteursPrenom = DB::table('visiteur')
-                ->Select('idVis', 'login', 'telFixeVis', 'mobileVis', 'nomVis', 'prenomVis', 'mailVis', 'adresseVis', 'ncptVis')
+                ->Select()
                 ->where('prenomVis', 'like', '%' . $user . '%')
                 ->orderBy('login', 'ASC')
                 ->get();
