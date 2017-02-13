@@ -11,6 +11,10 @@ $cptVisite = 0;
 @endphp
 <div class='box'>
     <h3>Liste de vos conférences</h3>
+    @if ($mesConferences == null)
+    Vous n'avez pas de conférence reservée, vous pouvez en réserver en <a href='{{ url('getPageConference')}}'>cliquant ici</a>
+    @endif
+    @if ($mesConferences != null)
     <div class="table-responsive">
         <table class="table table-striped listeFiltree">
             <thead>
@@ -40,9 +44,14 @@ $cptVisite = 0;
             </tbody>
         </table>
     </div>
+    @endif
     <div>
         <br><br>
         <h3>Liste de vos visites</h3>
+        @if ($mesConferences == null)
+        Vous n'avez pas de visite reservée, vous pouvez en réserver en <a href='{{ url('getPageVisite')}}'>cliquant ici</a>
+        @endif
+        @if ($mesConferences != null)
         <div class="table-responsive">
             <table class="table table-striped listeFiltree">
                 <thead>
@@ -70,6 +79,7 @@ $cptVisite = 0;
                 </tbody>
             </table>
         </div>
+        @endif
     </div>
 </div>
 

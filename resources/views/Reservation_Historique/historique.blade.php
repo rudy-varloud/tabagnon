@@ -26,6 +26,10 @@ $avis = "";
     });</script>
 <div class='box'>
     <h3>Liste de vos conférences</h3>
+    @if ($mesConferences == null)
+    Vous n'avez pas encore effectué de conférence
+    @endif
+    @if ($mesConferences != null)
     <div class="table-responsive">
         <table class="table table-striped listeFiltree">
             <thead>
@@ -91,8 +95,13 @@ $avis = "";
             </tbody>        
         </table>
     </div> 
+    @endif
     <br><br>
     <h3>Liste de vos visites</h3>
+    @if ($mesConferences == null)
+    Vous n'avez pas encore effectué de visite
+    @endif
+    @if($mesConferences != null)
     <div class="table-responsive">
         <table class="table table-striped listeFiltree">
             <thead>
@@ -162,6 +171,7 @@ $avis = "";
             </tbody>
         </table>
     </div>
+    @endif
 </div>
 
 @stop
