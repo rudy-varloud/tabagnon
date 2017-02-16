@@ -81,7 +81,7 @@ class Conference extends Model {
      */
 
     public function getLastConference() {
-        $lesConf = Conference::orderBy('idConf', 'desc')->take(3)->get();
+        $lesConf = Conference::orderBy('idConf', 'desc')->take(3)->where('statut','=',false)->get();
         return $lesConf;
     }
 
