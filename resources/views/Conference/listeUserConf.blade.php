@@ -13,7 +13,7 @@
                 <th><center>Mobile</center></th>
                 <th><center>Fixe</center></th>
                 <th><center>Adresse mail</center></th>
-                <th><center>Nombre de places réservée(s)</center></th>
+                <th><center>Nombre de place(s) réservée(s)</center></th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +33,6 @@
             @endforeach
     </tbody>
     </table>
-    <center><h5>Nombre de places actuellement réservée(s): {{$placeRes}}</h5></center>
+    <center><h5>Nombre de place(s) actuellement réservée(s): {{$placeRes}}</h5></center>
 </div>
 @stop

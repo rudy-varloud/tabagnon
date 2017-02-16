@@ -31,6 +31,9 @@
     {{ Form::close() }}
     @endif
     <br>
+    @if ($mesMosaiques == null)
+    Aucun utilisateur n'a publié d'image
+    @endif
     @foreach($mesMosaiques as $maMosaique)
     <a href="{{ url('/getImage/'.$maMosaique->idImage)}}"><img class='article-image' src="{{ URL::asset('assets/image/mosaique/'.$maMosaique->nomImage) }}" alt=""></a>
     @endforeach

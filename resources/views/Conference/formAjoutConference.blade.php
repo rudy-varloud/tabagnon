@@ -32,9 +32,9 @@
         <input type='text' class='form-control prixConf' name='prixConf' value='' placeholder='Prix de la conférence'>
         <br>
         <label> Places disponibles conférence: </label>
-        <input name='placeDispoConf' class="form-control" type="text" ></input>
+        <input name='placeDispoConf' class="form-control" type="text" placeholder="Nombre de places pour cette conférence"></input>
         <br>
-        <label> Contenue de la conférence: </label>
+        <label> Contenu de la conférence: </label>
         <textarea name='contenu' class="form-control" type="text" ></textarea>
         <br>
         <label> Adresse de la conférence: </label>

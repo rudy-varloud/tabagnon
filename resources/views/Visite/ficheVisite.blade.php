@@ -7,7 +7,7 @@
     <center><div class="reserverPlace">
         <div class="col-lg-offset-4 col-lg-4 reservation"> 
             <select id="date_selected" name='dateVisite' onclick="checkSelected()" class="form-control">
-                <option value="Selectionnez la date souhaitée" disabled selected required>Selectionnez une date</option>
+                <option value="Sélectionnez la date souhaitée" disabled selected required>Selectionnez une date</option>
                 @foreach($mesVisites as $uneVisite)
                 @php
                 $date = date_create($uneVisite->dateVisite);
@@ -23,6 +23,7 @@
         </div></center>
 
     {{ Form::close() }}
+    <input type='hidden'>
     @if($lesReservations != null)
     <center><h3 class="listeResa">Liste des réservations pour la visite {{$uneVisite->libelleVisite}} </h3></center>
     <div class="table-responsive">
@@ -36,6 +37,9 @@
                     <th>Adresse mail</th>
                     <th>Adresse</th>
                     <th>Nombre de place réservées</th>
+                    @if(Session::get('ncpt') == 4)
+                    <th>Supprimer réservation</th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
@@ -48,7 +52,10 @@
                     <td>{{$uneReservation -> mobileVis}}</td>
                     <td>{{$uneReservation -> mailVis}}</td>
                     <td>{{$uneReservation -> adresseVis}}</td>
-                    <td>{{$uneReservation -> nbPlaceRes}}</td>
+                    <td><center>{{$uneReservation -> nbPlaceRes}}</center></td>
+                    @if(Session::get('ncpt') == 4)
+                    <td><center><a href="{{url('/supprimerResaVisite/'.$uneReservation->idVis)}}"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></center></td>
+                    @endif
 
                 </tr>
                 @endif

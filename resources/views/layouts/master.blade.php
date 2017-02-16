@@ -116,7 +116,8 @@
                 <center>
                     <div class="footerCredits"><p>Copyright &copy; Tabagnon 2017 <br>
                             06.81.80.85.69 | tabagnon.saintgenis@gmail.com<br>
-                            <small>Crédits background : JL BESSENAY</p></small>
+                            <small>Crédits background : JL BESSENAY</small><br>
+                            <small>Site développé par Olivier Rosinski & Rudy Varloud</small></p>
                     </div>     </center>
                 </div>
             </div>

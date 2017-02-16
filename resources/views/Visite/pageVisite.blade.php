@@ -8,6 +8,10 @@
         <p>{{$message}}</p>
     </div>
     @endif
+    @if ($mesVisites == null)
+    Aucune visite n'est actuellement disponible, revenez plus tard.
+    @endif
+    @if($mesVisites != null)
     @foreach ($mesVisites as $uneVisite)
     <a href='{{url ('/getVisiteSpe/'.$uneVisite->idVisite)}}'  title="Cliquez pour plus d'informations"> 
         <h3>-/ Informations concernant la visite : {{$uneVisite->libelleVisite}}</h3> </a>
@@ -75,6 +79,7 @@
     </div>
     @php($cptVis+=1)
     @endforeach
+    @endif
 </div>
 @stop
 
