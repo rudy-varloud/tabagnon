@@ -23,7 +23,7 @@
         </div></center>
 
     {{ Form::close() }}
-    <input type='text'>
+    <input type='hidden'>
     @if($lesReservations != null)
     <center><h3 class="listeResa">Liste des réservations pour la visite {{$uneVisite->libelleVisite}} </h3></center>
     <div class="table-responsive">
