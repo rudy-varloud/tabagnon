@@ -49,14 +49,14 @@
         <input type='hidden' name="date" value='{{$date_jour}}'>
         <input type='hidden' name="idVis" value='{{Session::get('id')}}'>
         @if (Session::get('ncpt') >= 2)
-        <h2>Poster un commentaire:</h2>
+        <h2>Poster un commentaire</h2>
         <textarea name='commentaire' class="form-control" type="text" ></textarea>
         <br>
         <center> <button type='submit' class='btn btn-info' value='Envoyer'> Envoyer </button>
             <br><BR>
             @endif
             {{ Form::close() }}
-            <h3 class='titre'> Commentaires: </h3>
+            <h3 class='titre'> Commentaires </h3>
             @foreach ($mesMosaiques2 as $uneMosaique)
             @php
             $date_com = date_create($uneMosaique->dateCommentaire);

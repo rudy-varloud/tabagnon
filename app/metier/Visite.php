@@ -178,6 +178,6 @@ class Visite extends Model {
     public function updateVisite($idVisite,$nomVisite,$lieuxVisite,$descVisite){
         DB::table('visite')->where('idVisite','=',$idVisite)
                 ->update(['libelleVisite' => $nomVisite, 'lieuxVisite' => $lieuxVisite, 'descriptionVisite' => $descVisite]);
-    }
+    }    
 
 }

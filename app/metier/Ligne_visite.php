@@ -66,4 +66,12 @@ class Ligne_visite extends Model {
                 ->where('idVisiteur', '=', $idVisiteur)
                 ->delete();
     }
+    
+    public function supprResaVisite($idVisite, $idVisiteur, $dateVisite){
+        DB::table('ligne_visite')
+                ->where('idVisite', '=', $idVisite)
+                ->where('idVisiteur','=', $idVisiteur)
+                ->where('dateVisite', '=', $dateVisite)
+                ->delete();
+    }
 }

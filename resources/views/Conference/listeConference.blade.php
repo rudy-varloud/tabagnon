@@ -8,6 +8,10 @@
     </div>
     @endif
     <h3>Liste des conférences du Tabagnon !</h3>
+    @if ($mesConferences == null)
+    Aucune conférences n'est disponible actuellement revenez plus tard.
+    @endif
+    @if ($mesConferences != null)
     <div class="table-responsive">
         <table class="table table-striped listeFiltree">
             <thead>
@@ -19,7 +23,7 @@
                     <th>Prix</th>
                     <th>Code Postal</th>
                     @if (Session::get('ncpt') != 0)
-                    <th>Reservez vos places !</th>
+                    <th>Réserver vos places !</th>
                     @endif
                     @if (Session::get('ncpt') == 4)
                     <th>Voir réservation</th>
@@ -54,5 +58,6 @@
             </tbody>
         </table>
     </div>
+    @endif
 </div>
 @stop

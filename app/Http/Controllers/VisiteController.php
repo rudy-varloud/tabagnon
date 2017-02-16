@@ -238,5 +238,11 @@ class VisiteController extends Controller {
         $mesVisitesND = $uneVisite->getVisitesND();
         return view('/Visite/pageVisite', compact('mesVisites', 'mesVisitesND', 'message'));
     }
+    
+   public function supprResaVisite($idVisite, $idVisiteur, $dateVisite){
+       $uneVisite = new Ligne_visite();
+       $uneVisite->supprResaVisite($idVisite, $idVisiteur, $dateVisite);
+       return redirect ('/getPageVisite');
+   }
 
 }

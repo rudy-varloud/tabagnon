@@ -34,11 +34,11 @@
         <label> Nom de la conférence: </label>
         <input type='text' class='form-control nomConf' name='nomConf' value='{{$mesConferences->libConf}}' placeholder='Nom de la conférence'>
         <br>
-        <p class="msgErrorPlace">{{$erreur or ''}} ({{$mesConferences->placeReserConf}})</p>
+        <p class="msgErrorPlace">{{$erreur or ''}} ({{$mesConferences->placeReserConf}}) places ont déjà été réservée(s)</p>
         <label> Places disponibles conférence: (Attention le nombre de place disponible ne peut être inférieur à {{ $mesConferences->placeReserConf}}) </label>
         <input name='placeDispoConf' class="form-control placeDispo" type="text" value="{{$mesConferences->placeDispoConf}}"></input>
         <br>
-        <label> Contenue de la conférence: </label>
+        <label> Contenu de la conférence: </label>
         <textarea name='contenu' class="form-control" type="text" value="{{$mesConferences->contenuConf}}">{{$mesConferences->contenuConf}}</textarea>
         <br>
         <label> Adresse de la conférence: </label>

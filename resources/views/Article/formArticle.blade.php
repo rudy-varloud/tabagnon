@@ -33,7 +33,7 @@
         </div>
         <br>
         <div class="form-group">
-            <label class='col-md-3 control-label'>Contenue de l'article: </label>
+            <label class='col-md-3 control-label'>Contenu de l'article: </label>
             <textarea name='contenu'class="form-control" type="text" >{{$contenu or ''}}</textarea>
         </div>
         <br>

@@ -13,7 +13,7 @@
     </div>
     {!! Form::close() !!}
     <br><br><br><br>
-    <h2>Liste de tous les utilisateurs existants répondant aux critères choisis: ({{$user}})({{$cpt}} résultats)</h2>      
+    <h2>Liste de tous les utilisateurs existants répondant aux critères choisis : ({{$user}})({{$cpt}} résultats)</h2>      
     @if($mesVisiteurs != null)
     <div class="table-responsive">
         <table class="table table-striped listeFiltree">

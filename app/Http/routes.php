@@ -45,6 +45,7 @@ Route::get('/supprimerVisEffec/{idVisite}', 'VisiteController@supprimerVisEffec'
 Route::post('/supprimerDateVisite', 'VisiteController@supprimerDateVisite');
 Route::get('/modifierVisite/{idVisite}', 'VisiteController@modifierVisite');
 Route::post('/postModifVisite', 'VisiteController@postModifierVisite');
+Route::get('/supprimerResaVisite/{idVis}', 'VisiteController@supprResaVisite');
 
 
 
