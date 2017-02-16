@@ -106,7 +106,7 @@ class Mosaique extends Model {
         $mesMosaiques = DB::table('mosaique_image')
                 ->Select()
                 ->Where('visibilite', '=', 1)
-                ->paginate(10);
+                ->get();
         return $mesMosaiques;
     }
 

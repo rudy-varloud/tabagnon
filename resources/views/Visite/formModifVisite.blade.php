@@ -19,6 +19,21 @@
     </div>
     <br>
     <div class="form-group">
+        <label class='col-md-4 control-label'>Sélectionnez le guide pour cette visite: </label>
+        <select name="idGuideVisite" class="visiteform form-control nomGuideVis" required >
+            <option value="Selectionnez le guide souhaité" selected disabled>Selectionnez le guide souhaité</option>
+            @foreach($mesVisiteurs as $unVisiteur)
+            @if($unVisiteur->idVis != $maVisite->idGuide)
+            <option value="{{$unVisiteur -> idVis}}">{{$unVisiteur->prenomVis}} {{$unVisiteur->nomVis}} @if(($unVisiteur->ncptVis) == 5)<span class='ct'>(Compte temporaire)</span>@endif</option>
+            @endif
+            @if($unVisiteur->idVis == $maVisite->idGuide)
+            <option value="{{$unVisiteur -> idVis}}" selected>{{$unVisiteur->prenomVis}} {{$unVisiteur->nomVis}} @if(($unVisiteur->ncptVis) == 5)<span class='ct'>(Compte temporaire)</span>@endif</option>
+            @endif
+            @endforeach
+        </select>
+    </div>
+    <br>
+    <div class="form-group">
         <br><br>
         <center> <button type="submit" class="btn btn-default btn-primary">
                 <span class="glyphicon glyphicon-ok"></span> Valider

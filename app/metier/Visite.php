@@ -180,9 +180,9 @@ class Visite extends Model {
     /* 
      * Dialogue avec la BDD pour modifier une visite
      */
-    public function updateVisite($idVisite,$nomVisite,$lieuxVisite,$descVisite){
+    public function updateVisite($idVisite,$nomVisite,$lieuxVisite,$descVisite,$idGuideVisite){
         DB::table('visite')->where('idVisite','=',$idVisite)
-                ->update(['libelleVisite' => $nomVisite, 'lieuxVisite' => $lieuxVisite, 'descriptionVisite' => $descVisite]);
+                ->update(['libelleVisite' => $nomVisite, 'lieuxVisite' => $lieuxVisite, 'descriptionVisite' => $descVisite,'idGuide' => $idGuideVisite]);
     }    
 
 }

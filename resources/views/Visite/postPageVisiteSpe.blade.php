@@ -8,6 +8,11 @@
 @endif
 @if ($alerte == null)
 @if($nbPlaceDispo != 0)
+@if($nbPlaceDispo > 6)
+@php
+$nbPlace = 6;
+@endphp
+@endif
 {!! Form::open(['url' => 'postReservationPlace', 'files' => true]) !!}
 <div class="box">
     <div class="reserverPlace">
@@ -18,7 +23,7 @@
                 <input type="hidden" value="{{ $dateVisite }}" name="dateVisite">
                 <select name='nbPlaceVoulu' class="form-control">
                     <option value="Selectionnez le nombre de place souhaité" disabled selected required>Selectionnez le nombre de place(s) souhaité(s)</option>
-                    @for($i = 1; $i<= $nbPlaceDispo; $i++)
+                    @for($i = 1; $i<= $nbPlace; $i++)
                     <option value="{{$i}}">{{$i}}</option>
                     @endfor
                 </select>

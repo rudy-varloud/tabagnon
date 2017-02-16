@@ -56,70 +56,70 @@
         </div>        
     </div>
     <br>
-    <div class="row">
-        <div class="box">
-            <div class="col-md-6">
-                <hr>
-                <h3 class="intro-text text-center">Nos dernières visites !
-                </h3>
-                <hr>   
-                <div class="col-md-offset-4">
-                    <ul class="presVisite">
-                        @if ($lesVisites == null)
-                        <h3>Aucune visite n'est disponible actuellement</h3>
-                        @endif
-                        @if ($lesVisites != null)
-                        @foreach($lesVisites as $uneVisite)
-                        <li><a href="{{url('/getVisiteSpe/'.$uneVisite->idVisite)}}" data-toggle="collapse" data-target=".navbar-collapse.in" style="font-size:1.3em;">{{$uneVisite->libelleVisite}}</a></li>
-                        @endforeach
-                        @endif
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <hr>
-                <h3 class="intro-text text-center">Nos dernières conférences  !
-                </h3>
-                <hr>
-                <div class="col-md-offset-4">
-                    <ul>
-                        @if ($lesConferences == null)
-                        <h3>Aucune conférence n'est actuellement disponible</h3>
-                        @endif
-                        @if ($lesConferences != null)
-                        @foreach($lesConferences as $uneConference)
-                        <li><a href="{{url('/getConfSpe/'.$uneConference->idConf)}}" data-toggle="collapse" data-target=".navbar-collapse.in" style="font-size:1.3em;">{{$uneConference->libConf}}</a></li>
-                        @endforeach
-                        @endif
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-lg-12">
-                <br>
-                <hr>
-                <h2 class="intro-text text-center">Nos derniers articles !
-                </h2>
-                <hr>
-                <br>
-                @foreach($lesArticles as $unArticle)
-                <a href="{{url('/article/'.$unArticle->idArticle)}}">
-                    <div class="col-lg-3 col-sm-6">   
-                        <center>
-                            <img class="img-news" src="{{ URL::asset('assets/image/article/'.$unArticle->imageArticle) }}" alt="{{$unArticle->titreArticle}}">
-                            <div class="col-md-12">        
-                                <div class="news-title">
-                                    <h4>{{$unArticle->titreArticle}}</h4>
-                                </div>
-                            </div>
-                            <br><br>
-                        </center>
-                    </div>
-                </a>
-                @endforeach
+    <div class="box col-md-12">
+        <div class="col-md-6">
+            <hr>
+            <h3 class="intro-text text-center">Nos dernières visites !
+            </h3>
+            <hr>   
+            <div class="col-md-offset-4 col-md-12">
+                <ul class="presVisite">
+                    @if ($lesVisites == null)
+                    <h3>Aucune visite n'est disponible actuellement</h3>
+                    @endif
+                    @if ($lesVisites != null)
+                    @foreach($lesVisites as $uneVisite)
+                    <li><a href="{{url('/getVisiteSpe/'.$uneVisite->idVisite)}}" data-toggle="collapse" data-target=".navbar-collapse.in" style="font-size:1.3em;">{{$uneVisite->libelleVisite}}</a></li>
+                    @endforeach
+                    @endif
+                </ul>
             </div>
         </div>
+        <div class="col-md-6">
+            <hr>
+            <h3 class="intro-text text-center">Nos dernières conférences  !
+            </h3>
+            <hr>
+            <div class="col-md-offset-4 col-md-12">
+                <ul>
+                    @if ($lesConferences == null)
+                    <h3>Aucune conférence n'est actuellement disponible</h3>
+                    @endif
+                    @if ($lesConferences != null)
+                    @foreach($lesConferences as $uneConference)
+                    <li><a href="{{url('/getConfSpe/'.$uneConference->idConf)}}" data-toggle="collapse" data-target=".navbar-collapse.in" style="font-size:1.3em;">{{$uneConference->libConf}}</a></li>
+                    @endforeach
+                    @endif
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12">
+            <br>
+            <hr>
+            <h2 class="intro-text text-center">Nos derniers articles !
+            </h2>
+            <hr>
+            <br>
+            @foreach($lesArticles as $unArticle)
+            <a href="{{url('/article/'.$unArticle->idArticle)}}">
+                <div class="col-lg-3 col-sm-6 col-md-3">   
+                    <center>
+                        <img class="img-news" src="{{ URL::asset('assets/image/article/'.$unArticle->imageArticle) }}" alt="{{$unArticle->titreArticle}}">
+                        <div class="col-md-12">        
+                            <div class="news-title">
+                                <h4>{{$unArticle->titreArticle}}</h4>
+                            </div>
+                        </div>
+                        <br><br>
+                    </center>
+                </div>
+            </a>
+            @endforeach
+        </div>
+        <br><br><br>
     </div>
+
 
 
 </div>

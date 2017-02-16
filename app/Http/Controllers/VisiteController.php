@@ -223,7 +223,9 @@ class VisiteController extends Controller {
     public function modifierVisite($idVisite) {
         $Visite = new Visite();
         $maVisite = $Visite->getVisite($idVisite);
-        return view('/Visite/formModifVisite', compact('maVisite'));
+        $unVisiteur = new Visiteur();
+        $mesVisiteurs = $unVisiteur->getVisiteurGuide();
+        return view('/Visite/formModifVisite', compact('maVisite','mesVisiteurs'));
     }
 
     public function postModifierVisite() {
@@ -232,7 +234,8 @@ class VisiteController extends Controller {
         $nomVisite = Request::input('nomVisite');
         $lieuxVisite = Request::input('lieuxVisite');
         $descVisite = Request::input('description');
-        $uneVisite->updateVisite($idVisite,$nomVisite,$lieuxVisite,$descVisite);
+        $idGuideVisite = Request::input('idGuideVisite');
+        $uneVisite->updateVisite($idVisite,$nomVisite,$lieuxVisite,$descVisite,$idGuideVisite);
         $message = "La visite a bien été modifiée.";
         $mesVisites = $uneVisite->getVisites();
         $mesVisitesND = $uneVisite->getVisitesND();

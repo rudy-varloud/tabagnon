@@ -59,5 +59,6 @@
                     <span class="glyphicon glyphicon-remove" ></span> Annuler</button> </center>
         </div>
     </div>
+    {{ Form::close() }}
 </div>
 @stop

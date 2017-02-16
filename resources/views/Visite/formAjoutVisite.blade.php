@@ -66,7 +66,6 @@
             @endforeach
         </select>
         <br>
-
         @endif
         @if($idGuide == null)
         <label class='col-md-4 control-label'>Sélectionnez le guide pour cette visite: </label>
