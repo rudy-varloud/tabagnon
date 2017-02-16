@@ -127,7 +127,11 @@ class Visite extends Model {
      * Dialogue avec la BDD pour récuperer les 3 dernières visites (id)
      */
     public function getLastVisite() {
-        $lesVisites = Visite::orderBy('idVisite', 'desc')->take(3)->get();
+        $lesVisites = Visite::orderBy('visite.idVisite', 'desc')
+                ->join('date_visite', 'date_visite.idVisite', '=', 'visite.idVisite')
+                ->where('statut','=',false)
+                ->take(3)
+                ->get();
         return $lesVisites;
     }
 
