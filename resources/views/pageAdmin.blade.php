@@ -3,14 +3,14 @@
 <center>
     <div class='box'>   
         <div class='option-admin'>            
-            <h1 class="titre-admin"><span class='glyphicon glyphicon-comment'></span> Gestion articles</h1>
+            <h1 class="titre-admin"><span class='glyphicon glyphicon-comment'></span> Gestion des articles</h1>
             <a href="{{url('/ajoutArticle')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Créer un article</a><br>
-            <a href='{{url('/listeArticleAdmin')}}' data-toggle="collapse" data-target=".navbar-collapse.in" class=''>Lister les articles</a><br><br><br><br>
+            <a href='{{url('/listeArticleAdmin')}}' data-toggle="collapse" data-target=".navbar-collapse.in" class=''>Liste des articles</a><br><br><br><br>
 
         </div>
         <div class='option-admin'>
             <h1 class="titre-admin"><span class='glyphicon glyphicon-user'></span> Gestion des utilisateurs</h1>
-            <a href="{{url('/listerVisiteur')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Lister tous les utilisateurs</a><br><br><br><br>
+            <a href="{{url('/listerVisiteur')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Liste des utilisateurs</a><br><br><br><br>
         </div>       
         <div class='option-admin'>
             <h1 class="titre-admin"><span class='glyphicon glyphicon-calendar'></span> Gestion des visites et des conférences</h1>
@@ -21,8 +21,8 @@
         </div>       
         <div class='option-admin'>
             <h1 class="titre-admin"><span class='glyphicon glyphicon-th-large'></span> Divers</h1>
-            <a href="{{url('/carouselAccueil')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Carrousel</a><br>
-            <a href='{{url('/getPageValidMosa')}}' data-toggle="collapse" data-target=".narvar-collapse.in" class="">Validation photo Mosaïque</a><br>
+            <a href="{{url('/carouselAccueil')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Gestion du carrousel</a><br>
+            <a href='{{url('/getPageValidMosa')}}' data-toggle="collapse" data-target=".narvar-collapse.in" class="">Validation des photos de la mosaïque</a><br>
             <a href='{{url('/getAvis')}}' data-toggle="collapse" data-target=".narvar-collapse.in" class="">Voir les avis</a><br><br>
         </div>      
     </div>

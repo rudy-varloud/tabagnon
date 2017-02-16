@@ -35,7 +35,7 @@
         <br>
         <input type='hidden' name='date' value='{{$date}}'>
         <div class="form-group">
-            <label class='col-md-3 control-label'>Contenue de l'article: </label>
+            <label class='col-md-3 control-label'>Contenu de l'article: </label>
             <textarea name='contenu'class="form-control" type="text" >{{$mesArticles->contenu}}</textarea>
         </div>
         <div class="form-group">
@@ -45,7 +45,7 @@
                 </button>
                 &nbsp;
                 <button type="button" class="btn btn-default btn-primary" 
-                        onclick="javascript: window.location = '{{url('/acccueil')}}';">
+                        onclick="javascript: window.location = '{{url('/listeArticleAdmin')}}';">
                     <span class="glyphicon glyphicon-remove" ></span> Annuler</button> </center>
         </div>
     </div>

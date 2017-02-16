@@ -107,6 +107,7 @@ class Conference extends Model {
                 ->select()
                 ->join('ligne_conference', 'conference.idConf', '=', 'ligne_conference.idConf')
                 ->where('idVisiteur', '=', $idVis)
+                ->where('statut','=', false)
                 ->get();
         return $conferences;
     }

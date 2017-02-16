@@ -14,15 +14,8 @@
             <th>Prix unitaire</th>
             <th>Quantité</th>
             <th>Prix</th>
-
-
         </tr>
-
-
     </thead>
-
-
-
 
     @foreach($lesChaussures as $uneChaussure)
     <tr>   

@@ -32,7 +32,15 @@
         @endif
         <h3> {{ $mesMosaiques->descriptionImage}} </h3>
         @if ($compteur != null)
+        @if ($compteur > 1)
         <p>Déjà {{$compteur}} personnes ont aimé cette photo !</p>
+        @endif
+        @if ($compteur == 1)
+        <p>Déjà {{$compteur}} personne a aimé cette photo !</p>
+        @endif
+        @endif
+        @if ($compteur == null)
+        <p>Soyez le premier à aimer cette photo !</p>
         @endif
         <h6> Publié le: {{ $date->format('d-m-Y') }} par {{$mesMosaiques->prenomVis}} {{ $mesMosaiques->nomVis }} </h6>
         @if ((Session::get('ncpt') == 4) || (Session::get('id') == $mesMosaiques->idVisiteur))
@@ -64,7 +72,9 @@
             <p> {{$uneMosaique->commentaire}} </p>
             <h6 class='nomCom'>De {{$uneMosaique->login}} le {{$date_com->format('d-m-Y H:i')}}</h6>
             @if ((Session::get('ncpt') == 4)||(Session::get('id') == $uneMosaique->idVisi))
-            <a href="{{url('/deleteCom/'.$uneMosaique->idCommentaire.'/'.$uneMosaique->idImg)}}"><i class="fa fa-eraser" aria-hidden="true" title="Supprimer ce commentaire"></i></a>
+            <a href=""></a>
+            <a href='#' onclick="javascript:if (confirm('Voulez vous vraiment supprimer ce commentaire ?'))
+            { window.location ='{{url('/deleteCom/'.$uneMosaique->idCommentaire.'/'.$uneMosaique->idImg)}}'; }"><i class="fa fa-eraser" aria-hidden="true" title="Supprimer ce commentaire"></i> Supprimer ce commentaire </i></a>
             @endif
             @endforeach
             <center>{{ $mesMosaiques2->render() }}</center>
