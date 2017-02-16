@@ -57,11 +57,11 @@ class CarouselController extends Controller {
             if (Request::file('imageCarousel')->isValid()) {
                 $image = Request::file('imageCarousel');
                 $ext = substr(strrchr($image->getClientOriginalName(), "."), 1);
-                $imageCarousel = 'slide-' . $Carousel->getCompteurImage() . "." . $ext;
+                $imageCarousel = 'imageC' . mt_rand() . mt_rand() . "." . $ext;
                 $image->move(public_path("/assets/image/carousel/"), $imageCarousel);
                 $Carousel->ajouterCarouselImage($imageCarousel);
             } else {
-                $message = "L'image n'est pas valide (elle ne doit pas dépasser 5 Méga octets (Mo) )";
+                $message = "L'image n'est pas valide (elle ne doit pas dépasser 15 Méga octets (Mo) )";
             }
         } else {
             $message = 'Veuillez choisir un fichier';

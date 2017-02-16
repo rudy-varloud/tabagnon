@@ -105,7 +105,7 @@ Route::post('/ajoutImageCarousel', 'CarouselController@ajoutImageCarousel');
 
 //Accueil
 Route::get('/', function() {
-    return view('pageMaintenance');
+    return view('pagePresentation');
 });
 
 
