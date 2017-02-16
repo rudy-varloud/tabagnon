@@ -98,10 +98,10 @@ $avis = "";
     @endif
     <br><br>
     <h3>Liste de vos visites</h3>
-    @if ($mesConferences == null)
+    @if ($mesVisites == null)
     Vous n'avez pas encore effectué de visite
     @endif
-    @if($mesConferences != null)
+    @if($mesVisites != null)
     <div class="table-responsive">
         <table class="table table-striped listeFiltree">
             <thead>

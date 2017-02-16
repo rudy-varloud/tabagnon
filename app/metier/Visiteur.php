@@ -142,7 +142,7 @@ class Visiteur extends Model {
                 ->insert(['login' => $prenomUser, 'mdpVis' => $mdp_encyrpt, 'nomVis' => $nomUser, 'prenomVis' => $prenomUser, 'ncptVis' => 5]);
         $idGuide = DB::table('visiteur')
                 ->Select('idVis')
-                ->where('login', '=', $prenomUser)
+                ->where('login', '=', $prenomUser . $nomUser)
                 ->where('mdpVis', '=', $mdp_encyrpt)
                 ->first();
         return $idGuide->idVis;

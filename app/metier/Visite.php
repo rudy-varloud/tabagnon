@@ -143,6 +143,7 @@ class Visite extends Model {
                     $join->on('ligne_visite.dateVisite', '=', 'date_visite.dateVisite');
                 })
                 ->where('idVisiteur', '=', $idVis)
+                ->where('statut', '=', false)
                 ->get();
         return $mesVisites;
     }

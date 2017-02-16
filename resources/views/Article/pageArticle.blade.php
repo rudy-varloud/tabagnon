@@ -7,7 +7,7 @@
     @php
     $date = date_create($unArticle->dateCreation);
     @endphp
-    <p class="dateArticle">Publié le {{$date->format('d/m/Y')}} | Tabagnon.fr</p>
+    <p class="dateArticle">Publié le {{$date->format('d/m/Y')}} | letabagnon-stgenislesollieres.fr</p>
     <br>
     <div class ="col-md-10 col-md-offset-1 contenuArticle">
         @php

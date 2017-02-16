@@ -42,14 +42,6 @@ $(document).ready(function () {
         dropdown: true,
         scrollbar: true
     });
-    var width = window.innerWidth
-            || document.documentElement.clientWidth
-            || document.body.clientWidth;
-
-    var height = window.innerHeight
-            || document.documentElement.clientHeight
-            || document.body.clientHeight;
-   
 });
 
 function checkSelected() {
@@ -133,5 +125,4 @@ function setNoteV(note, cptVisite) {
 function setNoteC(note, cptConf) {
     $('#selectC' + cptConf).barrating('set', note);
 }
-
 

@@ -9,6 +9,7 @@ $nbStarP = 0;
 $cpt = 0;
 $cptVis = 0;
 $cptConf = 0;
+$moy = 0;
 @endphp
 <div class="box">
     <h1>Statistiques des visites</h1>

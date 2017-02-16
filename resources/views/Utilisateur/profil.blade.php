@@ -26,7 +26,7 @@
                                         @if(($unV->adresseVis) == null)
                                         <td> Non renseigné </td>
                                         @endif
-                                        <td>{{$unV->adresseVis}}</td>
+                                        <td>{{$unV->adresseVis}} {{$unV->villeVis}} {{$unV->codePostVis}}</td>
                                     </tr>
                                     <tr>
                                         <td>Email</td>

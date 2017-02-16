@@ -3,17 +3,17 @@
 
 <script type="text/javascript">
     tinyMCE.init({
-        mode: "textareas",
-        language: "fr_FR",
-        language_url: 'assets/tinymce/langs/fr_FR.js',
-        forced_root_block: "",
-        force_br_newlines: true,
-        force_p_newlines: false,
-        height: 300,
-        plugins: "autoresize"
-    });
-
-</script>
+    mode: "textareas",
+            language: "fr_FR",
+            language_url: 'assets/tinymce/langs/fr_FR.js',
+            forced_root_block: "",
+            force_br_newlines: true,
+            force_p_newlines: false,
+            height: 300,
+            plugins: "autoresize",
+            plugins: "image",
+            image_dimensions: false
+    });</script>
 
 <div class='box'>
     {!! Form::open(['url' => 'postFormArticle', 'files' => true]) !!}
@@ -55,7 +55,7 @@
                 &nbsp;
                 <button type="button" class="btn btn-default btn-primary" 
                         onclick="javascript:if (confirm('Voulez vous vraiment quitter l éditeur ?'))
-                           { window.location ='{{ url('/getPageAdmin') }}'; }">
+                            { window.location ='{{ url('/getPageAdmin') }}'; }">
                     <span class="glyphicon glyphicon-remove" ></span> Annuler</button> </center>
         </div>
     </div>
