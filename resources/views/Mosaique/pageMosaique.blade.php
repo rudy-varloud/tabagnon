@@ -19,7 +19,7 @@
         <label class='col-md-3 control-label'>Image que vous souhaitez partager</label>
         <div class='col-md-4'>
             <input type='hidden' name="imageMosaique" value=""/>
-            <input type='hidden' name="MAX_FILE_SIZE" value="5000000"/>
+            <input type='hidden' name="MAX_FILE_SIZE" value="15000000"/>
             <input type='file' name="imageMosaique" class="btn btn-default" accept="image/*" required/>
         </div>
         <div class="col-md-4">

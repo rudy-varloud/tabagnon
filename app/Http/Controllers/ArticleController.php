@@ -32,11 +32,11 @@ class ArticleController extends Controller {
                 $image = Request::file('imageArticle');
                 $unArticle = new Article();               
                 $ext = substr(strrchr($image->getClientOriginalName(), "."), 1);
-                $imageArticle = $unArticle->getCompteurImage() . "." . $ext;
+                $imageArticle = 'imageA' . mt_rand() . mt_rand() . "." . $ext;
                 $image->move(public_path("/assets/image/article/"), $imageArticle);
                 $id = $unArticle->postFormArticleImage($titreArticle, $description, $contenu, $imageArticle);
             } else {
-                $error = "L'image n'est pas valide (elle ne doit pas dépasser 200ko)";
+                $error = "L'image n'est pas valide (elle ne doit pas dépasser 15 Mo)";
                 return view('/Article/formArticle', compact('error', 'titreArticle', 'description', 'contenu'));
             }
         } else {

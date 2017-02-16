@@ -10,7 +10,7 @@
         {{$message or ""}}
         <div class='col-md-4 col-md-offset-4'>
             <input type='hidden' name="imageCarousel" value=""/>
-            <input type='hidden' name="MAX_FILE_SIZE" value="5000000"/>
+            <input type='hidden' name="MAX_FILE_SIZE" value="15000000"/>
             <input type='file' name="imageCarousel" class="btn btn-default" accept="image/*"/> 
         </div>
         

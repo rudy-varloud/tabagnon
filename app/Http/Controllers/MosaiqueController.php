@@ -37,7 +37,7 @@ class MosaiqueController extends Controller {
             if (Request::file('imageMosaique')->isValid()) {
                 $image = Request::file('imageMosaique');
                 $ext = substr(strrchr($image->getClientOriginalName(), "."), 1);
-                $imageMosaique = 'image-' . $uneMosaique->getCompteurImage() . "." . $ext;
+                $imageMosaique = 'imageM' . mt_rand() . mt_rand() . "." . $ext;
                 $image->move(public_path("/assets/image/mosaique/"), $imageMosaique);
                 if(Session::get('ncpt') == 4){
                     $visibilite = 2;
@@ -48,7 +48,7 @@ class MosaiqueController extends Controller {
                 }
                 $uneMosaique->postFormMosaiqueImage($imageMosaique, $description, $date, $idVis,$visibilite);
             } else {
-                $message = "L'image n'est pas valide (elle ne doit pas dépasser 2 Méga octets (Mo) )";
+                $message = "L'image n'est pas valide (elle ne doit pas dépasser 15 Méga octets (Mo) )";
             }
         } else {
             $message = 'Veuillez choisir un fichier';

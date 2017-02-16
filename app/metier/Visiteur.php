@@ -139,7 +139,7 @@ class Visiteur extends Model {
 
     public function subGuideMan($prenomUser, $nomUser, $mdp_encyrpt) {
         DB::table('visiteur')
-                ->insert(['login' => $prenomUser, 'mdpVis' => $mdp_encyrpt, 'nomVis' => $nomUser, 'prenomVis' => $prenomUser, 'ncptVis' => 5]);
+                ->insert(['login' => $prenomUser . $nomUser, 'mdpVis' => $mdp_encyrpt, 'nomVis' => $nomUser, 'prenomVis' => $prenomUser, 'ncptVis' => 5]);
         $idGuide = DB::table('visiteur')
                 ->Select('idVis')
                 ->where('login', '=', $prenomUser . $nomUser)
