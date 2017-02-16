@@ -65,7 +65,7 @@
                 <hr>   
                 <div class="col-md-offset-4">
                     <ul class="presVisite">
-                        @if ($lesVisites == null)
+                        @if ($lesVisites == "")
                         <h3>Aucune visite n'est disponible actuellement</h3>
                         @endif
                         @if ($lesVisites != null)

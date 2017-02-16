@@ -60,6 +60,8 @@ Route::get('/listeArticleAdmin', 'ArticleController@listeArticleAdmin');
 Route::get('/deleteArticle/{idArticle}', 'ArticleController@deleteArticle');
 Route::get('/modifierArticle/{idArticle}', 'ArticleController@modifierArticle');
 
+//Reunion
+Route::get('/ajoutReunion', 'ReunionController@ajoutReunion');
 
 //Conférence
 Route::get('/ajoutConference', function(){
