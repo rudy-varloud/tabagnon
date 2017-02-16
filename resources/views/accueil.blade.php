@@ -65,10 +65,14 @@
                 <hr>   
                 <div class="col-md-offset-4">
                     <ul class="presVisite">
+                        @if ($lesVisites == null)
+                        <h3>Aucune visite n'est disponible actuellement</h3>
+                        @endif
+                        @if ($lesVisites != null)
                         @foreach($lesVisites as $uneVisite)
                         <li><a href="{{url('/getVisiteSpe/'.$uneVisite->idVisite)}}" data-toggle="collapse" data-target=".navbar-collapse.in" style="font-size:1.3em;">{{$uneVisite->libelleVisite}}</a></li>
                         @endforeach
-
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -79,13 +83,18 @@
                 <hr>
                 <div class="col-md-offset-4">
                     <ul>
+                        @if ($lesConferences == null)
+                        <h3>Aucune conférence n'est actuellement disponible</h3>
+                        @endif
+                        @if ($lesConferences != null)
                         @foreach($lesConferences as $uneConference)
                         <li><a href="{{url('/getConfSpe/'.$uneConference->idConf)}}" data-toggle="collapse" data-target=".navbar-collapse.in" style="font-size:1.3em;">{{$uneConference->libConf}}</a></li>
                         @endforeach
+                        @endif
                     </ul>
                 </div>
             </div>
-            
+
             <div class="col-lg-12">
                 <br>
                 <hr>
@@ -97,13 +106,13 @@
                 <a href="{{url('/article/'.$unArticle->idArticle)}}">
                     <div class="col-lg-3 col-sm-6">   
                         <center>
-                        <img class="img-news" src="{{ URL::asset('assets/image/article/'.$unArticle->imageArticle) }}" alt="{{$unArticle->titreArticle}}">
-                        <div class="col-md-12">        
-                            <div class="news-title">
-                                <h4>{{$unArticle->titreArticle}}</h4>
+                            <img class="img-news" src="{{ URL::asset('assets/image/article/'.$unArticle->imageArticle) }}" alt="{{$unArticle->titreArticle}}">
+                            <div class="col-md-12">        
+                                <div class="news-title">
+                                    <h4>{{$unArticle->titreArticle}}</h4>
+                                </div>
                             </div>
-                        </div>
-                        <br><br>
+                            <br><br>
                         </center>
                     </div>
                 </a>

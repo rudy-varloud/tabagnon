@@ -94,7 +94,7 @@ class ArticleController extends Controller {
     public function deleteArticle($idArticle){
         $unArticle = new Article();
         $unArticle->deleteArticle($idArticle);
-        return view('pageAdmin');
+        return redirect('/listeArticleAdmin');
     }
     
     /* Créer l'appel de récupération des données d'un article

@@ -29,7 +29,9 @@
         <img class="img-news" src="{{ URL::asset('assets/image/carousel/'.$uneImage->image) }}" alt=""></a>
         <a href='{{url('/ajouterCarousel/'.$uneImage->image)}}'><span class="glyphicon glyphicon-circle-arrow-down"></span> Ajouter l'image dans le carrousel</a>
         <br>
-        <a href='{{url('/supprimerCarousel/'.$uneImage->image)}}'><span class="glyphicon glyphicon-remove"></span> Supprimer l'image du carrousel</a>
+        <a aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Supprimer" href="#"
+                           onclick="javascript:if (confirm('Voulez vous vraiment supprimer cette image de la base de données ?'))
+                               { window.location ='{{ url('/supprimerCarousel') }}/{{ $uneImage->image }}'; }"><span class="glyphicon glyphicon-remove"></span>Supprimer l'image du carrousel</a>
     </div>
     @endforeach
 </div>
@@ -43,7 +45,9 @@
         <img class="img-news" src="{{ URL::asset('assets/image/carousel/'.$uneImage->image) }}" alt=""></a>
         <a href='{{url('/retirerCarousel/'.$uneImage->image)}}'><span class="glyphicon glyphicon-circle-arrow-up"></span> Retirer l'image du carrousel</a>
         <br>
-        <a href='{{url('/supprimerCarousel/'.$uneImage->image)}}'><span class="glyphicon glyphicon-remove"></span> Supprimer l'image du carrousel</a>       
+        <a aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Supprimer" href="#"
+                           onclick="javascript:if (confirm('Voulez vous vraiment supprimer cette image de la base de données ?'))
+                               { window.location ='{{ url('/supprimerCarousel') }}/{{ $uneImage->image }}'; }"><span class="glyphicon glyphicon-remove"></span>Supprimer l'image du carrousel</a>      
     </div>
     
     @endforeach

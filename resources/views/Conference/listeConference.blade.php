@@ -50,7 +50,9 @@
             @if (Session::get('ncpt') == 4)
             <td><center><a href='{{url('/getUserConf/'.$uneConference->idConf)}}'><span class='glyphicon glyphicon-th-list'></span></a></center></td>
             <td><center><a href="{{url('/modifConference/'.$uneConference->idConf)}}"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a></center></td>
-            <td><center><a href="{{url('/supprimerConference/'.$uneConference->idConf)}}"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></center></td>
+            <td><center><a class="fa fa-trash fa-2x" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Supprimer" href="#"
+                           onclick="javascript:if (confirm('Voulez vous vraiment supprimer ce compte ?'))
+                               { window.location ='{{ url('/supprimerConference') }}/{{ $uneConference -> idConf }}'; }"></center></td>
             @endif
             </tr>
 
