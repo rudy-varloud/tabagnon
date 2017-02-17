@@ -119,45 +119,51 @@
                             <small>Crédits background : JL BESSENAY</small><br>
                             <small>Site développé par Olivier Rosinski & Rudy Varloud</small></p>
                     </div>     </center>
-                </div>
             </div>
-        </div>
-    </footer>
-
-
-
-
-
-
-    <!-- Modal -->
-    <div id="loginModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <center> <h3 class="modal-title">Authentification</h3> </center>
-                </div>
-                {!! Form::open(['url' => 'login']) !!}
-                <div class="modal-body">                   
-
-                    <h5 class="control-label">Identifiant : </h5>
-                    <input type="text" name="login" class="form-control" placeholder="Votre identifiant" required autofocus>
-                    <h5 class="control-label">Mot de passe : </h5>
-                    <input type="password" name="pwd" class="form-control pwd" placeholder="Votre mot de passe" required>
-                    <div class="verifMdp">
-                        <span class='glyphicon glyphicon-eye-open'/>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-log-in"></span> Valider</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                </div>
-                {{ Form::close() }}
-            </div>
-
         </div>
     </div>
+</footer>
+
+
+
+
+
+
+<!-- Modal -->
+<div id="loginModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <center> <h3 class="modal-title">Authentification</h3> </center>
+            </div>
+            {!! Form::open(['url' => 'login']) !!}
+            <div class="modal-body">                   
+
+                <h5 class="control-label">Identifiant : </h5>
+                <input type="text" name="login" class="form-control" placeholder="Votre identifiant" required autofocus>
+                <h5 class="control-label">Mot de passe : </h5>
+                <input type="password" name="pwd" class="form-control pwd" placeholder="Votre mot de passe" required>
+                <div class="verifMdp">
+                    <span class='glyphicon glyphicon-eye-open'/>
+                </div>
+                <br>
+                <center>
+                    <a href='{{url('/getSubscribe')}}'> S'inscrire</a>
+                    <br>
+                    <a href='{{url('/mdpoublie')}}'> Mot de passe oublié</a>
+                </center>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-log-in"></span> Se connecter</button>
+                {{ Form::close() }}
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
 </html>

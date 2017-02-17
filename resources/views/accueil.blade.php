@@ -5,6 +5,12 @@
 
     <div class="row">
         <div class="box">
+            @if($message != null)
+            <div class="alert alert-info alert-dismissable fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <p>{{$message}}</p>
+            </div>
+            @endif
             <div class="col-lg-12 text-center">
                 <div id="carousel-example-generic" class="carousel slide">
                     <!-- Indicators -->

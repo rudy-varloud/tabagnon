@@ -66,4 +66,11 @@ class Date_visite extends Model {
                 ->where('idVisite','=',$idVisite)
                 ->get();
     }
+    
+    public function decrementPlaceRes($idVisite,$dateVisite,$qteBillet){
+        DB::table('date_visite')
+                ->where('idVisite','=',$idVisite)
+                ->where('dateVisite','=',$dateVisite)
+                ->decrement('nbPlaceRes',$qteBillet);
+    }
 }

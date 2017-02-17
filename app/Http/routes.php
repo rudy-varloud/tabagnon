@@ -45,7 +45,7 @@ Route::get('/supprimerVisEffec/{idVisite}', 'VisiteController@supprimerVisEffec'
 Route::post('/supprimerDateVisite', 'VisiteController@supprimerDateVisite');
 Route::get('/modifierVisite/{idVisite}', 'VisiteController@modifierVisite');
 Route::post('/postModifVisite', 'VisiteController@postModifierVisite');
-Route::get('/supprimerResaVisite/{idVis}', 'VisiteController@supprResaVisite');
+Route::post('/supprimerResaVisite', 'VisiteController@supprResaVisite');
 
 
 
@@ -138,5 +138,5 @@ Route::get('/supprimerCompte/{idVis}', 'VisiteurController@supprCompte');
 Route::post('/mdp', 'EmailController@envoiMdp');
 Route::get('/listeUser', 'VisiteurController@listeUser');
 Route::get('/welcomeMail/{mail}/{nom}', 'EmailController@sendMailWelcome');
-Route::get('/mdpoublie', 'ClientController@Mdpoublie');
+Route::get('/mdpoublie', 'VisiteurController@Mdpoublie');
 Route::get('/validerMail/{idCli}/{total}/{idCmde}', 'EmailController@sendRecapCommande');

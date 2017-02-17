@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\metier\Visiteur;
-use App\metier\Visite;
 use App\metier\Ligne_visite;
 use App\metier\Date_visite;
+use App\metier\Visite;
 use App\metier\Avis_visite;
 use App\metier\Conference;
+use App\metier\Carousel;
+use App\metier\Article;
 use Request;
 use DateTime;
 use Illuminate\Support\Facades\Session;
 use Exception;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 
 class VisiteController extends Controller {
     /*
@@ -126,11 +129,32 @@ class VisiteController extends Controller {
         $dateVisite = Request::input('dateVisite');
         $idVisite = Request::input('idVisite');
         $idVisiteur = Session::get('id');
-        $uneVisite = new Date_visite();
-        $uneVisite->reservationPlace($idVisite, $nbPlaceSouhaite, $dateVisite);
+        $unVisiteur = new Visiteur();
+        $mail = $unVisiteur->getVisiteur($idVisiteur)->mailVis;
+        $uneDateVisite = new Date_visite();
+        $uneDateVisite->reservationPlace($idVisite, $nbPlaceSouhaite, $dateVisite);
         $uneLigneVisite = new Ligne_visite();
         $uneLigneVisite->reservationPlace($idVisite, $idVisiteur, $nbPlaceSouhaite, $dateVisite);
-        return redirect('/accueil');
+        $uneVisite = new Visite();
+        $visite = $uneVisite->getVisite($idVisite);
+        $title = "Votre réservation pour la visite : " . $visite->libelleVisite;
+        $content = "je suis le contenu du mail";
+        $data = ['uneVisite' => $visite, 'dateVisite' => $dateVisite, 'qteBillet' => $nbPlaceSouhaite, 'subject' => $title, 'content' => $content, 'email' => $mail];
+        Mail::send('mailResVisite', $data, function($message) use($data) {
+
+            $subject = $data['subject'];
+            $message->from('tabagnon.saintgenis@gmail.com');
+            $message->to($data['email'], $data['email'])->subject($subject);
+        });
+        $message = 'Votre réservation a été prise en compte. Un mail récapitulatif vous a été envoyé.';
+        $unArticle = new Article();
+        $lesArticles = $unArticle->getLastArticle();
+        $Carousel = new Carousel;
+        $lesImages = $Carousel->getImagesCarouselTrue();
+        $uneConference = new Conference();
+        $lesVisites = $uneVisite->getLastVisite();
+        $lesConferences = $uneConference->getLastConference();
+        return view('accueil', compact('lesArticles', 'lesImages', 'lesVisites', 'lesConferences', 'message'));
     }
 
     /*
@@ -156,9 +180,8 @@ class VisiteController extends Controller {
         $idVisite = Request::input('idVisite');
         $VisiteRes = new Ligne_visite();
         $lesReservations = $VisiteRes->getReservations($dateVisite, $idVisite);
-        $Visites = new Visite();
-        $mesVisites = $Visites->pageVisiteSpe($idVisite);
         $Visite = new Visite();
+        $mesVisites = $Visite->pageVisiteSpe($idVisite);
         $uneVisite = $Visite->getVisite($idVisite);
         return view('/Visite/ficheVisite', compact('lesReservations', 'uneVisite', 'mesVisites'));
     }
@@ -225,7 +248,7 @@ class VisiteController extends Controller {
         $maVisite = $Visite->getVisite($idVisite);
         $unVisiteur = new Visiteur();
         $mesVisiteurs = $unVisiteur->getVisiteurGuide();
-        return view('/Visite/formModifVisite', compact('maVisite','mesVisiteurs'));
+        return view('/Visite/formModifVisite', compact('maVisite', 'mesVisiteurs'));
     }
 
     public function postModifierVisite() {
@@ -235,17 +258,27 @@ class VisiteController extends Controller {
         $lieuxVisite = Request::input('lieuxVisite');
         $descVisite = Request::input('description');
         $idGuideVisite = Request::input('idGuideVisite');
-        $uneVisite->updateVisite($idVisite,$nomVisite,$lieuxVisite,$descVisite,$idGuideVisite);
+        $uneVisite->updateVisite($idVisite, $nomVisite, $lieuxVisite, $descVisite, $idGuideVisite);
         $message = "La visite a bien été modifiée.";
         $mesVisites = $uneVisite->getVisites();
         $mesVisitesND = $uneVisite->getVisitesND();
         return view('/Visite/pageVisite', compact('mesVisites', 'mesVisitesND', 'message'));
     }
-    
-   public function supprResaVisite($idVisite, $idVisiteur, $dateVisite){
-       $uneVisite = new Ligne_visite();
-       $uneVisite->supprResaVisite($idVisite, $idVisiteur, $dateVisite);
-       return redirect ('/getPageVisite');
-   }
+
+    public function supprResaVisite() {
+        $idVisite = Request::input('idVisite');
+        $idVisiteur = Request::input('idVisiteur');
+        $dateVisite = Request::input('dateVisite');
+        $qteBillet = Request::input('qteBillet');
+        $uneLigneVisite = new Ligne_visite();
+        $Visite = new Visite();
+        $uneDateVisite = new Date_visite();
+        $uneLigneVisite->supprResaVisite($idVisite, $idVisiteur, $dateVisite);
+        $lesReservations = $uneLigneVisite->getReservations($dateVisite, $idVisite); 
+        $mesVisites = $Visite->pageVisiteSpe($idVisite);
+        $uneVisite = $Visite->getVisite($idVisite);
+        $uneDateVisite->decrementPlaceRes($idVisite,$dateVisite,$qteBillet);
+        return view('/Visite/ficheVisite', compact('lesReservations', 'uneVisite', 'mesVisites'));
+    }
 
 }

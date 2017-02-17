@@ -52,7 +52,7 @@ class Visiteur extends Model {
     }
 
     //Dialogue avec la bdd pour inscrire un utilisateur (renvoie un booléen) 
-    public function subscribe($login, $pwd, $nom, $prenom, $mail, $adr, $tel, $mobile, $ville,$cp) {
+    public function subscribe($login, $pwd, $nom, $prenom, $mail, $adr, $tel, $mobile, $ville, $cp) {
         $Visiteur = New Visiteur();
         if ($Visiteur->verificationLogin($login)) {
             DB::table('visiteur')->insert(['nomVis' => $nom, 'prenomVis' => $prenom, 'adresseVis' => $adr, 'telFixeVis' => $tel, 'mobileVis' => $mobile, 'login' => $login, 'mdpVis' => $pwd, 'ncptVis' => 1, 'mailVis' => $mail, 'codePostVis' => $cp, 'villeVis' => $ville]);
@@ -163,10 +163,38 @@ class Visiteur extends Model {
         DB::table('visiteur')->where('idVis', $id)
                 ->update(['ncptVis' => 3]);
     }
-    
-    public function supprUserVis($idVisiteur){
+
+    public function supprUserVis($idVisiteur) {
         DB::table('visiteur')->where('idVis', '=', $idVisiteur)
                 ->delete();
+    }
+
+    public function getVisiteurExistance($login, $mail) {
+        $client = DB::table('visiteur')
+                ->Select('nomVis', 'prenomVis', 'login')
+                ->Where('login', '=', $login)
+                ->Where('mailVis', '=', $mail)
+                ->first();
+        if ($client) {
+
+            $connected = true;
+        } else {
+            $connected = false;
+        }
+
+        return $connected;
+    }
+
+    //Dialogue avec la bdd pour récupérer un mot de passe d'un utilisateur en fonction de son login et de son mail
+    public function getMdpVisiteur($login, $mail) {
+
+        $visiteur = DB::table('visiteur')
+                ->Select()
+                ->Where('login', '=', $login)
+                ->Where('mailVis', '=', $mail)
+                ->first();
+        $mdp = decrypt($visiteur->mdpVis);
+        return $mdp;
     }
 
 }

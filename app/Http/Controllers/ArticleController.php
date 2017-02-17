@@ -58,7 +58,8 @@ class ArticleController extends Controller {
         $uneConference = new Conference();
         $lesVisites = $uneVisite->getLastVisite();
         $lesConferences = $uneConference->getLastConference();
-        return view('accueil', compact('lesArticles', 'lesImages','lesVisites','lesConferences'));
+        $message ="";
+        return view('accueil', compact('lesArticles', 'lesImages','lesVisites','lesConferences','message'));
     }
 
     /* 

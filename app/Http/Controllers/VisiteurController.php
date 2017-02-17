@@ -9,10 +9,15 @@ use App\metier\Ligne_conference;
 use App\metier\Mosaique;
 use App\metier\Avis_visite;
 use App\metier\Avis_conference;
+use App\metier\Carousel;
+use App\metier\Article;
+use App\metier\Visite;
+use App\metier\Conference;
 use Request;
 use Illuminate\Support\Facades\Session;
 use Exception;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 
 class VisiteurController extends Controller {
 
@@ -80,8 +85,27 @@ class VisiteurController extends Controller {
         $unVisiteur = new Visiteur();
         $inscription = $unVisiteur->subscribe($login, $pwd_encrypt, $nom, $prenom, $mail, $adr, $tel, $mobile, $ville, $cp);
         if ($inscription) {
+            $user_name = $nom . " " . $prenom;
+            $title = "Welcome";
+            $content = "je suis le contenu du mail";
+            $data = ['email' => $mail, 'name' => $user_name, 'login' => $login, 'mdp' => $pwd, 'subject' => $title, 'content' => $content]; // ici ce sont les données qui sont transmis dans le view utilisé lors de l'envoi du mail
+            Mail::send('mail', $data, function($message) use($data) { //fonction send qui va envoyer la view " mail "
+                $subject = $data['subject'];
+                $message->from('tabagnon.saintgenis@gmail.com');  //Adresse email de l'emetteur de l'email
+                $message->to($data['email'], $data['email'])->subject($subject); //ici on definit l'adresse à laquelle on envoie le mail
+            });
+            $message = 'Merci de vous être inscrit. Un mail récapitulant vos identifiants vous a été envoyé.';
+            $unVisiteur = new Visiteur();
             $unVisiteur->login($login, $pwd);
-            return redirect('/accueil');
+            $unArticle = new Article();
+            $lesArticles = $unArticle->getLastArticle();
+            $Carousel = new Carousel;
+            $lesImages = $Carousel->getImagesCarouselTrue();
+            $uneVisite = new Visite();
+            $uneConference = new Conference();
+            $lesVisites = $uneVisite->getLastVisite();
+            $lesConferences = $uneConference->getLastConference();
+            return view('accueil', compact('lesArticles', 'lesImages', 'lesVisites', 'lesConferences', 'message'));
         } else {
             $exemple = $prenom . "." . $nom;
             if ($unVisiteur->verificationLogin($exemple))
@@ -164,6 +188,7 @@ class VisiteurController extends Controller {
         $unV = $unVisiteur->getUser($id);
         if ($unV->ncptVis == 5) {
             $unVisiteur->updateGuide($id);
+            Session::put('ncpt', $unVisiteur->ncptVis);
         }
         $unVisiteur->modificationProfil($id, $adresse, $tel, $mobile, $mdp_encrypt, $mail, $nom, $prenom, $login, $ville, $cp);
         return redirect('/getProfil');
@@ -179,8 +204,8 @@ class VisiteurController extends Controller {
         $unV = $unVisiteur->getUser($id);
         return view('/Utilisateur/profil', compact('unV'));
     }
-    
-    public function supprCompte($idVisiteur){
+
+    public function supprCompte($idVisiteur) {
         $unVisiteur = new Visiteur();
         $unVisiteur->supprUserVis($idVisiteur);
         $uneMosaique = new Mosaique();
@@ -197,9 +222,8 @@ class VisiteurController extends Controller {
         $unAvisVisite->supprUserAvisVisite($idVisiteur);
         $unAvisConference = new Avis_conference();
         $unAvisConference->supprUserAvisConference($idVisiteur);
-        
-        return redirect ('/listerVisiteur');
-        
+
+        return redirect('/listerVisiteur');
     }
 
 }

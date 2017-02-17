@@ -40,6 +40,7 @@
                     <th ><a data-target="#supprDateModal{{$cptVis}}" data-toggle="modal" data-target=".navbar-collapse.in"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></th>
                     @endif
                 </tr>
+            </tbody>
         </table>
     </div>
     <br>
@@ -65,7 +66,7 @@
                     @endif 
                     <input type='hidden' name='cpt' value='{{$cpt}}'>
                     @endforeach
-                    
+
                 </div>
                 <div class="modal-footer">
                     <center>

@@ -6,10 +6,14 @@ use App\metier\Conference;
 use App\metier\Visite;
 use App\metier\Ligne_conference;
 use App\metier\Avis_conference;
+use App\metier\Visiteur;
+use App\metier\Carousel;
+use App\metier\Article;
 use Request;
 use Illuminate\Support\Facades\Session;
 use Exception;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 
 class ConferenceController extends Controller {
     /*
@@ -63,11 +67,31 @@ class ConferenceController extends Controller {
         $idVis = Session::get('id');
         $idConf = Request::input('idConf');
         $placeSouhaite = Request::input('placeSouhaite');
-        $uneConference = new Conference();
+        $Conference = new Conference();
+        $unVisiteur = new Visiteur();
+        $uneConference = $Conference->getConferenceSpe($idConf);
         $LigneConference = new Ligne_conference();
-        $uneConference->postFromReserveConf($idConf, $placeSouhaite);
+        $Conference->postFromReserveConf($idConf, $placeSouhaite);
         $LigneConference->postLigneReserve($idVis, $idConf, $placeSouhaite);
-        return redirect('/accueil');
+        $mail = $unVisiteur->getVisiteur($idVis)->mailVis;
+        $title = "Votre réservation pour la conférence : " . $uneConference->libConf;
+        $content = "je suis le contenu du mail";
+        $data = ['uneConference' => $uneConference, 'qteBillet' => $placeSouhaite, 'subject' => $title, 'content' => $content, 'email' => $mail];
+        Mail::send('mailResConference', $data, function($message) use($data) {
+
+            $subject = $data['subject'];
+            $message->from('tabagnon.saintgenis@gmail.com');
+            $message->to($data['email'], $data['email'])->subject($subject);
+        });
+        $message = 'Votre réservation a été prise en compte. Un mail récapitulatif vous a été envoyé.';
+        $uneVisite = new Visite();
+        $unArticle = new Article();
+        $lesArticles = $unArticle->getLastArticle();
+        $Carousel = new Carousel;
+        $lesImages = $Carousel->getImagesCarouselTrue();
+        $lesVisites = $uneVisite->getLastVisite();
+        $lesConferences = $Conference->getLastConference();
+        return view('accueil', compact('lesArticles', 'lesImages', 'lesVisites', 'lesConferences', 'message'));
     }
 
     /*
