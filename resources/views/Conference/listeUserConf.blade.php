@@ -33,6 +33,7 @@ $placeRes = 0;
         {!! Form::open(['url' => 'supprimerResaConference', 'files' => true]) !!}
             <input type='hidden' name='idConf' value='{{$uneConference -> idConf}}'>
             <input type='hidden' name='idVisiteur' value='{{$uneConference -> idVisiteur}}'>
+            <input type='hidden' name='qteBillet' value='{{$uneConference -> qteBillet}}'>
             <td><center><button type='submit'>Supprimer</button></center></td>
             {!! form::Close() !!}
         </tr>

@@ -180,4 +180,9 @@ class Conference extends Model {
                 ->Delete();
     }
     
+    public function decrementPlaceRes($idConf,$qteBillet){
+        DB::table('conference')
+                ->where('idConf','=',$idConf)
+                ->decrement('placeReserConf',$qteBillet);
+    }
 }
