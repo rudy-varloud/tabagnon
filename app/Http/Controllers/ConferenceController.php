@@ -149,6 +149,8 @@ class ConferenceController extends Controller {
         $uneConference = new Conference();
         $uneConference->supprConf($idConf);
         $message = "La conférence a bien été supprimée";
+        $uneConference2 = new Ligne_conference();
+        $uneConference2->supprReserv($idConf);
         $mesConferences = $uneConference->getConference();
         return view('/Conference/listeConference', compact('mesConferences', 'message'));
     }
@@ -165,6 +167,16 @@ class ConferenceController extends Controller {
         $ligneConference->supprimerLigneEff($idConf);
         $uneConference->supprimerConfEff($idConf);
         return redirect('/getAvis');
+    }
+    
+    public function supprResaConference() {
+        $idConf = Request::input('idConf');
+        $idVisiteur = Request::input('idVisiteur');
+        $uneLigneConference = new Ligne_conference();
+        $uneLigneConference->supprReserv($idConf);
+        $uneConference = new Conference();
+        $uneConference->supprConference($idConf, $idVisiteur);
+        return redirect ('/Visite/ficheVisite');
     }
 
 }

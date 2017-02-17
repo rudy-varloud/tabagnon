@@ -81,6 +81,7 @@ Route::get('/modifConference/{idConf}', 'ConferenceController@modifConf');
 Route::post('/postModifAjoutConf', 'ConferenceController@postModifAjoutConf');
 Route::get('/supprimerConference/{idConf}', 'ConferenceController@supprConf');
 Route::get('/supprimerConfEffec/{idConf}', 'ConferenceController@supprimerConfEffec');
+Route::post('/supprimerResaConference', 'ConferenceController@supprimerResaConference');
 
 //Mosaïque
 Route::get('/getMosaique', 'MosaiqueController@listePhoto');
