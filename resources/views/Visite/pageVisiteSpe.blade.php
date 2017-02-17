@@ -6,6 +6,7 @@ $uneVisite = $mesVisites[0];
 @endphp
 {!! Form::open(['url' => 'reservationPlace']) !!}
 <div class="box">
+    <center><h2>Réservez vos places !</h2></center>
     <input type="hidden" value="{{ $uneVisite->idVisite }}" name="idVisite">
     <center><h3> Bienvenue sur la balade: {{$uneVisite->libelleVisite}}</h3>
     <p> {{$uneVisite->descriptionVisite}} </p>

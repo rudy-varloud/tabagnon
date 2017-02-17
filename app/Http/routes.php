@@ -62,6 +62,9 @@ Route::get('/modifierArticle/{idArticle}', 'ArticleController@modifierArticle');
 
 //Reunion
 Route::get('/ajoutReunion', 'ReunionController@ajoutReunion');
+Route::post('/postReunion', 'ReunionController@postAjoutReunion');
+Route::get('/listeReunion', 'ReunionController@getReunion');
+Route::get('/supprimerReunion/{idReunion}', "ReunionController@supprReunion");
 
 //Conférence
 Route::get('/ajoutConference', function(){

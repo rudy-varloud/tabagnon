@@ -81,6 +81,23 @@ $cptVisite = 0;
         </div>
         @endif
     </div>
+    @if ((Session::get('ncpt') == 4) || (Session::get('ncpt') == 3) || (Session::get('ncpt') == 2))
+    <div>
+        <br><br>
+        <h3>Liste des rendez-vous</h3>
+        @if ($mesReunions == null)
+        Vous n'avez pas de rendez-vous actuellement
+        @endif
+        @if($mesReunions != null)
+            @foreach ($mesReunions as $uneReunion)
+            @php
+            $date = date_create($uneReunion->dateReunion);
+            @endphp
+            Vous avez une <span class='deco_reu'>{{$uneReunion->typeReunion}}</span> à l'adresse <span class='deco_reu'>{{$uneReunion->adresseReunion}} {{$uneReunion->cpReunion}}</span> le <span class='deco_reu'>{{$date->format('d-m-Y')}} {{$date->format('H:i')}}</span>.<br><br>
+            @endforeach
+        @endif
+    </div>
+    @endif
 </div>
 
 @stop
