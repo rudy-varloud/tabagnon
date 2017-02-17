@@ -56,8 +56,51 @@
                 <h2 class="brand-before">
                     <small>Bienvenue sur le site de l'association</small>
                 </h2>
+                <div class="presentation">
                 <h1 class="brand-name titre_accueil">Le Tabagnon</h1>
-                <hr class="tagline-divider">
+                <hr class="tagline-divider"><br>
+                <p>Le 28 Février 1990, un groupe de passionnés décidait de la création de notre association.
+
+                    Le premier bureau était composé de Philippe GUILLIEN, Président, Jean PARRIER vice- président,
+
+                    Monique HEINIS, secrétaire, Marlène COUTAREL, trésorière et Clément VOORHOEVE, trésorier
+
+                    adjoint.</p>
+                <p>
+
+                    On trouvait aussi parmi les membres, Mesdames Marie Françoise ROGER DLBERT, Yvette MIENCE et
+
+                    Andrée CROST. </p>
+
+                <p>Par la suite le groupe s’étoffera et d’anciens st genois, Messieurs SECOND, CHANINEL, MASSON,
+
+                    CALENDRAS et d’autres encore viendront travailler au sein du Tabagnon.</p>
+
+                <p>Le nom du Tabagnon vient de la guinguette qui était située dans le vallon du Ratier, au-delà du
+
+                    restaurant actuel de la Cascade. C’était le Grand Tabagnon dont l’activité prendra fin au début du
+
+                    dernier conflit mondial.</p>
+
+                <p>Nos prédécesseurs ont effectué un formidable travail, nous les en remercions ici. Ils ont fait paraître
+
+                    deux livres que nous tenons à disposition de celles et ceux qui voudraient connaître l’histoire du
+
+                    village.</p>
+
+                <p>Le bureau actuel est composé de :</p>
+                <ul>
+                    <li> Président : M. RIBERON Gilbert </li>
+
+                    <li> Trésorier : M. BERNARD Jean Claude </li>
+
+                    <li>Secrétaire : Mme REBOULLET Brigitte</li></ul>
+
+                <p>Vous trouverez nos numéros de téléphone sur tout bon annuaire…
+
+                Si l’histoire du village vous intéresse, n’hésitez pas à prendre contact avec nous.
+
+                Nous vous attendons.</p></div>
             </div>
         </div>        
     </div>

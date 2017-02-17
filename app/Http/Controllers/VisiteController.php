@@ -7,6 +7,7 @@ use App\metier\Ligne_visite;
 use App\metier\Date_visite;
 use App\metier\Visite;
 use App\metier\Avis_visite;
+use App\metier\Reunion;
 use App\metier\Conference;
 use App\metier\Carousel;
 use App\metier\Article;
@@ -196,7 +197,9 @@ class VisiteController extends Controller {
         $mesConferences = $uneConference->getConfUser($idVis);
         $uneVisite = new Visite();
         $mesVisites = $uneVisite->getVisiteUser($idVis);
-        return view('Reservation_Historique/listeReservation', compact('mesConferences', 'mesVisites'));
+        $uneReunion = new Reunion();
+        $mesReunions = $uneReunion->getReunionUser();
+        return view('Reservation_Historique/listeReservation', compact('mesConferences', 'mesVisites', 'mesReunions'));
     }
 
     /*

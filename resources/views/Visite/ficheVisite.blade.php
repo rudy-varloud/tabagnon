@@ -2,6 +2,7 @@
 @section('content')
 {!! Form::open(['url' => 'getReservations']) !!}
 <div class="box">
+    <center><h2>Voir les réservation:</h2></center>
     <center><h3>Choisissez une date et une heure pour votre visite</h3></center>
     <input type="hidden" value="{{ $uneVisite->idVisite }}" name="idVisite">
     <center><div class="reserverPlace">
@@ -23,8 +24,6 @@
         </div></center>
 
     {{ Form::close() }}
-    <input type='hidden'>
-    @if($lesReservations != null)
     <center><h3 class="listeResa">Liste des réservations pour la visite {{$uneVisite->libelleVisite}} </h3></center>
     <div class="table-responsive">
         <table class="table table-striped listeFiltree">
@@ -63,6 +62,5 @@
             </tbody>
         </table>
     </div>
-    @endif
 </div>
 @stop

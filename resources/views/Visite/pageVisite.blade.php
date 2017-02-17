@@ -21,7 +21,8 @@
                 <tr>
                     <th>Nom de la visite</th>
                     <th>Lieu</th>
-                    <th>Prix</th>        
+                    <th>Prix</th>      
+                    <th>Réserver mes places</th>
                     @if(Session::get('ncpt') == 4)
                     <th>Réservations</th>
                     <th>Modifier</th>
@@ -33,7 +34,9 @@
                 <tr>
                     <td>{{$uneVisite->libelleVisite}}</td>
                     <td>{{$uneVisite->lieuxVisite}}</td>
-                    <td>{{$uneVisite->prixVisite}}€</td>                   
+                    <td>{{$uneVisite->prixVisite}}€</td> 
+                    <td><a href='{{url ('/getVisiteSpe/'.$uneVisite->idVisite)}}'  title="Cliquez pour plus d'informations"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i></a>
+
                     @if(Session::get('ncpt') == 4)
                     <th ><a href="{{url('/getReservationVis/'.$uneVisite->idVisite)}}"><i class="fa fa-calendar-o fa-2x" aria-hidden="true"></i></a></th>
                     <th ><a href="{{url('/modifierVisite/'.$uneVisite->idVisite)}}"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a></th>

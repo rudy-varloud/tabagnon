@@ -18,7 +18,8 @@
             <a  data-toggle="modal" data-target="#nbModal" class="">Ajouter une visite</a><br>
             <a href="{{url('/getPageVisite')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Liste des visites</a><br>
             <a href="{{url('/getPageConference')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Liste des conférences</a><br>
-                <a href="{{url('/ajoutReunion')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Ajouter une réunion ou une conférence</a><br>
+            <a href="{{url('/ajoutReunion')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Ajouter une réunion ou une assemblée générale</a><br>
+            <a href="{{url('/listeReunion')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Liste des réunions et assemblée générale</a><br>
             <br><br><br>
         </div>       
         <div class='option-admin'>

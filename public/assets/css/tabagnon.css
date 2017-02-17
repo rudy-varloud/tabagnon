@@ -580,3 +580,14 @@ table.mceLayout, textarea.tinyMCE {
 .error404i{
     font-size: 17em;
 }
+
+.presentation{
+    margin-bottom: 0px;
+    padding: 30px 15px;
+    background: #fff;
+    background: rgba(255,255,255,0.7);
+}
+
+.deco_reu{
+    font-weight: bold;
+}
