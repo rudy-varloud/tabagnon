@@ -180,11 +180,4 @@ class Conference extends Model {
                 ->Delete();
     }
     
-    public function supprConference($idConf, $idVisiteur){
-        DB::table('conference')
-                ->Where('idConf', '=', $idConf)
-                ->Where('idVisiteur', '=', $idVisiteur)
-                ->delete();
-    }
-    
 }

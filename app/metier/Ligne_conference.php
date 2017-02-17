@@ -42,9 +42,10 @@ class Ligne_conference extends Model {
                 ->delete();
     }
     
-    public function supprReserv($idConf){
+    public function supprReserv($idConf, $idVisiteur){
         DB::table('ligne_conference')
                 ->Where('idConf', '=', $idConf)
+                ->Where('idVisiteur', '=', $idVisiteur)
                 ->Delete();
     }
 

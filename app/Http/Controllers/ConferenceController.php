@@ -173,9 +173,7 @@ class ConferenceController extends Controller {
         $idConf = Request::input('idConf');
         $idVisiteur = Request::input('idVisiteur');
         $uneLigneConference = new Ligne_conference();
-        $uneLigneConference->supprReserv($idConf);
-        $uneConference = new Conference();
-        $uneConference->supprConference($idConf, $idVisiteur);
+        $uneLigneConference->supprReserv($idConf, $idVisiteur);
         return redirect ('/Visite/ficheVisite');
     }
 
