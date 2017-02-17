@@ -169,12 +169,12 @@ class ConferenceController extends Controller {
         return redirect('/getAvis');
     }
     
-    public function supprResaConference() {
+    public function supprimerResaConference() {
         $idConf = Request::input('idConf');
         $idVisiteur = Request::input('idVisiteur');
         $uneLigneConference = new Ligne_conference();
         $uneLigneConference->supprReserv($idConf, $idVisiteur);
-        return redirect ('/Visite/ficheVisite');
+        return redirect ('/ficheVisite');
     }
 
 }
