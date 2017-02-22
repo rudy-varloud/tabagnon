@@ -24,6 +24,7 @@
         </div></center>
 
     {{ Form::close() }}
+    @if($lesReservations != null)
     <center><h3 class="listeResa">Liste des réservations pour la visite {{$uneVisite->libelleVisite}} </h3></center>
     <div class="table-responsive">
         <table class="table table-striped listeFiltree">
@@ -62,5 +63,6 @@
             </tbody>
         </table>
     </div>
+    @endif
 </div>
 @stop

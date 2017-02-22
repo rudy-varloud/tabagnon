@@ -172,9 +172,12 @@ class ConferenceController extends Controller {
     public function supprimerResaConference() {
         $idConf = Request::input('idConf');
         $idVisiteur = Request::input('idVisiteur');
+        $qteBillet = Request::input('qteBillet');
         $uneLigneConference = new Ligne_conference();
+        $uneConference = new Conference;
         $uneLigneConference->supprReserv($idConf, $idVisiteur);
-        return redirect ('/ficheVisite');
+        $uneConference->decrementPlaceRes($idConf,$qteBillet);
+        return redirect ('/getUserConf/' . $idConf);
     }
 
 }
