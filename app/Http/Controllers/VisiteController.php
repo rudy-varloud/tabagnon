@@ -284,4 +284,16 @@ class VisiteController extends Controller {
         return view('/Visite/ficheVisite', compact('lesReservations', 'uneVisite', 'mesVisites'));
     }
 
+    public function ajoutDateVisite(){
+        $uneDateVisite = new Date_visite();
+        $idVisite = Request::input('idVisite');
+        $date = Request::input('date');
+        $heure = Request::input('heure');
+        $datetime = $date . " " . $heure;
+        $uneDateVisite->addDate($idVisite, $datetime);
+        $Visite = new Visite();
+        $lesVisites = $Visite->getVisites();
+        $message = "La date a bien été ajoutée.";
+        return view('/pageAdmin', compact('lesVisites','message'));
+    }
 }

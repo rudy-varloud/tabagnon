@@ -42,6 +42,29 @@ $(document).ready(function () {
         dropdown: true,
         scrollbar: true
     });
+    $('.datepicker1').pickadate({
+        monthsFull: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+        weekdaysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+        today: 'Aujourd\'hui',
+        clear: 'Effacer',
+        close: 'Fermer',
+        formatSubmit: 'yyyy-mm-dd',
+        hiddenName: true
+    });
+    $('.timepicker1').timepicker({
+        timeFormat: 'HH:mm ',
+        interval: 15,
+        minTime: '06:00',
+        maxTime: '22:00',
+        defaultTime: '6:00',
+        startTime: '6:00',
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true,
+        zindex: 1050
+    });
+    $('.picker').appendTo('body');
+
 });
 
 function checkSelected() {

@@ -185,4 +185,11 @@ class Conference extends Model {
                 ->where('idConf','=',$idConf)
                 ->decrement('placeReserConf',$qteBillet);
     }
+    
+    public function updateStatutConference($idConference, $dateConference) {
+        DB::table('conference')
+                ->where('idConf', '=', $idConference)
+                ->where('dateConf', '=', $dateConference)
+                ->update(['statut' => true]);
+    }
 }

@@ -46,6 +46,7 @@ Route::post('/supprimerDateVisite', 'VisiteController@supprimerDateVisite');
 Route::get('/modifierVisite/{idVisite}', 'VisiteController@modifierVisite');
 Route::post('/postModifVisite', 'VisiteController@postModifierVisite');
 Route::post('/supprimerResaVisite', 'VisiteController@supprResaVisite');
+Route::post('/ajoutDateVisite', 'VisiteController@ajoutDateVisite');
 
 
 
@@ -114,9 +115,10 @@ Route::get('/', function() {
 
 
 //Panel d'administration
-Route::get('/getPageAdmin', function() {
-    return view('pageAdmin');
-});
+Route::get('/getPageAdmin', 'adminController@getPageAdmin');
+Route::get('/majBdd', 'adminController@majBdd');
+
+
 Route::get('/modifUser/{idVis}', ['as' => 'modifUser',
     'uses' => 'VisiteurController@modifUser']);
 Route::post('/postModifUser', 'VisiteurController@postModifUser');
