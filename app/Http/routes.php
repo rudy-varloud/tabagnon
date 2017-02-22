@@ -60,12 +60,17 @@ Route::post('/postFormModifArticle', 'ArticleController@postFormModifArticle');
 Route::get('/listeArticleAdmin', 'ArticleController@listeArticleAdmin');
 Route::get('/deleteArticle/{idArticle}', 'ArticleController@deleteArticle');
 Route::get('/modifierArticle/{idArticle}', 'ArticleController@modifierArticle');
+Route::get('/ajouterUneImageArticle', 'ArticleController@ajouterUneImageArticle');
+Route::post('/postAjoutPhotoArticle', 'ArticleController@postAjoutPhotoArticle');
 
 //Reunion
 Route::get('/ajoutReunion', 'ReunionController@ajoutReunion');
 Route::post('/postReunion', 'ReunionController@postAjoutReunion');
 Route::get('/listeReunion', 'ReunionController@getReunion');
 Route::get('/supprimerReunion/{idReunion}', "ReunionController@supprReunion");
+Route::get('/ajoutCr/{idReunion}', 'ReunionController@ajoutCr');
+Route::post('/postAjoutCr', 'ReunionController@postAjoutCr');
+Route::get('/getCompteRendu/{idReunion}', 'ReunionController@getCompteRendu');
 
 //Conférence
 Route::get('/ajoutConference', function(){

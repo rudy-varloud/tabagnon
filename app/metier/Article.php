@@ -31,6 +31,14 @@ class Article extends Model {
                 ->first();
         return $unA;
     }
+    
+    public function getImageArticle($idA){
+        $unArticle2 = DB::table('image_article')
+                ->Select()
+                ->Where('idArti', '=', $idA)
+                ->first();
+        return $unArticle2;
+    }
 
     /* 
      * Dialogue avec la BDD pour ajout un article avec une image
@@ -137,6 +145,18 @@ class Article extends Model {
         DB::table('article')
                 ->where('idArticle', '=', $id)
                 ->update(['titreArticle' => $titre, 'description' => $description, 'contenu' => $contenu, 'dateEdition' => $date]);
+    }
+    
+    public function ajouterUneImageArticle(){
+        $mesArticles = DB::table('article')
+                ->Select()
+                ->get();
+        return $mesArticles;
+    }
+    
+    public function postAjoutPhotoArticle($idArti, $nomImage){
+        DB::table('image_article')
+                ->insert(['idArti' => $idArti, 'nomImage' => $nomImage]);
     }
 
 }

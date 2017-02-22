@@ -19,7 +19,8 @@
         <div class='option-admin'>            
             <h1 class="titre-admin"><span class='glyphicon glyphicon-comment'></span> Gestion des articles</h1>
             <a href="{{url('/ajoutArticle')}}" data-toggle="collapse" data-target=".navbar-collapse.in" class="">Créer un article</a><br>
-            <a href='{{url('/listeArticleAdmin')}}' data-toggle="collapse" data-target=".navbar-collapse.in" class=''>Liste des articles</a><br><br><br><br>
+            <a href='{{url('/listeArticleAdmin')}}' data-toggle="collapse" data-target=".navbar-collapse.in" class=''>Liste des articles</a><br>
+            <a href='{{url('/ajouterUneImageArticle')}}' data-toggle="collapse" data-target=".navbar-collapse.in" class=''>Ajouter une image à un article</a><br><br><br><br>
 
         </div>
         <div class='option-admin'>

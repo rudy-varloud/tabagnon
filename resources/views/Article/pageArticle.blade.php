@@ -14,6 +14,12 @@
         echo $unArticle->contenu;
         @endphp 
     </div>
+    <br><br>
+    <hr><br>
+    <center><h1>Image(s) liée(s) à l'article</h1></center>
+    @foreach($unArticle2 as $unArt)
+    <center><img class='article-image' src="{{ URL::asset('assets/image/article/'.$unArticle2->nomImage) }}" alt=""></center><br>
+    @endforeach
 </div>
 @stop
 

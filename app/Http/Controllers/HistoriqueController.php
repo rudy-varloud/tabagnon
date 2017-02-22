@@ -7,6 +7,7 @@ use App\metier\Avis_conference;
 use App\metier\Visite;
 use App\metier\Ligne_visite;
 use App\metier\Date_visite;
+use App\metier\Reunion;
 use App\metier\Conference;
 use Request;
 use DateTime;
@@ -30,7 +31,9 @@ class HistoriqueController extends Controller {
         $mesAvisVis = $avisVis->getAvisVisite($idVis);
         $avisConf = new Avis_conference();
         $mesAvisConf = $avisConf->getAvisConference($idVis);
-        return view('Reservation_Historique/historique', compact('mesConferences', 'mesVisites', 'mesAvisVis', 'mesAvisConf'));
+        $maReunion = new Reunion();
+        $mesReunions = $maReunion->getReunionEffec();
+        return view('Reservation_Historique/historique', compact('mesConferences', 'mesVisites', 'mesAvisVis', 'mesAvisConf', 'mesReunions'));
     }
 
     /* 

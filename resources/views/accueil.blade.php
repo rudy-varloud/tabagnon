@@ -68,7 +68,7 @@
                     adjoint.</p>
                 <p>
 
-                    On trouvait aussi parmi les membres, Mesdames Marie Françoise ROGER DLBERT, Yvette MIENCE et
+                    On trouvait aussi parmi les membres, Mesdames Marie Françoise ROGER DALBERT, Yvette MIENCE et
 
                     Andrée CROST. </p>
 
@@ -101,6 +101,14 @@
                 Si l’histoire du village vous intéresse, n’hésitez pas à prendre contact avec nous.
 
                 Nous vous attendons.</p></div>
+            </div><br>
+            <div class='dlManuel'>
+                @if ((Session::get('ncpt') == 2) || (Session::get('ncpt') == 4))
+                <center> <a href="../public/assets/documents/MANUELUTILISATEUR.pdf" alt="">Télécharger le manuel utilisateur</a> </center>
+                @endif
+                @if (Session::get('ncpt') == 4)
+                <center><a href="../public/assets/documents/ManuelAdministrateur.pdf" alt="">Télécharger le manuel administrateur</a></center>
+                @endif
             </div>
         </div>        
     </div>
