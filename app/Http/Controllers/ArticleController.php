@@ -68,7 +68,8 @@ class ArticleController extends Controller {
     public function getArticle($idA) {
         $unA = new Article();
         $unArticle = $unA->getArticle($idA);
-        return view('/Article/pageArticle', compact('unArticle'));
+        $unArticle2 = $unA->getImageArticle($idA);
+        return view('/Article/pageArticle', compact('unArticle', 'unArticle2'));
     }
     
     /* Créer l'appel de récupération des données de l'ensemble des articles
@@ -119,6 +120,22 @@ class ArticleController extends Controller {
         $unArticle = new Article();
         $unArticle->postModifArticle($id, $titre, $description, $contenu, $date);
         return view ('pageAdmin');
+    }
+    
+    public function ajouterUneImageArticle(){
+        $unArticle = new Article();
+        $mesArticles = $unArticle->ajouterUneImageArticle();
+        return view('/Article/ajoutImageArticle', compact('mesArticles'));
+    }
+    
+    public function postAjoutPhotoArticle(){
+        $idArti = Request::input('idArticle');
+        $image = Request::file('imageArticle');
+        $unArticle = new Article();
+        $nomImage=$image->getClientOriginalName();
+        $image->move(public_path("/assets/image/article/"), $nomImage);
+        $unArticle->postAjoutPhotoArticle($idArti, $nomImage);
+        return redirect('/article/'.$idArti);
     }
 
 }

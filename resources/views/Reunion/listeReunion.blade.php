@@ -9,7 +9,8 @@
                     <td> Type </td>
                     <td> Adresse </td>
                     <td> Date de la réunion </td>
-                    <td><centre> Supprimer cette réunion </centre></td>
+                    <td> <center>Ajouter un compte rendu</center> </td>
+                    <td><center> Supprimer cette réunion </center></td>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +23,7 @@
                     <td>{{$uneReunion -> typeReunion}} </td>               
                     <td>{{$uneReunion -> adresseReunion}} {{$uneReunion->cpReunion}}</td>
                     <td>{{$date->format('d-m-Y')}} {{$date->format('H:i')}}</td>
+                    <td><center> <a href='{{ url('/ajoutCr/'.$uneReunion->idReunion)}}' class='fa fa-paper-plane fa-2x' aria-hidden='true'></a> </center></td>
                     <td><center><a class="fa fa-trash fa-2x" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Supprimer" href="#"
                            onclick="javascript:if (confirm('Voulez vous vraiment supprimer cette réunion ?'))
                                { window.location ='{{ url('/supprimerReunion') }}/{{ $uneReunion -> idReunion }}'; }"></center></td>
