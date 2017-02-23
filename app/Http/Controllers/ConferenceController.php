@@ -99,9 +99,10 @@ class ConferenceController extends Controller {
      */
 
     public function getUserConf($idConf) {
-        $uneConference = new Conference();
-        $mesConferences = $uneConference->getUserConf($idConf);
-        return view('/Conference/listeUserConf', compact('mesConferences'));
+        $Conference = new Conference();
+        $mesConferences = $Conference->getUserConf($idConf);
+        $uneConference = $Conference->getConferenceSpe($idConf);
+        return view('/Conference/listeUserConf', compact('mesConferences','uneConference'));
     }
 
     /*
@@ -178,6 +179,14 @@ class ConferenceController extends Controller {
         $uneLigneConference->supprReserv($idConf, $idVisiteur);
         $uneConference->decrementPlaceRes($idConf,$qteBillet);
         return redirect ('/getUserConf/' . $idConf);
+    }
+    
+    public function getPrintConf() {
+        $Conference = new Conference();
+        $idConf = Request::input('idConf'); 
+        $uneConference = $Conference->getConferenceSpe($idConf);
+        $mesConferences = $Conference->getUserConf($idConf);
+        return view('/Conference/fichePrintConference', compact('mesConferences','uneConference'));
     }
 
 }

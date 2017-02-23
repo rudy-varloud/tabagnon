@@ -184,7 +184,7 @@ class VisiteController extends Controller {
         $Visite = new Visite();
         $mesVisites = $Visite->pageVisiteSpe($idVisite);
         $uneVisite = $Visite->getVisite($idVisite);
-        return view('/Visite/ficheVisite', compact('lesReservations', 'uneVisite', 'mesVisites'));
+        return view('/Visite/ficheVisite', compact('lesReservations', 'uneVisite', 'mesVisites','dateVisite'));
     }
 
     /*
@@ -295,5 +295,15 @@ class VisiteController extends Controller {
         $lesVisites = $Visite->getVisites();
         $message = "La date a bien été ajoutée.";
         return view('/pageAdmin', compact('lesVisites','message'));
+    }
+    
+    public function getPrintVis(){
+        $dateVisite = Request::input('dateVisite');
+        $idVisite = Request::input('idVisite');
+        $VisiteRes = new Ligne_visite();
+        $lesReservations = $VisiteRes->getReservations($dateVisite, $idVisite);
+        $Visite = new Visite();
+        $uneVisite = $Visite->getVisite($idVisite);
+        return view('/Visite/fichePrintVisite', compact('lesReservations', 'uneVisite', 'dateVisite'));
     }
 }

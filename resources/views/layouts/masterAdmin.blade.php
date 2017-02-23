@@ -80,7 +80,7 @@
                             06.81.80.85.69 | tabagnon.stgenis@laposte.net<br>
                             <small>Crédits background : JL BESSENAY</small><br>
                             <small>Site développé par Olivier Rosinski & Rudy Varloud</small><br>
-                            <small><a href="http://www.mairie-stgenislesollieres.fr/">Mairie de Saint-Genis-les-Ollières</small></p>
+                            <small><a href="http://www.mairie-stgenislesollieres.fr/">Mairie de Saint-Genis-les-Ollières</a></small></p>
                     </div>     
                 </center>
                 </div>

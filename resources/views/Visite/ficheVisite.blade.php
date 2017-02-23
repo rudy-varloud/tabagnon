@@ -5,7 +5,8 @@
     <center><h2>Voir les réservation:</h2></center>
     <center><h3>Choisissez une date et une heure pour votre visite</h3></center>
     <input type="hidden" value="{{ $uneVisite->idVisite }}" name="idVisite">
-    <center><div class="reserverPlace">
+    <center>
+        <div class="reserverPlace">
             <div class="col-lg-offset-4 col-lg-4 reservation"> 
                 <select id="date_selected" name='dateVisite' onclick="checkSelected()" class="form-control">
                     <option value="Sélectionnez la date souhaitée" disabled selected required>Selectionnez une date</option>
@@ -19,13 +20,24 @@
                 <br>       
                 <div >
                     <button type="submit" class="btn btn-info sub" value="Réserver"> Voir les réservations </button>
+                    {{ Form::close() }}
                 </div>
             </div>
-        </div></center>
+        </div>
+    </center>
+    <br>
 
-    {{ Form::close() }}
     @if($lesReservations != null)
-    <center><h3 class="listeResa">Liste des réservations pour la visite {{$uneVisite->libelleVisite}} </h3></center>
+    <div class='col-md-12'>
+        {!! Form::open(['url' => 'getPrintVis']) !!}
+        <input type="hidden" value="{{ $uneVisite->idVisite }}" name="idVisite">
+        <input type="hidden" value="{{ $dateVisite }}" name="dateVisite">
+        <button type='submit' class='btn btn-info sub'><i class="fa fa-print" aria-hidden="true"></i>Version imprimable</button>
+        {{ Form::close() }}
+    </div>
+    <center>
+        <h3 class="listeResa">Liste des réservations pour la visite {{$uneVisite->libelleVisite}} </h3>
+    </center>
     <div class="table-responsive">
         <table class="table table-striped listeFiltree">
             <thead>
