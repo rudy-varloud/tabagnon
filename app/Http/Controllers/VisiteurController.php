@@ -89,7 +89,7 @@ class VisiteurController extends Controller {
             $title = "Welcome";
             $content = "je suis le contenu du mail";
             $data = ['email' => $mail, 'name' => $user_name, 'login' => $login, 'mdp' => $pwd, 'subject' => $title, 'content' => $content]; // ici ce sont les données qui sont transmis dans le view utilisé lors de l'envoi du mail
-            Mail::send('mail', $data, function($message) use($data) { //fonction send qui va envoyer la view " mail "
+            Mail::send('Mail/mail', $data, function($message) use($data) { //fonction send qui va envoyer la view " mail "
                 $subject = $data['subject'];
                 $message->from('tabagnon.saintgenis@gmail.com');  //Adresse email de l'emetteur de l'email
                 $message->to($data['email'], $data['email'])->subject($subject); //ici on definit l'adresse à laquelle on envoie le mail

@@ -17,11 +17,12 @@
             <li>Mot de passe : {{$mdp}}</li>
         </ul>
         Pensez à bien les garder !
-        </p>
-        <em>Bonne journée.</em>
-    </body>
-    <footer>
-        <hr />
-        <address> Les membres de l'association Le Tabagnon </address>
-    </footer>
+    </p>
+    <em>Bonne journée.</em>
+</body>
+<footer>
+    <hr />
+    <address> Les membres de l'association Le Tabagnon. </address>
+    <small>Merci de ne pas répondre à cet adresse email. Pour toutes informations supplémentaires, contactez nous à cette adresse : tabagnon.stgenis@laposte.net</small>
+</footer>
 </html>
