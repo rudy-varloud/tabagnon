@@ -96,6 +96,7 @@ class ArticleController extends Controller {
     public function deleteArticle($idArticle){
         $unArticle = new Article();
         $unArticle->deleteArticle($idArticle);
+        $unArticle->deleteImageArticle($idArticle);
         return redirect('/listeArticleAdmin');
     }
     
@@ -145,6 +146,12 @@ class ArticleController extends Controller {
             }
         }
         return redirect('/article/' . $idArticle);      
+    }
+    
+    public function supprImageArticle($nomImage){
+        $unArticle = new Article();
+        $unArticle->supprImageArticle($nomImage);
+        return redirect('/getArticles');
     }
 
 }

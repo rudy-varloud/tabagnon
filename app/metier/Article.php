@@ -36,7 +36,7 @@ class Article extends Model {
         $unArticle2 = DB::table('image_article')
                 ->Select()
                 ->Where('idArti', '=', $idA)
-                ->first();
+                ->get();
         return $unArticle2;
     }
 
@@ -126,6 +126,12 @@ class Article extends Model {
                 ->Where('idArticle', "=", $idArticle)
                 ->Delete();
     }
+    
+    public function deleteImageArticle($idArticle){
+        DB::table('image_article')
+                ->Where('idArti','=', $idArticle)
+                ->Delete();
+    }
 
     /* 
      * Dialogue avec la BDD pour récupérer un article
@@ -157,6 +163,12 @@ class Article extends Model {
     public function postAjoutPhotoArticle($idArti, $nomImage){
         DB::table('image_article')
                 ->insert(['idArti' => $idArti, 'nomImage' => $nomImage]);
+    }
+    
+    public function supprImageArticle($nomImage){
+        DB::table('image_article')
+                ->Where('nomImage','=', $nomImage)
+                ->Delete();
     }
 
 }

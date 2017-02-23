@@ -62,6 +62,7 @@ Route::get('/deleteArticle/{idArticle}', 'ArticleController@deleteArticle');
 Route::get('/modifierArticle/{idArticle}', 'ArticleController@modifierArticle');
 Route::get('/ajouterUneImageArticle', 'ArticleController@ajouterUneImageArticle');
 Route::post('/postAjoutPhotoArticle', 'ArticleController@postAjoutPhotoArticle');
+Route::get('/supprImageArticle/{nomImage}', 'ArticleController@supprImageArticle');
 
 //Reunion
 Route::get('/ajoutReunion', 'ReunionController@ajoutReunion');
