@@ -117,8 +117,10 @@
                     <div class="footerCredits"><p>Copyright &copy; Tabagnon 2017 <br>
                             06.81.80.85.69 | tabagnon.stgenis@laposte.net<br>
                             <small>Crédits background : JL BESSENAY</small><br>
-                            <small>Site développé par Olivier Rosinski & Rudy Varloud</small></p>
-                    </div>     </center>
+                            <small>Site développé par Olivier Rosinski & Rudy Varloud</small><br>
+                            <small><a href="http://www.mairie-stgenislesollieres.fr/">Mairie de Saint-Genis-les-Ollières</small></p>
+                    </div>     
+                </center>
             </div>
         </div>
     </div>
