@@ -15,7 +15,8 @@ class Reunion extends Model {
         'typeReunion',
         'adresseReunion',
         'cpReunion',
-        'dateReunion'
+        'dateReunion',
+        'statut'
     ];
 
     public function postAjoutReunion($type, $adresseReunion, $cpReunion, $date, $heure) {
@@ -26,7 +27,7 @@ class Reunion extends Model {
     public function getReunionUser() {
         $mesReunions = DB::table('reunion')
                 ->Select()
-                ->Where('statut', '=', 0)
+                ->Where('statut', '=', false)
                 ->get();
         return $mesReunions;
     }
@@ -72,6 +73,13 @@ class Reunion extends Model {
                 ->Where('idReunion','=',$idReunion)
                 ->first();
         return $mesReunions;
+    }
+    
+    public function updateStatutReunion($idReunion, $dateReunion){
+        DB::table('reunion')
+                ->Where('idReunion','=',$idReunion)
+                ->Where('dateReunion','=',$dateReunion)
+                ->update(['statut' => true]);
     }
 
 }

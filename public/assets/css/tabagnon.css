@@ -595,3 +595,7 @@ table.mceLayout, textarea.tinyMCE {
 .dlManuel{
     margin-top: 2%;
 }
+
+.printPage{
+    background: #fff;
+}

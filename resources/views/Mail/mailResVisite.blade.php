@@ -16,7 +16,7 @@ $dateVis = date_create($dateVisite);
         <li>Lieu de la visite : {{$uneVisite -> lieuxVisite}}</li>
         <li>Prix total de la réservation : {{$uneVisite -> prixVisite * $qteBillet}} € pour {{$qteBillet}} places</li>          
     </ul>
-    <p>Pour le paiement, merci d'adresser un chèque à l'ordre de la trésorerie de l'association le Tabagnon</p>         
+    <p>Pour le paiement, merci de déposer un chèque à l'ordre du Tabagnon dans la boîte au lettre associations.</p>         
 </body>
 
 <footer>

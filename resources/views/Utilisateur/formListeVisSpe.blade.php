@@ -52,7 +52,7 @@
                     <td>Guide</td>
                     @endif
                     @if(($unVisiteur -> ncptVis) == 2)
-                    <td>Utilisateur confirmé</td>
+                    <td>Membre de l'association</td>
                     @endif
                     @if(($unVisiteur -> ncptVis) == 1)
                     <td>Utilisateur non confirmé</td>

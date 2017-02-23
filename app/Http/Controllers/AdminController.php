@@ -7,6 +7,7 @@ use App\metier\Article;
 use App\metier\Visite;
 use App\metier\Date_visite;
 use App\metier\Conference;
+use App\metier\Reunion;
 use Request;
 use Illuminate\Support\Facades\Session;
 use Exception;
@@ -35,6 +36,13 @@ class AdminController extends Controller {
         foreach($lesConferences as $uneConference){
             if($uneConference->dateConf < $date){
                 $Conference->updateStatutConference($uneConference->idConf, $uneConference->dateConf);
+            }
+        }
+        $Reunion = new Reunion();
+        $lesReunions = $Reunion->getReunionUser();
+        foreach($lesReunions as $uneReunion){
+            if($uneReunion->dateReunion < $date){
+                $Reunion->updateStatutReunion($uneReunion->idReunion, $uneReunion->dateReunion);
             }
         }
         $lesVisites = $Visite->getVisites();

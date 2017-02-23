@@ -47,6 +47,8 @@ Route::get('/modifierVisite/{idVisite}', 'VisiteController@modifierVisite');
 Route::post('/postModifVisite', 'VisiteController@postModifierVisite');
 Route::post('/supprimerResaVisite', 'VisiteController@supprResaVisite');
 Route::post('/ajoutDateVisite', 'VisiteController@ajoutDateVisite');
+Route::post('/getPrintVis', 'VisiteController@getPrintVis');
+
 
 
 
@@ -89,6 +91,7 @@ Route::post('/postModifAjoutConf', 'ConferenceController@postModifAjoutConf');
 Route::get('/supprimerConference/{idConf}', 'ConferenceController@supprConf');
 Route::get('/supprimerConfEffec/{idConf}', 'ConferenceController@supprimerConfEffec');
 Route::post('/supprimerResaConference', 'ConferenceController@supprimerResaConference');
+Route::post('/getPrintConf', 'ConferenceController@getPrintConf');
 
 //Mosaïque
 Route::get('/getMosaique', 'MosaiqueController@listePhoto');

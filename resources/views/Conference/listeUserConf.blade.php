@@ -4,6 +4,12 @@
 $placeRes = 0;
 @endphp
 <div class='box'>
+    <div class='col-md-12'>
+        {!! Form::open(['url' => 'getPrintConf']) !!}
+        <input type="hidden" value="{{ $uneConference->idConf }}" name="idConf">
+        <button type='submit' class='btn btn-info sub'><i class="fa fa-print" aria-hidden="true"></i>Version imprimable</button>
+        {{ Form::close() }}
+    </div>
     <table class="table table-striped listeFiltree">
         <thead>
             <tr>
