@@ -15,7 +15,8 @@
     </body>
     <footer>
         <hr />
-        <address> Les membres de l'association Le Tabagnon  </address>
+        <address> Les membres de l'association Le Tabagnon. </address>
+        <small>Merci de ne pas répondre à cet adresse email. Pour toutes informations supplémentaires, contactez nous à cette adresse : tabagnon.stgenis@laposte.net</small>
     </footer>
 </html>
 

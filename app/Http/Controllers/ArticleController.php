@@ -126,17 +126,28 @@ class ArticleController extends Controller {
     public function ajouterUneImageArticle(){
         $unArticle = new Article();
         $mesArticles = $unArticle->ajouterUneImageArticle();
-        return view('/Article/ajoutImageArticle', compact('mesArticles'));
+        $idArticle = null;
+        return view('/Article/ajoutImageArticle', compact('mesArticles','idArticle'));
     }
     
     public function postAjoutPhotoArticle(){
-        $idArti = Request::input('idArticle');
-        $image = Request::file('imageArticle');
+        $idArticle = Request::input('idArticle');
         $unArticle = new Article();
-        $nomImage=$image->getClientOriginalName();
-        $image->move(public_path("/assets/image/article/"), $nomImage);
-        $unArticle->postAjoutPhotoArticle($idArti, $nomImage);
-        return redirect('/article/'.$idArti);
+        if (Request::file('imageArticle') != null) {
+            if (Request::file('imageArticle')->isValid()) {
+                $image = Request::file('imageArticle');
+                $unArticle = new Article();               
+                $ext = substr(strrchr($image->getClientOriginalName(), "."), 1);
+                $imageArticle = 'imageA' . mt_rand() . mt_rand() . "." . $ext;
+                $image->move(public_path("/assets/image/article/"), $imageArticle);
+                $unArticle->postAjoutPhotoArticle($idArticle, $imageArticle);
+            } else {
+                $error = "L'image n'est pas valide (elle ne doit pas dépasser 15 Mo)";
+                $mesArticles = $unArticle->ajouterUneImageArticle();
+                return view('/Article/ajoutImageArticle', compact('error', 'mesArticles','idArticle'));
+            }
+        }
+        return redirect('/article/' . $idArticle);      
     }
     
     public function supprImageArticle($nomImage){

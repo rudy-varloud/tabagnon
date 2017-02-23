@@ -24,7 +24,7 @@ class EmailController extends Controller {
             $content = "je suis le contenu du mail";
             $erreur = "Le mot de passe vous a été envoyé à l'adresse $mail";
             $data = ['email' => $mail, 'mdp' => $mdp, 'subject' => $title, 'content' => $content];
-            Mail::send('mailMdp', $data, function($message) use($data) {
+            Mail::send('Mail/mailMdp', $data, function($message) use($data) {
 
                 $subject = $data['subject'];
                 $message->from('tabagnon.saintgenis@gmail.com');

@@ -77,7 +77,7 @@ class ConferenceController extends Controller {
         $title = "Votre réservation pour la conférence : " . $uneConference->libConf;
         $content = "je suis le contenu du mail";
         $data = ['uneConference' => $uneConference, 'qteBillet' => $placeSouhaite, 'subject' => $title, 'content' => $content, 'email' => $mail];
-        Mail::send('mailResConference', $data, function($message) use($data) {
+        Mail::send('Mail/mailResConference', $data, function($message) use($data) {
 
             $subject = $data['subject'];
             $message->from('tabagnon.saintgenis@gmail.com');

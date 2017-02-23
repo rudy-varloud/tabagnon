@@ -141,7 +141,7 @@ class VisiteController extends Controller {
         $title = "Votre réservation pour la visite : " . $visite->libelleVisite;
         $content = "je suis le contenu du mail";
         $data = ['uneVisite' => $visite, 'dateVisite' => $dateVisite, 'qteBillet' => $nbPlaceSouhaite, 'subject' => $title, 'content' => $content, 'email' => $mail];
-        Mail::send('mailResVisite', $data, function($message) use($data) {
+        Mail::send('Mail/mailResVisite', $data, function($message) use($data) {
 
             $subject = $data['subject'];
             $message->from('tabagnon.saintgenis@gmail.com');
