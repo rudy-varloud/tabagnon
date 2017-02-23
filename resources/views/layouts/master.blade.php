@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Tabagnon</title>
+        <title>Association Le Tabagnon</title>
 
         <!-- Bootstrap Core CSS -->
         {!! Html::style('assets/css/bootstrap.css') !!}
