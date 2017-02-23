@@ -1,12 +1,7 @@
 @extends('layouts.masterAdmin')
 @section('content')
-@if($idArticle)
-@php
-$idA = $idArticle
-@endphp
-@endif
 <div class='box'>
-    @if($error != null)
+    @if(isset($error))
     <div class="alert alert-danger fade in">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <p>{{$error}}</p>
@@ -19,10 +14,10 @@ $idA = $idArticle
         <select class='form-control' name='idArticle'>
             <option value='0' disabled>Selectionnez un article</option>
             @foreach ($mesArticles as $unArticle)
-            @if($unArticle->idArticle == $idA)
+            @if($unArticle->idArticle == $idArticle)
             <option value='{{$unArticle->idArticle}}' selected>{{$unArticle->idArticle}} - {{$unArticle->titreArticle}}</option>
             @endif
-            @if($unArticle->idArticle != $idA)
+            @if($unArticle->idArticle != $idArticle)
             <option value='{{$unArticle->idArticle}}'>{{$unArticle->idArticle}} - {{$unArticle->titreArticle}}</option>
             @endif
             @endforeach

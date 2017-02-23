@@ -126,7 +126,8 @@ class ArticleController extends Controller {
     public function ajouterUneImageArticle(){
         $unArticle = new Article();
         $mesArticles = $unArticle->ajouterUneImageArticle();
-        return view('/Article/ajoutImageArticle', compact('mesArticles'));
+        $idArticle = null;
+        return view('/Article/ajoutImageArticle', compact('mesArticles','idArticle'));
     }
     
     public function postAjoutPhotoArticle(){
@@ -142,7 +143,8 @@ class ArticleController extends Controller {
                 $unArticle->postAjoutPhotoArticle($idArticle, $imageArticle);
             } else {
                 $error = "L'image n'est pas valide (elle ne doit pas dépasser 15 Mo)";
-                return view('/Article/ajoutImageArticle', compact('error', 'idArticle'));
+                $mesArticles = $unArticle->ajouterUneImageArticle();
+                return view('/Article/ajoutImageArticle', compact('error', 'mesArticles','idArticle'));
             }
         }
         return redirect('/article/' . $idArticle);      
