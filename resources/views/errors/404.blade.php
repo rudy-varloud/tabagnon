@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.error')
 @section('content')
 <div class="box">
     <div class='col-md-3 error404i'><i class="fa fa-exclamation-triangle red" aria-hidden="true"></i></div>

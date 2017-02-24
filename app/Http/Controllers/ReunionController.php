@@ -22,7 +22,7 @@ class ReunionController extends Controller {
         $heure = Request::input('heure');
         $uneReunion = new Reunion();
         $uneReunion->postAjoutReunion($type, $adresseReunion, $cpReunion, $date, $heure);
-        return redirect('/pageAdmin');
+        return redirect('/getPageAdmin');
     }
 
     public function getReunion() {

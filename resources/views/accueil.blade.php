@@ -104,10 +104,10 @@
             </div><br>
             <div class='dlManuel'>
                 @if ((Session::get('ncpt') == 2) || (Session::get('ncpt') == 4))
-                <center> <a href="../public/assets/documents/MANUELUTILISATEUR.pdf" alt="">Télécharger le manuel utilisateur</a> </center>
+                <center> <a href="{{url::asset('assets/documents/MANUELUTILISATEUR.pdf')}}" alt="">Télécharger le manuel utilisateur</a> </center>
                 @endif
                 @if (Session::get('ncpt') == 4)
-                <center><a href="../public/assets/documents/ManuelAdministrateur.pdf" alt="">Télécharger le manuel administrateur</a></center>
+                <center><a href="{{url::asset('assets/documents/ManuelAdministrateur.pdf')}}" alt="">Télécharger le manuel administrateur</a></center>
                 @endif
             </div>
         </div>        

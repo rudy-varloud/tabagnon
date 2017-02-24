@@ -2,7 +2,7 @@
 @section('content')
 {!! Form::open(['url' => 'getReservations']) !!}
 <div class="box">
-    <center><h2>Voir les réservation:</h2></center>
+    <center><h2>Voir les réservations :</h2></center>
     <center><h3>Choisissez une date et une heure pour votre visite</h3></center>
     <input type="hidden" value="{{ $uneVisite->idVisite }}" name="idVisite">
     <center>
