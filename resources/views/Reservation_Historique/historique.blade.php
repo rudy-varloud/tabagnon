@@ -174,6 +174,10 @@ $avis = "";
     @endif
     @if ((Session::get('ncpt') == 4) || (Session::get('ncpt') == 3) || (Session::get('ncpt') == 2))
     <h3>Historique des réunions</h3>
+    @if ($mesReunions == null)
+        Aucune réunion n'a été effetuée
+    @endif
+    @if($mesReunions != null)
     <ul>
     @foreach($mesReunions as $uneReunion)
     @php
@@ -182,6 +186,7 @@ $avis = "";
     <li><a href='{{url('/getCompteRendu/'.$uneReunion->idReunion)}}'>Voir le compte rendu</a> pour la {{$uneReunion->typeReunion}} le {{$date->format('d-m-Y')}} à {{$date->format('H:i')}}</li>
     @endforeach
     </ul>
+    @endif
     @endif
 </div>
 
